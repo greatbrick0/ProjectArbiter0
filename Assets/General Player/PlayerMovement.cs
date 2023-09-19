@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Coherence.Toolkit;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    bool defaultMovementEnabled = false;
+
     [Header("References")]
     [SerializeField]
     Transform head;
@@ -66,28 +70,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        if (defaultMovementEnabled)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)) HideMouse();
+            else if (Input.GetKey(KeyCode.Escape)) ShowMouse();
+
+            inputtedMoveDirection = Vector3.zero;
+            if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;
+            if (Input.GetKey(wasdKeys["backward"])) inputtedMoveDirection -= transform.forward;
+            if (Input.GetKey(wasdKeys["left"])) inputtedMoveDirection -= transform.right;
+            if (Input.GetKey(wasdKeys["right"])) inputtedMoveDirection += transform.right;
+
+            if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
+
+            inputtedLookDirection = Vector2.zero;
+            inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
+            inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
         }
-        else if (Input.GetKey(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-
-        inputtedMoveDirection = Vector3.zero;
-        if (Input.GetKey(wasdKeys["forward"]))  inputtedMoveDirection += transform.forward;
-        if (Input.GetKey(wasdKeys["backward"])) inputtedMoveDirection -= transform.forward;
-        if (Input.GetKey(wasdKeys["left"]))     inputtedMoveDirection -= transform.right;
-        if (Input.GetKey(wasdKeys["right"]))    inputtedMoveDirection += transform.right;
-
-        if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
-
-        inputtedLookDirection = Vector2.zero;
-        inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
-        inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
     }
 
     private void FixedUpdate()
@@ -119,5 +118,17 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpInputted = false;
         yVelocity = jumpStrength;
+    }
+
+    private void HideMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void ShowMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
