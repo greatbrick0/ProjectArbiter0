@@ -7,6 +7,8 @@ public class MainCameraScript : MonoBehaviour
     [SerializeField]
     Transform playerHead;
     [SerializeField]
+    Vector3 offset = Vector3.zero;
+    [SerializeField]
     Transform playerEyes;
 
     public string mode = "firstperson";
@@ -22,7 +24,7 @@ public class MainCameraScript : MonoBehaviour
     {
         if(mode == "firstperson")
         {
-            t.position = playerHead.position;
+            t.position = playerHead.position + offset;
             t.LookAt(playerEyes);
         }
     }
