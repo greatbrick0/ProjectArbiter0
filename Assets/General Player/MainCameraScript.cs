@@ -24,8 +24,17 @@ public class MainCameraScript : MonoBehaviour
     {
         if(mode == "firstperson")
         {
-            t.position = playerHead.position + offset;
+            t.position = playerHead.position + TransformOffset(offset);
             t.LookAt(playerEyes);
         }
+    }
+
+    private Vector3 TransformOffset(Vector3 oldVector)
+    {
+        Vector3 newVector = Vector3.zero;
+        newVector += transform.right * oldVector.x;
+        newVector += transform.up * oldVector.y;
+        newVector += transform.forward * oldVector.z;
+        return newVector;
     }
 }
