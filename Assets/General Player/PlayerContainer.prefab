@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0e381e59d31af4f9280dbdb81d66dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMovementEnabled: 0
   head: {fileID: 8767625518038105026}
   maxMoveSpeed: 4.5
   moveSpeedAccel: 30
@@ -593,6 +594,7 @@ MonoBehaviour:
   componentActions:
   - rid: 9124837554277056526
   - rid: 9124837554277056528
+  - rid: 9124837577405759495
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -861,6 +863,11 @@ MonoBehaviour:
         component: {fileID: 8767625517853087872}
         setOnRemote: 1
         resetOnAuthority: 0
+    - rid: 9124837577405759495
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 8767625519185384484}
 --- !u!1 &8767625519185384511
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,5 +1001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 8767625518038105026}
+  offset: {x: 0, y: 0, z: 0}
   playerEyes: {fileID: 8767625517702775777}
   mode: firstperson
