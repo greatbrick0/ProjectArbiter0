@@ -15,7 +15,7 @@ namespace Coherence.Generated
 	using Coherence.Toolkit;
 	using UnityEngine;
 
-	public struct PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900 : ICoherenceComponentData
+	public struct PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975 : ICoherenceComponentData
 	{
 		public Vector3 position;
 		public Quaternion rotation;
@@ -23,10 +23,10 @@ namespace Coherence.Generated
 
 		public override string ToString()
 		{
-			return $"PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900(position: {position}, rotation: {rotation}, localScale: {localScale})";
+			return $"PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975(position: {position}, rotation: {rotation}, localScale: {localScale})";
 		}
 
-		public uint GetComponentType() => Definition.InternalPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900;
+		public uint GetComponentType() => Definition.InternalPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975;
 
 		public const int order = 0;
 
@@ -47,7 +47,7 @@ namespace Coherence.Generated
 
 		public ICoherenceComponentData MergeWith(ICoherenceComponentData data, uint mask)
 		{
-			var other = (PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900)data;
+			var other = (PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975)data;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
@@ -75,7 +75,7 @@ namespace Coherence.Generated
 
 		}
 
-		public static uint Serialize(PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900 data, uint mask, IOutProtocolBitStream bitStream)
+		public static uint Serialize(PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975 data, uint mask, IOutProtocolBitStream bitStream)
 		{
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
@@ -102,10 +102,10 @@ namespace Coherence.Generated
 			return mask;
 		}
 
-		public static (PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900, uint) Deserialize(InProtocolBitStream bitStream)
+		public static (PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975, uint) Deserialize(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
-			var val = new PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900();
+			var val = new PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975();
 	
 			if (bitStream.ReadMask())
 			{
@@ -134,7 +134,7 @@ namespace Coherence.Generated
 		/// </summary>
 		public void ResetByteArrays(ICoherenceComponentData lastSent, uint mask)
 		{
-			var last = lastSent as PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900?;
+			var last = lastSent as PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517770544975?;
 	
 		}
 	}

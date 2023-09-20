@@ -5,11 +5,11 @@ using UnityEngine;
 public class MainCameraScript : MonoBehaviour
 {
     [SerializeField]
-    Transform playerHead;
+    public Transform playerHead;
     [SerializeField]
-    Vector3 offset = Vector3.zero;
+    public Vector3 offset = Vector3.zero;
     [SerializeField]
-    Transform playerEyes;
+    public Transform playerEyes;
 
     public string mode = "firstperson";
 

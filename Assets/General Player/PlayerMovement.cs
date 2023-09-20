@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform head;
     Rigidbody rb;
+    [SerializeField]
+    GameObject cameraRef;
     
     [Header("Movement Variables")]
     [SerializeField]
@@ -62,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cameraRef = Instantiate(cameraRef);
+        SetUpCamera();
         foreach (InputAndName ii in wasdKeysInit)
         {
             wasdKeys.Add(ii.name, ii.input);
@@ -139,5 +143,12 @@ public class PlayerMovement : MonoBehaviour
     public void SetDefaultMovementEnabled(bool newValue)
     {
         defaultMovementEnabled = newValue;
+    }
+
+    private void SetUpCamera()
+    {
+        cameraRef.transform.parent = transform.parent;
+        cameraRef.GetComponent<MainCameraScript>().playerHead = head;
+        cameraRef.GetComponent<MainCameraScript>().playerEyes = head.GetChild(0);
     }
 }
