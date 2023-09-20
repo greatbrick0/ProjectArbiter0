@@ -8,7 +8,7 @@ using Coherence.Toolkit;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    bool defaultMovementEnabled = false;
+    private bool defaultMovementEnabled = false;
 
     [Header("References")]
     [SerializeField]
@@ -73,7 +73,11 @@ public class PlayerMovement : MonoBehaviour
         if (defaultMovementEnabled)
         {
             if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)) HideMouse();
-            else if (Input.GetKey(KeyCode.Escape)) ShowMouse();
+            else if (Input.GetKey(KeyCode.Escape))
+            {
+                ShowMouse();
+                SetDefaultMovementEnabled(false);
+            }
 
             inputtedMoveDirection = Vector3.zero;
             if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;
@@ -120,15 +124,20 @@ public class PlayerMovement : MonoBehaviour
         yVelocity = jumpStrength;
     }
 
-    private void HideMouse()
+    public void HideMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void ShowMouse()
+    public void ShowMouse()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void SetDefaultMovementEnabled(bool newValue)
+    {
+        defaultMovementEnabled = newValue;
     }
 }
