@@ -138,11 +138,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        inputtedLookDirection = Vector2.zero;
     }
 
     public void SetDefaultMovementEnabled(bool newValue)
     {
         defaultMovementEnabled = newValue;
+        rb.useGravity = newValue;
     }
 
     private void SetUpCamera()
