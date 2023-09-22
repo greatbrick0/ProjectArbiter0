@@ -566,8 +566,6 @@ MonoBehaviour:
   bindings:
   - rid: 9124837554277056512
   - rid: 9124837554277056522
-  - rid: 9124837554277056524
-  - rid: 9124837577405759547
   - rid: 9124837577405759684
   onNetworkedInstantiation:
     m_PersistentCalls:
@@ -637,26 +635,6 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 9124837554277056521
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: rotation
-        monoAssemblyType: UnityEngine.Quaternion, UnityEngine
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 64
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.TransformBindings.DeepRotationBinding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
     - rid: 9124837554277056522
       type: {class: Vector3Binding, ns: Coherence.Toolkit.Bindings.ValueBindings,
         asm: Coherence.Toolkit}
@@ -701,31 +679,6 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 9124837554277056524
-      type: {class: DeepRotationBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
-        asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 9124837554277056521
-        routing: 0
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: 8d37736e-beb0-47e2-ae54-e04119544f8e
-        archetypeData:
-          type: 8
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 8
-            bits: 32
-            precision: 0.00000008381903171539307
-            floatCompression: 0
-        unityComponent: {fileID: 8767625518038105026}
-        coherenceSync: {fileID: 4412958389397925267}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
-          type: 2}
     - rid: 9124837554277056526
       type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
         asm: Coherence.Toolkit}
@@ -738,51 +691,6 @@ MonoBehaviour:
         component: {fileID: 8767625517853087872}
         setOnRemote: 1
         resetOnAuthority: 0
-    - rid: 9124837577405759543
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: position
-        monoAssemblyType: UnityEngine.Vector3, UnityEngine
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 64
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.TransformBindings.DeepPositionBinding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 9124837577405759547
-      type: {class: DeepPositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
-        asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 9124837577405759543
-        routing: 0
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: 7b403a63-4eba-4e9a-878d-2ff933d60337
-        archetypeData:
-          type: 7
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 7
-            bits: 32
-            precision: 0.001
-            floatCompression: 0
-        unityComponent: {fileID: 8767625518038105026}
-        coherenceSync: {fileID: 4412958389397925267}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
-          type: 2}
     - rid: 9124837577405759684
       type: {class: DeepRotationBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
