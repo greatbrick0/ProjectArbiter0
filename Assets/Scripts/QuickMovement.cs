@@ -6,6 +6,8 @@ public class QuickMovement : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField]
+    bool fly = false;
+    [SerializeField]
     float speed = 5.0f;
     [SerializeField]
     float turnSpeed = 2.0f;
@@ -20,6 +22,7 @@ public class QuickMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.drag = 5;
+        rb.useGravity = !fly;
         cameraRef = Instantiate(cameraRef);
         SetUpCamera();
     }
@@ -32,7 +35,15 @@ public class QuickMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) rb.AddForce(-transform.right * speed, ForceMode.Force);
         if (Input.GetKey(KeyCode.D)) rb.AddForce(transform.right * speed, ForceMode.Force);
 
-        if (Input.GetKeyDown(KeyCode.Space)) rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        if (fly)
+        {
+            if (Input.GetKey(KeyCode.Space)) rb.AddForce(transform.up * speed, ForceMode.Force);
+            if (Input.GetKey(KeyCode.LeftShift)) rb.AddForce(-transform.up * speed, ForceMode.Force);
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        }
 
         if (Input.GetKey(KeyCode.Q)) transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.E)) transform.Rotate(-Vector3.up * turnSpeed * Time.deltaTime);
