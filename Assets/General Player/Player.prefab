@@ -340,7 +340,6 @@ MonoBehaviour:
   - rid: 9124837619685130245
   - rid: 9124837619685130247
   - rid: 9124837619685130249
-  - rid: 9124837619685130253
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -356,6 +355,8 @@ MonoBehaviour:
   coherenceTag: 
   componentActions:
   - rid: 9124837619685130251
+  - rid: 9124837619685130256
+  - rid: 9124837619685130257
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -502,50 +503,18 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 8189592568160522489}
-    - rid: 9124837619685130253
-      type: {class: Vector3Binding, ns: Coherence.Toolkit.Bindings.ValueBindings,
+    - rid: 9124837619685130256
+      type: {class: KinematicRigidbodyComponentAction, ns: Coherence.Toolkit.ComponentActions,
         asm: Coherence.Toolkit}
       data:
-        descriptor:
-          rid: 9124837619685130254
-        routing: 0
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: 74349611-26ad-451e-9a10-31d26874bdf7
-        archetypeData:
-          type: 7
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 7
-            bits: 32
-            precision: 0.001
-            floatCompression: 0
-        unityComponent: {fileID: 1182243954846214141}
-        coherenceSync: {fileID: 2920998475671937025}
-        interpolationSettings: {fileID: 0}
-    - rid: 9124837619685130254
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+        component: {fileID: 1182243954846214141}
+        setOnRemote: 1
+        resetOnAuthority: 0
+    - rid: 9124837619685130257
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
       data:
-        name: velocity
-        monoAssemblyType: UnityEngine.Vector3, UnityEngine
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 16
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: UnityEngine.Rigidbody, UnityEngine.PhysicsModule,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.Vector3Binding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
+        component: {fileID: 4160989216415698080}
 --- !u!1 &3883505156724150720
 GameObject:
   m_ObjectHideFlags: 0
