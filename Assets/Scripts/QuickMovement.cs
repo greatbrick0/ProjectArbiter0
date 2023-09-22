@@ -11,11 +11,17 @@ public class QuickMovement : MonoBehaviour
     float turnSpeed = 2.0f;
     [SerializeField]
     float jumpForce = 10.0f;
+    [SerializeField]
+    GameObject cameraRef;
+    [SerializeField]
+    Transform head;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.drag = 5;
+        cameraRef = Instantiate(cameraRef);
+        SetUpCamera();
     }
 
 
@@ -31,5 +37,12 @@ public class QuickMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Q)) transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.E)) transform.Rotate(-Vector3.up * turnSpeed * Time.deltaTime);
 
+    }
+
+    private void SetUpCamera()
+    {
+        cameraRef.transform.parent = transform.parent;
+        cameraRef.GetComponent<MainCameraScript>().playerHead = head;
+        cameraRef.GetComponent<MainCameraScript>().playerEyes = head.GetChild(0);
     }
 }
