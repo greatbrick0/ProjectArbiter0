@@ -22,7 +22,7 @@ namespace Coherence.Generated
 	using Logger = Coherence.Log.Logger;
 	using UnityEngine.Scripting;
 
-	public class Binding_fa09ed3793686b64892f5ef5cecc24d3_ad052b36_8428_4e94_837c_683360423672 : PositionBinding
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_3d22ccd7_07c4_4bda_b0b6_5862e909674f : PositionBinding
 	{
 		public override string CoherenceComponentName => "WorldPosition";
 
@@ -64,100 +64,88 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_fa09ed3793686b64892f5ef5cecc24d3_f9c90ca9_c7fb_4cbc_ad50_dcf60967aa97 : Vector3Binding
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_2c785a2d_c548_42de_8412_2740b17abb15 : RotationBinding
 	{
-		private global::UnityEngine.Rigidbody CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Rigidbody)UnityComponent;
-		}
-		public override string CoherenceComponentName => "PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Rigidbody_8767625517853087872";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override Vector3 Value
-		{
-			get { return (UnityEngine.Vector3)(CastedUnityComponent.velocity); }
-			set { CastedUnityComponent.velocity = (UnityEngine.Vector3)(value); }
-		}
-
-		protected override Vector3 ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Rigidbody_8767625517853087872)coherenceComponent).velocity;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Rigidbody_8767625517853087872)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.velocity = Value;
-			}
-			else 
-			{
-				update.velocity = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Rigidbody_8767625517853087872();
-		}
-	}
-
-	public class Binding_fa09ed3793686b64892f5ef5cecc24d3_28489733_4c61_4578_963c_a2671af88f7c : DeepRotationBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900";
+		public override string CoherenceComponentName => "WorldOrientation";
 
 		public override uint FieldMask => 0b00000000000000000000000000000001;
 
 		public override Quaternion Value
 		{
-			get { return (UnityEngine.Quaternion)(CastedUnityComponent.localRotation); }
-			set { CastedUnityComponent.localRotation = (UnityEngine.Quaternion)(value); }
+			get { return (UnityEngine.Quaternion)(coherenceSync.coherenceRotation); }
+			set { coherenceSync.coherenceRotation = (UnityEngine.Quaternion)(value); }
 		}
 
 		protected override Quaternion ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
 		{
-			var value = ((PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900)coherenceComponent).rotation;
+			var value = ((WorldOrientation)coherenceComponent).value;
 			return value;
 		}
 		
 		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
 		{
-			var update = (PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900)coherenceComponent;
+			var update = (WorldOrientation)coherenceComponent;
 			if (RuntimeInterpolationSettings.IsInterpolationNone) 
 			{
-				update.rotation = Value;
+				update.value = Value;
 			}
 			else 
 			{
-				update.rotation = GetInterpolatedAt(time);
+				update.value = GetInterpolatedAt(time);
 			}
 			return update;
 		}
 
 		public override ICoherenceComponentData CreateComponentData()
 		{
-			return new PlayerContainer_fa09ed3793686b64892f5ef5cecc24d3_UnityEngine__char_46_Transform_8767625517853087900();
+			return new WorldOrientation();
+		}
+	}
+
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_949f846f_8e45_4bea_9851_d48e7073913c : ScaleBinding
+	{
+		public override string CoherenceComponentName => "GenericScale";
+
+		public override uint FieldMask => 0b00000000000000000000000000000001;
+
+		public override Vector3 Value
+		{
+			get { return (UnityEngine.Vector3)(coherenceSync.coherenceLocalScale); }
+			set { coherenceSync.coherenceLocalScale = (UnityEngine.Vector3)(value); }
+		}
+
+		protected override Vector3 ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
+		{
+			var value = ((GenericScale)coherenceComponent).value;
+			return value;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
+		{
+			var update = (GenericScale)coherenceComponent;
+			if (RuntimeInterpolationSettings.IsInterpolationNone) 
+			{
+				update.value = Value;
+			}
+			else 
+			{
+				update.value = GetInterpolatedAt(time);
+			}
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new GenericScale();
 		}
 	}
 
 
 	[Preserve]
-	public class CoherenceSyncPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3 : CoherenceSyncBaked
+	public class CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada : CoherenceSyncBaked
 	{
 		private SerializeEntityID entityId;
-		private Logger logger = Log.GetLogger<CoherenceSyncPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3>();
+		private Logger logger = Log.GetLogger<CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada>();
 
 		// Cached targets for commands
 
@@ -166,15 +154,15 @@ namespace Coherence.Generated
 
 		private readonly Dictionary<string, Binding> bakedValueBindings = new Dictionary<string, Binding>()
 		{
-			["ad052b36-8428-4e94-837c-683360423672"] = new Binding_fa09ed3793686b64892f5ef5cecc24d3_ad052b36_8428_4e94_837c_683360423672(),
-			["f9c90ca9-c7fb-4cbc-ad50-dcf60967aa97"] = new Binding_fa09ed3793686b64892f5ef5cecc24d3_f9c90ca9_c7fb_4cbc_ad50_dcf60967aa97(),
-			["28489733-4c61-4578-963c-a2671af88f7c"] = new Binding_fa09ed3793686b64892f5ef5cecc24d3_28489733_4c61_4578_963c_a2671af88f7c(),
+			["3d22ccd7-07c4-4bda-b0b6-5862e909674f"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_3d22ccd7_07c4_4bda_b0b6_5862e909674f(),
+			["2c785a2d-c548-42de-8412-2740b17abb15"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_2c785a2d_c548_42de_8412_2740b17abb15(),
+			["949f846f-8e45-4bea-9851-d48e7073913c"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_949f846f_8e45_4bea_9851_d48e7073913c(),
 		};
 
 		private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings =
 			new Dictionary<string, Action<CommandBinding, CommandsHandler>>();
 
-		public CoherenceSyncPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3()
+		public CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada()
 		{
 		}
 
@@ -228,7 +216,7 @@ namespace Coherence.Generated
 
 		public override void Initialize(SerializeEntityID entityId, CoherenceBridge bridge, IClient client, CoherenceInput input, Logger logger)
 		{
-			this.logger = logger.With<CoherenceSyncPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3>();
+			this.logger = logger.With<CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada>();
 			this.bridge = bridge;
 			this.entityId = entityId;
 			this.client = client;
@@ -239,7 +227,7 @@ namespace Coherence.Generated
 			switch(command)
 			{
 				default:
-					logger.Warning($"[CoherenceSyncPlayerContainer_fa09ed3793686b64892f5ef5cecc24d3] Unhandled command: {command.GetType()}.");
+					logger.Warning($"[CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada] Unhandled command: {command.GetType()}.");
 					break;
 			}
 		}
