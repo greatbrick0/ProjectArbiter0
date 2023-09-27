@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform head;
     Rigidbody rb;
-    [SerializeField]
-    GameObject cameraRef;
     
     [Header("Movement Variables")]
     [SerializeField]
@@ -36,74 +34,36 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lookDirection = Vector2.zero;
     bool jumpInputted = false;
 
-    [Header("Inputs")]
-    [SerializeField]
-    private List<InputAndName> wasdKeysInit = new List<InputAndName> { 
-        new InputAndName("forward", KeyCode.W),
-        new InputAndName("backward", KeyCode.S),
-        new InputAndName("left", KeyCode.A),
-        new InputAndName("right", KeyCode.D)
-    };
-    Dictionary<string, KeyCode> wasdKeys = new Dictionary<string, KeyCode> { };
-    [SerializeField]
-    KeyCode jumpKey = KeyCode.Space;
-    public float mouseXSens = 1.0f;
-    public float mouseYSens = 1.0f;
-
-    [Serializable]
-    public class InputAndName //not even one hour into the project and im already back to my horrendous ways
-    {
-        public InputAndName(string initName, KeyCode initInput)
-        {
-            name = initName;
-            input = initInput;
-        }
-        [field: SerializeField]
-        public string name { get; private set; }
-        [SerializeField]
-        public KeyCode input;
-    }
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cameraRef = Instantiate(cameraRef);
-        SetUpCamera();
-        foreach (InputAndName ii in wasdKeysInit)
-        {
-            wasdKeys.Add(ii.name, ii.input);
-        }
     }
 
     void Update()
     {
-        if (defaultMovementEnabled)
+        if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
         {
-            if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)) HideMouse();
-            else if (Input.GetKey(KeyCode.Escape))
-            {
-                ShowMouse();
-                SetDefaultMovementEnabled(false);
-            }
-
-            inputtedMoveDirection = Vector3.zero;
-            if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;
-            if (Input.GetKey(wasdKeys["backward"])) inputtedMoveDirection -= transform.forward;
-            if (Input.GetKey(wasdKeys["left"])) inputtedMoveDirection -= transform.right;
-            if (Input.GetKey(wasdKeys["right"])) inputtedMoveDirection += transform.right;
-
-            if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
-
-            inputtedLookDirection = Vector2.zero;
-            inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
-            inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
+            if(defaultMovementEnabled) GetComponent<PlayerInput>()?.HideMouse();
         }
+    }
+
+    public void SetInputs(Vector3 newMove, bool newJump, Vector2 newLook)
+    {
+        inputtedMoveDirection = newMove;
+        jumpInputted = newJump;
+        inputtedLookDirection = newLook;
     }
 
     private void FixedUpdate()
     {
         hVelocity = new Vector2(rb.velocity.x, rb.velocity.z);
         yVelocity = rb.velocity.y;
+
+        if (!defaultMovementEnabled)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
 
         if(inputtedMoveDirection.sqrMagnitude == 0)
         {
@@ -130,31 +90,11 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpInputted = false;
         yVelocity = jumpStrength;
-    }
-
-    public void HideMouse()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    public void ShowMouse()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        inputtedLookDirection = Vector2.zero;
-        lookDirection = Vector2.zero;
+        GetComponent<PlayerInput>()?.FinishJump();
     }
 
     public void SetDefaultMovementEnabled(bool newValue)
     {
         defaultMovementEnabled = newValue;
-    }
-
-    private void SetUpCamera()
-    {
-        cameraRef.transform.parent = transform.parent;
-        cameraRef.GetComponent<MainCameraScript>().playerHead = head;
-        cameraRef.GetComponent<MainCameraScript>().playerEyes = head.GetChild(0);
     }
 }

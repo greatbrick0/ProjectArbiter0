@@ -572,8 +572,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1961710324}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1961710325}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
         m_MethodName: HideMouse
         m_Mode: 1
         m_Arguments:
@@ -599,8 +599,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1961710324}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1961710325}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
         m_MethodName: ShowMouse
         m_Mode: 1
         m_Arguments:
@@ -3332,6 +3332,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0e381e59d31af4f9280dbdb81d66dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1961710325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+    type: 3}
+  m_PrefabInstance: {fileID: 366762190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c35ae61fed14df4982150d0233854ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2028961512

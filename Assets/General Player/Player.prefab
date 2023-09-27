@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 4160989216415698080}
   - component: {fileID: 2920998475671937025}
   - component: {fileID: 6000918072062803087}
+  - component: {fileID: 7446777447677368580}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -275,6 +276,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 6000918072062803087}
       lodStepsActive: 1
+    - component: {fileID: 7446777447677368580}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -325,6 +328,7 @@ MonoBehaviour:
   - rid: 9124837619685130256
   - rid: 9124837619685130257
   - rid: 9124837733054021635
+  - rid: 9124837733054021666
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -484,6 +488,11 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 6000918072062803087}
+    - rid: 9124837733054021666
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 7446777447677368580}
 --- !u!114 &6000918072062803087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,13 +507,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMovementEnabled: 0
   head: {fileID: 3402058366864678147}
-  cameraRef: {fileID: 5459987798418853067, guid: bf6d424187e85e24a9129fc767e092cd,
-    type: 3}
   maxMoveSpeed: 4
   moveSpeedAccel: 20
   moveSpeedDeccel: 30
   jumpStrength: 7
   defualtGravityAccel: 10
+--- !u!114 &7446777447677368580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c35ae61fed14df4982150d0233854ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRef: {fileID: 5459987798418853067, guid: bf6d424187e85e24a9129fc767e092cd,
+    type: 3}
+  head: {fileID: 3402058366864678147}
   wasdKeysInit:
   - <name>k__BackingField: forward
     input: 119
