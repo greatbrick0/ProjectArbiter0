@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 1182243954846214141}
   - component: {fileID: 4160989216415698080}
   - component: {fileID: 2920998475671937025}
-  - component: {fileID: 4702528531267516958}
+  - component: {fileID: 6000918072062803087}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -187,7 +187,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -273,7 +273,7 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 2066891081448818892}
       lodStepsActive: 1
-    - component: {fileID: 4702528531267516958}
+    - component: {fileID: 6000918072062803087}
       lodStepsActive: 1
     lodLevels:
     - distance: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   componentActions:
   - rid: 9124837619685130256
   - rid: 9124837619685130257
-  - rid: 9124837620755988483
+  - rid: 9124837733054021635
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -479,12 +479,12 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 4160989216415698080}
-    - rid: 9124837620755988483
+    - rid: 9124837733054021635
       type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
         asm: Coherence.Toolkit}
       data:
-        component: {fileID: 4702528531267516958}
---- !u!114 &4702528531267516958
+        component: {fileID: 6000918072062803087}
+--- !u!114 &6000918072062803087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,16 +493,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 3294123685879425709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6cd9b9a20537d947b729e100a3f5c16, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f0e381e59d31af4f9280dbdb81d66dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fly: 1
-  speed: 5
-  turnSpeed: 200
-  jumpForce: 7
+  defaultMovementEnabled: 0
+  head: {fileID: 3402058366864678147}
   cameraRef: {fileID: 5459987798418853067, guid: bf6d424187e85e24a9129fc767e092cd,
     type: 3}
-  head: {fileID: 3402058366864678147}
+  maxMoveSpeed: 4
+  moveSpeedAccel: 20
+  moveSpeedDeccel: 30
+  jumpStrength: 7
+  defualtGravityAccel: 10
+  wasdKeysInit:
+  - <name>k__BackingField: forward
+    input: 119
+  - <name>k__BackingField: backward
+    input: 115
+  - <name>k__BackingField: left
+    input: 97
+  - <name>k__BackingField: right
+    input: 100
+  jumpKey: 32
+  mouseXSens: 1
+  mouseYSens: 1
 --- !u!1 &3883505156724150720
 GameObject:
   m_ObjectHideFlags: 0

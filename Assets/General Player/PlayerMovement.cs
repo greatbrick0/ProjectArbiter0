@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     float moveSpeedDeccel = 3.0f;
     [SerializeField]
     float jumpStrength = 10.0f;
+    [SerializeField]
+    float defualtGravityAccel = 8.0f;
+
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 hVelocity = Vector2.zero;
     float yVelocity = 0.0f;
@@ -113,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
             hVelocity = Vector2.ClampMagnitude(hVelocity, maxMoveSpeed);
         }
 
+        yVelocity -= defualtGravityAccel * Time.deltaTime;
         if (jumpInputted) PlayerJump();
 
         rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
@@ -145,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
     public void SetDefaultMovementEnabled(bool newValue)
     {
         defaultMovementEnabled = newValue;
-        rb.useGravity = newValue;
     }
 
     private void SetUpCamera()
