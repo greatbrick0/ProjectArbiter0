@@ -7,25 +7,33 @@ using TMPro;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] float minTextSize;
-    [SerializeField] float maxTextSize;
+    float minTextSize;
+    float maxTextSize;
+    Vector3 baseSize;
+    Vector3 hoveredSize;
     
     TextMeshProUGUI buttonText;
     
     void Start()
     {
+        baseSize = new Vector3(transform.localScale.x, transform.localScale.y, 0);
+        hoveredSize = baseSize * 1.1f;
+
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.fontSize = minTextSize;
+        minTextSize = buttonText.fontSize;
+        maxTextSize = minTextSize * 1.1f;
     }
     
     public void OnPointerEnter(PointerEventData eventData)
     {
         LeanTween.value(minTextSize, maxTextSize, 0.05f).setOnUpdate(ResizeText);
+        LeanTween.scale(transform.GetComponent<RectTransform>(), hoveredSize, 0.05f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         LeanTween.value(maxTextSize, minTextSize, 0.05f).setOnUpdate(ResizeText);
+        LeanTween.scale(transform.GetComponent<RectTransform>(), baseSize, 0.05f);
     }
 
     void ResizeText(float val)
