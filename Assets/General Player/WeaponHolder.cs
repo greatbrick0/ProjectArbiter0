@@ -8,18 +8,26 @@ public class WeaponHolder : MonoBehaviour
     [Header("Stats")]
     [SerializeField]
     string gunName = "basic";
-    [SerializeField]
+    [SerializeField] [Tooltip("Whether the player is allowed to hold the button or needs to let go between shots.")]
+    bool automatic = false;
+    [SerializeField] [Tooltip("Reload time in seconds.")]
     float ReloadTime = 2.0f;
     [SerializeField]
     int maxAmmo = 12;
-    [SerializeField]
+    [SerializeField] [Tooltip("X: The maximum distance the weapon will stay at this damage amount.\n" +
+        "Y: The damage the weapon will produce below this distance.")]
     Vector2 closeDamage;
-    [SerializeField]
+    [SerializeField] [Tooltip("X: The minimum distance the weapon will reach this damage amount.\n" +
+        "Y: The damage the weapon will produce above this distance.")]
     Vector2 farDamage;
 
     [Header("Trackers")]
     [SerializeField]
     int currentAmmo;
+    [SerializeField]
+    bool reloading = false;
+    [SerializeField]
+    float reloadProgress = 0.0f;
 
     private void Start()
     {
@@ -27,9 +35,22 @@ public class WeaponHolder : MonoBehaviour
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
     }
 
+    private void Update()
+    {
+        if (reloading)
+        {
+            reloadProgress += 1.0f * Time.deltaTime;
+            if(reloadProgress >= ReloadTime)
+            {
+                reloading = false;
+                reloadProgress = 0;
+            }
+        }
+    }
+
     private int DamageFromDistance(float distance)
     {
-        float output = 0;
+        float output;
         if (distance <= closeDamage.x) output = closeDamage.y;
         else if (distance >= farDamage.x) output = farDamage.y;
         else
