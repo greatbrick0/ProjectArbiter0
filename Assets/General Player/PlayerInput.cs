@@ -11,6 +11,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     Transform head;
     PlayerMovement playerMovement;
+    [SerializeField]
+    WeaponHolder weapon;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -49,6 +51,7 @@ public class PlayerInput : MonoBehaviour
         cameraRef = Instantiate(cameraRef);
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
+        if(weapon != null) weapon.cam = cameraRef.GetComponent<Camera>();
         foreach (InputAndName ii in wasdKeysInit)
         {
             wasdKeys.Add(ii.name, ii.input);

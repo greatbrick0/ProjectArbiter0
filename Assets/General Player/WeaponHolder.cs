@@ -5,6 +5,9 @@ using System;
 
 public class WeaponHolder : MonoBehaviour
 {
+    [HideInInspector]
+    public Camera cam;
+
     [Header("Stats")]
     [SerializeField]
     string gunName = "basic";
@@ -20,6 +23,8 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] [Tooltip("X: The minimum distance the weapon will reach this damage amount.\n" +
         "Y: The damage the weapon will produce above this distance.")]
     Vector2 farDamage;
+    [SerializeField]
+    private ShotShape shotPattern;
 
     [Header("Trackers")]
     [SerializeField]
@@ -28,6 +33,24 @@ public class WeaponHolder : MonoBehaviour
     bool reloading = false;
     [SerializeField]
     float reloadProgress = 0.0f;
+    bool inputtingFire = false;
+
+    [Serializable]
+    public class ShotShape
+    {
+        [field: SerializeField]
+        public List<Vector2> points { get; private set; }
+    }
+
+    public void StartInput()
+    {
+        inputtingFire = true;
+    }
+
+    public void EndInput()
+    {
+        inputtingFire = false;
+    }
 
     private void Start()
     {
@@ -58,5 +81,10 @@ public class WeaponHolder : MonoBehaviour
             output = Mathf.Lerp(closeDamage.y, farDamage.y, (distance - closeDamage.x) / (farDamage.x - closeDamage.x));
         }
         return Mathf.RoundToInt(output);
+    }
+
+    private void Shoot()
+    {
+        
     }
 }
