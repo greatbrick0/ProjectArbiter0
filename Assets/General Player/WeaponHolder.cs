@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DamageDetails;
 
 public class WeaponHolder : MonoBehaviour
 {
     [HideInInspector]
     public Camera cam;
+    private Ray ray;
+    private RaycastHit hit;
+    Vector3 straight;
+    Vector3 originPos;
+    bool didHit = false;
 
     [Header("Stats")]
     [SerializeField]
@@ -25,6 +31,8 @@ public class WeaponHolder : MonoBehaviour
     Vector2 farDamage;
     [SerializeField]
     private ShotShape shotPattern;
+    [SerializeField]
+    private float range = 10.0f;
 
     [Header("Trackers")]
     [SerializeField]
@@ -49,7 +57,7 @@ public class WeaponHolder : MonoBehaviour
 
     public void EndInput()
     {
-        inputtingFire = false;
+        if(automatic) inputtingFire = false;
     }
 
     private void Start()
@@ -69,6 +77,8 @@ public class WeaponHolder : MonoBehaviour
                 reloadProgress = 0;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
+        if(ray.direction.magnitude != 0) Debug.DrawRay(ray.origin, ray.direction * 1000, didHit ? Color.yellow : Color.white);
     }
 
     private int DamageFromDistance(float distance)
@@ -85,6 +95,29 @@ public class WeaponHolder : MonoBehaviour
 
     private void Shoot()
     {
-        
+        straight = cam.transform.forward;
+        originPos = transform.position;
+        didHit = false;
+        foreach (Vector2 ii in shotPattern.points)
+        {
+            Vector3 angle = straight;
+            ray = new Ray(originPos, angle);
+            didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
+
+            if (didHit)
+            {
+                if (hit.collider.gameObject.GetComponent<Hitbox>() != null)
+                {
+                    CalcDamage(hit.collider.gameObject.GetComponent<Hitbox>(), hit);
+                }
+            }
+        }
+    }
+
+    private void CalcDamage(Hitbox hitbox, RaycastHit hitDetails)
+    {
+        if (hitbox.GetOwner().team != "Enemy") return;
+
+        print(hitbox.GetOwner().TakeDamage(DamageFromDistance(hit.distance), DamageSource.Bullet, hitbox.GetSpotType()));
     }
 }

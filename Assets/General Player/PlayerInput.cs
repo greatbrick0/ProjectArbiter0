@@ -29,6 +29,8 @@ public class PlayerInput : MonoBehaviour
     Dictionary<string, KeyCode> wasdKeys = new Dictionary<string, KeyCode> { };
     [SerializeField]
     KeyCode jumpKey = KeyCode.Space;
+    [SerializeField]
+    KeyCode shootKey = KeyCode.Mouse0;
     public float mouseXSens = 1.0f;
     public float mouseYSens = 1.0f;
 
@@ -73,6 +75,12 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(wasdKeys["right"])) inputtedMoveDirection += transform.right;
 
         if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
+
+        if(weapon != null)
+        {
+            if (Input.GetKeyDown(shootKey)) weapon.StartInput();
+            else if (Input.GetKeyUp(shootKey)) weapon.EndInput();
+        }
 
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
