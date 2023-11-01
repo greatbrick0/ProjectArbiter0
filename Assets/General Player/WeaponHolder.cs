@@ -100,8 +100,10 @@ public class WeaponHolder : MonoBehaviour
         didHit = false;
         foreach (Vector2 ii in shotPattern.points)
         {
-            Vector3 angle = straight;
+            Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
+            angle = Quaternion.AngleAxis(-ii.y, Vector3.right) * angle;
             ray = new Ray(originPos, angle);
+
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
 
             if (didHit)
