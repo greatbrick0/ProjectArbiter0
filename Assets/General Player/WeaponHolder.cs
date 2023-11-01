@@ -96,7 +96,7 @@ public class WeaponHolder : MonoBehaviour
     private void Shoot()
     {
         straight = cam.transform.forward;
-        originPos = transform.position;
+        originPos = cam.transform.position;
         didHit = false;
         foreach (Vector2 ii in shotPattern.points)
         {
@@ -109,6 +109,12 @@ public class WeaponHolder : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<Hitbox>() != null)
                 {
                     CalcDamage(hit.collider.gameObject.GetComponent<Hitbox>(), hit);
+                }
+                else
+                {
+                    GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    sphere.transform.position = hit.point;
+                    sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 }
             }
         }
