@@ -77,7 +77,11 @@ public class WeaponHolder : MonoBehaviour
             }
         }
 
-        if (inputtingFire) Aim(); Shoot(straight, originPos);
+        if (inputtingFire)
+        {
+            Aim();
+            Shoot(straight, originPos);
+        }
     }
 
     /// <summary>
