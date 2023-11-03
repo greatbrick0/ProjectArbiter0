@@ -40,7 +40,7 @@ public class WeaponHolder : MonoBehaviour
     bool reloading = false;
     [SerializeField]
     float reloadProgress = 0.0f;
-    bool inputtingFire = false;
+    private bool inputtingFire = false;
 
     [Serializable]
     public class ShotShape
@@ -76,28 +76,35 @@ public class WeaponHolder : MonoBehaviour
                 reloadProgress = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Aim();
-            Shoot(straight, originPos);
-        }
+
+        if (inputtingFire) Aim(); Shoot(straight, originPos);
     }
 
+    /// <summary>
+    /// Calculates damage the damage falloff of a bullet from a given distance.
+    /// </summary>
+    /// <param name="distance">The distance that the bullet travelled.</param>
+    /// <returns>The amount of damage that was calculated.</returns>
     private int DamageFromDistance(float distance)
     {
         float output;
+
         if (distance <= closeDamage.x) output = closeDamage.y;
         else if (distance >= farDamage.x) output = farDamage.y;
-        else
-        {
-            output = Mathf.Lerp(closeDamage.y, farDamage.y, (distance - closeDamage.x) / (farDamage.x - closeDamage.x));
-        }
+        else output = Mathf.Lerp(closeDamage.y, farDamage.y, (distance - closeDamage.x) / (farDamage.x - closeDamage.x));
+
         return Mathf.RoundToInt(output);
     }
 
+    /// <summary>
+    /// Creates bullets in the pattern of shotPattern.
+    /// </summary>
+    /// <param name="straight">The direction the bullets will fire.</param>
+    /// <param name="originPos">The position the bllets will be created.</param>
     public void Shoot(Vector3 straight, Vector3 originPos)
     {
         bool didHit;
+
         foreach (Vector2 ii in shotPattern.points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
@@ -105,33 +112,48 @@ public class WeaponHolder : MonoBehaviour
             ray = new Ray(originPos, angle);
 
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
+            if (didHit) HitAffect(hit);
+        }
 
-            if (didHit)
-            {
-                if (hit.collider.gameObject.GetComponent<Hitbox>() != null)
-                {
-                    CalcDamage(hit.collider.gameObject.GetComponent<Hitbox>(), hit);
-                }
-                else
-                {
-                    GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    sphere.transform.position = hit.point;
-                    sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                }
-            }
+        if (!automatic) inputtingFire = false;
+    }
+
+    /// <summary>
+    /// Determines what to do when a bullet is created. 
+    /// </summary>
+    /// <param name="hit">The RaycastHit of the bullet.</param>
+    private void HitAffect(RaycastHit hit)
+    {
+        if (hit.collider.gameObject.GetComponent<Hitbox>() != null)
+        {
+            ApplyDamage(hit.collider.gameObject.GetComponent<Hitbox>(), hit);
+        }
+        else
+        {
+            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            sphere.transform.position = hit.point;
+            sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
     }
 
+    /// <summary>
+    /// Determines where and in what direction bullets should be created.
+    /// </summary>
     private void Aim()
     {
         straight = cam.transform.forward;
         originPos = cam.transform.position;
     }
 
-    private void CalcDamage(Hitbox hitbox, RaycastHit hitDetails)
+    /// <summary>
+    /// Applies damage to a Damageable.
+    /// </summary>
+    /// <param name="hitbox">The hitbox of the Damageable that was hit.</param>
+    /// <param name="hitDetails">The RaycastHit of the bullet that is applying the damage.</param>
+    private void ApplyDamage(Hitbox hitbox, RaycastHit hitDetails)
     {
         if (hitbox.GetOwner().team != "Enemy") return;
 
-        hitbox.GetOwner().TakeDamage(DamageFromDistance(hit.distance), DamageSource.Bullet, hitbox.GetSpotType());
+        hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
     }
 }
