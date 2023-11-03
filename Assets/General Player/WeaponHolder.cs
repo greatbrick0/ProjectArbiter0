@@ -103,6 +103,7 @@ public class WeaponHolder : MonoBehaviour
     /// <param name="originPos">The position the bllets will be created.</param>
     public void Shoot(Vector3 straight, Vector3 originPos)
     {
+        print(gameObject.name + " shoot");
         bool didHit;
 
         foreach (Vector2 ii in shotPattern.points)
