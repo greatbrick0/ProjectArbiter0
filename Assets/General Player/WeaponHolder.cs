@@ -12,7 +12,6 @@ public class WeaponHolder : MonoBehaviour
     private RaycastHit hit;
     Vector3 straight;
     Vector3 originPos;
-    bool didHit = false;
 
     [Header("Stats")]
     [SerializeField]
@@ -77,8 +76,11 @@ public class WeaponHolder : MonoBehaviour
                 reloadProgress = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
-        if(ray.direction.magnitude != 0) Debug.DrawRay(ray.origin, ray.direction * 1000, didHit ? Color.yellow : Color.white);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Aim();
+            Shoot(straight, originPos);
+        }
     }
 
     private int DamageFromDistance(float distance)
@@ -93,11 +95,9 @@ public class WeaponHolder : MonoBehaviour
         return Mathf.RoundToInt(output);
     }
 
-    private void Shoot()
+    public void Shoot(Vector3 straight, Vector3 originPos)
     {
-        straight = cam.transform.forward;
-        originPos = cam.transform.position;
-        didHit = false;
+        bool didHit;
         foreach (Vector2 ii in shotPattern.points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
@@ -120,6 +120,12 @@ public class WeaponHolder : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void Aim()
+    {
+        straight = cam.transform.forward;
+        originPos = cam.transform.position;
     }
 
     private void CalcDamage(Hitbox hitbox, RaycastHit hitDetails)
