@@ -11,7 +11,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     float maxTextSize;
     Vector3 baseSize;
     Vector3 hoveredSize;
-    
+
+    [SerializeField] GameObject descriptionHolder;
     TextMeshProUGUI buttonText;
     
     void Start()
@@ -28,12 +29,16 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         LeanTween.value(minTextSize, maxTextSize, 0.05f).setOnUpdate(ResizeText);
         LeanTween.scale(transform.GetComponent<RectTransform>(), hoveredSize, 0.05f);
+        if (descriptionHolder != null)
+            descriptionHolder.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         LeanTween.value(maxTextSize, minTextSize, 0.05f).setOnUpdate(ResizeText);
         LeanTween.scale(transform.GetComponent<RectTransform>(), baseSize, 0.05f);
+        if (descriptionHolder != null)
+            descriptionHolder.SetActive(false);
     }
 
     void ResizeText(float val)
