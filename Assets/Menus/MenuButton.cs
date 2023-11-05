@@ -12,7 +12,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     Vector3 baseSize;
     Vector3 hoveredSize;
 
-    [SerializeField] GameObject descriptionHolder;
+    [SerializeField] GameModeText titleText;
+    [SerializeField] GameModeText descText;
+    [SerializeField] Image borderImage;
+
     TextMeshProUGUI buttonText;
     
     void Start()
@@ -29,20 +32,40 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         LeanTween.value(minTextSize, maxTextSize, 0.05f).setOnUpdate(ResizeText);
         LeanTween.scale(transform.GetComponent<RectTransform>(), hoveredSize, 0.05f);
-        if (descriptionHolder != null)
-            descriptionHolder.SetActive(true);
+
+        LeanTween.value(2, 2.3f, 0.05f).setOnUpdate(AdjustBorderSize);
+
+        if (titleText != null && descText != null)
+        {
+            titleText.MoveTextUp();
+            descText.MoveTextUp();
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         LeanTween.value(maxTextSize, minTextSize, 0.05f).setOnUpdate(ResizeText);
         LeanTween.scale(transform.GetComponent<RectTransform>(), baseSize, 0.05f);
-        if (descriptionHolder != null)
-            descriptionHolder.SetActive(false);
+
+        LeanTween.value(2.3f, 2, 0.05f).setOnUpdate(AdjustBorderSize);
+
+        if (titleText != null && descText != null)
+        {
+            titleText.MoveTextDown();
+            descText.MoveTextDown();
+        }
     }
 
     void ResizeText(float val)
     {
         buttonText.fontSize = val;
+    }
+
+    void AdjustBorderSize(float val)
+    {
+        if (borderImage != null)
+        {
+            borderImage.pixelsPerUnitMultiplier = val;
+        }
     }
 }
