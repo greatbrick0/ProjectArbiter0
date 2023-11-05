@@ -29,7 +29,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
     
     public void OnPointerEnter(PointerEventData eventData)
-    {
+    {   
         LeanTween.value(minTextSize, maxTextSize, 0.05f).setOnUpdate(ResizeText);
         LeanTween.scale(transform.GetComponent<RectTransform>(), hoveredSize, 0.05f);
 
@@ -38,6 +38,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (titleText != null && descText != null)
         {
             titleText.MoveTextUp();
+            descText.gameObject.SetActive(true);
             descText.MoveTextUp();
         }
     }
@@ -53,6 +54,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             titleText.MoveTextDown();
             descText.MoveTextDown();
+            descText.gameObject.SetActive(false);
         }
     }
 
