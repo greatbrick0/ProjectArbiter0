@@ -76,17 +76,17 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
 
-        if(weapon != null)
-        {
-            if (Input.GetKeyDown(shootKey)) weapon.StartInput();
-            else if (Input.GetKeyUp(shootKey)) weapon.EndInput();
-        }
-
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
         inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
 
         playerMovement.SetInputs(inputtedMoveDirection, jumpInputted, inputtedLookDirection);
+
+        if (weapon != null)
+        {
+            if (Input.GetKeyDown(shootKey)) weapon.StartInput();
+            else if (Input.GetKeyUp(shootKey)) weapon.EndInput();
+        }
     }
 
     public void FinishJump()

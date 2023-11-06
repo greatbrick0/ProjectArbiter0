@@ -312,8 +312,6 @@ MonoBehaviour:
   - rid: 9124837619685130247
   - rid: 9124837619685130249
   - rid: 5545163782292242432
-  - rid: 5545163783631273996
-  - rid: 5545163783631273998
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -343,7 +341,7 @@ MonoBehaviour:
       data:
         descriptor:
           rid: 5545163782292242433
-        routing: 1
+        routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
         guid: 1f35b1c6-c080-4ac3-8ecc-9a03c2b39ed8
@@ -369,84 +367,6 @@ MonoBehaviour:
         parameterAssemblyTypes:
         - UnityEngine.Vector3, UnityEngine
         - UnityEngine.Vector3, UnityEngine
-        ownerType:
-          assemblyQualifiedName: WeaponHolder, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 5545163783631273996
-      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 5545163783631273997
-        routing: 1
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: d5156e8b-8a71-4680-94af-0028207abe52
-        archetypeData:
-          type: 0
-          minRange: 0
-          maxRange: 0
-          sampleRate: 0
-          floatCompression: 0
-          fields: []
-        unityComponent: {fileID: 2021298388301607510}
-        coherenceSync: {fileID: 2920998475671937025}
-        interpolationSettings: {fileID: 0}
-    - rid: 5545163783631273997
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: StartInput
-        monoAssemblyType: 
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 0
-        valueSyncCallbackName: 
-        memberType: 8
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: WeaponHolder, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 5545163783631273998
-      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 5545163783631273999
-        routing: 1
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: be751543-a7a1-4c84-9276-d6ac1b2f8d42
-        archetypeData:
-          type: 0
-          minRange: 0
-          maxRange: 0
-          sampleRate: 0
-          floatCompression: 0
-          fields: []
-        unityComponent: {fileID: 2021298388301607510}
-        coherenceSync: {fileID: 2920998475671937025}
-        interpolationSettings: {fileID: 0}
-    - rid: 5545163783631273999
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: EndInput
-        monoAssemblyType: 
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 0
-        valueSyncCallbackName: 
-        memberType: 8
-        parameterAssemblyTypes: []
         ownerType:
           assemblyQualifiedName: WeaponHolder, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -679,8 +599,8 @@ MonoBehaviour:
   shotPattern:
     <points>k__BackingField: []
   range: 10
-  currentAmmo: 0
   reloading: 0
+  <currentAmmo>k__BackingField: 0
   reloadProgress: 0
 --- !u!1 &3883505156724150720
 GameObject:

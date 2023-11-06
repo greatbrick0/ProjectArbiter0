@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DamageDetails;
+using Coherence.Toolkit;
+using Coherence;
 
 public class WeaponHolder : MonoBehaviour
 {
+    CoherenceSync sync;
     [HideInInspector]
     public Camera cam;
     private Ray ray;
@@ -35,9 +38,9 @@ public class WeaponHolder : MonoBehaviour
 
     [Header("Trackers")]
     [SerializeField]
-    int currentAmmo;
-    [SerializeField]
     bool reloading = false;
+    [field: SerializeField]
+    public int currentAmmo { get; private set; }
     [SerializeField]
     float reloadProgress = 0.0f;
     private bool inputtingFire = false;
@@ -59,8 +62,9 @@ public class WeaponHolder : MonoBehaviour
         if(automatic) inputtingFire = false;
     }
 
-    private void Start()
+    private void Awake()
     {
+        sync = GetComponent<CoherenceSync>();
         currentAmmo = maxAmmo;
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
     }
@@ -79,8 +83,9 @@ public class WeaponHolder : MonoBehaviour
 
         if (inputtingFire)
         {
-            Aim();
-            Shoot(straight, originPos);
+            straight = cam.transform.forward;
+            originPos = cam.transform.position;
+            sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.AuthorityOnly, straight, originPos);
         }
     }
 
@@ -139,15 +144,6 @@ public class WeaponHolder : MonoBehaviour
             sphere.transform.position = hit.point;
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
-    }
-
-    /// <summary>
-    /// Determines where and in what direction bullets should be created.
-    /// </summary>
-    private void Aim()
-    {
-        straight = cam.transform.forward;
-        originPos = cam.transform.position;
     }
 
     /// <summary>
