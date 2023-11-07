@@ -45,6 +45,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if(defaultMovementEnabled) GetComponent<PlayerInput>()?.HideMouse();
         }
+
+        if (defaultMovementEnabled)
+        {
+            lookDirection += inputtedLookDirection * 12;
+            transform.localRotation = Quaternion.Euler(0, lookDirection.x, 0);
+            lookDirection.y = Math.Clamp(lookDirection.y, -85.0f, 85.0f);
+            head.localRotation = Quaternion.Euler(lookDirection.y * -1, 0, 0);
+        }
     }
 
     public void SetInputs(Vector3 newMove, bool newJump, Vector2 newLook)
@@ -80,10 +88,6 @@ public class PlayerMovement : MonoBehaviour
         if (jumpInputted) PlayerJump();
 
         rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
-        lookDirection += inputtedLookDirection * 12;
-        transform.localRotation = Quaternion.Euler(0, lookDirection.x, 0);
-        lookDirection.y = Math.Clamp(lookDirection.y, -85.0f, 85.0f);
-        head.localRotation = Quaternion.Euler(lookDirection.y * -1, 0, 0);
     }
 
     private void PlayerJump()
