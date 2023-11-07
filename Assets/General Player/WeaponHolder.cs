@@ -122,8 +122,8 @@ public class WeaponHolder : MonoBehaviour
 
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
             if (didHit) HitAffect(hit);
+            print(didHit);
         }
-        print("shoot");
 
         if (!automatic) inputtingFire = false;
     }
