@@ -85,7 +85,7 @@ public class WeaponHolder : MonoBehaviour
         {
             straight = cam.transform.forward;
             originPos = cam.transform.position;
-            sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.Other, straight, originPos);
+            sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
         }
     }
 
