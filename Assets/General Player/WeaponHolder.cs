@@ -112,7 +112,6 @@ public class WeaponHolder : MonoBehaviour
     /// <param name="originPos">The position the bllets will be created.</param>
     public void Shoot(Vector3 straight, Vector3 originPos)
     {
-        print(gameObject.name + " shoot");
         bool didHit;
 
         foreach (Vector2 ii in shotPattern.points)
@@ -124,6 +123,7 @@ public class WeaponHolder : MonoBehaviour
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
             if (didHit) HitAffect(hit);
         }
+        print("shoot");
 
         if (!automatic) inputtingFire = false;
     }
@@ -143,6 +143,8 @@ public class WeaponHolder : MonoBehaviour
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sphere.transform.position = hit.point;
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            print("hit point " + hit.point.ToString());
+            print("bullet hole " + sphere.transform.position.ToString());
         }
     }
 
