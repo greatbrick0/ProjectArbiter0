@@ -17,7 +17,7 @@ namespace Coherence.Generated
 		public Vector3 straight;
 		public Vector3 originPos;
 
-		public MessageTarget Routing => MessageTarget.All;
+		public MessageTarget Routing => MessageTarget.AuthorityOnly;
 		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8;
 
 		public Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8
