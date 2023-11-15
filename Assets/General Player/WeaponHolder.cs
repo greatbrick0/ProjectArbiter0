@@ -8,7 +8,7 @@ using Coherence;
 
 public class WeaponHolder : MonoBehaviour
 {
-    CoherenceSync sync;
+    private CoherenceSync sync;
     [HideInInspector]
     public Camera cam;
     private Ray ray;
@@ -16,22 +16,20 @@ public class WeaponHolder : MonoBehaviour
     Vector3 straight;
     Vector3 originPos;
 
+    [SerializeField]
+    WeaponData weapon;
+
     [Header("Stats")]
     [SerializeField]
-    string gunName = "basic";
-    [SerializeField] [Tooltip("Whether the player is allowed to hold the button or needs to let go between shots.")]
-    bool automatic = false;
-    [SerializeField] [Tooltip("Reload time in seconds.")]
-    float ReloadTime = 2.0f;
+    private string gunName = "basic";
+    [SerializeField] 
+    private bool automatic = false;
+    [SerializeField] 
+    private float reloadTime = 2.0f;
     [SerializeField]
-    int maxAmmo = 12;
-    [SerializeField] [Tooltip("X: The maximum distance the weapon will stay at this damage amount.\n" +
-        "Y: The damage the weapon will produce below this distance.")]
-    Vector2 closeDamage;
-    [SerializeField] [Tooltip("X: The minimum distance the weapon will reach this damage amount.\n" +
-        "Y: The damage the weapon will produce above this distance.")]
-    Vector2 farDamage;
-    [SerializeField]
+    private int maxAmmo = 12;
+    private Vector2 closeDamage;
+    private Vector2 farDamage;
     private ShotShape shotPattern;
     [SerializeField]
     private float range = 10.0f;
@@ -45,11 +43,16 @@ public class WeaponHolder : MonoBehaviour
     float reloadProgress = 0.0f;
     private bool inputtingFire = false;
 
-    [Serializable]
-    public class ShotShape
+    private void SetStats()
     {
-        [field: SerializeField]
-        public List<Vector2> points { get; private set; }
+        gunName = weapon.gunName;
+        automatic = weapon.automatic;
+        reloadTime = weapon.reloadTime;
+        maxAmmo = weapon.maxAmmo;
+        closeDamage = weapon.closeDamage;
+        farDamage = weapon.farDamage;
+        shotPattern = weapon.shotPattern;
+        range = weapon.range;
     }
 
     public void StartInput()
@@ -59,12 +62,14 @@ public class WeaponHolder : MonoBehaviour
 
     public void EndInput()
     {
-        if(automatic) inputtingFire = false;
+        if (reloading) inputtingFire = false;
+        if (automatic) inputtingFire = false;
     }
 
     private void Awake()
     {
         sync = GetComponent<CoherenceSync>();
+        SetStats();
         currentAmmo = maxAmmo;
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
     }
@@ -74,14 +79,13 @@ public class WeaponHolder : MonoBehaviour
         if (reloading)
         {
             reloadProgress += 1.0f * Time.deltaTime;
-            if(reloadProgress >= ReloadTime)
+            if(reloadProgress >= reloadTime)
             {
                 reloading = false;
                 reloadProgress = 0;
             }
         }
-
-        if (inputtingFire)
+        else if (inputtingFire)
         {
             straight = cam.transform.forward;
             originPos = cam.transform.position;
@@ -114,6 +118,7 @@ public class WeaponHolder : MonoBehaviour
     {
         bool didHit;
 
+        currentAmmo -= 1;
         foreach (Vector2 ii in shotPattern.points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
@@ -122,7 +127,6 @@ public class WeaponHolder : MonoBehaviour
 
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
             if (didHit) HitAffect(hit);
-            print(didHit);
         }
 
         if (!automatic) inputtingFire = false;
