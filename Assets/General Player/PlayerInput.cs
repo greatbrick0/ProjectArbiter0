@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using FMODUnity;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
@@ -11,6 +13,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     Transform head;
     PlayerMovement playerMovement;
+
+    [SerializeField] private EventReference reloadSound;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -22,16 +26,18 @@ public class PlayerInput : MonoBehaviour
         new InputAndName("forward", KeyCode.W),
         new InputAndName("backward", KeyCode.S),
         new InputAndName("left", KeyCode.A),
-        new InputAndName("right", KeyCode.D)
+        new InputAndName("right", KeyCode.D),
     };
+
     Dictionary<string, KeyCode> wasdKeys = new Dictionary<string, KeyCode> { };
-    [SerializeField]
-    KeyCode jumpKey = KeyCode.Space;
+
+    [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] KeyCode reloadKey = KeyCode.R;
+
     public float mouseXSens = 1.0f;
     public float mouseYSens = 1.0f;
 
-    [Serializable]
-    public class InputAndName //not even one hour into the project and im already back to my horrendous ways
+    [Serializable] public class InputAndName //not even one hour into the project and im already back to my horrendous ways
     {
         public InputAndName(string initName, KeyCode initInput)
         {
@@ -70,6 +76,8 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(wasdKeys["right"])) inputtedMoveDirection += transform.right;
 
         if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
+
+        if (Input.GetKeyDown(reloadKey)) AudioManager.instance.PlayOneShot(reloadSound, this.transform.position);
 
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;

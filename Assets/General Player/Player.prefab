@@ -521,6 +521,13 @@ MonoBehaviour:
   cameraRef: {fileID: 5459987798418853067, guid: bf6d424187e85e24a9129fc767e092cd,
     type: 3}
   head: {fileID: 3402058366864678147}
+  reloadSound:
+    Guid:
+      Data1: 721960197
+      Data2: 1151179352
+      Data3: -549843026
+      Data4: -915836398
+    Path: event:/SFX/Reload Shuffle
   wasdKeysInit:
   - <name>k__BackingField: forward
     input: 119
@@ -531,6 +538,7 @@ MonoBehaviour:
   - <name>k__BackingField: right
     input: 100
   jumpKey: 32
+  reloadKey: 114
   mouseXSens: 1
   mouseYSens: 1
 --- !u!1 &3883505156724150720
