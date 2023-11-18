@@ -410,6 +410,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0e381e59d31af4f9280dbdb81d66dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &89672328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2021298388301607510, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538745848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881c43adfee03ca40ab5d75c24df798c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203128596
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +786,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 89672328}
+        m_TargetAssemblyTypeName: WeaponHolder, Assembly-CSharp
+        m_MethodName: SetDefaultBehaviourEnabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onDisconnected:
     m_PersistentCalls:
       m_Calls:
@@ -793,6 +817,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
         m_MethodName: ShowMouse
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 89672328}
+        m_TargetAssemblyTypeName: WeaponHolder, Assembly-CSharp
+        m_MethodName: SetDefaultBehaviourEnabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3573,6 +3609,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.data[0].input
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.data[1].input
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.data[2].input
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.data[0].<name>k__BackingField
+      value: ability1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.data[1].<name>k__BackingField
+      value: ability2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446777447677368580, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilityKeysInit.Array.data[2].<name>k__BackingField
+      value: ability3
       objectReference: {fileID: 0}
     - target: {fileID: 8872450027310171148, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}

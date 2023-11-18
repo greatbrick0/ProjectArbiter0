@@ -8,9 +8,11 @@ using Coherence;
 
 public class WeaponHolder : MonoBehaviour
 {
+    [SerializeField]
+    private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
     [HideInInspector]
-    public Camera cam;
+    public Camera cam { private get; set; }
     private Ray ray;
     private RaycastHit hit;
     Vector3 straight;
@@ -71,25 +73,37 @@ public class WeaponHolder : MonoBehaviour
         sync = GetComponent<CoherenceSync>();
         SetStats();
         currentAmmo = maxAmmo;
+#if (UNITY_EDITOR)
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
+#endif
     }
 
     private void Update()
     {
-        if (reloading)
-        {
-            reloadProgress += 1.0f * Time.deltaTime;
-            if(reloadProgress >= reloadTime)
-            {
-                reloading = false;
-                reloadProgress = 0;
-            }
-        }
+        if (!defaultBehaviourEnabled) return;
+
+        if (reloading) Reload();
         else if (inputtingFire)
         {
-            straight = cam.transform.forward;
-            originPos = cam.transform.position;
-            sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
+            if (currentAmmo == 0) reloading = true;
+            else
+            {
+                straight = cam.transform.forward;
+                originPos = cam.transform.position;
+                sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
+            }
+        }
+    }
+
+    private void Reload()
+    {
+        reloadProgress += 1.0f * Time.deltaTime;
+        print(reloadProgress);
+        if (reloadProgress >= reloadTime)
+        {
+            reloading = false;
+            reloadProgress = 0;
+            currentAmmo = maxAmmo;
         }
     }
 
@@ -119,6 +133,7 @@ public class WeaponHolder : MonoBehaviour
         bool didHit;
 
         currentAmmo -= 1;
+        print(currentAmmo);
         foreach (Vector2 ii in shotPattern.points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
@@ -147,8 +162,6 @@ public class WeaponHolder : MonoBehaviour
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sphere.transform.position = hit.point;
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            print("hit point " + hit.point.ToString());
-            print("bullet hole " + sphere.transform.position.ToString());
         }
     }
 
@@ -162,5 +175,10 @@ public class WeaponHolder : MonoBehaviour
         if (hitbox.GetOwner().team != "Enemy") return;
 
         hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+    }
+
+    public void SetDefaultBehaviourEnabled(bool newValue)
+    {
+        defaultBehaviourEnabled = newValue;
     }
 }
