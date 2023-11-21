@@ -39,10 +39,12 @@ public class WeaponHolder : MonoBehaviour
     [Header("Trackers")]
     [SerializeField]
     bool reloading = false;
+    bool cooling = false;
     [field: SerializeField]
     public int currentAmmo { get; private set; }
     [SerializeField]
     float reloadProgress = 0.0f;
+    float cooldownProgress = 0.0f;
     private bool inputtingFire = false;
 
     private void SetStats()
@@ -81,8 +83,9 @@ public class WeaponHolder : MonoBehaviour
     private void Update()
     {
         if (!defaultBehaviourEnabled) return;
-
-        if (reloading) Reload();
+        
+        if (cooling) CoolDown();
+        else if (reloading) Reload();
         else if (inputtingFire)
         {
             if (currentAmmo == 0) reloading = true;
@@ -92,6 +95,15 @@ public class WeaponHolder : MonoBehaviour
                 originPos = cam.transform.position;
                 sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
             }
+        }
+    }
+
+    private void CoolDown()
+    {
+        cooldownProgress -= 1.0f * Time.deltaTime;
+        if (cooldownProgress <= 0)
+        {
+            cooling = false;
         }
     }
 
@@ -143,6 +155,8 @@ public class WeaponHolder : MonoBehaviour
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
             if (didHit) HitAffect(hit);
         }
+        cooldownProgress = shotPattern.cooldownTime;
+        cooling = true;
 
         if (!automatic) inputtingFire = false;
     }

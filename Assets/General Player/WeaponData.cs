@@ -27,7 +27,7 @@ public class WeaponData : ScriptableObject
     public Vector2 farDamage { get; private set; } = new Vector2(15, 10);
 
     [field: SerializeField]
-    public ShotShape shotPattern { get; private set; } = new ShotShape(Vector2.zero);
+    public ShotShape shotPattern { get; private set; } = new ShotShape(Vector2.zero, 0.2f);
     [field: SerializeField]
     public float range { get; private set; } = 20.0f;
 }
@@ -37,11 +37,14 @@ public class ShotShape
 {
     [field: SerializeField]
     public List<Vector2> points { get; private set; }
+    [field: SerializeField]
+    public float cooldownTime { get; private set; }
 
-    public ShotShape(Vector2 point)
+    public ShotShape(Vector2 point, float time)
     {
         points = new List<Vector2>();
         points.Add(point);
+        cooldownTime = time;
     }
 }
 
