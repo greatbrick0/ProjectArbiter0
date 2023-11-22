@@ -222,6 +222,8 @@ MonoBehaviour:
   <team>k__BackingField: Enemy
   maxHealth: 100
   health: 100
+  weakSpotMult: 2
+  armourSpotMult: 0.5
 --- !u!195 &3096550180487374425
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -543,7 +545,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.53
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5291228603422359279
 MonoBehaviour:

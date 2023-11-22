@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     Transform head;
     PlayerMovement playerMovement;
+    WeaponHolder weapon;
 
     [SerializeField] private EventReference reloadSound;
 
@@ -30,9 +31,20 @@ public class PlayerInput : MonoBehaviour
     };
 
     Dictionary<string, KeyCode> wasdKeys = new Dictionary<string, KeyCode> { };
-
-    [SerializeField] KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] KeyCode reloadKey = KeyCode.R;
+    
+    [SerializeField]
+    KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] 
+    KeyCode reloadKey = KeyCode.R;
+    [SerializeField]
+    KeyCode shootKey = KeyCode.Mouse0;
+    [SerializeField]
+    private List<InputAndName> abilityKeysInit = new List<InputAndName> {
+        new InputAndName("ability1", KeyCode.Q),
+        new InputAndName("ability2", KeyCode.LeftShift),
+        new InputAndName("ability3", KeyCode.F)
+    };
+    Dictionary<string, KeyCode> abilityKeys = new Dictionary<string, KeyCode> { };
 
     public float mouseXSens = 1.0f;
     public float mouseYSens = 1.0f;
@@ -55,10 +67,10 @@ public class PlayerInput : MonoBehaviour
         cameraRef = Instantiate(cameraRef);
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
-        foreach (InputAndName ii in wasdKeysInit)
-        {
-            wasdKeys.Add(ii.name, ii.input);
-        }
+        weapon = GetComponent<WeaponHolder>();
+        weapon.cam = cameraRef.GetComponent<Camera>();
+        foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
+        foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
     }
 
     void Update()
@@ -84,6 +96,12 @@ public class PlayerInput : MonoBehaviour
         inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
 
         playerMovement.SetInputs(inputtedMoveDirection, jumpInputted, inputtedLookDirection);
+
+        if (weapon != null)
+        {
+            if (Input.GetKeyDown(shootKey)) weapon.StartInput();
+            else if (Input.GetKeyUp(shootKey)) weapon.EndInput();
+        }
     }
 
     public void FinishJump()

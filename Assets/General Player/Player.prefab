@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 2920998475671937025}
   - component: {fileID: 6000918072062803087}
   - component: {fileID: 7446777447677368580}
+  - component: {fileID: 2021298388301607510}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -151,7 +152,6 @@ Transform:
   m_Children:
   - {fileID: 787267086442653583}
   - {fileID: 3402058366864678147}
-  - {fileID: 2066891081448818892}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,11 +272,11 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 1111314683962167162}
       lodStepsActive: 1
-    - component: {fileID: 2066891081448818892}
-      lodStepsActive: 1
     - component: {fileID: 6000918072062803087}
       lodStepsActive: 1
     - component: {fileID: 7446777447677368580}
+      lodStepsActive: 1
+    - component: {fileID: 2021298388301607510}
       lodStepsActive: 1
     lodLevels:
     - distance: 0
@@ -311,6 +311,7 @@ MonoBehaviour:
   - rid: 9124837619685130245
   - rid: 9124837619685130247
   - rid: 9124837619685130249
+  - rid: 5545163782292242432
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -335,6 +336,47 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 5545163782292242432
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 5545163782292242433
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 1f35b1c6-c080-4ac3-8ecc-9a03c2b39ed8
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 2021298388301607510}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 5545163782292242433
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: Shoot
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes:
+        - UnityEngine.Vector3, UnityEngine
+        - UnityEngine.Vector3, UnityEngine
+        ownerType:
+          assemblyQualifiedName: WeaponHolder, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
     - rid: 9124837619685130245
       type: {class: PositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
@@ -528,6 +570,7 @@ MonoBehaviour:
       Data3: -549843026
       Data4: -915836398
     Path: event:/SFX/Reload Shuffle
+  weapon: {fileID: 2021298388301607510}
   wasdKeysInit:
   - <name>k__BackingField: forward
     input: 119
@@ -539,8 +582,36 @@ MonoBehaviour:
     input: 100
   jumpKey: 32
   reloadKey: 114
+  shootKey: 323
   mouseXSens: 1
   mouseYSens: 1
+--- !u!114 &2021298388301607510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881c43adfee03ca40ab5d75c24df798c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  weapon: {fileID: 11400000, guid: b5c6190ecb3841d489375cce85907b88, type: 2}
+  gunName: basic
+  automatic: 0
+  ReloadTime: 2
+  maxAmmo: 12
+  closeDamage: {x: 0, y: 0}
+  farDamage: {x: 0, y: 0}
+  shotPattern:
+    <points>k__BackingField:
+    - {x: 0, y: 0}
+  range: 10
+  reloading: 0
+  <currentAmmo>k__BackingField: 0
+  reloadProgress: 0
 --- !u!1 &3883505156724150720
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,48 +760,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &7752561675816644672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2066891081448818892}
-  - component: {fileID: 389573377211130801}
-  m_Layer: 0
-  m_Name: coherence Live Query
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2066891081448818892
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7752561675816644672}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8872450027310171148}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &389573377211130801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7752561675816644672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784c870e57f1c4b499b118f4e7cdfa81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 0
