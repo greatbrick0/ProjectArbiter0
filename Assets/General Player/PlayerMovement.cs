@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     float jumpStrength = 10.0f;
     [SerializeField]
     float defualtGravityAccel = 8.0f;
+    [SerializeField]
+    float recoilRecentreSpeed = 90;
 
     Vector2 hVelocity = Vector2.zero;
     float yVelocity = 0.0f;
@@ -60,6 +62,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void DetermineLookDirection()
     {
+        if (remainingRecoilTime <= 0)
+        {
+            if (recoilLookDirection.magnitude != 0)
+            {
+                StopAllCoroutines();
+                recoilLookDirection -= recoilLookDirection.normalized * Mathf.Min(recoilLookDirection.magnitude, recoilRecentreSpeed * Time.deltaTime);
+            }
+        }
+        else remainingRecoilTime -= 1.0f * Time.deltaTime;
+
         controlledLookDirection += inputtedLookDirection * 12;
         controlledLookDirection.y = Math.Clamp(controlledLookDirection.y, -85.0f, 85.0f);
         lookDirection = controlledLookDirection + recoilLookDirection;
@@ -117,8 +129,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void NewRecoil(Vector2 recoilDir, float recoilTime)
     {
-        LeanTween.value(0, recoilDir.x, recoilTime).setOnUpdate((value) => { recoilLookDirection.x += value; });
-        LeanTween.value(0, recoilDir.y, recoilTime).setOnUpdate((value) => { recoilLookDirection.y += value; });
-        remainingRecoilTime = Mathf.Max(remainingRecoilTime, recoilTime);
+        StartCoroutine(ChangeRecoilDirection(recoilDir, recoilTime));
+        remainingRecoilTime = Mathf.Max(remainingRecoilTime, recoilTime + 0.05f);
+    }
+
+    private IEnumerator ChangeRecoilDirection(Vector2 recoilDir, float recoilTime)
+    {
+        float recoilProgress = 0.0f;
+
+        while(recoilProgress < recoilTime)
+        {
+            recoilProgress += 1.0f * Time.deltaTime;
+            recoilLookDirection.x += recoilDir.x / recoilTime * Time.deltaTime;
+            recoilLookDirection.y += recoilDir.y / recoilTime * Time.deltaTime;
+            yield return null;
+        }
     }
 }

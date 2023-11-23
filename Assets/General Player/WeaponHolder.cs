@@ -145,7 +145,6 @@ public class WeaponHolder : MonoBehaviour
         bool didHit;
 
         currentAmmo -= 1;
-        print(currentAmmo);
         foreach (Vector2 ii in shotPattern.points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
@@ -157,6 +156,7 @@ public class WeaponHolder : MonoBehaviour
         }
         cooldownProgress = shotPattern.cooldownTime;
         cooling = true;
+        GetComponent<PlayerMovement>().NewRecoil(Vector2.one * 10, 0.1f);
 
         if (!automatic) inputtingFire = false;
     }
