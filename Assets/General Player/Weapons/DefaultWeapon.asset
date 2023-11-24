@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec766568ff3f9e14f9514e9a0985fb91, type: 3}
   m_Name: DefaultWeapon
   m_EditorClassIdentifier: 
-  <gunName>k__BackingField: basic
+  <gunName>k__BackingField: Pistol
   <automatic>k__BackingField: 0
-  <ReloadTime>k__BackingField: 2
+  <reloadTime>k__BackingField: 2
   <maxAmmo>k__BackingField: 12
   <closeDamage>k__BackingField: {x: 3, y: 30}
   <farDamage>k__BackingField: {x: 15, y: 10}
   <shotPattern>k__BackingField:
-    <points>k__BackingField:
+  - <points>k__BackingField:
     - {x: 0, y: 0}
+    <cooldownTime>k__BackingField: 0.2
+    <recoilDirection>k__BackingField: {x: 0, y: 4}
+    <recoilTime>k__BackingField: 0.1
   <range>k__BackingField: 20
+  <resetTime>k__BackingField: 0.3

@@ -36,19 +36,18 @@ public class WeaponHolder : MonoBehaviour
     private int maxAmmo = 12;
     private Vector2 closeDamage;
     private Vector2 farDamage;
-    private ShotShape shotPattern;
+    private List<ShotShape> shotPatterns;
     [SerializeField]
     private float range = 10.0f;
     private float resetTime;
 
-    [Header("Trackers")]
-    [SerializeField]
-    bool reloading = false;
+    [field: Header("Trackers")]
+    [field: SerializeField]
+    public bool reloading { get; private set; } = false;
     bool cooling = false;
     [field: SerializeField]
     public int currentAmmo { get; private set; }
-    [SerializeField]
-    float reloadProgress = 0.0f;
+    public float reloadProgress { get; private set; } = 0.0f;
     float cooldownProgress = 0.0f;
     private bool inputtingFire = false;
 
@@ -60,7 +59,7 @@ public class WeaponHolder : MonoBehaviour
         maxAmmo = weapon.maxAmmo;
         closeDamage = weapon.closeDamage;
         farDamage = weapon.farDamage;
-        shotPattern = weapon.shotPattern;
+        shotPatterns = weapon.shotPattern;
         range = weapon.range;
         resetTime = weapon.resetTime;
     }
@@ -154,7 +153,7 @@ public class WeaponHolder : MonoBehaviour
         muzzleFlash.Reinit();
 
         currentAmmo -= 1;
-        foreach (Vector2 ii in shotPattern.points)
+        foreach (Vector2 ii in shotPatterns[0].points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
             angle = Quaternion.AngleAxis(-ii.y, Vector3.right) * angle;
@@ -163,9 +162,9 @@ public class WeaponHolder : MonoBehaviour
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));
             if (didHit) HitAffect(hit);
         }
-        cooldownProgress = shotPattern.cooldownTime;
+        cooldownProgress = shotPatterns[0].cooldownTime;
         cooling = true;
-        GetComponent<PlayerMovement>().NewRecoil(shotPattern.recoilDirection, shotPattern.recoilTime, resetTime);
+        GetComponent<PlayerMovement>().NewRecoil(shotPatterns[0].recoilDirection, shotPatterns[0].recoilTime, resetTime);
 
         if (!automatic) inputtingFire = false;
     }
