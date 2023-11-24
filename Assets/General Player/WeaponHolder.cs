@@ -5,6 +5,7 @@ using System;
 using DamageDetails;
 using Coherence.Toolkit;
 using Coherence;
+using UnityEngine.VFX;
 
 public class WeaponHolder : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     WeaponData weapon;
 
+    [SerializeField]
+    VisualEffect muzzleFlash;
+
     [Header("Stats")]
     [SerializeField]
     private string gunName = "basic";
@@ -35,6 +39,7 @@ public class WeaponHolder : MonoBehaviour
     private ShotShape shotPattern;
     [SerializeField]
     private float range = 10.0f;
+    private float resetTime;
 
     [Header("Trackers")]
     [SerializeField]
@@ -57,6 +62,7 @@ public class WeaponHolder : MonoBehaviour
         farDamage = weapon.farDamage;
         shotPattern = weapon.shotPattern;
         range = weapon.range;
+        resetTime = weapon.resetTime;
     }
 
     public void StartInput()
@@ -144,8 +150,10 @@ public class WeaponHolder : MonoBehaviour
     {
         bool didHit;
 
+        //here is the muzzleflash addition:
+        muzzleFlash.Reinit();
+
         currentAmmo -= 1;
-        print(currentAmmo);
         foreach (Vector2 ii in shotPattern.points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
@@ -157,6 +165,7 @@ public class WeaponHolder : MonoBehaviour
         }
         cooldownProgress = shotPattern.cooldownTime;
         cooling = true;
+        GetComponent<PlayerMovement>().NewRecoil(shotPattern.recoilDirection, shotPattern.recoilTime, resetTime);
 
         if (!automatic) inputtingFire = false;
     }
