@@ -39,6 +39,7 @@ public class WeaponHolder : MonoBehaviour
     private ShotShape shotPattern;
     [SerializeField]
     private float range = 10.0f;
+    private float resetTime;
 
     [Header("Trackers")]
     [SerializeField]
@@ -61,6 +62,7 @@ public class WeaponHolder : MonoBehaviour
         farDamage = weapon.farDamage;
         shotPattern = weapon.shotPattern;
         range = weapon.range;
+        resetTime = weapon.resetTime;
     }
 
     public void StartInput()
@@ -163,7 +165,7 @@ public class WeaponHolder : MonoBehaviour
         }
         cooldownProgress = shotPattern.cooldownTime;
         cooling = true;
-        GetComponent<PlayerMovement>().NewRecoil(Vector2.one * 10, 0.1f);
+        GetComponent<PlayerMovement>().NewRecoil(shotPattern.recoilDirection, shotPattern.recoilTime, resetTime);
 
         if (!automatic) inputtingFire = false;
     }

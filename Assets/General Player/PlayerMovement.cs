@@ -127,21 +127,25 @@ public class PlayerMovement : MonoBehaviour
         defaultMovementEnabled = newValue;
     }
 
-    public void NewRecoil(Vector2 recoilDir, float recoilTime)
+    public void NewRecoil(Vector2 recoilDir, float recoilTime, float resetTime)
     {
         StartCoroutine(ChangeRecoilDirection(recoilDir, recoilTime));
-        remainingRecoilTime = Mathf.Max(remainingRecoilTime, recoilTime + 0.05f);
+        remainingRecoilTime = Mathf.Max(remainingRecoilTime, recoilTime + resetTime);
     }
 
     private IEnumerator ChangeRecoilDirection(Vector2 recoilDir, float recoilTime)
     {
         float recoilProgress = 0.0f;
+        float recoilSpeed = 0.0f;
 
         while(recoilProgress < recoilTime)
         {
             recoilProgress += 1.0f * Time.deltaTime;
-            recoilLookDirection.x += recoilDir.x / recoilTime * Time.deltaTime;
-            recoilLookDirection.y += recoilDir.y / recoilTime * Time.deltaTime;
+            recoilSpeed = Mathf.Lerp(2, 0, recoilProgress / recoilTime);
+
+            recoilLookDirection.x += recoilDir.x / recoilTime * recoilSpeed * Time.deltaTime;
+            recoilLookDirection.y += recoilDir.y / recoilTime * recoilSpeed * Time.deltaTime;
+
             yield return null;
         }
     }
