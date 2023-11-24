@@ -7,8 +7,8 @@ using Coherence.Toolkit;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private bool defaultMovementEnabled = false;
+    [field: SerializeField]
+    public bool defaultMovementEnabled { get; private set; } = false;
 
     [Header("References")]
     [SerializeField]
@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetInputs(Vector3 newMove, bool newJump, Vector2 newLook)
     {
+        if (!defaultMovementEnabled) return;
         inputtedMoveDirection = newMove;
         jumpInputted = newJump;
         inputtedLookDirection = newLook;

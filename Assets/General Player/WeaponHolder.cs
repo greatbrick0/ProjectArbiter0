@@ -67,11 +67,13 @@ public class WeaponHolder : MonoBehaviour
 
     public void StartInput()
     {
+        if (!defaultBehaviourEnabled) return;
         inputtingFire = true;
     }
 
     public void EndInput()
     {
+        if (!defaultBehaviourEnabled) return;
         if (reloading) inputtingFire = false;
         if (automatic) inputtingFire = false;
     }
@@ -116,6 +118,7 @@ public class WeaponHolder : MonoBehaviour
     public bool StartReload()
     {
         if (currentAmmo == maxAmmo) return false;
+        else if (!defaultBehaviourEnabled) return false;
         else if (!reloading)
         {
             reloading = true;
