@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8068632998150674592
+--- !u!114 &-7845025741672167895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,21 +10,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: 
-  Path: audio-system-fmod-project/Build/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-<<<<<<< Updated upstream
+  Path: audio-system-fmod-project/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
   lastModified: 638364451947373536
-=======
-  lastModified: 638364452048070713
->>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
-    Value: 1732
+    Value: 49824
   Exists: 1
---- !u!114 &-7692023803364052729
+--- !u!114 &-5993424964113765102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Guns/Shotgun/Reload Shuffle
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Guns/Shotgun/Reload Shuffle
+  Guid:
+    Data1: 721960197
+    Data2: 1151179352
+    Data3: -549843026
+    Data4: -915836398
+  Banks:
+  - {fileID: -7845025741672167895}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1050
+--- !u!114 &-4037093708868642409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,198 +73,7 @@ MonoBehaviour:
   - Lower Section
   - Raised Section
   Exists: 1
---- !u!114 &-5734469631913682503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: audio-system-fmod-project/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-<<<<<<< Updated upstream
-  lastModified: 638364451947373536
-=======
-  lastModified: 638364452048080719
->>>>>>> Stashed changes
-  FileSizes:
-  - Name: Desktop
-    Value: 49824
-  Exists: 1
---- !u!114 &-3520573986200835161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: audio-system-fmod-project/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-<<<<<<< Updated upstream
-  lastModified: 638364451947363578
-=======
-  lastModified: 638364452048050705
->>>>>>> Stashed changes
-  FileSizes:
-  - Name: Desktop
-    Value: 2152
-  Exists: 1
---- !u!114 &-3151799219924918680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Guns/Shotgun/Reload Shuffle
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Guns/Shotgun/Reload Shuffle
-  Guid:
-    Data1: 721960197
-    Data2: 1151179352
-    Data3: -549843026
-    Data4: -915836398
-  Banks:
-  - {fileID: -5734469631913682503}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1050
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 8191686494501775739}
-  - {fileID: -3520573986200835161}
-  - {fileID: -5734469631913682503}
-  - {fileID: -8068632998150674592}
-  EditorEvents:
-  - {fileID: 1698300035718707506}
-  - {fileID: -3151799219924918680}
-  - {fileID: 7861306340497506676}
-  - {fileID: 2528232101023808295}
-  - {fileID: 805403006298903259}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -3520573986200835161}
-  StringsBanks:
-  - {fileID: 8191686494501775739}
-<<<<<<< Updated upstream
-  cacheTime: 638364451947373536
-=======
-  cacheTime: 638364452048080719
->>>>>>> Stashed changes
-  cacheVersion: 131608
---- !u!114 &805403006298903259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: snapshot:/Pause Menu
-  m_EditorClassIdentifier: 
-  Path: snapshot:/Pause Menu
-  Guid:
-    Data1: -504206991
-    Data2: 1077042330
-    Data3: -1395752560
-    Data4: 674688190
-  Banks:
-  - {fileID: -3520573986200835161}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &1698300035718707506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Level Music
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Level Music
-  Guid:
-    Data1: -2018869132
-    Data2: 1107099188
-    Data3: 299560372
-    Data4: -2120198840
-  Banks:
-  - {fileID: -8068632998150674592}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -7692023803364052729}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &2528232101023808295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Guns/Pistol/Pistol Shoot
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Guns/Pistol/Pistol Shoot
-  Guid:
-    Data1: -2057637236
-    Data2: 1133647999
-    Data3: -808424042
-    Data4: -773062393
-  Banks:
-  - {fileID: -5734469631913682503}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7861306340497506676
+--- !u!114 &-1438866414317048082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +92,7 @@ MonoBehaviour:
     Data3: -545392727
     Data4: 560692624
   Banks:
-  - {fileID: -5734469631913682503}
+  - {fileID: -7845025741672167895}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -268,7 +100,159 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 325
---- !u!114 &8191686494501775739
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 8165066388899070047}
+  - {fileID: 6276486083394714933}
+  - {fileID: 1044522385680872091}
+  - {fileID: -7845025741672167895}
+  EditorEvents:
+  - {fileID: 2244525439084124428}
+  - {fileID: 3114036178651861817}
+  - {fileID: -5993424964113765102}
+  - {fileID: -1438866414317048082}
+  - {fileID: 1075784506691754380}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 6276486083394714933}
+  StringsBanks:
+  - {fileID: 8165066388899070047}
+  cacheTime: 638364451947373536
+  cacheVersion: 131608
+--- !u!114 &1044522385680872091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: audio-system-fmod-project/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638364451947373536
+  FileSizes:
+  - Name: Desktop
+    Value: 1732
+  Exists: 1
+--- !u!114 &1075784506691754380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Guns/Pistol/Pistol Shoot
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Guns/Pistol/Pistol Shoot
+  Guid:
+    Data1: -2057637236
+    Data2: 1133647999
+    Data3: -808424042
+    Data4: -773062393
+  Banks:
+  - {fileID: -7845025741672167895}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2244525439084124428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Pause Menu
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Pause Menu
+  Guid:
+    Data1: -504206991
+    Data2: 1077042330
+    Data3: -1395752560
+    Data4: 674688190
+  Banks:
+  - {fileID: 6276486083394714933}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &3114036178651861817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Level Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Level Music
+  Guid:
+    Data1: -2018869132
+    Data2: 1107099188
+    Data3: 299560372
+    Data4: -2120198840
+  Banks:
+  - {fileID: 1044522385680872091}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4037093708868642409}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6276486083394714933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: audio-system-fmod-project/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638364451947363578
+  FileSizes:
+  - Name: Desktop
+    Value: 2152
+  Exists: 1
+--- !u!114 &8165066388899070047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,11 +267,7 @@ MonoBehaviour:
   Path: audio-system-fmod-project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-<<<<<<< Updated upstream
   lastModified: 638364451947363578
-=======
-  lastModified: 638364452048060707
->>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 1264

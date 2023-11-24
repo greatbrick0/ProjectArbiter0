@@ -106,7 +106,7 @@ public class PlayerInput : MonoBehaviour
             }
             if (Input.GetKeyDown(reloadKey))
             {
-                weapon.reloading = true;
+                weapon.StartReload();
             }
         }
     }
