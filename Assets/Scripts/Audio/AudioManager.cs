@@ -22,7 +22,6 @@ public class AudioManager : MonoBehaviour
     private Bus ambienceBus;
     private Bus sfxBus;
 
-
     public static AudioManager instance { get; private set; }
 
     private void Awake()
@@ -38,6 +37,8 @@ public class AudioManager : MonoBehaviour
         ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
     }
+
+    
 
     private void Update()
     {

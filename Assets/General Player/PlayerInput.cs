@@ -76,6 +76,8 @@ public class PlayerInput : MonoBehaviour
         {
             ShowMouse();
             playerMovement.SetDefaultMovementEnabled(false);
+
+            FMODUnity.RuntimeManager.PauseAllEvents(true);
         }
 
         inputtedMoveDirection = Vector3.zero;

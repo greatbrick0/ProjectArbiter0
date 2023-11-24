@@ -81,10 +81,10 @@ MonoBehaviour:
   Path: audio-system-fmod-project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638364333139612319
+  lastModified: 638364399449955670
   FileSizes:
   - Name: Desktop
-    Value: 1486
+    Value: 2152
   Exists: 1
 --- !u!114 &-3151799219924918680
 MonoBehaviour:
@@ -135,13 +135,41 @@ MonoBehaviour:
   - {fileID: -3151799219924918680}
   - {fileID: 7861306340497506676}
   - {fileID: 2528232101023808295}
+  - {fileID: 805403006298903259}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3520573986200835161}
   StringsBanks:
   - {fileID: 8191686494501775739}
-  cacheTime: 638364333140132436
+  cacheTime: 638364399449985681
   cacheVersion: 131608
+--- !u!114 &805403006298903259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Pause Menu
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Pause Menu
+  Guid:
+    Data1: -504206991
+    Data2: 1077042330
+    Data3: -1395752560
+    Data4: 674688190
+  Banks:
+  - {fileID: -3520573986200835161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &1698300035718707506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +267,8 @@ MonoBehaviour:
   Path: audio-system-fmod-project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638364333139632319
+  lastModified: 638364399449985681
   FileSizes:
   - Name: Desktop
-    Value: 1212
+    Value: 1264
   Exists: 1
