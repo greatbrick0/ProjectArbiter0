@@ -119,7 +119,7 @@ public class WeaponHolder : MonoBehaviour
         else if (!reloading)
         {
             reloading = true;
-            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.playerReloading, gameObject);
             return true;
         }
         else return false;
@@ -162,8 +162,8 @@ public class WeaponHolder : MonoBehaviour
     {
         bool didHit;
 
-        //here is the muzzleflash addition:
         muzzleFlash.Reinit();
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
 
         currentAmmo -= 1;
         foreach (Vector2 ii in shotPatterns[0].points)
