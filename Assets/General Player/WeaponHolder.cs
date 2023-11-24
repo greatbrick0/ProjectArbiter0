@@ -5,6 +5,7 @@ using System;
 using DamageDetails;
 using Coherence.Toolkit;
 using Coherence;
+using UnityEngine.VFX;
 
 public class WeaponHolder : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class WeaponHolder : MonoBehaviour
 
     [SerializeField]
     WeaponData weapon;
+
+    [SerializeField]
+    VisualEffect muzzleFlash;
 
     [Header("Stats")]
     [SerializeField]
@@ -143,6 +147,9 @@ public class WeaponHolder : MonoBehaviour
     public void Shoot(Vector3 straight, Vector3 originPos)
     {
         bool didHit;
+
+        //here is the muzzleflash addition:
+        muzzleFlash.Reinit();
 
         currentAmmo -= 1;
         foreach (Vector2 ii in shotPattern.points)
