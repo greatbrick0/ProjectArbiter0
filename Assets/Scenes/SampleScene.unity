@@ -3810,6 +3810,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438909637}
+  - component: {fileID: 1438909639}
+  - component: {fileID: 1438909640}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3828,11 +3830,52 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 871488516}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438909639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438909636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1ed1903b75b2d4493e95f8b8abf298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <playerReloading>k__BackingField:
+    Guid:
+      Data1: 721960197
+      Data2: 1151179352
+      Data3: -549843026
+      Data4: -915836398
+    Path: event:/SFX/Guns/Shotgun/Reload Shuffle
+  <pistolShoot>k__BackingField:
+    Guid:
+      Data1: -2057637236
+      Data2: 1133647999
+      Data3: -808424042
+      Data4: -773062393
+    Path: event:/SFX/Guns/Pistol/Pistol Shoot
+--- !u!114 &1438909640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438909636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1a8c9bb8feeda4ca79b4eb67a7a5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  SFXVolume: 1
 --- !u!1 &1442001183
 GameObject:
   m_ObjectHideFlags: 0
