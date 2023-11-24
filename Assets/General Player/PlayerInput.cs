@@ -88,11 +88,6 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
 
-        if (Input.GetKeyDown(reloadKey))
-        {
-            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.playerReloading, gameObject);
-        }
-
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
         inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
@@ -104,11 +99,14 @@ public class PlayerInput : MonoBehaviour
             if (Input.GetKeyDown(shootKey))
             {
                 weapon.StartInput();
-                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
             }
             else if (Input.GetKeyUp(shootKey))
             {
                 weapon.EndInput();
+            }
+            if (Input.GetKeyDown(reloadKey))
+            {
+                weapon.reloading = true;
             }
         }
     }

@@ -41,9 +41,7 @@ public class WeaponHolder : MonoBehaviour
     private float range = 10.0f;
     private float resetTime;
 
-    [field: Header("Trackers")]
     [field: SerializeField]
-    public bool reloading { get; private set; } = false;
     bool cooling = false;
     [field: SerializeField]
     public int currentAmmo { get; private set; }
@@ -93,7 +91,11 @@ public class WeaponHolder : MonoBehaviour
         else if (reloading) Reload();
         else if (inputtingFire)
         {
-            if (currentAmmo == 0) reloading = true;
+            if (currentAmmo == 0 && !reloading)
+            {
+                reloading = true;
+                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.playerReloading, gameObject);
+            }
             else
             {
                 straight = cam.transform.forward;
@@ -151,6 +153,8 @@ public class WeaponHolder : MonoBehaviour
 
         //here is the muzzleflash addition:
         muzzleFlash.Reinit();
+
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
 
         currentAmmo -= 1;
         foreach (Vector2 ii in shotPatterns[0].points)
