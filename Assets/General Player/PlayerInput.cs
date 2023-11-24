@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using FMODUnity;
 using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
@@ -14,8 +15,6 @@ public class PlayerInput : MonoBehaviour
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
-
-    [SerializeField] private EventReference reloadSound;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -32,18 +31,16 @@ public class PlayerInput : MonoBehaviour
 
     Dictionary<string, KeyCode> wasdKeys = new Dictionary<string, KeyCode> { };
     
-    [SerializeField]
-    KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] 
-    KeyCode reloadKey = KeyCode.R;
-    [SerializeField]
-    KeyCode shootKey = KeyCode.Mouse0;
-    [SerializeField]
-    private List<InputAndName> abilityKeysInit = new List<InputAndName> {
+    [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] KeyCode reloadKey = KeyCode.R;
+    [SerializeField] KeyCode shootKey = KeyCode.Mouse0;
+    [SerializeField] private List<InputAndName> abilityKeysInit = new List<InputAndName>
+    {
         new InputAndName("ability1", KeyCode.Q),
         new InputAndName("ability2", KeyCode.LeftShift),
         new InputAndName("ability3", KeyCode.F)
     };
+
     Dictionary<string, KeyCode> abilityKeys = new Dictionary<string, KeyCode> { };
 
     public float mouseXSens = 1.0f;
@@ -89,7 +86,10 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
 
-        if (Input.GetKeyDown(reloadKey)) AudioManager.instance.PlayOneShot(reloadSound, this.transform.position);
+        if (Input.GetKeyDown(reloadKey))
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.playerReloading, gameObject);
+        }
 
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
@@ -99,8 +99,15 @@ public class PlayerInput : MonoBehaviour
 
         if (weapon != null)
         {
-            if (Input.GetKeyDown(shootKey)) weapon.StartInput();
-            else if (Input.GetKeyUp(shootKey)) weapon.EndInput();
+            if (Input.GetKeyDown(shootKey))
+            {
+                weapon.StartInput();
+                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
+            }
+            else if (Input.GetKeyUp(shootKey))
+            {
+                weapon.EndInput();
+            }
         }
     }
 
