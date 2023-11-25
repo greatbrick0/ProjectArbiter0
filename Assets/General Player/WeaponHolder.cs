@@ -51,6 +51,9 @@ public class WeaponHolder : MonoBehaviour
     public float reloadProgress { get; private set; } = 0.0f;
     float cooldownProgress = 0.0f;
     private bool inputtingFire = false;
+    private float timeSinceLastShot = 0.0f;
+    [SerializeField]
+    private int patternIndex = 0;
 
     private void SetStats()
     {
@@ -91,7 +94,10 @@ public class WeaponHolder : MonoBehaviour
     private void Update()
     {
         if (!defaultBehaviourEnabled) return;
-        
+
+        timeSinceLastShot += 1.0f * Time.deltaTime;
+        if (timeSinceLastShot >= resetTime) patternIndex = 0;
+
         if (cooling) CoolDown();
         else if (reloading) Reload();
         else if (inputtingFire)
@@ -165,11 +171,10 @@ public class WeaponHolder : MonoBehaviour
     {
         bool didHit;
 
-        muzzleFlash.Reinit();
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
+        GunShotDecorations();
 
         currentAmmo -= 1;
-        foreach (Vector2 ii in shotPatterns[0].points)
+        foreach (Vector2 ii in shotPatterns[patternIndex].points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
             angle = Quaternion.AngleAxis(-ii.y, Vector3.right) * angle;
@@ -180,9 +185,18 @@ public class WeaponHolder : MonoBehaviour
         }
         cooldownProgress = shotPatterns[0].cooldownTime;
         cooling = true;
-        GetComponent<PlayerMovement>().NewRecoil(shotPatterns[0].recoilDirection, shotPatterns[0].recoilTime, resetTime);
+        timeSinceLastShot = 0.0f;
+        GetComponent<PlayerMovement>().NewRecoil(shotPatterns[patternIndex].recoilDirection, shotPatterns[patternIndex].recoilTime, resetTime);
 
         if (!automatic) inputtingFire = false;
+        patternIndex += 1;
+        patternIndex = patternIndex % shotPatterns.Count;
+    }
+
+    private void GunShotDecorations()
+    {
+        muzzleFlash.Reinit();
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
     }
 
     /// <summary>
