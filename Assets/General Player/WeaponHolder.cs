@@ -11,6 +11,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
+    private PlayerMovement movementScript;
     [HideInInspector]
     public Camera cam { private get; set; }
     private Ray ray;
@@ -55,7 +56,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     private int patternIndex = 0;
 
-    private void SetStats()
+    private void SetAllStats()
     {
         gunName = weapon.gunName;
         automatic = weapon.automatic;
@@ -67,6 +68,7 @@ public class WeaponHolder : MonoBehaviour
         shotPatterns = weapon.shotPattern;
         range = weapon.range;
         resetTime = weapon.resetTime;
+        movementScript.maxRecoilBounds = weapon.maxRecoilBounds;
     }
 
     public void StartInput()
@@ -85,7 +87,8 @@ public class WeaponHolder : MonoBehaviour
     private void Awake()
     {
         sync = GetComponent<CoherenceSync>();
-        SetStats();
+        movementScript = GetComponent<PlayerMovement>();
+        SetAllStats();
         currentAmmo = maxAmmo;
 #if (UNITY_EDITOR)
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
@@ -97,7 +100,11 @@ public class WeaponHolder : MonoBehaviour
         if (!defaultBehaviourEnabled) return;
 
         timeSinceLastShot += 1.0f * Time.deltaTime;
-        if (timeSinceLastShot >= resetTime && !randomizePattern) patternIndex = 0;
+        if (timeSinceLastShot >= resetTime)
+        {
+            if(!randomizePattern) patternIndex = 0;
+            movementScript.recoilActive = false;
+        }
 
         if (cooling) CoolDown();
         else if (reloading) Reload();
@@ -122,6 +129,10 @@ public class WeaponHolder : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called for one frame when a reload is attempted. Determines whether a reload is valid, then handles initial reload logic.
+    /// </summary>
+    /// <returns></returns>
     public bool StartReload()
     {
         if (currentAmmo == maxAmmo) return false;
@@ -135,6 +146,9 @@ public class WeaponHolder : MonoBehaviour
         else return false;
     }
 
+    /// <summary>
+    /// Called on every frame that the weapon is reloading. Determines when to finish reloading. 
+    /// </summary>
     private void Reload()
     {
         reloadProgress += 1.0f * Time.deltaTime;
@@ -172,7 +186,7 @@ public class WeaponHolder : MonoBehaviour
     {
         bool didHit;
 
-        GunShotDecorations();
+        ShootDecorations();
 
         currentAmmo -= 1;
         foreach (Vector2 ii in shotPatterns[patternIndex].points)
@@ -187,7 +201,7 @@ public class WeaponHolder : MonoBehaviour
         cooldownProgress = shotPatterns[0].cooldownTime;
         cooling = true;
         timeSinceLastShot = 0.0f;
-        GetComponent<PlayerMovement>().NewRecoil(shotPatterns[patternIndex].recoilDirection, shotPatterns[patternIndex].recoilTime, resetTime);
+        movementScript.NewRecoil(shotPatterns[patternIndex].recoilDirection, shotPatterns[patternIndex].recoilTime);
 
         if (!automatic) inputtingFire = false;
         if (randomizePattern)
@@ -202,7 +216,10 @@ public class WeaponHolder : MonoBehaviour
         
     }
 
-    private void GunShotDecorations()
+    /// <summary>
+    /// Called in Shoot. Used for all effects that do not affect any logic. Visual effects, sound effect, and more. 
+    /// </summary>
+    private void ShootDecorations()
     {
         muzzleFlash.Reinit();
         FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);

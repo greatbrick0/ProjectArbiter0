@@ -34,11 +34,13 @@ public class PlayerMovement : MonoBehaviour
 
     bool jumpInputted = false;
     Vector3 inputtedMoveDirection = Vector3.zero;
-    
+
     private Vector2 inputtedLookDirection = Vector2.zero;
     private Vector2 controlledLookDirection = Vector2.zero;
     private Vector2 recoilLookDirection = Vector2.zero;
-    private float remainingRecoilTime = 0.0f;
+    [HideInInspector]
+    public bool recoilActive = false;
+    public Vector2 maxRecoilBounds { private get; set; } = Vector2.one * 20.0f;
     public Vector2 lookDirection {get; private set;} = Vector2.zero;
     
 
@@ -60,9 +62,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calculates which direction the camera should be facing. Takes into account player input, recoil, camera shake, and anything else.
+    /// </summary>
     private void DetermineLookDirection()
     {
-        if (remainingRecoilTime <= 0)
+        if (!recoilActive)
         {
             if (recoilLookDirection.magnitude != 0)
             {
@@ -70,16 +75,26 @@ public class PlayerMovement : MonoBehaviour
                 recoilLookDirection -= recoilLookDirection.normalized * Mathf.Min(recoilLookDirection.magnitude, recoilRecentreSpeed * Time.deltaTime);
             }
         }
-        else remainingRecoilTime -= 1.0f * Time.deltaTime;
+        else
+        {
+            recoilLookDirection.y = Math.Clamp(recoilLookDirection.y, -maxRecoilBounds.y, maxRecoilBounds.y);
+            recoilLookDirection.x = Math.Clamp(recoilLookDirection.x, -maxRecoilBounds.x, maxRecoilBounds.x);
+        }
 
         controlledLookDirection += inputtedLookDirection * 12;
-        controlledLookDirection.y = Math.Clamp(controlledLookDirection.y, -85.0f, 85.0f);
+        controlledLookDirection.y = Mathf.Clamp(controlledLookDirection.y, -85.0f, 85.0f);
         lookDirection = controlledLookDirection + recoilLookDirection;
 
         transform.localRotation = Quaternion.Euler(0, lookDirection.x, 0);
         head.localRotation = Quaternion.Euler(lookDirection.y * -1, 0, 0);
     }
 
+    /// <summary>
+    /// Tells the PlayerMovement component what actions the player is inputting. 
+    /// </summary>
+    /// <param name="newMove">The horizontal direction the player is inputting.</param>
+    /// <param name="newJump">Whether or not the player has pressed the jump key recently.</param>
+    /// <param name="newLook">The direction the player wants to move the camera.</param>
     public void SetInputs(Vector3 newMove, bool newJump, Vector2 newLook)
     {
         if (!defaultMovementEnabled) return;
@@ -128,12 +143,23 @@ public class PlayerMovement : MonoBehaviour
         defaultMovementEnabled = newValue;
     }
 
-    public void NewRecoil(Vector2 recoilDir, float recoilTime, float resetTime)
+    /// <summary>
+    /// Starts applying movement to the camera over time. 
+    /// </summary>
+    /// <param name="recoilDir">The total distance the camera will be moved, measured in degrees.</param>
+    /// <param name="recoilTime">The time over which the recoil is applied, measured in seconds</param>
+    public void NewRecoil(Vector2 recoilDir, float recoilTime)
     {
         StartCoroutine(ChangeRecoilDirection(recoilDir, recoilTime));
-        remainingRecoilTime = Mathf.Max(remainingRecoilTime, recoilTime + resetTime);
+        recoilActive = true;
     }
 
+    /// <summary>
+    /// Applies movement to the camera direction over time via recoilLookDirection. Called in NewRecoil. 
+    /// </summary>
+    /// <param name="recoilDir">The total distance the camera will be moved, measured in degrees.</param>
+    /// <param name="recoilTime">The time over which the recoil is applied, measured in seconds</param>
+    /// <returns></returns>
     private IEnumerator ChangeRecoilDirection(Vector2 recoilDir, float recoilTime)
     {
         float recoilProgress = 0.0f;
