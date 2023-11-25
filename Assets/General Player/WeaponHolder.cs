@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using DamageDetails;
 using Coherence.Toolkit;
 using Coherence;
@@ -30,6 +29,7 @@ public class WeaponHolder : MonoBehaviour
     private string gunName = "basic";
     [SerializeField] 
     private bool automatic = false;
+    private bool randomizePattern = false;
     [SerializeField] 
     private float reloadTime = 2.0f;
     [SerializeField]
@@ -59,6 +59,7 @@ public class WeaponHolder : MonoBehaviour
     {
         gunName = weapon.gunName;
         automatic = weapon.automatic;
+        randomizePattern = weapon.randomizePattern;
         reloadTime = weapon.reloadTime;
         maxAmmo = weapon.maxAmmo;
         closeDamage = weapon.closeDamage;
@@ -96,7 +97,7 @@ public class WeaponHolder : MonoBehaviour
         if (!defaultBehaviourEnabled) return;
 
         timeSinceLastShot += 1.0f * Time.deltaTime;
-        if (timeSinceLastShot >= resetTime) patternIndex = 0;
+        if (timeSinceLastShot >= resetTime && !randomizePattern) patternIndex = 0;
 
         if (cooling) CoolDown();
         else if (reloading) Reload();
@@ -189,8 +190,16 @@ public class WeaponHolder : MonoBehaviour
         GetComponent<PlayerMovement>().NewRecoil(shotPatterns[patternIndex].recoilDirection, shotPatterns[patternIndex].recoilTime, resetTime);
 
         if (!automatic) inputtingFire = false;
-        patternIndex += 1;
-        patternIndex = patternIndex % shotPatterns.Count;
+        if (randomizePattern)
+        {
+            patternIndex += 1;
+            patternIndex = patternIndex % shotPatterns.Count;
+        }
+        else
+        {
+            patternIndex = Mathf.FloorToInt(Random.Range(0, shotPatterns.Count));
+        }
+        
     }
 
     private void GunShotDecorations()
