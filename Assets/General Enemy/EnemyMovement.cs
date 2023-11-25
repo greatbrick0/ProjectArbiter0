@@ -10,11 +10,17 @@ public class EnemyMovement : MonoBehaviour
     public Vector3 targetPos;
 
     private NavMeshAgent agent;
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void Start()
     {
         targetPos = transform.position;
-        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
