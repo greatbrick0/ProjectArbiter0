@@ -46,6 +46,8 @@ public class PlayerInput : MonoBehaviour
     public float mouseXSens = 1.0f;
     public float mouseYSens = 1.0f;
 
+    bool inMenuBehaviour = true;
+
     [Serializable] public class InputAndName //not even one hour into the project and im already back to my horrendous ways
     {
         public InputAndName(string initName, KeyCode initInput)
@@ -72,12 +74,35 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+        if (!inMenuBehaviour) DefualtBehaviour();
+    }
+
+    public void SetInMenuBehaviour(bool newBehaviour)
+    {
+        inMenuBehaviour = newBehaviour;
+        playerMovement.SetDefaultMovementEnabled(!newBehaviour);
+        weapon.SetDefaultBehaviourEnabled(!newBehaviour);
+        if (newBehaviour) ShowMouse();
+        else HideMouse();
+    }
+
+    private void DefualtBehaviour()
+    {
         if (Input.GetKey(KeyCode.Escape))
         {
             ShowMouse();
             playerMovement.SetDefaultMovementEnabled(false);
+            weapon.SetDefaultBehaviourEnabled(false);
 
             FMODUnity.RuntimeManager.PauseAllEvents(true);
+        }
+        else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        {
+            HideMouse();
+            playerMovement.SetDefaultMovementEnabled(true);
+            weapon.SetDefaultBehaviourEnabled(true);
+
+            FMODUnity.RuntimeManager.PauseAllEvents(false);
         }
 
         inputtedMoveDirection = Vector3.zero;

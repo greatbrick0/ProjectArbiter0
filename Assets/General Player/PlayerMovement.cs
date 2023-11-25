@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     float yVelocity = 0.0f;
 
     bool jumpInputted = false;
+    float timeSinceJumpInput = 0.0f;
     Vector3 inputtedMoveDirection = Vector3.zero;
 
     private Vector2 inputtedLookDirection = Vector2.zero;
@@ -51,11 +52,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
-        {
-            if(defaultMovementEnabled) GetComponent<PlayerInput>()?.HideMouse();
-        }
-
         if (defaultMovementEnabled)
         {
             DetermineLookDirection();
