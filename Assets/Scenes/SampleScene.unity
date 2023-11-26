@@ -398,18 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35ae61fed14df4982150d0233854ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &89672327 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6000918072062803087, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
-    type: 3}
-  m_PrefabInstance: {fileID: 1538745848}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0e381e59d31af4f9280dbdb81d66dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &203128596
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,9 +759,9 @@ MonoBehaviour:
   onDisconnected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 89672327}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: SetDefaultMovementEnabled
+      - m_Target: {fileID: 89672326}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
+        m_MethodName: SetInMenuBehaviour
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -781,7 +769,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onConnectionError:
     m_PersistentCalls:

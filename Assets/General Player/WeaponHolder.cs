@@ -207,7 +207,7 @@ public class WeaponHolder : MonoBehaviour
         if (randomizePattern)
         {
             patternIndex += 1;
-            patternIndex = patternIndex % shotPatterns.Count;
+            patternIndex %= shotPatterns.Count;
         }
         else
         {
