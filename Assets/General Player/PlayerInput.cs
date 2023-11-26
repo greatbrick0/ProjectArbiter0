@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using FMODUnity;
+using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
@@ -11,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     Transform head;
     PlayerMovement playerMovement;
+    WeaponHolder weapon;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -22,16 +26,29 @@ public class PlayerInput : MonoBehaviour
         new InputAndName("forward", KeyCode.W),
         new InputAndName("backward", KeyCode.S),
         new InputAndName("left", KeyCode.A),
-        new InputAndName("right", KeyCode.D)
+        new InputAndName("right", KeyCode.D),
     };
+
     Dictionary<string, KeyCode> wasdKeys = new Dictionary<string, KeyCode> { };
-    [SerializeField]
-    KeyCode jumpKey = KeyCode.Space;
+    
+    [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] KeyCode reloadKey = KeyCode.R;
+    [SerializeField] KeyCode shootKey = KeyCode.Mouse0;
+    [SerializeField] private List<InputAndName> abilityKeysInit = new List<InputAndName>
+    {
+        new InputAndName("ability1", KeyCode.Q),
+        new InputAndName("ability2", KeyCode.LeftShift),
+        new InputAndName("ability3", KeyCode.F)
+    };
+
+    Dictionary<string, KeyCode> abilityKeys = new Dictionary<string, KeyCode> { };
+
     public float mouseXSens = 1.0f;
     public float mouseYSens = 1.0f;
 
-    [Serializable]
-    public class InputAndName //not even one hour into the project and im already back to my horrendous ways
+    bool inMenuBehaviour = true;
+
+    [Serializable] public class InputAndName //not even one hour into the project and im already back to my horrendous ways
     {
         public InputAndName(string initName, KeyCode initInput)
         {
@@ -49,18 +66,43 @@ public class PlayerInput : MonoBehaviour
         cameraRef = Instantiate(cameraRef);
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
-        foreach (InputAndName ii in wasdKeysInit)
-        {
-            wasdKeys.Add(ii.name, ii.input);
-        }
+        weapon = GetComponent<WeaponHolder>();
+        weapon.cam = cameraRef.GetComponent<Camera>();
+        foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
+        foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
     }
 
     void Update()
+    {
+        if (!inMenuBehaviour) DefualtBehaviour();
+    }
+
+    public void SetInMenuBehaviour(bool newBehaviour)
+    {
+        inMenuBehaviour = newBehaviour;
+        playerMovement.SetDefaultMovementEnabled(!newBehaviour);
+        weapon.SetDefaultBehaviourEnabled(!newBehaviour);
+        if (newBehaviour) ShowMouse();
+        else HideMouse();
+    }
+
+    private void DefualtBehaviour()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
             ShowMouse();
             playerMovement.SetDefaultMovementEnabled(false);
+            weapon.SetDefaultBehaviourEnabled(false);
+
+            FMODUnity.RuntimeManager.PauseAllEvents(true);
+        }
+        else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        {
+            HideMouse();
+            playerMovement.SetDefaultMovementEnabled(true);
+            weapon.SetDefaultBehaviourEnabled(true);
+
+            FMODUnity.RuntimeManager.PauseAllEvents(false);
         }
 
         inputtedMoveDirection = Vector3.zero;
@@ -69,13 +111,29 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(wasdKeys["left"])) inputtedMoveDirection -= transform.right;
         if (Input.GetKey(wasdKeys["right"])) inputtedMoveDirection += transform.right;
 
-        if (Input.GetKeyDown(jumpKey)) jumpInputted = true;
+        if (Input.GetKeyDown(jumpKey) && playerMovement.defaultMovementEnabled) jumpInputted = true;
 
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
         inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
 
         playerMovement.SetInputs(inputtedMoveDirection, jumpInputted, inputtedLookDirection);
+
+        if (weapon != null)
+        {
+            if (Input.GetKeyDown(shootKey))
+            {
+                weapon.StartInput();
+            }
+            else if (Input.GetKeyUp(shootKey))
+            {
+                weapon.EndInput();
+            }
+            if (Input.GetKeyDown(reloadKey))
+            {
+                weapon.StartReload();
+            }
+        }
     }
 
     public void FinishJump()
