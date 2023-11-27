@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Coherence.Toolkit;
+using UnityEditor.Experimental.GraphView;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -171,5 +172,17 @@ public class PlayerMovement : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void ExternalMotionApply(float slowDuration) //i guess you can overload this with a forcedirection if that is cooler.
+    {
+        StopCoroutine(ApplySlow(slowDuration));
+        StartCoroutine(ApplySlow(slowDuration));
+    }
+    public IEnumerator ApplySlow(float duration)
+    {
+        maxMoveSpeed /= 2;
+        yield return new WaitForSeconds(duration);
+        maxMoveSpeed *= 2;
     }
 }
