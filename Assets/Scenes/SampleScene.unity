@@ -3921,19 +3921,34 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
+      propertyPath: HUDRef
+      value: 
+      objectReference: {fileID: 2033767882}
+    - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: baseSanityRegen
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: improvedSanityRegen
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
       propertyPath: abilities.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
       propertyPath: cooldowns.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
       propertyPath: abilities.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 2c59086379ca2ad43aedf39ab3c166a9,
+      objectReference: {fileID: 11400000, guid: fddb00d79cdf2694fa816b60ca9edc18,
         type: 2}
     - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
@@ -4603,6 +4618,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028961512}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2033767882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1104371889440446017, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538745848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb53a750cecb14f4a935e8274aee6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2040977967 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 585f1e7a7e4299c4f9a89bb937971a64,

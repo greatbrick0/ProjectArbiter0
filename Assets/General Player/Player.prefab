@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 7446777447677368580}
   - component: {fileID: 2021298388301607510}
   - component: {fileID: 1390823402947842081}
+  - component: {fileID: 8751002839937151779}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -417,6 +418,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 3901741527115270495}
       lodStepsActive: 1
+    - component: {fileID: 8751002839937151779}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -469,6 +472,7 @@ MonoBehaviour:
   - rid: 9124837619685130256
   - rid: 9124837619685130257
   - rid: 9124837733054021666
+  - rid: 5567048967824081124
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -557,6 +561,11 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 5567048967824081124
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 8751002839937151779}
     - rid: 9124837619685130245
       type: {class: PositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
@@ -803,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementRef: {fileID: 6000918072062803087}
+  HUDRef: {fileID: 0}
   abilities:
   - {fileID: 11400000, guid: fddb00d79cdf2694fa816b60ca9edc18, type: 2}
   cooldowns:
@@ -810,14 +820,27 @@ MonoBehaviour:
   SanityMaximum: 100
   targetSanity: 100
   currentSanity: 100
-  baseSanityRegen: 1
-  improvedSanityRegen: 1.5
+  baseSanityRegen: 3
+  improvedSanityRegen: 6
+  postDemonAbilityLockDuration: 0
   chargeTime: 0
   newAbility: {fileID: 0}
   inDemonicState: 0
   abilityOffset: {fileID: 3800042346541162947}
   inputsDisabled: 0
-  postDemonAbilityLock: 0
+--- !u!114 &8751002839937151779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e505464391e5a07469cb3603d1504278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HUDref: {fileID: 4244561015044767550, guid: 2dac7bc844b9c824f8523977dd4b98c4, type: 3}
 --- !u!1 &3800042346541162947
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class WeaponHolder : MonoBehaviour
     private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
     private PlayerMovement movementScript;
+    private HUDGunAmmoScript hudGunRef;
     [HideInInspector]
     public Camera cam { private get; set; }
     private Ray ray;
@@ -88,11 +89,20 @@ public class WeaponHolder : MonoBehaviour
     {
         sync = GetComponent<CoherenceSync>();
         movementScript = GetComponent<PlayerMovement>();
+        
         SetAllStats();
         currentAmmo = maxAmmo;
+        
 #if (UNITY_EDITOR)
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
 #endif
+    }
+
+    public void GetHUDReference() //I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...
+    {
+        hudGunRef = GameObject.Find("GunHUD").GetComponent<HUDGunAmmoScript>();
+        hudGunRef.SetCurrentAmmo(currentAmmo);
+        hudGunRef.SetMaxAmmo(maxAmmo);
     }
 
     private void Update()
@@ -158,6 +168,7 @@ public class WeaponHolder : MonoBehaviour
             reloading = false;
             reloadProgress = 0;
             currentAmmo = maxAmmo;
+            hudGunRef.SetCurrentAmmo(maxAmmo);
         }
     }
 
@@ -223,6 +234,7 @@ public class WeaponHolder : MonoBehaviour
     {
         muzzleFlash.Reinit();
         FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
+        hudGunRef.UseShot();
     }
 
     /// <summary>

@@ -10,6 +10,7 @@ public class PlayerAbilitySystem : MonoBehaviour
     //public Animator animator;
     public PlayerMovement movementRef; //When casting, you probably want to reduce movement/input speed.
     private CoherenceSync sync;
+    public HUDSystem HUDRef;
 
     //Hardcoding for 3 abilities for the moment. I hate this cooldown list, but I cant be bothered to make a class right now.
     [SerializeField] private List<AbilityCastInfo> abilities = new List<AbilityCastInfo>(3);
@@ -23,6 +24,10 @@ public class PlayerAbilitySystem : MonoBehaviour
 
     [SerializeField] private float baseSanityRegen;
     [SerializeField] private float improvedSanityRegen;
+
+    private bool postDemonAbilityLock = false; //After exiting demon form, you have to wait for sanity to fully recharge before you can cast.
+    public float postDemonAbilityLockDuration;
+
 
     private bool sanityDecreasing = false;
 
@@ -46,7 +51,7 @@ public class PlayerAbilitySystem : MonoBehaviour
     protected bool inAnimationOther = false;
     public bool inputsDisabled = false;
 
-    public bool postDemonAbilityLock = false; //After exiting demon form, you have to wait for sanity to fully recharge before you can cast.
+    
 
 
 
@@ -54,9 +59,15 @@ public class PlayerAbilitySystem : MonoBehaviour
     public void Awake()
     {
         sync = GetComponent<CoherenceSync>();
+        
         targetSanity = SanityMaximum;
         //Assign all References
         //animator = GetComponent<Animator>();
+    }
+
+    public void GetHUDReference()
+    {
+        HUDRef = GameObject.Find("PlayerHUD(Clone)").GetComponent<HUDSystem>();
     }
 
     public void AssignAbilities(List<AbilityCastInfo> newAbilities) //probably could save a line, but im tired
@@ -111,6 +122,13 @@ public class PlayerAbilitySystem : MonoBehaviour
                 sanityDecreasing = false;
             }
         }
+        else if (inDemonicState)
+        {
+            currentSanity += Time.deltaTime * improvedSanityRegen;
+            targetSanity = currentSanity;
+            if (currentSanity >= SanityMaximum)
+                ExitDemonForm();
+        }
         else
         {
             if (currentSanity < SanityMaximum)
@@ -119,7 +137,7 @@ public class PlayerAbilitySystem : MonoBehaviour
                 targetSanity = currentSanity;
             }
         }
-
+        if (HUDRef != null) HUDRef.LiveSanityUpdate(currentSanity);
     }
 
     public void CastProcess(int tier) //most casting logic.
@@ -136,10 +154,14 @@ public class PlayerAbilitySystem : MonoBehaviour
         //Sanity cost
         if (cast.sanCost > 0)
         {
-            sanityDecreasing = true;
-            targetSanity -= cast.sanCost;
+            if (!inDemonicState)
+            {
+                sanityDecreasing = true;
+                targetSanity -= cast.sanCost;
+            }
         }
-        
+
+        HUDRef.UseAbility(tier);
 
         if (cast.abilityRef != null) //if spell has a physical component/projectile, etc..
         {
@@ -157,18 +179,31 @@ public class PlayerAbilitySystem : MonoBehaviour
         
         if (targetSanity <= 0 && !inDemonicState)
         {
+            currentSanity = 0;
+            targetSanity = 0;
             DemonTransformation();
+            
         }
 
     }
 
+    private IEnumerator PostDemonicSpellLockTimer()
+    {
+        postDemonAbilityLock = true;
+        yield return new WaitForSeconds(postDemonAbilityLockDuration);
+        postDemonAbilityLock = false;
+
+    }
     private void DemonTransformation()
     {
         inDemonicState = true;
+        HUDRef.SanityDemonicChange(true);
     }
 
     private void ExitDemonForm()
     {
-
+        inDemonicState = false;
+        HUDRef.SanityDemonicChange(false);
+        StartCoroutine(PostDemonicSpellLockTimer());
     }
 }
