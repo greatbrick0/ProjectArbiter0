@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 6000918072062803087}
   - component: {fileID: 7446777447677368580}
   - component: {fileID: 2021298388301607510}
+  - component: {fileID: 1390823402947842081}
+  - component: {fileID: 8751002839937151779}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -412,6 +414,12 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 7189452040746007019}
       lodStepsActive: 1
+    - component: {fileID: 1390823402947842081}
+      lodStepsActive: 1
+    - component: {fileID: 3901741527115270495}
+      lodStepsActive: 1
+    - component: {fileID: 8751002839937151779}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -446,6 +454,7 @@ MonoBehaviour:
   - rid: 9124837619685130247
   - rid: 9124837619685130249
   - rid: 5545163782292242432
+  - rid: 5567048967824080937
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -463,6 +472,7 @@ MonoBehaviour:
   - rid: 9124837619685130256
   - rid: 9124837619685130257
   - rid: 9124837733054021666
+  - rid: 5567048967824081124
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -511,6 +521,51 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 5567048967824080937
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 5567048967824080938
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 9fe7a5dd-d62d-4dcf-92b3-7ffc395dc389
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 1390823402947842081}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 5567048967824080938
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: CastProcess
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes:
+        - System.Int32, mscorlib
+        ownerType:
+          assemblyQualifiedName: PlayerAbilitySystem, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 5567048967824081124
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 8751002839937151779}
     - rid: 9124837619685130245
       type: {class: PositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
@@ -675,7 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0e381e59d31af4f9280dbdb81d66dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMovementEnabled: 0
+  <defaultMovementEnabled>k__BackingField: 0
   head: {fileID: 3402058366864678147}
   maxMoveSpeed: 4
   moveSpeedAccel: 20
@@ -683,6 +738,7 @@ MonoBehaviour:
   jumpStrength: 7
   defualtGravityAccel: 10
   recoilRecentreSpeed: 90
+  recoilActive: 0
 --- !u!114 &7446777447677368580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +796,82 @@ MonoBehaviour:
   maxAmmo: 0
   range: 0
   <reloading>k__BackingField: 0
+  cooling: 0
   <currentAmmo>k__BackingField: 0
+  patternIndex: 0
+--- !u!114 &1390823402947842081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d417fa96394f1c4b85de3cd13192d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementRef: {fileID: 6000918072062803087}
+  HUDRef: {fileID: 0}
+  abilities:
+  - {fileID: 11400000, guid: fddb00d79cdf2694fa816b60ca9edc18, type: 2}
+  cooldowns:
+  - 0
+  SanityMaximum: 100
+  targetSanity: 100
+  currentSanity: 100
+  baseSanityRegen: 3
+  improvedSanityRegen: 6
+  postDemonAbilityLockDuration: 0
+  chargeTime: 0
+  newAbility: {fileID: 0}
+  inDemonicState: 0
+  abilityOffset: {fileID: 3800042346541162947}
+  inputsDisabled: 0
+--- !u!114 &8751002839937151779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e505464391e5a07469cb3603d1504278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HUDref: {fileID: 0}
+--- !u!1 &3800042346541162947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3901741527115270495}
+  m_Layer: 0
+  m_Name: SpellOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3901741527115270495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800042346541162947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 787267086442653583}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3883505156724150720
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +903,7 @@ Transform:
   - {fileID: 5380809101968705179}
   - {fileID: 6258438222801072510}
   - {fileID: 290404473468998225}
+  - {fileID: 3901741527115270495}
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
