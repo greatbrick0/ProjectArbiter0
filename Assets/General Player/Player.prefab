@@ -732,12 +732,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <defaultMovementEnabled>k__BackingField: 0
   head: {fileID: 3402058366864678147}
-  maxMoveSpeed: 4
-  moveSpeedAccel: 20
-  moveSpeedDeccel: 30
-  jumpStrength: 7
-  defualtGravityAccel: 10
-  recoilRecentreSpeed: 90
+  maxMoveSpeed: 5.5
+  moveSpeedAccel: 50
+  moveSpeedDeccel: 40
+  jumpStrength: 8
+  defualtGravityAccel: 16
+  <grounded>k__BackingField: 0
   recoilActive: 0
 --- !u!114 &7446777447677368580
 MonoBehaviour:
@@ -773,8 +773,8 @@ MonoBehaviour:
     input: 304
   - <name>k__BackingField: ability3
     input: 102
-  mouseXSens: 1
-  mouseYSens: 1
+  mouseXSens: 0.3
+  mouseYSens: 0.3
 --- !u!114 &2021298388301607510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +818,6 @@ MonoBehaviour:
   cooldowns:
   - 0
   SanityMaximum: 100
-  targetSanity: 100
   currentSanity: 100
   baseSanityRegen: 3
   improvedSanityRegen: 6

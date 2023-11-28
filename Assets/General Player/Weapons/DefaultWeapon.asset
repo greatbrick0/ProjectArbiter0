@@ -16,14 +16,19 @@ MonoBehaviour:
   <automatic>k__BackingField: 0
   <reloadTime>k__BackingField: 2
   <maxAmmo>k__BackingField: 12
-  <closeDamage>k__BackingField: {x: 3, y: 30}
-  <farDamage>k__BackingField: {x: 15, y: 10}
+  <closeDamage>k__BackingField: {x: 15, y: 30}
+  <farDamage>k__BackingField: {x: 35, y: 15}
   <shotPattern>k__BackingField:
   - <points>k__BackingField:
     - {x: 0, y: 0}
     <cooldownTime>k__BackingField: 0.2
-    <recoilDirection>k__BackingField: {x: 0, y: 4}
+    <recoilDirection>k__BackingField: {x: 1, y: 4}
     <recoilTime>k__BackingField: 0.1
-  <range>k__BackingField: 20
+  - <points>k__BackingField:
+    - {x: 0, y: 0}
+    <cooldownTime>k__BackingField: 0.2
+    <recoilDirection>k__BackingField: {x: -1, y: 4}
+    <recoilTime>k__BackingField: 0.1
+  <range>k__BackingField: 50
   <resetTime>k__BackingField: 0.25
   <maxRecoilBounds>k__BackingField: {x: 20, y: 20}
