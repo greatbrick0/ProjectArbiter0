@@ -39,6 +39,7 @@ public class EnemyHealth : Damageable
 
     void Die()
     {
+        FindObjectOfType<ObjectiveManager>().UpdateStat("EnemiesKilled", 1, true);
         Destroy(this.gameObject);
     }
 }
