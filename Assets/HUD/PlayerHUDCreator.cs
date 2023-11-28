@@ -10,7 +10,13 @@ public class PlayerHUDCreator : MonoBehaviour
 
     public void Awake()
     {
-        Instantiate(HUDref);
+        if (HUDref != null) Instantiate(HUDref);
+        Invoke(nameof(AssignUIToComponents),0.5f);
+        
+    }
+
+    private void AssignUIToComponents()
+    {
         GetComponent<WeaponHolder>().GetHUDReference();
         GetComponent<PlayerAbilitySystem>().GetHUDReference();
     }

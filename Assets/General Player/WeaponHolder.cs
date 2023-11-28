@@ -126,6 +126,7 @@ public class WeaponHolder : MonoBehaviour
                 straight = cam.transform.forward;
                 originPos = cam.transform.position;
                 sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
+                hudGunRef.UseShot();
             }
         }
     }
@@ -234,7 +235,7 @@ public class WeaponHolder : MonoBehaviour
     {
         muzzleFlash.Reinit();
         FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
-        hudGunRef.UseShot();
+        
     }
 
     /// <summary>

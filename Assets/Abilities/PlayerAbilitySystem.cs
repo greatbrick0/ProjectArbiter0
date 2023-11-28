@@ -19,7 +19,6 @@ public class PlayerAbilitySystem : MonoBehaviour
 
     //Sanity Variables
     [SerializeField] private float SanityMaximum = 100;
-    [SerializeField] private float targetSanity;
     [SerializeField] private float currentSanity;
 
     [SerializeField] private float baseSanityRegen;
@@ -60,14 +59,13 @@ public class PlayerAbilitySystem : MonoBehaviour
     {
         sync = GetComponent<CoherenceSync>();
         
-        targetSanity = SanityMaximum;
         //Assign all References
         //animator = GetComponent<Animator>();
     }
 
     public void GetHUDReference()
     {
-        HUDRef = GameObject.Find("PlayerHUD(Clone)").GetComponent<HUDSystem>();
+        HUDRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>();
     }
 
     public void AssignAbilities(List<AbilityCastInfo> newAbilities) //probably could save a line, but im tired
@@ -90,7 +88,10 @@ public class PlayerAbilitySystem : MonoBehaviour
         {
             if (cooldowns[tier] <= 0)
             {
+                HUDRef.UseAbility(tier);
+                SanityPrice(tier);
                 sync.SendCommand<PlayerAbilitySystem>(nameof(CastProcess), MessageTarget.All, tier);
+                
             }
         }
         else //insert castexception here. UI or Audio, probably.
@@ -113,19 +114,11 @@ public class PlayerAbilitySystem : MonoBehaviour
         }
 
         //Update sanity value.
-        if (sanityDecreasing)
-        {
-            currentSanity = Mathf.Lerp(currentSanity, targetSanity, Time.deltaTime); //lerps down towards new sanity value
-            if (currentSanity - targetSanity < 0.5) //'clicks' when it is close enough;
-            {
-                currentSanity = targetSanity;
-                sanityDecreasing = false;
-            }
-        }
-        else if (inDemonicState)
+        
+        if (inDemonicState)
         {
             currentSanity += Time.deltaTime * improvedSanityRegen;
-            targetSanity = currentSanity;
+          
             if (currentSanity >= SanityMaximum)
                 ExitDemonForm();
         }
@@ -134,10 +127,10 @@ public class PlayerAbilitySystem : MonoBehaviour
             if (currentSanity < SanityMaximum)
             {
                 currentSanity += Time.deltaTime * baseSanityRegen;
-                targetSanity = currentSanity;
+                if (HUDRef != null) HUDRef.SanityUpdate(currentSanity);
             }
         }
-        if (HUDRef != null) HUDRef.LiveSanityUpdate(currentSanity);
+       
     }
 
     public void CastProcess(int tier) //most casting logic.
@@ -150,18 +143,8 @@ public class PlayerAbilitySystem : MonoBehaviour
         {
             cooldowns[cooldownIndex] = cast.cooldownTime;
         }
-
-        //Sanity cost
-        if (cast.sanCost > 0)
-        {
-            if (!inDemonicState)
-            {
-                sanityDecreasing = true;
-                targetSanity -= cast.sanCost;
-            }
-        }
-
-        HUDRef.UseAbility(tier);
+     
+              
 
         if (cast.abilityRef != null) //if spell has a physical component/projectile, etc..
         {
@@ -177,10 +160,9 @@ public class PlayerAbilitySystem : MonoBehaviour
         }
 
         
-        if (targetSanity <= 0 && !inDemonicState)
+        if (currentSanity <= 0 && !inDemonicState)
         {
             currentSanity = 0;
-            targetSanity = 0;
             DemonTransformation();
             
         }
@@ -200,6 +182,21 @@ public class PlayerAbilitySystem : MonoBehaviour
         HUDRef.SanityDemonicChange(true);
     }
 
+    private void SanityPrice(int tier)
+    {
+        if (abilities[tier].sanCost > 0)
+        {
+            if (!inDemonicState)
+            {
+                sanityDecreasing = true;
+                currentSanity -= abilities[tier].sanCost;
+            }
+        }
+        if (HUDRef != null)
+        {
+             if (HUDRef != null) HUDRef.SanityUpdate(currentSanity);
+        }
+    }
     private void ExitDemonForm()
     {
         inDemonicState = false;

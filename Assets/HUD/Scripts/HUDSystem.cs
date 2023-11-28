@@ -16,17 +16,22 @@ public class HUDSystem : MonoBehaviour
 
     [SerializeField]
     GameObject SanityBar;
+    private float targetSanity = 100;
 
 
+    public void Update()
+    {
+        SanityBar.transform.localScale = new Vector3(Mathf.Lerp(SanityBar.transform.localScale.x, 1 / (100 / targetSanity), Time.deltaTime), 1, 1);
+    }
     public void UseAbility(int tier)
     {
         abilityIcons[tier].UseSpell();
     }
 
 
-    public void LiveSanityUpdate(float currentSanity)
+    public void SanityUpdate(float newTarget)
     {
-        SanityBar.transform.localScale= new Vector3(1 / (100 / currentSanity),1,1);
+        targetSanity = newTarget;
     }
 
     public void SanityDemonicChange(bool Demonic)
