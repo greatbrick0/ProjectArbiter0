@@ -154,7 +154,6 @@ Transform:
   m_Children:
   - {fileID: 787267086442653583}
   - {fileID: 3402058366864678147}
-  - {fileID: 8127347517799184015}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -624,6 +623,7 @@ MonoBehaviour:
   - rid: 9124837619685130249
   - rid: 5545163782292242432
   - rid: 5567048967824080937
+  - rid: 5545164347301429251
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -688,6 +688,49 @@ MonoBehaviour:
         bindingType:
           assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 5545164347301429251
+      type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 5545164347301429252
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 26ac9dfd-6e38-439e-984a-423db526fdb5
+        archetypeData:
+          type: 3
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 3
+            bits: 1
+            precision: 0
+            floatCompression: 0
+        unityComponent: {fileID: 8127347517799184014}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 5545164347301429252
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: walking
+        monoAssemblyType: System.Boolean, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerAnimation, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.BoolBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
     - rid: 5567048967824080937
@@ -922,6 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRef: {fileID: 5459987798418853067, guid: bf6d424187e85e24a9129fc767e092cd,
     type: 3}
+  selfBodyModel: {fileID: 8127347517799184009}
   head: {fileID: 3402058366864678147}
   wasdKeysInit:
   - <name>k__BackingField: forward
@@ -1072,6 +1116,7 @@ Transform:
   - {fileID: 6258438222801072510}
   - {fileID: 290404473468998225}
   - {fileID: 3901741527115270495}
+  - {fileID: 8127347517799184015}
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1784,12 +1829,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8872450027310171148}
+    m_TransformParent: {fileID: 787267086442653583}
     m_Modifications:
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
@@ -1814,17 +1859,17 @@ PrefabInstance:
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
@@ -2280,13 +2325,19 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 7965026933458792941}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8127347517799184009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2180681522144102244, guid: c1d930555b2eb17498f991eee3da5dd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7965026933458792941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8127347517799184014 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2180681522144102243, guid: c1d930555b2eb17498f991eee3da5dd2,
     type: 3}
   m_PrefabInstance: {fileID: 7965026933458792941}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8127347517799184009}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f28d964d92673948a7c4225ddac3c9e, type: 3}

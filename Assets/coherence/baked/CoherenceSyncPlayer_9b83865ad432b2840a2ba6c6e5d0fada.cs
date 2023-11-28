@@ -140,6 +140,50 @@ namespace Coherence.Generated
 		}
 	}
 
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_26ac9dfd_6e38_439e_984a_423db526fdb5 : BoolBinding
+	{
+		private global::PlayerAnimation CastedUnityComponent;
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (global::PlayerAnimation)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014";
+
+		public override uint FieldMask => 0b00000000000000000000000000000001;
+
+		public override bool Value
+		{
+			get { return (System.Boolean)(CastedUnityComponent.walking); }
+			set { CastedUnityComponent.walking = (System.Boolean)(value); }
+		}
+
+		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
+		{
+			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014)coherenceComponent).walking;
+			return value;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
+		{
+			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014)coherenceComponent;
+			if (RuntimeInterpolationSettings.IsInterpolationNone) 
+			{
+				update.walking = Value;
+			}
+			else 
+			{
+				update.walking = GetInterpolatedAt(time);
+			}
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014();
+		}
+	}
+
 
 	[Preserve]
 	public class CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada : CoherenceSyncBaked
@@ -159,6 +203,7 @@ namespace Coherence.Generated
 			["3d22ccd7-07c4-4bda-b0b6-5862e909674f"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_3d22ccd7_07c4_4bda_b0b6_5862e909674f(),
 			["2c785a2d-c548-42de-8412-2740b17abb15"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_2c785a2d_c548_42de_8412_2740b17abb15(),
 			["949f846f-8e45-4bea-9851-d48e7073913c"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_949f846f_8e45_4bea_9851_d48e7073913c(),
+			["26ac9dfd-6e38-439e-984a-423db526fdb5"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_26ac9dfd_6e38_439e_984a_423db526fdb5(),
 		};
 
 		private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings =
