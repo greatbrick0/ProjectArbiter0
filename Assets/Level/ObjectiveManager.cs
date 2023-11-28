@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Linq;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -23,20 +24,22 @@ public class ObjectiveManager : MonoBehaviour
     [Serializable] public class Objective
     {
         [field: SerializeField] public List<Requirement> requirements { get; private set; }
+        [field: SerializeField] public UnityEvent completionEvent { get; private set; }
 
         public Objective()
         {
             requirements = new List<Requirement>();
+            completionEvent = new UnityEvent();
         }
 
         public bool EvaluateObjective(Dictionary<string, float> trackedStats)
         {
+            bool output = true;
             foreach(Requirement ii in requirements)
             {
-                print(ii.statType);
-                if (!ii.EvaluateRequirement(trackedStats[ii.statType])) return false;
+                if (!ii.EvaluateRequirement(trackedStats[ii.statType])) output = false;
             }
-            return true;
+            return output;
         }
     }
 
@@ -71,6 +74,7 @@ public class ObjectiveManager : MonoBehaviour
 
     private void CompleteObjective()
     {
+        objectives[objectiveIndex].completionEvent.Invoke();
         ResetTrackedStats();
 
         if (objectives.Count > objectiveIndex + 1)
@@ -85,9 +89,9 @@ public class ObjectiveManager : MonoBehaviour
 
     private void ResetTrackedStats()
     {
-        foreach(KeyValuePair<string,float> stat in trackedStats)
+        foreach(string stat in trackedStats.Keys.ToList())
         {
-            trackedStats[stat.Key] = 0;
+            trackedStats[stat] = 0;
         }
     }
 }
