@@ -14,6 +14,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     GameObject selfBodyModel;
     [SerializeField]
+    GameObject selfGunModel;
+    [SerializeField]
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
@@ -67,6 +69,7 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         SetLayerRecursively(selfBodyModel, 9);
+        SetLayerRecursively(selfGunModel, 10);
         cameraRef = Instantiate(cameraRef);
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
