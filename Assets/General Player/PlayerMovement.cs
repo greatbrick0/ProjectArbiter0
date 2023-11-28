@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform head;
     Rigidbody rb;
+    [SerializeField]
+    PlayerAnimation anim;
 
     [Header("Movement Variables")]
     [SerializeField]
@@ -118,11 +120,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hVelocity.sqrMagnitude <= moveSpeedDeccel * Time.deltaTime) hVelocity = Vector3.zero;
             else hVelocity -= hVelocity.normalized * moveSpeedDeccel * Time.deltaTime;
+            anim.walking = false;
         }
         else
         {
             hVelocity += new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime;
             hVelocity = Vector2.ClampMagnitude(hVelocity, maxMoveSpeed);
+            anim.walking = true;
         }
 
         yVelocity -= defualtGravityAccel * Time.deltaTime;
