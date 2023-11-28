@@ -15,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
+    PlayerAbilitySystem playerAbility;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -63,10 +64,12 @@ public class PlayerInput : MonoBehaviour
 
     private void Start()
     {
+        
         cameraRef = Instantiate(cameraRef);
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<WeaponHolder>();
+        playerAbility = GetComponent<PlayerAbilitySystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
         foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
@@ -88,6 +91,7 @@ public class PlayerInput : MonoBehaviour
 
     private void DefualtBehaviour()
     {
+        
         if (Input.GetKey(KeyCode.Escape))
         {
             ShowMouse();
@@ -104,7 +108,7 @@ public class PlayerInput : MonoBehaviour
 
             FMODUnity.RuntimeManager.PauseAllEvents(false);
         }
-
+        
         inputtedMoveDirection = Vector3.zero;
         if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;
         if (Input.GetKey(wasdKeys["backward"])) inputtedMoveDirection -= transform.forward;
@@ -133,6 +137,18 @@ public class PlayerInput : MonoBehaviour
             {
                 weapon.StartReload();
             }
+        }
+
+
+        if (playerAbility != null)
+        {
+            if (Input.GetKeyDown(abilityKeys["ability1"])) playerAbility.AttemptCast(0);
+
+            if (Input.GetKeyDown(abilityKeys["ability2"])) playerAbility.AttemptCast(1);
+
+            if (Input.GetKeyDown(abilityKeys["ability3"])) playerAbility.AttemptCast(2);
+
+
         }
     }
 

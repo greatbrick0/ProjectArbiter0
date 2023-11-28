@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c5bf0c2065cbb40a58f273150a008f, type: 3}
+  m_Name: TestAbility1
+  m_EditorClassIdentifier: 
+  abilityRef: {fileID: 997103400830848013, guid: 3d6c5c7930de52e4a925fbae152883ca,
+    type: 3}
+  hasCooldown: 1
+  cooldownTime: 6
+  chargable: 0
+  castSlowDuration: 1
+  cancellable: 0
+  canRecast: 0
+  canToggle: 0
+  hasSanityCost: 1
+  sanCost: 10
+  sanVar: 0
+  sanRecoverMod: 1
+  demonic: 0
