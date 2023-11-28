@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     bool jumpInputted = false;
     float timeSinceJumpInput = 0.0f;
+    [field: SerializeField]
+    public bool grounded { get; private set; } = false;
+    float timeSinceGrounded = 0.0f;
+
     Vector3 inputtedMoveDirection = Vector3.zero;
 
     private Vector2 inputtedLookDirection = Vector2.zero;
@@ -123,9 +127,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         yVelocity -= defualtGravityAccel * Time.deltaTime;
-        if (jumpInputted) PlayerJump();
+        if (jumpInputted && grounded) PlayerJump();
 
         rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
+        grounded = false;
     }
 
     private void PlayerJump()
@@ -160,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ChangeRecoilDirection(Vector2 recoilDir, float recoilTime)
     {
         float recoilProgress = 0.0f;
-        float recoilSpeed = 0.0f;
+        float recoilSpeed;
 
         while(recoilProgress < recoilTime)
         {
@@ -179,10 +184,18 @@ public class PlayerMovement : MonoBehaviour
         StopCoroutine(ApplySlow(slowDuration));
         StartCoroutine(ApplySlow(slowDuration));
     }
+    
     public IEnumerator ApplySlow(float duration)
     {
         maxMoveSpeed /= 2;
         yield return new WaitForSeconds(duration);
         maxMoveSpeed *= 2;
     }
+    
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.GetContact(0).normal.y < 0.5) return;
+        else if (collision.gameObject.layer == 8) grounded = true;
+    }
+    
 }

@@ -115,7 +115,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(wasdKeys["left"])) inputtedMoveDirection -= transform.right;
         if (Input.GetKey(wasdKeys["right"])) inputtedMoveDirection += transform.right;
 
-        if (Input.GetKeyDown(jumpKey) && playerMovement.defaultMovementEnabled) jumpInputted = true;
+        jumpInputted = Input.GetKey(jumpKey);
 
         inputtedLookDirection = Vector2.zero;
         inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
