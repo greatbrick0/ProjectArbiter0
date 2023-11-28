@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     float jumpStrength = 10.0f;
     [SerializeField]
     float defualtGravityAccel = 8.0f;
-    [SerializeField]
     float recoilRecentreSpeed = 90;
 
     Vector2 hVelocity = Vector2.zero;
