@@ -253,6 +253,7 @@ public class WeaponHolder : MonoBehaviour
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sphere.transform.position = hit.point;
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bulletHit, sphere);
         }
     }
 
