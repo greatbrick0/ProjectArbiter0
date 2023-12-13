@@ -5,6 +5,7 @@ using DamageDetails;
 using Coherence.Toolkit;
 using Coherence;
 using UnityEngine.VFX;
+using FMODUnity;
 
 public class WeaponHolder : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     private float range = 10.0f;
     private float resetTime;
+    private EventReference shootSound;
+    private EventReference reloadSound;
 
     [field: Header("Trackers")]
     [field: SerializeField]
@@ -70,6 +73,8 @@ public class WeaponHolder : MonoBehaviour
         range = weapon.range;
         resetTime = weapon.resetTime;
         movementScript.maxRecoilBounds = weapon.maxRecoilBounds;
+        shootSound = weapon.shootSound;
+        reloadSound = weapon.reloadSound;
     }
 
     public void StartInput()
@@ -151,7 +156,7 @@ public class WeaponHolder : MonoBehaviour
         else if (!reloading)
         {
             reloading = true;
-            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.playerReloading, gameObject);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(reloadSound, gameObject);
             return true;
         }
         else return false;
@@ -234,8 +239,7 @@ public class WeaponHolder : MonoBehaviour
     private void ShootDecorations()
     {
         muzzleFlash.Reinit();
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.pistolShoot, gameObject);
-        
+        FMODUnity.RuntimeManager.PlayOneShotAttached(shootSound, gameObject);
     }
 
     /// <summary>
