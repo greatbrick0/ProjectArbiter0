@@ -269,7 +269,9 @@ public class WeaponHolder : MonoBehaviour
     {
         if (hitbox.GetOwner().team != "Enemy") return;
 
-        hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+        int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+
+        InfoTextManager.manager.CreateInfoText(damageAmount.ToString(), hitDetails.point, 0.5f);
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)

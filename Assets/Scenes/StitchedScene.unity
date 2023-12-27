@@ -5912,6 +5912,7 @@ GameObject:
   - component: {fileID: 1438909640}
   - component: {fileID: 1438909641}
   - component: {fileID: 1438909642}
+  - component: {fileID: 1438909643}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -6062,6 +6063,20 @@ MonoBehaviour:
   bridge: {fileID: 352717072}
   <playerCount>k__BackingField: 0
   spectatorCount: 0
+--- !u!114 &1438909643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438909636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a2f51627070514d956bfda60f6f392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoTextPrefab: {fileID: 1502480216052251414, guid: 78cac56b82b279a4890725197b10f080,
+    type: 3}
 --- !u!1001 &1463048006
 PrefabInstance:
   m_ObjectHideFlags: 0
