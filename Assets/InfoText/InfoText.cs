@@ -19,7 +19,12 @@ public class InfoText : MonoBehaviour
     private void Awake()
     {
         textComponent = GetComponent<TextMeshProUGUI>();
-        cam = Camera.current;
+    }
+
+    public void Initialize(Camera newCam, Transform canvas)
+    {
+        cam = newCam;
+        transform.SetParent(canvas, true);
     }
 
     public void SetInfoText(string text, Vector3 pos, float duration, Color color)
@@ -28,6 +33,7 @@ public class InfoText : MonoBehaviour
         virtualPos = pos;
         activeDuration = duration;
         textComponent.color = color;
+        print(text);
     }
 
     public void SetExtra(bool fade, Vector3 velocity)

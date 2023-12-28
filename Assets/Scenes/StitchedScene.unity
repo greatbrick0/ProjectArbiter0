@@ -2594,6 +2594,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709795984}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!224 &729033856 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7134191743616328195, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579589850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &778577810
 Mesh:
   m_ObjectHideFlags: 0
@@ -6077,6 +6083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoTextPrefab: {fileID: 1502480216052251414, guid: 78cac56b82b279a4890725197b10f080,
     type: 3}
+  textCanvas: {fileID: 729033856}
 --- !u!1001 &1463048006
 PrefabInstance:
   m_ObjectHideFlags: 0
