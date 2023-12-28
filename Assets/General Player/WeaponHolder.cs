@@ -13,6 +13,7 @@ public class WeaponHolder : MonoBehaviour
     private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
     private PlayerMovement movementScript;
+    private DamageNumberManager damageNumberScript;
     private HUDGunAmmoScript hudGunRef;
     [HideInInspector]
     public Camera cam { private get; set; }
@@ -94,6 +95,7 @@ public class WeaponHolder : MonoBehaviour
     {
         sync = GetComponent<CoherenceSync>();
         movementScript = GetComponent<PlayerMovement>();
+        damageNumberScript = (DamageNumberManager) InfoTextManager.GetManager();
         
         SetAllStats();
         currentAmmo = maxAmmo;
@@ -271,7 +273,7 @@ public class WeaponHolder : MonoBehaviour
 
         int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
 
-        InfoTextManager.manager.CreateInfoText(damageAmount.ToString(), hitDetails.point, 0.5f);
+        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point);
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)

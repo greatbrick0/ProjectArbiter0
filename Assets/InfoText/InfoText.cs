@@ -12,7 +12,8 @@ public class InfoText : MonoBehaviour
     [SerializeField]
     private AnimationCurve opacityCurve = AnimationCurve.Linear(0, 1, 1, 0);
     private Vector3 virtualPos = Vector3.zero;
-    private Vector3 virtualVelocity = Vector3.zero;
+    private Vector2 driftVelocity = Vector3.zero;
+    private Vector2 textOffset = Vector2.zero;
     private TextMeshProUGUI textComponent;
     private Camera cam;
 
@@ -33,13 +34,14 @@ public class InfoText : MonoBehaviour
         virtualPos = pos;
         activeDuration = duration;
         textComponent.color = color;
-        print(text);
+        transform.SetAsFirstSibling();
     }
 
-    public void SetExtra(bool fade, Vector3 velocity)
+    public void SetExtra(bool fade, Vector2 velocity, Vector2 offset)
     {
         fadeOpacity = fade;
-        virtualVelocity = velocity;
+        driftVelocity = velocity;
+        textOffset = offset;
     }
 
     private void Update()
@@ -50,8 +52,8 @@ public class InfoText : MonoBehaviour
         if (age >= activeDuration) Deactivate();
 
         if (fadeOpacity) textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(age / activeDuration));
-        virtualPos += virtualVelocity;
-        transform.position = cam.WorldToScreenPoint(virtualPos);
+        print(cam.name);
+        transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * age));
     }
 
     private void Deactivate()
@@ -64,5 +66,10 @@ public class InfoText : MonoBehaviour
     private Color ReplaceAlpha(Color oldColor, float newAlpha)
     {
         return new Color(oldColor.r, oldColor.g, oldColor.b, newAlpha);
+    }
+
+    private Vector3 AddZ(Vector2 oldVec)
+    {
+        return new Vector3(oldVec.x, oldVec.y, 0);
     }
 }
