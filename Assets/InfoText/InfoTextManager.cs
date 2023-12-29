@@ -16,7 +16,7 @@ public class InfoTextManager : MonoBehaviour
     [Tooltip("The transform that the prefabs will become a child of. Use SetCanvas() to change during runtime.")]
     private Transform textCanvas;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _manager = this;
     }
@@ -25,8 +25,11 @@ public class InfoTextManager : MonoBehaviour
     {
         if (_manager == null)
         {
+            Debug.LogError("No Existing InfoTextManager");
+            /*
             GameObject managerObj = new GameObject("InfoTextManager", typeof(InfoTextManager));
             _manager = managerObj.GetComponent<InfoTextManager>();
+            */
         }
         return _manager;
     }

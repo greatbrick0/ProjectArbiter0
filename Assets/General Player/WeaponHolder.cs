@@ -95,7 +95,6 @@ public class WeaponHolder : MonoBehaviour
     {
         sync = GetComponent<CoherenceSync>();
         movementScript = GetComponent<PlayerMovement>();
-        damageNumberScript = (DamageNumberManager) InfoTextManager.GetManager();
         
         SetAllStats();
         currentAmmo = maxAmmo;
@@ -103,6 +102,11 @@ public class WeaponHolder : MonoBehaviour
 #if (UNITY_EDITOR)
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
 #endif
+    }
+
+    private void Start()
+    {
+        damageNumberScript = (DamageNumberManager)InfoTextManager.GetManager(); //GetManager() must be called after Awake()
     }
 
     public void GetHUDReference() //I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...

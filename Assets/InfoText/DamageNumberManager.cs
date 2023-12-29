@@ -14,7 +14,7 @@ public class DamageNumberManager : InfoTextManager
     [Tooltip("The max distance that could be chosen to randomly offset a damage number, measured as a percentage of the screen height.")]
     private float maxRandomOffsetDist = 0.0f;
 
-    private void Awake()
+    protected override void Awake()
     {
         _manager = this;
     }
