@@ -85,8 +85,8 @@ public class InfoTextManager : MonoBehaviour
     private InfoText CreateAvailableInfoText()
     {
         InfoText newTextObj = Instantiate(infoTextPrefab).GetComponent<InfoText>();
-        infoTexts.Add(newTextObj);
         newTextObj.Initialize(camRef, textCanvas);
+        infoTexts.Add(newTextObj);
         return newTextObj;
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DamageDetails;
 
-public class DamageNumberManager : InfoTextManager
+[RequireComponent(typeof(InfoTextManager))]
+public class DamageNumberManager : MonoBehaviour
 {
-   
+    private InfoTextManager textManager;
+
     [Header("Damage Number Settings")]
     [SerializeField, Min(0)]
     [Tooltip("The distance a damage number will drift upward, measured as a percentage of the screen height.")]
@@ -14,14 +16,14 @@ public class DamageNumberManager : InfoTextManager
     [Tooltip("The max distance that could be chosen to randomly offset a damage number, measured as a percentage of the screen height.")]
     private float maxRandomOffsetDist = 0.0f;
 
-    protected override void Awake()
+    private void Start()
     {
-        _manager = this;
+        textManager = GetComponent<InfoTextManager>();
     }
 
     public void CreateDamageNumber(int damageAmount, Vector3 hitPos)
     {
-        InfoText newInfoText = CreateInfoText(damageAmount.ToString(), hitPos, 0.5f);
+        InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, 0.5f);
         newInfoText.SetExtra(true, Vector3.up * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height));
     }
 
