@@ -37,13 +37,19 @@ public class InfoTextManager : MonoBehaviour
     public void SetCamera(Camera cam)
     {
         camRef = cam;
-        foreach(InfoText ii in infoTexts) ii.Initialize(camRef, textCanvas);
+        if(infoTexts.Count > 0)
+        {
+            foreach (InfoText ii in infoTexts) ii.Initialize(camRef, textCanvas);
+        }
     }
 
     public void SetCanvas(Transform newCanvas)
     {
         textCanvas = newCanvas;
-        foreach (InfoText ii in infoTexts) ii.Initialize(camRef, textCanvas);
+        if (infoTexts.Count > 0)
+        {
+            foreach (InfoText ii in infoTexts) ii.Initialize(camRef, textCanvas);
+        }
     }
 
     public InfoText CreateInfoText(string text, Vector3 pos, float duration, Color color)
@@ -65,13 +71,22 @@ public class InfoTextManager : MonoBehaviour
     /// <returns>An InfoText ready to be used. May require values to be reset from previous uses.</returns>
     private InfoText GetAvailableInfoText()
     {
-        foreach(InfoText candidate in infoTexts)
+        if(infoTexts.Count > 0)
         {
-            if (!candidate.active) return candidate;
+            foreach (InfoText candidate in infoTexts)
+            {
+                if (!candidate.active) return candidate;
+            }
         }
 
-        infoTexts.Add(Instantiate(infoTextPrefab).GetComponent<InfoText>());
-        infoTexts[^1].Initialize(camRef, textCanvas);
-        return infoTexts[^1];
+        return CreateAvailableInfoText();
+    }
+
+    private InfoText CreateAvailableInfoText()
+    {
+        InfoText newTextObj = Instantiate(infoTextPrefab).GetComponent<InfoText>();
+        infoTexts.Add(newTextObj);
+        newTextObj.Initialize(camRef, textCanvas);
+        return newTextObj;
     }
 }

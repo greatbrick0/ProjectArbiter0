@@ -58,9 +58,10 @@ GameObject:
   - component: {fileID: 5459987798418853077}
   - component: {fileID: 5459987798418853072}
   - component: {fileID: -665085605614997014}
+  - component: {fileID: 1145058431823549509}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,3 +187,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!114 &1145058431823549509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459987798418853067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0bb4a1d9e0d8244ac7d613a4702896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

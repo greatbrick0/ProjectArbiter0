@@ -15,10 +15,12 @@ public class InfoText : MonoBehaviour
     private Vector2 driftVelocity = Vector3.zero;
     private Vector2 textOffset = Vector2.zero;
     private TextMeshProUGUI textComponent;
+    [SerializeField]
     private Camera cam;
 
     private void Awake()
     {
+        //cam = Camera.main;
         textComponent = GetComponent<TextMeshProUGUI>();
     }
 
@@ -26,6 +28,7 @@ public class InfoText : MonoBehaviour
     {
         cam = newCam;
         transform.SetParent(canvas, true);
+        print(cam != null);
     }
 
     public void SetInfoText(string text, Vector3 pos, float duration, Color color)
@@ -52,8 +55,7 @@ public class InfoText : MonoBehaviour
         if (age >= activeDuration) Deactivate();
 
         if (fadeOpacity) textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(age / activeDuration));
-        print(cam.name);
-        transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * age));
+        //transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * age));
     }
 
     private void Deactivate()

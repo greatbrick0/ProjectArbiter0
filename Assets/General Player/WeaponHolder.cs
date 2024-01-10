@@ -13,7 +13,7 @@ public class WeaponHolder : MonoBehaviour
     private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
     private PlayerMovement movementScript;
-    private DamageNumberManager damageNumberScript;
+    private InfoTextManager damageNumberScript;
     private HUDGunAmmoScript hudGunRef;
     [HideInInspector]
     public Camera cam { private get; set; }
@@ -106,7 +106,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void Start()
     {
-        damageNumberScript = (DamageNumberManager)InfoTextManager.GetManager(); //GetManager() must be called after Awake()
+        damageNumberScript = InfoTextManager.GetManager(); //GetManager() must be called after Awake()
     }
 
     public void GetHUDReference() //I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...
@@ -277,7 +277,8 @@ public class WeaponHolder : MonoBehaviour
 
         int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
 
-        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point);
+        //damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point);
+        damageNumberScript.CreateInfoText(damageAmount.ToString(), hitDetails.point, 0.5f);
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)
