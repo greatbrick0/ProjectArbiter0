@@ -11,6 +11,8 @@ public class InfoText : MonoBehaviour
     private bool fadeOpacity = false;
     [SerializeField]
     private AnimationCurve opacityCurve = AnimationCurve.Linear(0, 1, 1, 0);
+    [SerializeField]
+    private AnimationCurve scaleCurve = AnimationCurve.Linear(0, 1, 1, 1);
     private Vector3 virtualPos = Vector3.zero;
     private Vector2 driftVelocity = Vector3.zero;
     private Vector2 textOffset = Vector2.zero;
@@ -46,6 +48,12 @@ public class InfoText : MonoBehaviour
         textOffset = offset;
     }
 
+    public void SetCurves(AnimationCurve newScaleCurve, AnimationCurve newOpacityCurve = null)
+    {
+        scaleCurve = newScaleCurve;
+        if (newOpacityCurve != null) opacityCurve = newOpacityCurve;
+    }
+
     private void Update()
     {
         if (!active) return;
@@ -54,6 +62,7 @@ public class InfoText : MonoBehaviour
         if (age >= activeDuration) Deactivate();
 
         if (fadeOpacity) textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(age / activeDuration));
+        transform.localScale = Vector3.one * scaleCurve.Evaluate(age / activeDuration);
         transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * age));
     }
 

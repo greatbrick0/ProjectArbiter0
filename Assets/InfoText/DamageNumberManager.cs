@@ -10,12 +10,21 @@ public class DamageNumberManager : MonoBehaviour
     private static DamageNumberManager _manager = null;
 
     [Header("Damage Number Settings")]
+    [SerializeField]
+    [Tooltip("The amount of time it will take for a damage number to disappear, measured in seconds.")]
+    private float numberDuration = 0.5f;
     [SerializeField, Min(0)]
     [Tooltip("The distance a damage number will drift upward, measured as a percentage of the screen height.")]
     private float numberDriftDist = 0.1f;
     [SerializeField, Min(0)]
     [Tooltip("The max distance that could be chosen to randomly offset a damage number, measured as a percentage of the screen height.")]
     private float maxRandomOffsetDist = 0.0f;
+    [SerializeField]
+    [Tooltip("The opacity of a damage number over the cousre of its lifespan. 1 is opaque and 0 is invisible.")]
+    private AnimationCurve opacityCurve = AnimationCurve.Linear(0, 1, 1, 0);
+    [SerializeField]
+    [Tooltip("The scale of a damage number over the cousre of its lifespan. 1 is the defualt size of the number and 2 is twice the defualt size.")]
+    private AnimationCurve scaleCurve = AnimationCurve.Linear(0, 1, 1, 1);
 
     private void Awake()
     {
@@ -35,8 +44,9 @@ public class DamageNumberManager : MonoBehaviour
 
     public void CreateDamageNumber(int damageAmount, Vector3 hitPos)
     {
-        InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, 0.5f);
+        InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, numberDuration);
         newInfoText.SetExtra(true, Vector3.up * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height));
+        newInfoText.SetCurves(scaleCurve, opacityCurve);
     }
 
     private Vector2 RandomPointInCircle(float circleRadius)

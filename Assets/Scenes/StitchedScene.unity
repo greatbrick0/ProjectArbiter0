@@ -6097,8 +6097,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b6a9b87709b284f924e87a99dc0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberDriftDist: 0.1
-  maxRandomOffsetDist: 0
+  numberDuration: 1
+  numberDriftDist: 0.05
+  maxRandomOffsetDist: 0.1
+  opacityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7769659
+      value: 0.7354555
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.13598153
+      value: 1.9266618
+      inSlope: -1.1641967
+      outSlope: -1.1641967
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17455411
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1463048006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8492,6 +8559,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193124714125256054, guid: 7365a46dbef03be41b6173e6147d68d1,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193124714125256054, guid: 7365a46dbef03be41b6173e6147d68d1,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8872450027310171148, guid: 7365a46dbef03be41b6173e6147d68d1,
         type: 3}
