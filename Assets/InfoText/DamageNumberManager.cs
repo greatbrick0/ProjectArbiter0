@@ -7,6 +7,7 @@ using DamageDetails;
 public class DamageNumberManager : MonoBehaviour
 {
     private InfoTextManager textManager;
+    private static DamageNumberManager _manager = null;
 
     [Header("Damage Number Settings")]
     [SerializeField, Min(0)]
@@ -15,6 +16,17 @@ public class DamageNumberManager : MonoBehaviour
     [SerializeField, Min(0)]
     [Tooltip("The max distance that could be chosen to randomly offset a damage number, measured as a percentage of the screen height.")]
     private float maxRandomOffsetDist = 0.0f;
+
+    private void Awake()
+    {
+        _manager = this;
+    }
+
+    public static DamageNumberManager GetManager()
+    {
+        if (_manager == null) Debug.LogError("No Existing DamageNumberManager");
+        return _manager;
+    }
 
     private void Start()
     {

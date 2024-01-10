@@ -5,7 +5,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class InfoTextManager : MonoBehaviour
 {
-    protected static InfoTextManager _manager = null;
+    private static InfoTextManager _manager = null;
 
     [Header("Info Text Settings")]
     [SerializeField] 
@@ -16,7 +16,7 @@ public class InfoTextManager : MonoBehaviour
     [Tooltip("The transform that the prefabs will become a child of. Use SetCanvas() to change during runtime.")]
     private Transform textCanvas;
 
-    protected virtual void Awake()
+    private void Awake()
     {
         _manager = this;
     }
