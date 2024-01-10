@@ -91,7 +91,7 @@ public class PlayerAbilitySystem : MonoBehaviour
                 HUDRef.UseAbility(tier);
                 SanityPrice(tier);
                 sync.SendCommand<PlayerAbilitySystem>(nameof(CastProcess), MessageTarget.All, tier);
-                
+                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
             }
         }
         else //insert castexception here. UI or Audio, probably.
