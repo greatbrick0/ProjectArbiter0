@@ -20,6 +20,9 @@ public class DamageNumberManager : MonoBehaviour
     [Tooltip("The max distance that could be chosen to randomly offset a damage number, measured as a percentage of the screen height.")]
     private float maxRandomOffsetDist = 0.0f;
     [SerializeField]
+    [Tooltip("The easing a number will use to move from its starting position to its end position calculated from numberDriftDist. A steeper slope means faster movement.")]
+    private AnimationCurve driftEasing = AnimationCurve.Linear(0, 0, 1, 1);
+    [SerializeField]
     [Tooltip("The opacity of a damage number over the cousre of its lifespan. 1 is opaque and 0 is invisible.")]
     private AnimationCurve opacityCurve = AnimationCurve.Linear(0, 1, 1, 0);
     [SerializeField]
@@ -46,7 +49,7 @@ public class DamageNumberManager : MonoBehaviour
     {
         InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, numberDuration);
         newInfoText.SetExtra(true, Vector3.up * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height));
-        newInfoText.SetCurves(scaleCurve, opacityCurve);
+        newInfoText.SetCurves(scaleCurve, opacityCurve, driftEasing);
     }
 
     private Vector2 RandomPointInCircle(float circleRadius)

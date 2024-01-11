@@ -15,6 +15,8 @@ public class InfoText : MonoBehaviour
     private AnimationCurve scaleCurve = AnimationCurve.Linear(0, 1, 1, 1);
     private Vector3 virtualPos = Vector3.zero;
     private Vector2 driftVelocity = Vector3.zero;
+    [SerializeField]
+    private AnimationCurve driftEasing = AnimationCurve.Linear(0, 0, 1, 1);
     private Vector2 textOffset = Vector2.zero;
     private TextMeshProUGUI textComponent;
     private Camera cam;
@@ -37,7 +39,7 @@ public class InfoText : MonoBehaviour
         textComponent.text = text;
         virtualPos = pos;
         activeDuration = duration;
-        textComponent.color = color;
+        textComponent.color = ReplaceAlpha(color, 1);
         transform.SetAsFirstSibling();
     }
 
@@ -48,10 +50,11 @@ public class InfoText : MonoBehaviour
         textOffset = offset;
     }
 
-    public void SetCurves(AnimationCurve newScaleCurve, AnimationCurve newOpacityCurve = null)
+    public void SetCurves(AnimationCurve newScaleCurve = null, AnimationCurve newOpacityCurve = null, AnimationCurve newDriftEasing = null)
     {
-        scaleCurve = newScaleCurve;
+        if (newScaleCurve != null) scaleCurve = newScaleCurve;
         if (newOpacityCurve != null) opacityCurve = newOpacityCurve;
+        if (newDriftEasing != null) driftEasing = newDriftEasing;
     }
 
     private void Update()
@@ -60,10 +63,11 @@ public class InfoText : MonoBehaviour
 
         age += 1.0f * Time.deltaTime;
         if (age >= activeDuration) Deactivate();
+        float ageRatio = age / activeDuration;
 
-        if (fadeOpacity) textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(age / activeDuration));
-        transform.localScale = Vector3.one * scaleCurve.Evaluate(age / activeDuration);
-        transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * age));
+        if (fadeOpacity) textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(ageRatio));
+        transform.localScale = Vector3.one * scaleCurve.Evaluate(ageRatio);
+        transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * driftEasing.Evaluate(ageRatio)));
     }
 
     private void Deactivate()
