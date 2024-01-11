@@ -277,7 +277,7 @@ public class WeaponHolder : MonoBehaviour
 
         int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
 
-        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point);
+        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point, DamageElement.Normal);
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)
