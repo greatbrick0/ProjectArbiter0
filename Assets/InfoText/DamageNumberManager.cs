@@ -16,11 +16,14 @@ public class DamageNumberManager : MonoBehaviour
     [Tooltip("The amount of time it will take for a damage number to disappear, measured in seconds.")]
     private float numberDuration = 0.5f;
     [SerializeField, Min(0)]
-    [Tooltip("The distance a damage number will drift upward, measured as a percentage of the screen height.")]
+    [Tooltip("The distance a damage number will drift in driftDirection, measured as a percentage of the screen height.")]
     private float numberDriftDist = 0.1f;
     [SerializeField, Min(0)]
     [Tooltip("The max distance that could be chosen to randomly offset a damage number, measured as a percentage of the screen height.")]
     private float maxRandomOffsetDist = 0.0f;
+    [SerializeField]
+    [Tooltip("The direction that a number will move.")]
+    private Vector2 driftDirection = Vector2.up;
 
     [SerializeField]
     [Tooltip("The easing a number will use to move from its starting position to its end position calculated from numberDriftDist. A steeper slope means faster movement.")]
@@ -75,7 +78,7 @@ public class DamageNumberManager : MonoBehaviour
         if (colourDict.ContainsKey(element)) colourType = colourDict[element];
 
         InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, numberDuration, colourType);
-        newInfoText.SetExtra(true, Vector3.up * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height));
+        newInfoText.SetExtra(true, driftDirection * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height));
         newInfoText.SetCurves(scaleCurve, opacityCurve, driftEasing);
     }
 
