@@ -41,6 +41,10 @@ public class DamageNumberManager : MonoBehaviour
     [SerializeField]
     private List<ElementAndColour> colourDictInit = new List<ElementAndColour>();
     private Dictionary<DamageElement, Color> colourDict = new Dictionary<DamageElement, Color>();
+    [SerializeField]
+    private Sprite critIcon;
+    [SerializeField]
+    private Sprite armourIcon;
 
     [Serializable] public class ElementAndColour //not even one hour into the project and im already back to my horrendous ways
     {
@@ -72,14 +76,16 @@ public class DamageNumberManager : MonoBehaviour
         textManager = GetComponent<InfoTextManager>();
     }
 
-    public void CreateDamageNumber(int damageAmount, Vector3 hitPos, DamageElement element)
+    public void CreateDamageNumber(int damageAmount, Vector3 hitPos, DamageElement element, DamageSpot spotType)
     {
         Color colourType = defualtColour;
         if (colourDict.ContainsKey(element)) colourType = colourDict[element];
 
         InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, numberDuration, colourType);
-        newInfoText.SetExtra(true, driftDirection * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height));
+        newInfoText.SetExtra(true, driftDirection * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height), spotType != DamageSpot.Body);
         newInfoText.SetCurves(scaleCurve, opacityCurve, driftEasing);
+        if (spotType == DamageSpot.Head) newInfoText.SetImage(critIcon);
+        else if (spotType == DamageSpot.Armour) newInfoText.SetImage(armourIcon);
     }
 
     private Vector2 RandomPointInCircle(float circleRadius)

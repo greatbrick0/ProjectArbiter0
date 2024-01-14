@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InfoText : MonoBehaviour
 {
@@ -9,23 +10,17 @@ public class InfoText : MonoBehaviour
     private float age = 0.0f;
     private float activeDuration = 0.0f;
     private bool fadeOpacity = false;
-    [SerializeField]
     private AnimationCurve opacityCurve = AnimationCurve.Linear(0, 1, 1, 0);
-    [SerializeField]
     private AnimationCurve scaleCurve = AnimationCurve.Linear(0, 1, 1, 1);
     private Vector3 virtualPos = Vector3.zero;
     private Vector2 driftVelocity = Vector3.zero;
-    [SerializeField]
     private AnimationCurve driftEasing = AnimationCurve.Linear(0, 0, 1, 1);
     private Vector2 textOffset = Vector2.zero;
+    [SerializeField]
     private TextMeshProUGUI textComponent;
+    [SerializeField]
+    private Image imageComponent;
     private Camera cam;
-
-    private void Awake()
-    {
-        //cam = Camera.main;
-        textComponent = GetComponent<TextMeshProUGUI>();
-    }
 
     public void Initialize(Camera newCam, Transform canvas)
     {
@@ -41,13 +36,17 @@ public class InfoText : MonoBehaviour
         activeDuration = duration;
         textComponent.color = ReplaceAlpha(color, 1);
         transform.SetAsFirstSibling();
+        SetExtra(false, Vector2.zero, Vector2.zero, false);
+        imageComponent.enabled = false;
     }
 
-    public void SetExtra(bool fade, Vector2 velocity, Vector2 offset)
+    public void SetExtra(bool fade, Vector2 velocity, Vector2 offset, bool leftAligned)
     {
         fadeOpacity = fade;
         driftVelocity = velocity;
         textOffset = offset;
+        textComponent.rectTransform.localPosition = Vector2.right * (leftAligned ? 100 : 0);
+        textComponent.alignment = leftAligned ? TextAlignmentOptions.Left : TextAlignmentOptions.Center;
     }
 
     public void SetCurves(AnimationCurve newScaleCurve = null, AnimationCurve newOpacityCurve = null, AnimationCurve newDriftEasing = null)
@@ -55,6 +54,12 @@ public class InfoText : MonoBehaviour
         if (newScaleCurve != null) scaleCurve = newScaleCurve;
         if (newOpacityCurve != null) opacityCurve = newOpacityCurve;
         if (newDriftEasing != null) driftEasing = newDriftEasing;
+    }
+
+    public void SetImage(Sprite newSprite)
+    {
+        imageComponent.enabled = true;
+        imageComponent.sprite = newSprite;
     }
 
     private void Update()
@@ -65,7 +70,11 @@ public class InfoText : MonoBehaviour
         if (age >= activeDuration) Deactivate();
         float ageRatio = age / activeDuration;
 
-        if (fadeOpacity) textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(ageRatio));
+        if (fadeOpacity)
+        {
+            textComponent.color = ReplaceAlpha(textComponent.color, opacityCurve.Evaluate(ageRatio));
+            imageComponent.color = ReplaceAlpha(imageComponent.color, opacityCurve.Evaluate(ageRatio));
+        }
         transform.localScale = Vector3.one * scaleCurve.Evaluate(ageRatio);
         transform.position = cam.WorldToScreenPoint(virtualPos) + AddZ(textOffset + (driftVelocity * driftEasing.Evaluate(ageRatio)));
     }
@@ -74,6 +83,7 @@ public class InfoText : MonoBehaviour
     {
         active = false;
         textComponent.text = string.Empty;
+        imageComponent.enabled = false;
         age = 0;
     }
 
