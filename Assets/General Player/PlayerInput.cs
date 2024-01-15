@@ -76,6 +76,7 @@ public class PlayerInput : MonoBehaviour
         weapon = GetComponent<WeaponHolder>();
         playerAbility = GetComponent<PlayerAbilitySystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
+        InfoTextManager.GetManager().SetCamera(cameraRef.GetComponent<Camera>());
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
         foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
     }

@@ -33,7 +33,7 @@ public class EnemyHealth : Damageable
             Die();
             health = Mathf.Max(health, 0);
         }
-        print((prevHealth - health).ToString() + " " + spotType);
+        
         return prevHealth - health;
     }
 

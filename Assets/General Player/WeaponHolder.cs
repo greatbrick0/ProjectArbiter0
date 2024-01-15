@@ -13,6 +13,7 @@ public class WeaponHolder : MonoBehaviour
     private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
     private PlayerMovement movementScript;
+    private DamageNumberManager damageNumberScript;
     private HUDGunAmmoScript hudGunRef;
     [HideInInspector]
     public Camera cam { private get; set; }
@@ -101,6 +102,11 @@ public class WeaponHolder : MonoBehaviour
 #if (UNITY_EDITOR)
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
 #endif
+    }
+
+    private void Start()
+    {
+        damageNumberScript = DamageNumberManager.GetManager(); //GetManager() must be called after Awake()
     }
 
     public void GetHUDReference() //I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...
@@ -270,7 +276,9 @@ public class WeaponHolder : MonoBehaviour
     {
         if (hitbox.GetOwner().team != "Enemy") return;
 
-        hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+        int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+
+        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point, DamageElement.Normal, hitbox.GetSpotType());
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)
