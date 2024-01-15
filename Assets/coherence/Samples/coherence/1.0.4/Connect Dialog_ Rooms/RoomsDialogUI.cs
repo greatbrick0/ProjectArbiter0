@@ -203,6 +203,9 @@ namespace Coherence.Samples.RoomsDialog
         {
             ShowLoadingState();
             bridge.JoinRoom(roomData);
+
+            //-*-FMOD Stuff-*-\\
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.dialogue, gameObject);
         }
 
         private void CreateRoomAndJoin()
@@ -438,6 +441,7 @@ namespace Coherence.Samples.RoomsDialog
             showCreateRoomPanelButton.interactable = false;
             refreshRegionsButton.interactable = false;
             joinRoomButton.interactable = false;
+
         }
 
         private void OnRegionChanged(int region)
