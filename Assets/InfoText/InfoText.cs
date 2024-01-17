@@ -35,6 +35,7 @@ public class InfoText : MonoBehaviour
         virtualPos = pos;
         activeDuration = duration;
         textComponent.color = ReplaceAlpha(color, 1);
+        imageComponent.color = ReplaceAlpha(color, 1);
         transform.SetAsFirstSibling();
         SetExtra(false, Vector2.zero, Vector2.zero, false);
         imageComponent.enabled = false;
