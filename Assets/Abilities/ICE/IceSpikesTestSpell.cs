@@ -25,6 +25,7 @@ public class IceSpikesTestSpell : Ability
         movementRef = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         sync = GetComponent<CoherenceSync>();
+        
     }
 
 
@@ -35,6 +36,7 @@ public class IceSpikesTestSpell : Ability
         
 
         sanityRef.Sanity -= sanityCost;
+        HUDRef.UseAbility(tier);
 
         sync.SendCommand<IceSpikesTestSpell>(nameof(CastSpikes), MessageTarget.All);
     }

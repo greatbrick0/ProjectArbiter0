@@ -25,10 +25,7 @@ public class HUDSystem : MonoBehaviour
     }
 
 
-    public void SanityUpdate(float newTarget)
-    {
-        targetSanity = newTarget;
-    }
+    
 
     
 

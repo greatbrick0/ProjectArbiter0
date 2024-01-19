@@ -38,6 +38,8 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     private CastingState playerState = CastingState.idle;
 
+    private HUDSystem HUDRef;
+
  
 
     private void Start()
@@ -45,6 +47,9 @@ public class AbilityInputSystem : MonoBehaviour
               
         AbilityList = GetComponents<Ability>();
         Debug.Log("Grabbed Abilities?");
+
+        
+        
         
     }
 
@@ -57,7 +62,7 @@ public class AbilityInputSystem : MonoBehaviour
     
     public void AttemptCast(int tier) //Recieved input by player input
     {
-        Debug.Log("AttemptCast");
+       
         if (AbilityList[tier].onCooldown) //is that ability on cooldown? if so, end process.
             return;
 
@@ -66,7 +71,7 @@ public class AbilityInputSystem : MonoBehaviour
         {
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
-                    Debug.Log("DoAttempt");
+                    
                     AbilityList[tier].StartAbility();
                     break;
                 }
@@ -76,6 +81,13 @@ public class AbilityInputSystem : MonoBehaviour
 
     public void GetHUDReference()
     {
-
+        HUDRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>();
+        Debug.Log("AbilityInputSystem: " + nameof(HUDRef));
+        for (int i = 0; i < AbilityList.Length; i++)
+        {
+            AbilityList[i].RecieveHUDReference(HUDRef, i);
+        }
     }
+    
+
 }

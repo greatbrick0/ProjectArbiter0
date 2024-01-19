@@ -18,7 +18,8 @@ public class PlayerHUDCreator : MonoBehaviour
     private void AssignUIToComponents()
     {
         GetComponent<WeaponHolder>().GetHUDReference();
-        GetComponent<AbilityInputSystem>().GetHUDReference();
         GetComponent<SanitySystem>().GetHUDReference();
+        GetComponent<AbilityInputSystem>().GetHUDReference();
+        Debug.Log("Assigned UI");
     }
 }
