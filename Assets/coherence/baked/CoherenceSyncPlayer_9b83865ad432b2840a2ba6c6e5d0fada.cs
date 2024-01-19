@@ -192,7 +192,6 @@ namespace Coherence.Generated
 		private Logger logger = Log.GetLogger<CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada>();
 
 		// Cached targets for commands		
-		private global::PlayerAbilitySystem Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget;		
 		private global::WeaponHolder Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8_CommandTarget;
 
 		private IClient client;
@@ -211,7 +210,6 @@ namespace Coherence.Generated
 
 		public CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada()
 		{
-			bakedCommandBindings.Add("9fe7a5dd-d62d-4dcf-92b3-7ffc395dc389", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389);
 			bakedCommandBindings.Add("1f35b1c6-c080-4ac3-8ecc-9a03c2b39ed8", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8);
 		}
 
@@ -232,12 +230,6 @@ namespace Coherence.Generated
 			{
 				commandBindingBaker.Invoke(commandBinding, commandsHandler);
 			}
-		}
-		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(CommandBinding commandBinding, CommandsHandler commandsHandler)
-		{
-			Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget = (global::PlayerAbilitySystem)commandBinding.UnityComponent;
-			commandsHandler.AddBakedCommand("PlayerAbilitySystem.CastProcess", "(System.Int32)",
-				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget,false);
 		}
 		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
@@ -282,27 +274,6 @@ namespace Coherence.Generated
 			this.entityId = entityId;
 			this.client = client;
 		}
-		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(MessageTarget target, object[] args)
-		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389();
-			int i = 0;
-			command.tier = (int)((System.Int32)args[i++]);
-			client.SendCommand(command, target, entityId);
-		}
-
-		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(MessageTarget target, object[] args)
-		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389();
-			int i = 0;
-			command.tier = (int)((System.Int32)args[i++]);
-			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(command);
-		}
-
-		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389 command)
-		{
-			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget;
-			target.CastProcess((System.Int32)(command.tier));
-		}
 		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8(MessageTarget target, object[] args)
 		{
 			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8();
@@ -331,9 +302,6 @@ namespace Coherence.Generated
 		{
 			switch(command)
 			{
-				case Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389 castedCommand:
-					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(castedCommand);
-					break;
 				case Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8 castedCommand:
 					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8(castedCommand);
 					break;

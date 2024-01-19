@@ -19,7 +19,7 @@ public class PlayerInput : MonoBehaviour
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
-    PlayerAbilitySystem playerAbility;
+    AbilityInputSystem playerAbility;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -74,7 +74,7 @@ public class PlayerInput : MonoBehaviour
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<WeaponHolder>();
-        playerAbility = GetComponent<PlayerAbilitySystem>();
+        playerAbility = GetComponent<AbilityInputSystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
         foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);

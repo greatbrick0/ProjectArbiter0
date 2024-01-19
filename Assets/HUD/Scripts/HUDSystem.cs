@@ -18,11 +18,7 @@ public class HUDSystem : MonoBehaviour
     GameObject SanityBar;
     private float targetSanity = 100;
 
-
-    public void Update()
-    {
-        SanityBar.transform.localScale = new Vector3(Mathf.Lerp(SanityBar.transform.localScale.x, 1 / (100 / targetSanity), Time.deltaTime), 1, 1);
-    }
+ 
     public void UseAbility(int tier)
     {
         abilityIcons[tier].UseSpell();
@@ -34,11 +30,7 @@ public class HUDSystem : MonoBehaviour
         targetSanity = newTarget;
     }
 
-    public void SanityDemonicChange(bool Demonic)
-    {
-        if (Demonic) SanityBar.GetComponent<Image>().color = Color.red;
-        else SanityBar.GetComponent<Image>().color = Color.green;
-    }
+    
 
 
 }

@@ -48,8 +48,11 @@ GameObject:
   - component: {fileID: 6000918072062803087}
   - component: {fileID: 7446777447677368580}
   - component: {fileID: 2021298388301607510}
-  - component: {fileID: 1390823402947842081}
   - component: {fileID: 8751002839937151779}
+  - component: {fileID: 8988836857019749150}
+  - component: {fileID: 4206427362788723892}
+  - component: {fileID: 6540549076412505571}
+  - component: {fileID: 225340334539899874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -318,8 +321,6 @@ MonoBehaviour:
     - component: {fileID: 7189452040746007012}
       lodStepsActive: 1
     - component: {fileID: 7189452040746007019}
-      lodStepsActive: 1
-    - component: {fileID: 1390823402947842081}
       lodStepsActive: 1
     - component: {fileID: 3901741527115270495}
       lodStepsActive: 1
@@ -627,6 +628,14 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 6674336538903488953}
       lodStepsActive: 1
+    - component: {fileID: 8988836857019749150}
+      lodStepsActive: 1
+    - component: {fileID: 6540549076412505571}
+      lodStepsActive: 1
+    - component: {fileID: 225340334539899874}
+      lodStepsActive: 1
+    - component: {fileID: 4206427362788723892}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -661,7 +670,6 @@ MonoBehaviour:
   - rid: 9124837619685130247
   - rid: 9124837619685130249
   - rid: 5545163782292242432
-  - rid: 5567048967824080937
   - rid: 5545164347301429251
   onNetworkedInstantiation:
     m_PersistentCalls:
@@ -770,46 +778,6 @@ MonoBehaviour:
         bindingType:
           assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.BoolBinding,
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 5567048967824080937
-      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 5567048967824080938
-        routing: 1
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: 9fe7a5dd-d62d-4dcf-92b3-7ffc395dc389
-        archetypeData:
-          type: 0
-          minRange: 0
-          maxRange: 0
-          sampleRate: 0
-          floatCompression: 0
-          fields: []
-        unityComponent: {fileID: 1390823402947842081}
-        coherenceSync: {fileID: 2920998475671937025}
-        interpolationSettings: {fileID: 0}
-    - rid: 5567048967824080938
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: CastProcess
-        monoAssemblyType: 
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 0
-        valueSyncCallbackName: 
-        memberType: 8
-        parameterAssemblyTypes:
-        - System.Int32, mscorlib
-        ownerType:
-          assemblyQualifiedName: PlayerAbilitySystem, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
     - rid: 5567048967824081124
@@ -1053,34 +1021,6 @@ MonoBehaviour:
   cooling: 0
   <currentAmmo>k__BackingField: 0
   patternIndex: 0
---- !u!114 &1390823402947842081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3294123685879425709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d417fa96394f1c4b85de3cd13192d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementRef: {fileID: 6000918072062803087}
-  HUDRef: {fileID: 0}
-  abilities:
-  - {fileID: 11400000, guid: fddb00d79cdf2694fa816b60ca9edc18, type: 2}
-  cooldowns:
-  - 0
-  SanityMaximum: 100
-  currentSanity: 100
-  baseSanityRegen: 3
-  improvedSanityRegen: 6
-  postDemonAbilityLockDuration: 0
-  chargeTime: 0
-  newAbility: {fileID: 0}
-  inDemonicState: 0
-  abilityOffset: {fileID: 3800042346541162947}
-  inputsDisabled: 0
 --- !u!114 &8751002839937151779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,6 +1034,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HUDref: {fileID: 0}
+--- !u!114 &8988836857019749150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01701a02a415142b7e9b5a1f8d422a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityList: []
+  playerState: 0
+--- !u!114 &4206427362788723892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8d6f16dcfa9234e969b1019d8d31e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSanity: 100
+--- !u!114 &6540549076412505571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1955d2543887ae4a9ac806921011e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityCost: 0
+  spellOrigin: {fileID: 3800042346541162947}
+  iceSpike: {fileID: 5313861381907764904, guid: 022cd925dbc80434e987d249e3a6a0a8,
+    type: 3}
+--- !u!114 &225340334539899874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ecb51f0fa4f7249a5fc1dc9221c1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityCost: 0
+  pauseDuration: 0
+  backVelocity: 0
+  forwardVelocity: 0
 --- !u!1 &3607976606283600887
 GameObject:
   m_ObjectHideFlags: 0
