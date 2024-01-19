@@ -23,15 +23,24 @@ public class HUDSanity : MonoBehaviour
 
     private bool demonic = false;
 
-    public void UpdateSanityHUD(int sanity)
-    {
-        Debug.Log("Update Sanity");
-        sanityTarget = sanity;
-        Debug.Log(sanityTarget);
+    private bool doLerp = true;
 
-        if (sanityTarget <= 0)
+    public void UpdateSanityHUD(float sanity)
+    {
+        
+
+        if (sanityTarget - sanity < 0.5 && sanityTarget - sanity > -0.5) //Fixes the 'buffering' bar when regenning
         {
-            sanityTarget = 0;
+            doLerp = false; 
+        }
+        else
+            doLerp = true;
+        sanityTarget = sanity;
+       
+
+        if (sanityTarget <= 0.0)
+        {
+            sanityTarget = 0.0F;
             demonic = true;
             SanityBarColourChange();
         }
@@ -52,12 +61,16 @@ public class HUDSanity : MonoBehaviour
         if (barAtRest)
             return;
         if (age < 1)
-            age += Time.deltaTime;
+            age += Time.deltaTime/2;
         if (age > 1)
             age = 1;
 
-        
-        sanityBar.transform.localScale = new Vector3(Mathf.Lerp(sanityBar.transform.localScale.x, sanityTarget/100, age), 1, 1);
+        if (doLerp)
+            sanityBar.transform.localScale = new Vector3(Mathf.Lerp(sanityBar.transform.localScale.x, sanityTarget / 100, age), 1, 1);
+        else
+            sanityBar.transform.localScale = new Vector3(sanityTarget/100, 1, 1);
+
+
         if (age == 1)
             barAtRest = true;
        

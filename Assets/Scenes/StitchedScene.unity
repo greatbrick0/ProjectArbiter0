@@ -2758,6 +2758,30 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &804283361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4206427362788723892, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538745848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8d6f16dcfa9234e969b1019d8d31e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &804283362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8988836857019749150, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538745848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc01701a02a415142b7e9b5a1f8d422a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6615,6 +6639,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4206427362788723892, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: currentSanity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206427362788723892, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: abilitySystemRef
+      value: 
+      objectReference: {fileID: 804283362}
+    - target: {fileID: 4206427362788723892, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: sanityRecoveryPause
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206427362788723892, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: sanityRecoverySpeedModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540549076412505571, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: sanityRef
+      value: 
+      objectReference: {fileID: 804283361}
     - target: {fileID: 6540549076412505571, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
       propertyPath: sanityCost

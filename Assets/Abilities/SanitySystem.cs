@@ -11,11 +11,13 @@ public class SanitySystem : MonoBehaviour
 
 
     [SerializeField]
-    int maxSanity;
+    float maxSanity;
 
     [SerializeField]
-    int currentSanity;
+    float currentSanity;
 
+    [SerializeField]
+    float sanityRecoverySpeedModifier;
 
     [SerializeField]
     float sanityRecoveryPause;
@@ -25,7 +27,7 @@ public class SanitySystem : MonoBehaviour
 
     public bool demonic { get; private set; }
 
-    public int Sanity
+    public float Sanity
     {
         get
         {
@@ -33,10 +35,16 @@ public class SanitySystem : MonoBehaviour
         }
         set
         {
+            if (value < currentSanity)
+                sanityPauseTimer = sanityRecoveryPause;
+
             currentSanity = value;
             sanityHUDRef.UpdateSanityHUD(currentSanity);
-            if (currentSanity <= 0)
+
+            if (!demonic && currentSanity <= 0.9) //nerf, but improves clarity
+            
             {
+                currentSanity = 0;
                 demonic = true;
             }
 
@@ -45,10 +53,7 @@ public class SanitySystem : MonoBehaviour
 
     
 
-    private void Start()
-    {
-        currentSanity = maxSanity;
-    }
+    
     public void GetHUDReference()
     {
         sanityHUDRef = GameObject.Find("SanityHUDOverlay").GetComponent<HUDSanity>();
@@ -56,7 +61,15 @@ public class SanitySystem : MonoBehaviour
 
     private void Update()
     {
+        if (sanityPauseTimer > 0)
+            sanityPauseTimer -= Time.deltaTime;
         
+        if (sanityPauseTimer <=0)
+        {
+            if (currentSanity <  maxSanity)
+            Sanity += Time.deltaTime * sanityRecoverySpeedModifier;
+        }
     }
 
 }
+    

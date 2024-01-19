@@ -1,3 +1,5 @@
+using Coherence;
+using Coherence.Toolkit;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,8 +38,11 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     private CastingState playerState = CastingState.idle;
 
+ 
+
     private void Start()
     {
+              
         AbilityList = GetComponents<Ability>();
         Debug.Log("Grabbed Abilities?");
         
@@ -52,6 +57,7 @@ public class AbilityInputSystem : MonoBehaviour
     
     public void AttemptCast(int tier) //Recieved input by player input
     {
+        Debug.Log("AttemptCast");
         if (AbilityList[tier].onCooldown) //is that ability on cooldown? if so, end process.
             return;
 
@@ -60,8 +66,8 @@ public class AbilityInputSystem : MonoBehaviour
         {
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
+                    Debug.Log("DoAttempt");
                     AbilityList[tier].StartAbility();
-
                     break;
                 }
         }

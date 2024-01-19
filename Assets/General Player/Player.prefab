@@ -671,6 +671,8 @@ MonoBehaviour:
   - rid: 9124837619685130249
   - rid: 5545163782292242432
   - rid: 5545164347301429251
+  - rid: 8327199019464917282
+  - rid: 8327199019464917315
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -687,8 +689,9 @@ MonoBehaviour:
   componentActions:
   - rid: 9124837619685130256
   - rid: 9124837619685130257
-  - rid: 9124837733054021666
   - rid: 5567048967824081124
+  - rid: 8327199019464917313
+  - rid: 8327199019464917314
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -785,6 +788,95 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 8751002839937151779}
+    - rid: 8327199019464917282
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 8327199019464917283
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 1671ea92-37c2-4f0f-898a-da265628b53a
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 8988836857019749150}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 8327199019464917283
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: AttemptCast
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes:
+        - System.Int32, mscorlib
+        ownerType:
+          assemblyQualifiedName: AbilityInputSystem, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 8327199019464917313
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 4206427362788723892}
+    - rid: 8327199019464917314
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 7446777447677368580}
+    - rid: 8327199019464917315
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 8327199019464917316
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 0bc67a5b-3818-4ca4-844e-6a9f20adba3e
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 6540549076412505571}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 8327199019464917316
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: CastSpikes
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: IceSpikesTestSpell, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
     - rid: 9124837619685130245
       type: {class: PositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
@@ -932,11 +1024,6 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 4160989216415698080}
-    - rid: 9124837733054021666
-      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
-        asm: Coherence.Toolkit}
-      data:
-        component: {fileID: 7446777447677368580}
 --- !u!114 &6000918072062803087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,7 +1147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8d6f16dcfa9234e969b1019d8d31e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilitySystemRef: {fileID: 0}
   maxSanity: 100
+  currentSanity: 100
+  sanityRecoverySpeedModifier: 1
+  sanityRecoveryPause: 3
 --- !u!114 &6540549076412505571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1955d2543887ae4a9ac806921011e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityCost: 0
+  onCooldown: 0
+  isActive: 0
+  sanityCost: 10
+  sanityRef: {fileID: 4206427362788723892}
   spellOrigin: {fileID: 3800042346541162947}
   iceSpike: {fileID: 5313861381907764904, guid: 022cd925dbc80434e987d249e3a6a0a8,
     type: 3}
@@ -1089,6 +1183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ecb51f0fa4f7249a5fc1dc9221c1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCooldown: 0
+  isActive: 0
   sanityCost: 0
   pauseDuration: 0
   backVelocity: 0
