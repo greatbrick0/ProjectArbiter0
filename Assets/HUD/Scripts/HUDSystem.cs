@@ -24,6 +24,10 @@ public class HUDSystem : MonoBehaviour
         abilityIcons[tier].UseSpell();
     }
 
+    public void SetCooldownForIcon(int tier, float cooldownTime)
+    {
+        abilityIcons[tier].CooldownTimeManipulate(cooldownTime);
+    }
 
     
 

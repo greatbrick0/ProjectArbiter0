@@ -7,21 +7,6 @@ using UnityEngine;
 public class AbilityInputSystem : MonoBehaviour
 {
     //Gotta build some shizz first :)
-    public class AbilitySlot
-    {
-        public Ability ability { get;private set;}
-
-        public enum AbilityState //state of the ability/slot. not the player
-        {
-            ready, //can be used
-            active, //is being used
-            cooldown, //cannot be used due to cooldown
-            locked, //cannot be used because NO!
-        }
-
-        public AbilityState state = AbilityState.ready;
-
-    }
 
     enum CastingState //wether the player is casting or not. used for allow/lock casting logic.
     { 
@@ -86,7 +71,7 @@ public class AbilityInputSystem : MonoBehaviour
         for (int i = 0; i < AbilityList.Length; i++)
         {
             AbilityList[i].RecieveHUDReference(HUDRef, i);
-        }
+        }   
     }
     
 

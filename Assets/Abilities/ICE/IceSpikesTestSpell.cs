@@ -33,11 +33,11 @@ public class IceSpikesTestSpell : Ability
     {
         Debug.Log("StartedAbility");
         GetNeededComponents();
-        
+        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
 
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
-
+        StartCoroutine(Cooldown());
         sync.SendCommand<IceSpikesTestSpell>(nameof(CastSpikes), MessageTarget.All);
     }
 
@@ -51,4 +51,11 @@ public class IceSpikesTestSpell : Ability
         Instantiate(iceSpike, spellOrigin.transform.position, spellOrigin.transform.rotation);
     }
 
+
+    IEnumerator Cooldown()
+    {
+        onCooldown = true;
+        yield return new WaitForSeconds(maxCooldownTime);
+        onCooldown = false;
+    }
 }

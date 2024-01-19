@@ -7,7 +7,7 @@ public abstract class Ability : MonoBehaviour
 {
 
     [SerializeField]
-    public float maxCooldownTime { get; private set; }
+    public float maxCooldownTime;
 
     public bool onCooldown = false;
 
@@ -18,6 +18,9 @@ public abstract class Ability : MonoBehaviour
 
     [SerializeField]
     public int sanityCost;
+
+    [SerializeField]
+    AbilityInputSystem abilityManagerRef;
 
     [SerializeField]
     public HUDSystem HUDRef;
@@ -32,6 +35,7 @@ public abstract class Ability : MonoBehaviour
         HUDRef = HUD;
         Debug.Log("Ability: " + HUDRef);
         this.tier = tier;
+        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
     }
 
     public abstract void StartAbility();
