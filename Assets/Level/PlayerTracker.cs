@@ -16,11 +16,11 @@ public class PlayerTracker : MonoBehaviour
     [SerializeField]
     public int spectatorCount = 0;
     [SerializeField]
-    public List<PlayerClient> playerClientList;
+    public List<PlayerData> playerClientList = new List<PlayerData>();
 
-    [Serializable] public class PlayerClient
+    [Serializable] public class PlayerData
     {
-        public PlayerClient(ClientID newId, GameObject newObj)
+        public PlayerData(ClientID newId, GameObject newObj)
         {
             id = newId;
             playerObj = newObj;
@@ -32,7 +32,6 @@ public class PlayerTracker : MonoBehaviour
         private string playerObjName;
         [SerializeField]
         public bool isSpectator = false;
-        [field: SerializeField]
         public ClientID id { get; private set; }
     }
 
@@ -50,12 +49,14 @@ public class PlayerTracker : MonoBehaviour
         }
     }
 
-    private void UpdatePlayerClientList()
+    [ContextMenu("UpdatePlayerClientList")]
+    public void UpdatePlayerClientList()
     {
-        playerClientList = new List<PlayerClient>();
+        playerClientList.Clear();
+
         foreach(CoherenceClientConnection ii in clientsData.GetAllClients())
         {
-            playerClientList.Add(new PlayerClient(ii.ClientId, ii.GameObject));
+            playerClientList.Add(new PlayerData(ii.ClientId, ii.GameObject));
         }
     }
 }
