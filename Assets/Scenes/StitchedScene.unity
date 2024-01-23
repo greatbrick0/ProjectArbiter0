@@ -2870,6 +2870,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc01701a02a415142b7e9b5a1f8d422a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &804283366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2920998475671937025, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538745848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804283357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff62c046a053f416a8dc48ad6483a25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &804283371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,15 +2894,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1955d2543887ae4a9ac806921011e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sync: {fileID: 0}
+  rb: {fileID: 0}
+  AbilityHoldRef: {fileID: 0}
+  sanityRef: {fileID: 804283361}
+  movementRef: {fileID: 0}
+  spellOrigin: {fileID: 711195669}
   maxCooldownTime: 1
   onCooldown: 0
   isActive: 0
   sanityCost: 10
-  abilityManagerRef: {fileID: 0}
   HUDRef: {fileID: 0}
   tier: 0
-  sanityRef: {fileID: 804283361}
-  spellOrigin: {fileID: 711195669}
   iceSpike: {fileID: 5313861381907764904, guid: 022cd925dbc80434e987d249e3a6a0a8,
     type: 3}
 --- !u!1 &832575517
@@ -6800,6 +6815,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: sync
+      value: 
+      objectReference: {fileID: 804283366}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: sanityCost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: spellOrigin
+      value: 
+      objectReference: {fileID: 711195669}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: backVelocity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: pauseDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: forwardVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: maxCooldownTime
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2021298388301607510, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
       propertyPath: range

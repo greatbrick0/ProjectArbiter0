@@ -6,14 +6,7 @@ using UnityEngine;
 
 public class IceSpikesTestSpell : Ability
 {
-    CoherenceSync sync;
-    Rigidbody rb;
-    AbilityInputSystem AbilityHoldRef;
-    [SerializeField]
-    SanitySystem sanityRef;
-    PlayerMovement movementRef;
-    [SerializeField]
-    GameObject spellOrigin;
+    
 
     [SerializeField]
     GameObject iceSpike;
@@ -25,6 +18,7 @@ public class IceSpikesTestSpell : Ability
         movementRef = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         sync = GetComponent<CoherenceSync>();
+        
         
     }
 

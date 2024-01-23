@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [field: SerializeField]
     public bool defaultMovementEnabled { get; private set; } = false;
 
+    public float partialControlValue { get; set; } = 0f; //used to gather a portion of the player's movement when not using defaultMovement
+
     [Header("References")]
     [SerializeField]
     Transform head;
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 hVelocity = Vector2.zero;
     float yVelocity = 0.0f;
 
+    public bool canJump;
     bool jumpInputted = false;
     float timeSinceJumpInput = 0.0f;
     [field: SerializeField]
@@ -49,7 +52,9 @@ public class PlayerMovement : MonoBehaviour
     public bool recoilActive = false;
     public Vector2 maxRecoilBounds { private get; set; } = Vector2.one * 20.0f;
     public Vector2 lookDirection {get; private set;} = Vector2.zero;
-    
+
+    [SerializeField]
+    public float spellSlowValue;
 
     private void Start()
     {
@@ -98,8 +103,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="newJump">Whether or not the player has pressed the jump key recently.</param>
     /// <param name="newLook">The direction the player wants to move the camera.</param>
     public void SetInputs(Vector3 newMove, bool newJump, Vector2 newLook)
-    {
-        if (!defaultMovementEnabled) return;
+    {   
         inputtedMoveDirection = newMove;
         jumpInputted = newJump;
         inputtedLookDirection = newLook;
@@ -112,7 +116,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (!defaultMovementEnabled)
         {
-            rb.velocity = Vector3.zero;
+            if (partialControlValue > 0)
+            {
+                AdditiveMotion();
+            }
             return;
         }
 
@@ -124,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            
             hVelocity += new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime;
             hVelocity = Vector2.ClampMagnitude(hVelocity, maxMoveSpeed);
             anim.walking = true;
@@ -134,6 +142,14 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
         grounded = false;
+    }
+
+    private void AdditiveMotion()
+    {
+        hVelocity = new Vector2(rb.velocity.x, rb.velocity.z);
+        Debug.Log(new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime);
+        hVelocity += new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime * partialControlValue;
+        rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
     }
 
     private void PlayerJump()
@@ -148,6 +164,10 @@ public class PlayerMovement : MonoBehaviour
         defaultMovementEnabled = newValue;
     }
 
+    public void SetPartialControl(float newValue)
+    {
+        partialControlValue = newValue;
+    }
     /// <summary>
     /// Starts applying movement to the camera over time. 
     /// </summary>
@@ -184,15 +204,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void ExternalMotionApply(float slowDuration) //i guess you can overload this with a forcedirection if that is cooler.
     {
-        StopCoroutine(ApplySlow(slowDuration));
         StartCoroutine(ApplySlow(slowDuration));
     }
     
     public IEnumerator ApplySlow(float duration)
     {
-        maxMoveSpeed /= 2;
+        maxMoveSpeed += spellSlowValue;
         yield return new WaitForSeconds(duration);
-        maxMoveSpeed *= 2;
+        maxMoveSpeed -= spellSlowValue;
     }
     
     private void OnCollisionStay(Collision collision)

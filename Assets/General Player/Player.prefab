@@ -673,6 +673,7 @@ MonoBehaviour:
   - rid: 5545164347301429251
   - rid: 8327199019464917282
   - rid: 8327199019464917315
+  - rid: 8327199019464917630
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -877,6 +878,45 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 8327199019464917630
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 8327199019464917631
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 06729705-a605-42b7-a3d8-f9d78fa7d2d3
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 225340334539899874}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 8327199019464917631
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: PhaseOneDash
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerSpellIceDash, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
     - rid: 9124837619685130245
       type: {class: PositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
@@ -1046,6 +1086,7 @@ MonoBehaviour:
   defualtGravityAccel: 16
   <grounded>k__BackingField: 0
   recoilActive: 0
+  spellSlowValue: 0
 --- !u!114 &7446777447677368580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,11 +1205,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1955d2543887ae4a9ac806921011e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sync: {fileID: 0}
+  rb: {fileID: 0}
+  AbilityHoldRef: {fileID: 0}
+  sanityRef: {fileID: 4206427362788723892}
+  movementRef: {fileID: 0}
+  spellOrigin: {fileID: 3800042346541162947}
+  maxCooldownTime: 0
   onCooldown: 0
   isActive: 0
   sanityCost: 10
-  sanityRef: {fileID: 4206427362788723892}
-  spellOrigin: {fileID: 3800042346541162947}
+  HUDRef: {fileID: 0}
+  tier: 0
   iceSpike: {fileID: 5313861381907764904, guid: 022cd925dbc80434e987d249e3a6a0a8,
     type: 3}
 --- !u!114 &225340334539899874
@@ -1183,12 +1231,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ecb51f0fa4f7249a5fc1dc9221c1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sync: {fileID: 0}
+  rb: {fileID: 0}
+  AbilityHoldRef: {fileID: 0}
+  sanityRef: {fileID: 0}
+  movementRef: {fileID: 0}
+  spellOrigin: {fileID: 0}
+  maxCooldownTime: 0
   onCooldown: 0
   isActive: 0
   sanityCost: 0
+  HUDRef: {fileID: 0}
+  tier: 0
   pauseDuration: 0
   backVelocity: 0
   forwardVelocity: 0
+  collideHitboxObject: {fileID: 0}
 --- !u!1 &3607976606283600887
 GameObject:
   m_ObjectHideFlags: 0

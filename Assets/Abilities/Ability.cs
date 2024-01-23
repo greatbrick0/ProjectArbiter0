@@ -1,3 +1,4 @@
+using Coherence.Toolkit;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,6 +6,16 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
+
+    [Header("References")]
+    public CoherenceSync sync;
+    public Rigidbody rb;
+    public AbilityInputSystem AbilityHoldRef;
+    [SerializeField]
+    public SanitySystem sanityRef;
+    public PlayerMovement movementRef;
+    [SerializeField]
+    public GameObject spellOrigin;
 
     [SerializeField]
     public float maxCooldownTime;
@@ -19,10 +30,6 @@ public abstract class Ability : MonoBehaviour
     [SerializeField]
     public int sanityCost;
 
-    [SerializeField]
-    AbilityInputSystem abilityManagerRef;
-
-    [SerializeField]
     public HUDSystem HUDRef;
 
     public int tier;
@@ -33,7 +40,6 @@ public abstract class Ability : MonoBehaviour
     public void RecieveHUDReference(HUDSystem HUD,int tier)
     {
         HUDRef = HUD;
-        Debug.Log("Ability: " + HUDRef);
         this.tier = tier;
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
     }
