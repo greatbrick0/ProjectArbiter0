@@ -184,94 +184,6 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_9f68f841_ca4b_4b1f_b7c9_d518404a7777 : IntBinding
-	{
-		private global::PlayerHealth CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::PlayerHealth)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override int Value
-		{
-			get { return (System.Int32)(CastedUnityComponent.mainHealth); }
-			set { CastedUnityComponent.mainHealth = (System.Int32)(value); }
-		}
-
-		protected override int ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159)coherenceComponent).mainHealth;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.mainHealth = Value;
-			}
-			else 
-			{
-				update.mainHealth = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159();
-		}
-	}
-
-	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_c9fbe24c_6bd2_4f2f_86a9_279014fc4653 : BoolBinding
-	{
-		private global::PlayerHealth CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::PlayerHealth)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override bool Value
-		{
-			get { return (System.Boolean)(CastedUnityComponent.playerDead); }
-			set { CastedUnityComponent.playerDead = (System.Boolean)(value); }
-		}
-
-		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159)coherenceComponent).playerDead;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.playerDead = Value;
-			}
-			else 
-			{
-				update.playerDead = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_24645637016199159();
-		}
-	}
-
 
 	[Preserve]
 	public class CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada : CoherenceSyncBaked
@@ -281,7 +193,6 @@ namespace Coherence.Generated
 
 		// Cached targets for commands		
 		private global::PlayerAbilitySystem Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget;		
-		private global::PlayerHealth Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963_CommandTarget;		
 		private global::WeaponHolder Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8_CommandTarget;
 
 		private IClient client;
@@ -293,8 +204,6 @@ namespace Coherence.Generated
 			["2c785a2d-c548-42de-8412-2740b17abb15"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_2c785a2d_c548_42de_8412_2740b17abb15(),
 			["949f846f-8e45-4bea-9851-d48e7073913c"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_949f846f_8e45_4bea_9851_d48e7073913c(),
 			["26ac9dfd-6e38-439e-984a-423db526fdb5"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_26ac9dfd_6e38_439e_984a_423db526fdb5(),
-			["9f68f841-ca4b-4b1f-b7c9-d518404a7777"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_9f68f841_ca4b_4b1f_b7c9_d518404a7777(),
-			["c9fbe24c-6bd2-4f2f-86a9-279014fc4653"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_c9fbe24c_6bd2_4f2f_86a9_279014fc4653(),
 		};
 
 		private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings =
@@ -303,7 +212,6 @@ namespace Coherence.Generated
 		public CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada()
 		{
 			bakedCommandBindings.Add("9fe7a5dd-d62d-4dcf-92b3-7ffc395dc389", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389);
-			bakedCommandBindings.Add("2a25c6f4-c7a6-4a16-a1e4-c53af30c4963", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963);
 			bakedCommandBindings.Add("1f35b1c6-c080-4ac3-8ecc-9a03c2b39ed8", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8);
 		}
 
@@ -330,12 +238,6 @@ namespace Coherence.Generated
 			Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget = (global::PlayerAbilitySystem)commandBinding.UnityComponent;
 			commandsHandler.AddBakedCommand("PlayerAbilitySystem.CastProcess", "(System.Int32)",
 				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget,false);
-		}
-		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963(CommandBinding commandBinding, CommandsHandler commandsHandler)
-		{
-			Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963_CommandTarget = (global::PlayerHealth)commandBinding.UnityComponent;
-			commandsHandler.AddBakedCommand("PlayerHealth.PlayerDown", "()",
-				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963_CommandTarget,false);
 		}
 		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
@@ -401,23 +303,6 @@ namespace Coherence.Generated
 			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389_CommandTarget;
 			target.CastProcess((System.Int32)(command.tier));
 		}
-		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963(MessageTarget target, object[] args)
-		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963();
-			client.SendCommand(command, target, entityId);
-		}
-
-		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963(MessageTarget target, object[] args)
-		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963();
-			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963(command);
-		}
-
-		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963(Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963 command)
-		{
-			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963_CommandTarget;
-			target.PlayerDown();
-		}
 		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8(MessageTarget target, object[] args)
 		{
 			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8();
@@ -448,9 +333,6 @@ namespace Coherence.Generated
 			{
 				case Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389 castedCommand:
 					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389(castedCommand);
-					break;
-				case Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963 castedCommand:
-					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_2a25c6f4_c7a6_4a16_a1e4_c53af30c4963(castedCommand);
 					break;
 				case Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8 castedCommand:
 					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8(castedCommand);
