@@ -21,6 +21,8 @@ public class PlayerInput : MonoBehaviour
     WeaponHolder weapon;
     PlayerAbilitySystem playerAbility;
 
+    public GameObject pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
+
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
     bool jumpInputted = false;
@@ -95,6 +97,15 @@ public class PlayerInput : MonoBehaviour
         else HideMouse();
     }
 
+    public void ResumeDefaultBehaviour()
+    {
+        HideMouse();
+        playerMovement.SetDefaultMovementEnabled(true);
+        weapon.SetDefaultBehaviourEnabled(true);
+
+        FMODUnity.RuntimeManager.PauseAllEvents(false);
+    }
+
     private void DefualtBehaviour()
     {
         
@@ -105,15 +116,17 @@ public class PlayerInput : MonoBehaviour
             weapon.SetDefaultBehaviourEnabled(false);
 
             FMODUnity.RuntimeManager.PauseAllEvents(true);
+
+            pauseMenu.SetActive(true);
         }
-        else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        /*else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
         {
             HideMouse();
             playerMovement.SetDefaultMovementEnabled(true);
             weapon.SetDefaultBehaviourEnabled(true);
 
             FMODUnity.RuntimeManager.PauseAllEvents(false);
-        }
+        }*/
         
         inputtedMoveDirection = Vector3.zero;
         if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;
