@@ -26,6 +26,7 @@ public class InfoText : MonoBehaviour
     {
         cam = newCam;
         transform.SetParent(canvas, true);
+        print(cam != null);
     }
 
     public void SetInfoText(string text, Vector3 pos, float duration, Color color)
@@ -34,7 +35,6 @@ public class InfoText : MonoBehaviour
         virtualPos = pos;
         activeDuration = duration;
         textComponent.color = ReplaceAlpha(color, 1);
-        imageComponent.color = ReplaceAlpha(color, 1);
         transform.SetAsFirstSibling();
         SetExtra(false, Vector2.zero, Vector2.zero, false);
         imageComponent.enabled = false;
