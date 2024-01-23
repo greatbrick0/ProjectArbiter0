@@ -6,8 +6,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
+    private float age = 0.0f;
     [SerializeField]
     public Vector3 targetPos;
+    private Vector3 spawnPos;
 
     private NavMeshAgent agent;
     private Rigidbody rb;
@@ -15,24 +17,47 @@ public class EnemyMovement : MonoBehaviour
     private List<GameObject> sensedPlayers = new List<GameObject>();
     private GameObject targetPlayer;
 
+    private float attackCooldown = 0.0f;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        spawnPos = transform.position;
     }
 
     private void Start()
     {
         targetPos = transform.position;
+        age += transform.position.z;
     }
 
     void Update()
     {
+        age += 1.0f * Time.deltaTime;
+
         CleanDeadPlayers();
         if(sensedPlayers.Count > 0)
         {
-            targetPos = ChooseTargetPlayer().transform.position;
+            targetPlayer = ChooseTargetPlayer();
+            targetPos = targetPlayer.transform.position;
             agent.SetDestination(targetPos);
+            if (agent.remainingDistance < 4) Attack(targetPlayer.GetComponent<PlayerHealth>());
+        }
+        else
+        {
+            targetPos = spawnPos + (Vector3.right * Mathf.Round(Mathf.Sin(age / 4)) * 4);
+            agent.SetDestination(targetPos);
+        }
+    }
+
+    private void Attack(PlayerHealth player)
+    {
+        attackCooldown += 1.0f * Time.deltaTime;
+        if (attackCooldown >= 1.0f)
+        {
+            player.TakeDamage(35);
+            attackCooldown = 0;
         }
     }
 

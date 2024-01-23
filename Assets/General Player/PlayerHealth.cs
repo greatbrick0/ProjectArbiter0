@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     public bool TakeDamage(int realAmount)
     {
+        print(realAmount);
         timeSinceDamaged = 0.0f;
 
         tempShield -= realAmount;
@@ -73,6 +74,7 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerDown()
     {
         playerDead = true;
+        GetComponent<PlayerMovement>().SetDefaultMovementEnabled(false);
         print("player died");
     }
 }
