@@ -4137,9 +4137,45 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
+      propertyPath: sanityCost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
       propertyPath: spellOrigin
       value: 
       objectReference: {fileID: 2134850678}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: backVelocity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: pauseDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: slideDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: forwardVelocity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: maxCooldownTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 225340334539899874, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
+        type: 3}
+      propertyPath: collideHitboxObject
+      value: 
+      objectReference: {fileID: 1341140962506290480, guid: 9e670554b4c05054e86d2234db461351,
+        type: 3}
     - target: {fileID: 1390823402947842081, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
         type: 3}
       propertyPath: HUDRef

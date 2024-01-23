@@ -70,15 +70,21 @@ public class PlayerSpellIceDash : Ability
         rb.drag = 1;
         rb.AddForce(spellOrigin.transform.forward * forwardVelocity, ForceMode.Impulse);
         movementRef.SetPartialControl(0.1f);
-        //Instantiate(collideHitboxObject, spellOrigin.transform);
-        StartCoroutine(EndDash());
+        collideHitboxRef = Instantiate(collideHitboxObject, spellOrigin.transform);
+        collideHitboxRef.GetComponent<DashHitBoxScipt>().dashAbilityRef = this;
+        StartCoroutine(DurationDash());
     }
 
-    IEnumerator EndDash()
+    public void EndDash()
     {
-        yield return new WaitForSeconds(slideDuration);
         rb.drag = 0;
         movementRef.SetDefaultMovementEnabled(true);
+    }
+
+    IEnumerator DurationDash()
+    {
+        yield return new WaitForSeconds(slideDuration);
+        EndDash();
     }
 
     IEnumerator Cooldown()
