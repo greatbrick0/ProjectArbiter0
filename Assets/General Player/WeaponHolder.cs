@@ -285,4 +285,18 @@ public class WeaponHolder : MonoBehaviour
     {
         defaultBehaviourEnabled = newValue;
     }
+
+    public WeaponData GetWeaponData()
+    {
+        if (weapon != null)
+        return weapon;
+        else
+        return null; 
+        //This is for you, Spencer. :)
+    }
+    public void SetWeaponData(WeaponData newWeapon)
+    {
+        weapon = newWeapon;
+        SetAllStats();
+    }
 }

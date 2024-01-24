@@ -19,7 +19,7 @@ public class PlayerInput : MonoBehaviour
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
-    PlayerAbilitySystem playerAbility;
+    AbilityInputSystem playerAbility;
 
     public GameObject pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
 
@@ -76,7 +76,7 @@ public class PlayerInput : MonoBehaviour
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<WeaponHolder>();
-        playerAbility = GetComponent<PlayerAbilitySystem>();
+        playerAbility = GetComponent<AbilityInputSystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
         InfoTextManager.GetManager().SetCamera(cameraRef.GetComponent<Camera>());
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
