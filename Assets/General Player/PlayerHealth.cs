@@ -34,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        if (playerDead) return;
+
         timeSinceDamaged += 1.0f * Time.deltaTime;
         if (timeSinceDamaged >= regenDelay)
         {
