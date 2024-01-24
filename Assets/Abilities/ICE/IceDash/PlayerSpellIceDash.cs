@@ -83,14 +83,14 @@ public class PlayerSpellIceDash : Ability
 
     public void EndDash()
     {
+        movementRef.SetDefaultMovementEnabled(true);
+        rb.drag = 0;
         sync.SendCommand<PlayerSpellIceDash>(nameof(DashFinished), MessageTarget.All);
        
     }
 
     public void DashFinished()
     {
-        rb.drag = 0;
-        movementRef.SetDefaultMovementEnabled(true);
         if (collideHitboxRef != null)
         collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
     }

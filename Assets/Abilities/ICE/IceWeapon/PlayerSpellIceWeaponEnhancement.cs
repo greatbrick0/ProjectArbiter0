@@ -97,7 +97,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             sanityCostTimer -= Time.deltaTime;
         if (sanityCostTimer <= 0)
         {
-            
+            if (sanityRef != null)
             sanityRef.Sanity -= sanityCost;
             sanityCostTimer = sanityCostInterval;
         }

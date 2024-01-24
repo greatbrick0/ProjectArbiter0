@@ -279,7 +279,11 @@ public class WeaponHolder : MonoBehaviour
 
     public WeaponData GetWeaponData()
     {
+        if (weapon != null)
         return weapon;
+        else
+        return null; 
+        //This is for you, Spencer. :)
     }
     public void SetWeaponData(WeaponData newWeapon)
     {
