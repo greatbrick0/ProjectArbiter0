@@ -117,7 +117,7 @@ public class PlayerInput : MonoBehaviour
 
             FMODUnity.RuntimeManager.PauseAllEvents(true);
 
-            pauseMenu.SetActive(true);
+            if(pauseMenu != null) pauseMenu.SetActive(true);
         }
         /*else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
         {
