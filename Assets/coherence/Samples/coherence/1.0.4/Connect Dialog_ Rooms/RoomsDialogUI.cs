@@ -205,7 +205,6 @@ namespace Coherence.Samples.RoomsDialog
             bridge.JoinRoom(roomData);
 
             //-*-FMOD Stuff-*-\\
-            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.dialogue, gameObject);
         }
 
         private void CreateRoomAndJoin()
