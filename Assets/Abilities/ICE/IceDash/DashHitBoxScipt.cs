@@ -18,8 +18,12 @@ public class DashHitBoxScipt : MonoBehaviour
             {
                 hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType());
                 dashAbilityRef.EndDash();
-
             }
         }
+    }
+
+    public void RequestDestroy() //Hello there!
+    {
+        Destroy(this.gameObject);
     }
 }

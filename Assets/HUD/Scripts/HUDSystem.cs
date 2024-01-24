@@ -16,7 +16,7 @@ public class HUDSystem : MonoBehaviour
 
     [SerializeField]
     GameObject SanityBar;
-    private float targetSanity = 100;
+    //private float targetSanity = 100;
 
  
     public void UseAbility(int tier)

@@ -40,7 +40,7 @@ public class PlayerSpellIceDash : Ability
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown());
 
-        sync.SendCommand<PlayerSpellIceDash>(nameof(PhaseOneDash), MessageTarget.All);
+        PhaseOneDash();
 
     }
 
@@ -65,22 +65,35 @@ public class PlayerSpellIceDash : Ability
 
     }
 
+    public void CreateVFX()
+    {
+        collideHitboxRef = Instantiate(collideHitboxObject, spellOrigin.transform);
+        collideHitboxRef.GetComponent<DashHitBoxScipt>().dashAbilityRef = this;
+    }
+
     public void DashForward()
     {
         rb.drag = 1;
         rb.AddForce(spellOrigin.transform.forward * forwardVelocity, ForceMode.Impulse);
         movementRef.SetPartialControl(0.1f);
-        collideHitboxRef = Instantiate(collideHitboxObject, spellOrigin.transform);
-        collideHitboxRef.GetComponent<DashHitBoxScipt>().dashAbilityRef = this;
+        sync.SendCommand<PlayerSpellIceDash>(nameof(CreateVFX), MessageTarget.All);
+        
         StartCoroutine(DurationDash());
     }
 
     public void EndDash()
     {
-        rb.drag = 0;
-        movementRef.SetDefaultMovementEnabled(true);
+        sync.SendCommand<PlayerSpellIceDash>(nameof(DashFinished), MessageTarget.All);
+       
     }
 
+    public void DashFinished()
+    {
+        rb.drag = 0;
+        movementRef.SetDefaultMovementEnabled(true);
+        if (collideHitboxRef != null)
+        collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
+    }
     IEnumerator DurationDash()
     {
         yield return new WaitForSeconds(slideDuration);

@@ -276,4 +276,14 @@ public class WeaponHolder : MonoBehaviour
     {
         defaultBehaviourEnabled = newValue;
     }
+
+    public WeaponData GetWeaponData()
+    {
+        return weapon;
+    }
+    public void SetWeaponData(WeaponData newWeapon)
+    {
+        weapon = newWeapon;
+        SetAllStats();
+    }
 }

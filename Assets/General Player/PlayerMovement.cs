@@ -147,7 +147,6 @@ public class PlayerMovement : MonoBehaviour
     private void AdditiveMotion()
     {
         hVelocity = new Vector2(rb.velocity.x, rb.velocity.z);
-        Debug.Log(new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime);
         hVelocity += new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime * partialControlValue;
         rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
     }
