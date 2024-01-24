@@ -70,7 +70,8 @@ public class EnemyMovement : MonoBehaviour
     {
         for (int ii = sensedPlayers.Count - 1; ii >= 0; ii--)
         {
-            if (sensedPlayers[ii].GetComponent<PlayerHealth>().playerDead) sensedPlayers.RemoveAt(ii);
+            if (sensedPlayers[ii] == null) sensedPlayers.RemoveAt(ii);
+            else if (sensedPlayers[ii].GetComponent<PlayerHealth>().playerDead) sensedPlayers.RemoveAt(ii);
         }
     }
 

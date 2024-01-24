@@ -19,7 +19,7 @@ public class PlayerInput : MonoBehaviour
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
-    PlayerAbilitySystem playerAbility;
+    AbilityInputSystem playerAbility;
 
     public GameObject pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
 
@@ -76,7 +76,7 @@ public class PlayerInput : MonoBehaviour
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<WeaponHolder>();
-        playerAbility = GetComponent<PlayerAbilitySystem>();
+        playerAbility = GetComponent<AbilityInputSystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
         InfoTextManager.GetManager().SetCamera(cameraRef.GetComponent<Camera>());
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
@@ -117,7 +117,7 @@ public class PlayerInput : MonoBehaviour
 
             FMODUnity.RuntimeManager.PauseAllEvents(true);
 
-            pauseMenu.SetActive(true);
+            if(pauseMenu != null) pauseMenu.SetActive(true);
         }
         /*else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
         {

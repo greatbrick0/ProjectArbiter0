@@ -1,70 +1,51 @@
-using System;
+using Coherence.Toolkit;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-
-[Serializable]
 public abstract class Ability : MonoBehaviour
 {
-    //This is the ability logic. It will be attached to the ability/projectile.
 
-    //All the fun stuff
-    public int abilityDamage = 0; //damage. if it doesnt change damage then uhhhhh.xd
-    public float lifetime = 0f; //functions as duration for enhancments.
-    public float speed = 0f; //projectile speed if applicable
+    [Header("References")]
+    public CoherenceSync sync;
+    public Rigidbody rb;
+    public AbilityInputSystem AbilityHoldRef;
+    [SerializeField]
+    public SanitySystem sanityRef;
+    public PlayerMovement movementRef;
+    [SerializeField]
+    public GameObject spellOrigin;
 
-    public bool cancellable = false;
+    [SerializeField]
+    public float maxCooldownTime;
+
+    public bool onCooldown = false;
+
+    [SerializeField]
+    public float activeTime { get; private set; } //how long the spell is doing 'it's thing', preventing other spells/shooting.
+
+    public bool isActive = false;
+
+    [SerializeField]
+    public int sanityCost;
+
+    public HUDSystem HUDRef;
+
+    public int tier;
 
 
 
-    //These used to be enums, and I cannot for the life of me serialize it correctly.
-    public string Character; //character to use this power (ice,fire,mutant,test)
-    public string tier; //primary, secondary, enhancement
-    public GameObject caster { get; private set; } //Reference to player who used the ability.
 
-
-    //protected Collider collideRef;
-    //protected Rigidbody rb;
-
-    public bool hasBody; //is it a projectile? does something need to be instantiated
-
-    //Demon logic modifications
-    public bool demonic; //followed by example demon changes
-    public int abilityDamageDemon;
-    public float lifetimeDemon;
-    public float speedDemon;
-    //public Collider demonColliderExtra;
-
-    private void Awake()
+    public void RecieveHUDReference(HUDSystem HUD,int tier)
     {
-        Debug.Log("Awake");
-        AssignAbilityComponents();
-
-        DoExpire();
+        HUDRef = HUD;
+        this.tier = tier;
+        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
     }
 
-    protected abstract void AssignAbilityComponents();
+    public abstract void StartAbility();
 
-    public virtual void SetDemonic()
-    {
-        demonic= true; 
-    }
-
-    public void SetCaster(GameObject player)
-    {
-        Debug.Log("SetCaster");
-        caster = player;
-        if (caster.GetComponent<PlayerAbilitySystem>().inDemonicState)
-            SetDemonic();
-    }
-
-    public virtual void DoExpire() //Ends spell after intended duration
-    {
-        Destroy(this.gameObject, lifetime);
-    }
-
-
-
+    public abstract void DemonicStartAbility(); //new function > passing demonic bool. fite me
 
 }

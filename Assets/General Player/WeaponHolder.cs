@@ -174,7 +174,6 @@ public class WeaponHolder : MonoBehaviour
     private void Reload()
     {
         reloadProgress += 1.0f * Time.deltaTime;
-        print(reloadProgress);
         if (reloadProgress >= reloadTime)
         {
             reloading = false;
@@ -284,5 +283,19 @@ public class WeaponHolder : MonoBehaviour
     public void SetDefaultBehaviourEnabled(bool newValue)
     {
         defaultBehaviourEnabled = newValue;
+    }
+
+    public WeaponData GetWeaponData()
+    {
+        if (weapon != null)
+        return weapon;
+        else
+        return null; 
+        //This is for you, Spencer. :)
+    }
+    public void SetWeaponData(WeaponData newWeapon)
+    {
+        weapon = newWeapon;
+        SetAllStats();
     }
 }

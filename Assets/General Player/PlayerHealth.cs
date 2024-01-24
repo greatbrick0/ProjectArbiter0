@@ -34,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        if (playerDead) return;
+
         timeSinceDamaged += 1.0f * Time.deltaTime;
         if (timeSinceDamaged >= regenDelay)
         {
@@ -75,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         GetComponent<PlayerMovement>().SetDefaultMovementEnabled(false);
+        GetComponent<PlayerMovement>().partialControlValue = 0.0f;
         print("player died");
     }
 }

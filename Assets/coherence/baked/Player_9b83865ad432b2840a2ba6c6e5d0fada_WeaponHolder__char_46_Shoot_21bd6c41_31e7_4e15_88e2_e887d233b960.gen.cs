@@ -12,15 +12,15 @@ namespace Coherence.Generated
 	using UnityEngine;
 	using Coherence.Entity;
 
-	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8 : IEntityCommand
+	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 : IEntityCommand
 	{
 		public Vector3 straight;
 		public Vector3 originPos;
 
 		public MessageTarget Routing => MessageTarget.All;
-		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8;
+		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960;
 
-		public Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8
+		public Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960
 		(
 			Vector3 datastraight,
 			Vector3 dataoriginPos
@@ -30,7 +30,7 @@ namespace Coherence.Generated
 			originPos = dataoriginPos;
 		}
 
-		public static void Serialize(Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8 commandData, IOutProtocolBitStream bitStream)
+		public static void Serialize(Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 commandData, IOutProtocolBitStream bitStream)
 		{
 			var converted_straight = commandData.straight.ToCoreVector3();
 			bitStream.WriteVector3(converted_straight, FloatMeta.NoCompression());
@@ -38,14 +38,14 @@ namespace Coherence.Generated
 			bitStream.WriteVector3(converted_originPos, FloatMeta.NoCompression());
 		}
 
-		public static Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8 Deserialize(IInProtocolBitStream bitStream)
+		public static Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 Deserialize(IInProtocolBitStream bitStream)
 		{
 			var converted_straight = bitStream.ReadVector3(FloatMeta.NoCompression());
 			var datastraight = converted_straight.ToUnityVector3();
 			var converted_originPos = bitStream.ReadVector3(FloatMeta.NoCompression());
 			var dataoriginPos = converted_originPos.ToUnityVector3();
 
-			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8
+			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960
 			(
 				datastraight,
 				dataoriginPos

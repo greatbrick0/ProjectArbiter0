@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TestAbility1 : Ability
+public class TestAbility1 : AbilityRedundant
 {
 
     protected Collider collideRef;
