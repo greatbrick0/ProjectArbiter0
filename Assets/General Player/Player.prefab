@@ -50,9 +50,10 @@ GameObject:
   - component: {fileID: 2021298388301607510}
   - component: {fileID: 1390823402947842081}
   - component: {fileID: 8751002839937151779}
+  - component: {fileID: 7902894017888744999}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -627,6 +628,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 6674336538903488953}
       lodStepsActive: 1
+    - component: {fileID: 7902894017888744999}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -663,6 +666,9 @@ MonoBehaviour:
   - rid: 5545163782292242432
   - rid: 5567048967824080937
   - rid: 5545164347301429251
+  - rid: 4937643371784044544
+  - rid: 4937643371784044546
+  - rid: 4937643371784044548
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -688,6 +694,131 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 4937643371784044544
+      type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 4937643371784044545
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 12f6267f-ab96-40a3-bbce-0fb2b8985f47
+        archetypeData:
+          type: 3
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 3
+            bits: 1
+            precision: 0
+            floatCompression: 0
+        unityComponent: {fileID: 7902894017888744999}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 4937643371784044545
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: playerDead
+        monoAssemblyType: System.Boolean, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerHealth, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.BoolBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 4937643371784044546
+      type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 4937643371784044547
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: c59b84e7-6597-4643-aa74-1b2fbab0ca12
+        archetypeData:
+          type: 1
+          minRange: -2147483648
+          maxRange: 2147483647
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 1
+            bits: 32
+            precision: 0
+            floatCompression: 0
+        unityComponent: {fileID: 7902894017888744999}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 4937643371784044547
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: mainHealth
+        monoAssemblyType: System.Int32, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerHealth, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.IntBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 4937643371784044548
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 4937643371784044549
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: b8a2cb78-fa6d-4815-9c83-f022908165ad
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 7902894017888744999}
+        coherenceSync: {fileID: 2920998475671937025}
+        interpolationSettings: {fileID: 0}
+    - rid: 4937643371784044549
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: PlayerDown
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerHealth, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
     - rid: 5545163782292242432
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
@@ -1008,6 +1139,7 @@ MonoBehaviour:
   selfBodyModel: {fileID: 8127347517799184009}
   selfGunModel: {fileID: 1102372526446446827}
   head: {fileID: 3402058366864678147}
+  pauseMenu: {fileID: 0}
   wasdKeysInit:
   - <name>k__BackingField: forward
     input: 119
@@ -1094,6 +1226,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HUDref: {fileID: 0}
+--- !u!114 &7902894017888744999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd3d7b2c58eac147a9140791fbcb43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDead: 0
+  <maxMainHealth>k__BackingField: 200
+  mainHealth: 1
+  regenDelay: 5
+  regenRate: 15
+  tempShield: 0
 --- !u!1 &3607976606283600887
 GameObject:
   m_ObjectHideFlags: 0
