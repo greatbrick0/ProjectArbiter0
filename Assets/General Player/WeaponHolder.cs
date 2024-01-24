@@ -13,6 +13,7 @@ public class WeaponHolder : MonoBehaviour
     private bool defaultBehaviourEnabled = false;
     private CoherenceSync sync;
     private PlayerMovement movementScript;
+    private DamageNumberManager damageNumberScript;
     private HUDGunAmmoScript hudGunRef;
     [HideInInspector]
     public Camera cam { private get; set; }
@@ -103,6 +104,11 @@ public class WeaponHolder : MonoBehaviour
 #endif
     }
 
+    private void Start()
+    {
+        damageNumberScript = DamageNumberManager.GetManager(); //GetManager() must be called after Awake()
+    }
+
     public void GetHUDReference() //I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...
     {
         hudGunRef = GameObject.Find("GunHUD").GetComponent<HUDGunAmmoScript>();
@@ -168,7 +174,6 @@ public class WeaponHolder : MonoBehaviour
     private void Reload()
     {
         reloadProgress += 1.0f * Time.deltaTime;
-        print(reloadProgress);
         if (reloadProgress >= reloadTime)
         {
             reloading = false;
@@ -270,11 +275,27 @@ public class WeaponHolder : MonoBehaviour
     {
         if (hitbox.GetOwner().team != "Enemy") return;
 
-        hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+        int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+
+        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point, DamageElement.Normal, hitbox.GetSpotType());
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)
     {
         defaultBehaviourEnabled = newValue;
+    }
+
+    public WeaponData GetWeaponData()
+    {
+        if (weapon != null)
+        return weapon;
+        else
+        return null; 
+        //This is for you, Spencer. :)
+    }
+    public void SetWeaponData(WeaponData newWeapon)
+    {
+        weapon = newWeapon;
+        SetAllStats();
     }
 }

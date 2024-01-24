@@ -19,7 +19,9 @@ public class PlayerInput : MonoBehaviour
     Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
-    PlayerAbilitySystem playerAbility;
+    AbilityInputSystem playerAbility;
+
+    public GameObject pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -74,8 +76,9 @@ public class PlayerInput : MonoBehaviour
         SetUpCamera();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<WeaponHolder>();
-        playerAbility = GetComponent<PlayerAbilitySystem>();
+        playerAbility = GetComponent<AbilityInputSystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
+        InfoTextManager.GetManager().SetCamera(cameraRef.GetComponent<Camera>());
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
         foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
     }
@@ -94,6 +97,15 @@ public class PlayerInput : MonoBehaviour
         else HideMouse();
     }
 
+    public void ResumeDefaultBehaviour()
+    {
+        HideMouse();
+        playerMovement.SetDefaultMovementEnabled(true);
+        weapon.SetDefaultBehaviourEnabled(true);
+
+        FMODUnity.RuntimeManager.PauseAllEvents(false);
+    }
+
     private void DefualtBehaviour()
     {
         
@@ -104,15 +116,17 @@ public class PlayerInput : MonoBehaviour
             weapon.SetDefaultBehaviourEnabled(false);
 
             FMODUnity.RuntimeManager.PauseAllEvents(true);
+
+            if(pauseMenu != null) pauseMenu.SetActive(true);
         }
-        else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        /*else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
         {
             HideMouse();
             playerMovement.SetDefaultMovementEnabled(true);
             weapon.SetDefaultBehaviourEnabled(true);
 
             FMODUnity.RuntimeManager.PauseAllEvents(false);
-        }
+        }*/
         
         inputtedMoveDirection = Vector3.zero;
         if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;

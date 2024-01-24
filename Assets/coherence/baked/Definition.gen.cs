@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "d78507427d60a97ad699c257f0736d21c63baa92";
+		public const string schemaId = "8c0b59b124f9190d7d8ba8b18a62596302cecb36";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -120,15 +120,20 @@ namespace Coherence.Generated
 		public const uint InternalGenericFieldULong3 = 100;
 		public const uint InternalGenericFieldColor0 = 101;
 		public const uint InternalGenericFieldColor1 = 102;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014 = 103;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999 = 103;
 		public const uint InternalAuthorityRequest = 0;
 		public const uint InternalAuthorityTransfer = 1;
 		public const uint InternalQuerySynced = 2;
 		public const uint InternalAdoptOrphan = 3;
 		public const uint InternalPersistenceReady = 4;
 		public const uint InternalGenericCommand = 5;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389 = 6;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8 = 7;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129 = 6;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e = 7;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e = 8;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514 = 9;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d = 10;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_RemoveEnhancement_24b474a5_887c_40b7_ba0d_bda692d74c60 = 11;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 = 12;
 
 		private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>() {
 			{ 0, "WorldPosition" },
@@ -234,7 +239,7 @@ namespace Coherence.Generated
 			{ 100, "GenericFieldULong3" },
 			{ 101, "GenericFieldColor0" },
 			{ 102, "GenericFieldColor1" },
-			{ 103, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014" },
+			{ 103, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999" },
 		};
 
 		public static string ComponentNameForTypeId(uint typeId)
@@ -462,8 +467,8 @@ namespace Coherence.Generated
 					return GenericFieldColor0.Deserialize(inProtocolStream);
 				case InternalGenericFieldColor1:
 					return GenericFieldColor1.Deserialize(inProtocolStream);
-				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014.Deserialize(inProtocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999.Deserialize(inProtocolStream);
 				default:
 					return (null, 0);
 			}
@@ -680,8 +685,8 @@ namespace Coherence.Generated
 					return GenericFieldColor0.Serialize((GenericFieldColor0)data, mask, protocolStream);
 				case InternalGenericFieldColor1:
 					return GenericFieldColor1.Serialize((GenericFieldColor1)data, mask, protocolStream);
-				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014)data, mask, protocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999)data, mask, protocolStream);
 				default:
 					logger.Error("Missing serialization implementation for a component.", ("component", data.GetComponentType()));
 					return 0;
@@ -704,10 +709,20 @@ namespace Coherence.Generated
 					return PersistenceReady.Deserialize(bitStream);
 				case Definition.InternalGenericCommand:
 					return GenericCommand.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_RemoveEnhancement_24b474a5_887c_40b7_ba0d_bda692d74c60:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_RemoveEnhancement_24b474a5_887c_40b7_ba0d_bda692d74c60.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960.Deserialize(bitStream);
 				default:
 					break;
 			}
@@ -787,11 +802,26 @@ namespace Coherence.Generated
 				case Definition.InternalGenericCommand:
 					GenericCommand.Serialize((GenericCommand)data, bitStream);
 					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAbilitySystem__char_46_CastProcess_9fe7a5dd_d62d_4dcf_92b3_7ffc395dc389)data, bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129)data, bitStream);
 					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_1f35b1c6_c080_4ac3_8ecc_9a03c2b39ed8)data, bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e)data, bitStream);
+					break;
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e)data, bitStream);
+					break;
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514)data, bitStream);
+					break;
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d)data, bitStream);
+					break;
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_RemoveEnhancement_24b474a5_887c_40b7_ba0d_bda692d74c60:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_RemoveEnhancement_24b474a5_887c_40b7_ba0d_bda692d74c60.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_RemoveEnhancement_24b474a5_887c_40b7_ba0d_bda692d74c60)data, bitStream);
+					break;
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960)data, bitStream);
 					break;
 				default:
 					break;

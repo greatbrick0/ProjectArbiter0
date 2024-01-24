@@ -1,6 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1556816764795888761
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe206545a28be2142b8fa937387721e8, type: 3}
+  m_Name: CoherenceSyncConfigRegistry
+  m_EditorClassIdentifier: 
+  configs:
+  - {fileID: 1018376734518712145}
+  loadFromAssetDatabase: 0
+--- !u!114 &1018376734518712145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,31 +32,16 @@ MonoBehaviour:
     type: 3}
   includeInSchema: 1
   objectProvider:
-    rid: 9124837619685130243
+    rid: 726511650095759399
   objectInstantiator:
-    rid: 9124837619685130244
+    rid: 726511650095759400
   references:
     version: 2
     RefIds:
-    - rid: 9124837619685130243
+    - rid: 726511650095759399
       type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
       data:
         prefab: {fileID: 3294123685879425709, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
           type: 3}
-    - rid: 9124837619685130244
+    - rid: 726511650095759400
       type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe206545a28be2142b8fa937387721e8, type: 3}
-  m_Name: CoherenceSyncConfigRegistry
-  m_EditorClassIdentifier: 
-  configs:
-  - {fileID: -1556816764795888761}
-  loadFromAssetDatabase: 0
