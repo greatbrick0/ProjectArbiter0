@@ -17,12 +17,12 @@ namespace Coherence.Generated
 
 	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999 : ICoherenceComponentData
 	{
-		public bool playerDead;
 		public int mainHealth;
+		public bool playerDead;
 
 		public override string ToString()
 		{
-			return $"Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999(playerDead: {playerDead}, mainHealth: {mainHealth})";
+			return $"Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999(mainHealth: {mainHealth}, playerDead: {playerDead})";
 		}
 
 		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999;
@@ -52,13 +52,13 @@ namespace Coherence.Generated
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				playerDead = other.playerDead;
+				mainHealth = other.mainHealth;
 			}
 			mask >>= 1;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				mainHealth = other.mainHealth;
+				playerDead = other.playerDead;
 			}
 			mask >>= 1;
 			return this;
@@ -74,18 +74,18 @@ namespace Coherence.Generated
 		{
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				var fieldValue = data.playerDead;
-
-				bitStream.WriteBool(fieldValue);
-			}
-			mask >>= 1;
-			if (bitStream.WriteMask((mask & 0x01) != 0))
-			{
 				Coherence.Utils.Bounds.Check(data.mainHealth, _mainHealth_Min, _mainHealth_Max, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999.mainHealth");
 				data.mainHealth = Coherence.Utils.Bounds.Clamp(data.mainHealth, _mainHealth_Min, _mainHealth_Max);
 				var fieldValue = data.mainHealth;
 
 				bitStream.WriteIntegerRange(fieldValue, 32, -2147483648);
+			}
+			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				var fieldValue = data.playerDead;
+
+				bitStream.WriteBool(fieldValue);
 			}
 			mask >>= 1;
 
@@ -99,12 +99,12 @@ namespace Coherence.Generated
 	
 			if (bitStream.ReadMask())
 			{
-				val.playerDead = bitStream.ReadBool();
+				val.mainHealth = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000000001;
 			}
 			if (bitStream.ReadMask())
 			{
-				val.mainHealth = bitStream.ReadIntegerRange(32, -2147483648);
+				val.playerDead = bitStream.ReadBool();
 				mask |= 0b00000000000000000000000000000010;
 			}
 			return (val, mask);
