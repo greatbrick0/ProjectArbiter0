@@ -9,8 +9,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference playerReloading { get; private set; }
     [field: SerializeField] public EventReference pistolShoot { get; private set; }
     [field: SerializeField] public EventReference iceSpikes { get; private set; }
-
-    [field: SerializeField] public EventReference dialogue { get; private set; }
+    
     [field: SerializeField] public EventReference bulletHit { get; private set; }
 
     [field: Header ("Music")]
