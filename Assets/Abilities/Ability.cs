@@ -7,32 +7,30 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
 
-    [Header("References")]
-    public CoherenceSync sync;
-    public Rigidbody rb;
-    public AbilityInputSystem AbilityHoldRef;
+    protected CoherenceSync sync;
+    protected Rigidbody rb;
+    protected AbilityInputSystem AbilityHoldRef;
+    protected SanitySystem sanityRef;
+    protected PlayerMovement movementRef;
     [SerializeField]
-    public SanitySystem sanityRef;
-    public PlayerMovement movementRef;
-    [SerializeField]
-    public GameObject spellOrigin;
-
-    [SerializeField]
-    public float maxCooldownTime;
-
-    public bool onCooldown = false;
-
-    [SerializeField]
-    public float activeTime { get; private set; } //how long the spell is doing 'it's thing', preventing other spells/shooting.
-
-    public bool isActive = false;
+    protected GameObject spellOrigin;
 
     [SerializeField]
     public int sanityCost;
 
+    [HideInInspector]
+    public bool onCooldown = false;
+    public float maxCooldownTime;
+    
+
+    [SerializeField]
+    public float activeTime { get; private set; } //how long the spell is doing 'it's thing', preventing other spells/shooting.
+
+    
+
     public HUDSystem HUDRef;
 
-    public int tier;
+    protected int tier;
 
 
 
@@ -47,5 +45,7 @@ public abstract class Ability : MonoBehaviour
     public abstract void StartAbility();
 
     public abstract void DemonicStartAbility(); //new function > passing demonic bool. fite me
+
+    protected abstract void GetNeededComponents();
 
 }

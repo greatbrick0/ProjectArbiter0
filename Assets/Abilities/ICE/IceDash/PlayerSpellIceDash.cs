@@ -21,7 +21,7 @@ public class PlayerSpellIceDash : Ability
 
     GameObject collideHitboxRef;
 
-    private void GetNeededComponents()
+    protected override void GetNeededComponents()
     { 
         AbilityHoldRef = GetComponent<AbilityInputSystem>();
         sanityRef = GetComponent<SanitySystem>();

@@ -12,7 +12,6 @@ public class AbilityInputSystem : MonoBehaviour
     { 
         idle, //not casting at the moment
         casting, //currently casting
-        demonic, //currently DEMONIC!!!
         exhausted, //after demonic, you will be locked from spells for a while
         locked, //no spells imputs allowed! (cutscene?)
     }
@@ -25,6 +24,11 @@ public class AbilityInputSystem : MonoBehaviour
 
     private HUDSystem HUDRef;
 
+    public bool demonic { get; private set; }
+
+    [SerializeField]
+    private float exhaustTime;
+    
  
 
     private void Start()
@@ -40,7 +44,7 @@ public class AbilityInputSystem : MonoBehaviour
 
     void Update()
     {
-
+       
 
     }
 
@@ -56,10 +60,25 @@ public class AbilityInputSystem : MonoBehaviour
         {
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
-                    
-                    AbilityList[tier].StartAbility();
+                    if (demonic)
+                        AbilityList[tier].StartAbility();
+                    else
+                        AbilityList[tier].DemonicStartAbility();
                     break;
                 }
+            case CastingState.casting: //if you are currently casting something, you gotta wait!
+                break;
+            
+            case CastingState.exhausted:
+                {
+                    //invalid cast feedback
+                    break;
+                }
+            case CastingState.locked:
+                {
+                    break;
+                }
+                
         }
 
     }
@@ -74,5 +93,28 @@ public class AbilityInputSystem : MonoBehaviour
         }   
     }
     
+    public void SetDemonic(bool setDemonic)
+    {
+        if (setDemonic)
+            demonic = true;
+        else
+        {
+            demonic = false;;
+            playerState = CastingState.exhausted;
+            StartCoroutine(ExhaustedTimer());
+        }
+    }
+
+    IEnumerator ExhaustedTimer()
+    {
+        yield return new WaitForSeconds(exhaustTime);
+    }
+    IEnumerator TimeCasting(float duration)
+    {
+        playerState = CastingState.casting;
+        yield return new WaitForSeconds(duration);
+        playerState = CastingState.exhausted;
+
+    }
 
 }

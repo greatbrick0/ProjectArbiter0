@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SanitySystem : MonoBehaviour
@@ -13,11 +14,12 @@ public class SanitySystem : MonoBehaviour
     [SerializeField]
     float maxSanity;
 
-    [SerializeField]
-    float currentSanity;
+    float currentSanity = 100;
 
     [SerializeField]
     float sanityRecoverySpeedModifier;
+    [SerializeField]
+    float demonicRecoverySpeedModifier;
 
     [SerializeField]
     float sanityRecoveryPause;
@@ -35,10 +37,13 @@ public class SanitySystem : MonoBehaviour
         }
         set
         {
+            if (demonic && value < 0)
+                return;
             if (value < currentSanity)
                 sanityPauseTimer = sanityRecoveryPause;
 
             currentSanity = value;
+            if (sanityHUDRef != null)
             sanityHUDRef.UpdateSanityHUD(currentSanity);
 
             if (!demonic && currentSanity <= 0.9) //nerf, but improves clarity
@@ -46,6 +51,13 @@ public class SanitySystem : MonoBehaviour
             {
                 currentSanity = 0;
                 demonic = true;
+                abilitySystemRef.SetDemonic(true);
+            }
+
+            if (demonic && currentSanity >= maxSanity)
+            {
+                demonic = false;
+                abilitySystemRef.SetDemonic(false);
             }
 
         }
@@ -61,13 +73,20 @@ public class SanitySystem : MonoBehaviour
 
     private void Update()
     {
-        if (sanityPauseTimer > 0)
-            sanityPauseTimer -= Time.deltaTime;
-        
-        if (sanityPauseTimer <=0)
+        if (demonic)
         {
-            if (currentSanity <  maxSanity)
-            Sanity += Time.deltaTime * sanityRecoverySpeedModifier;
+            if (sanityPauseTimer > 0)
+                sanityPauseTimer -= Time.deltaTime;
+
+            if (sanityPauseTimer <= 0)
+            {
+                if (currentSanity < maxSanity)
+                    Sanity += Time.deltaTime * sanityRecoverySpeedModifier;
+            }
+        }
+        else
+        {
+            Sanity += Time.deltaTime * demonicRecoverySpeedModifier;
         }
     }
 

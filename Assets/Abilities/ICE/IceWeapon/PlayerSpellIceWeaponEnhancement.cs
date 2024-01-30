@@ -7,6 +7,12 @@ using UnityEngine.VFX;
 
 public class PlayerSpellIceWeaponEnhancement : Ability
 {
+
+    //this spell reduces sanity in intervals while active.
+    [SerializeField]
+    private float sanityCostInterval;
+    private float sanityCostTimer = 2.0f;
+
     //Weapon
     [SerializeField]
     WeaponHolder weaponRef;
@@ -27,13 +33,11 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     bool enhancementActive;
    
-    [SerializeField]
-    private float sanityCostInterval;
-    private float sanityCostTimer=2.0f;
+    
 
     
 
-    private void GetNeededComponents()
+    protected override void GetNeededComponents()
     {
         AbilityHoldRef = GetComponent<AbilityInputSystem>();
         sanityRef = GetComponent<SanitySystem>();
