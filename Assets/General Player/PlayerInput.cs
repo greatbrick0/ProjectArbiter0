@@ -77,13 +77,8 @@ public class PlayerInput : MonoBehaviour
         SetLayerRecursively(selfBodyModel, 9);
         SetLayerRecursively(selfGunModel, 10);
         SetUpCamera();
-
-        playerMovement = GetComponent<PlayerMovement>();
-        weapon = GetComponent<WeaponHolder>();
-        playerAbility = GetComponent<AbilityInputSystem>();
-        weapon.cam = cameraRef.GetComponent<Camera>();
-
-        DictionaryInit();
+        FindComponentReferences();
+        DictionariesFromLists();
 
         //manager references
         InfoTextManager.GetManager().SetCamera(cameraRef.GetComponent<Camera>());
@@ -92,7 +87,21 @@ public class PlayerInput : MonoBehaviour
         bridgeRef.onDisconnected.AddListener(delegate { SetInMenuBehaviour(true); });
     }
 
-    private void DictionaryInit()
+    /// <summary>
+    /// Puts frequently used nearby components in variables for ease of use and initialization between components.
+    /// </summary>
+    private void FindComponentReferences()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAbility = GetComponent<AbilityInputSystem>();
+        weapon = GetComponent<WeaponHolder>();
+        weapon.cam = cameraRef.GetComponent<Camera>();
+    }
+
+    /// <summary>
+    /// Takes the lists that are visible in the inspector and formats them into their hidden dictionaries. 
+    /// </summary>
+    private void DictionariesFromLists()
     {
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
         foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
@@ -183,6 +192,9 @@ public class PlayerInput : MonoBehaviour
         inputtedLookDirection = Vector2.zero;
     }
 
+    /// <summary>
+    /// Creates a new player camera, deleting the previous one if it exists. 
+    /// </summary>
     private void SetUpCamera()
     {
         if (cameraRef != null) Destroy(cameraRef);

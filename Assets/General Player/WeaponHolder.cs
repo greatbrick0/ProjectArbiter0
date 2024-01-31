@@ -109,7 +109,10 @@ public class WeaponHolder : MonoBehaviour
         damageNumberScript = DamageNumberManager.GetManager(); //GetManager() must be called after Awake()
     }
 
-    public void GetHUDReference() //I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...
+    /* I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...                         */
+    /*  i saw on a forum somewhere: Awake() is for init within a script, Start() is for connecting to other objects.
+     *  i  think Start() would fit well for this purpose.     -S                                                        */
+    public void GetHUDReference() 
     {
         hudGunRef = GameObject.Find("GunHUD").GetComponent<HUDGunAmmoScript>();
         hudGunRef.SetCurrentAmmo(currentAmmo);
