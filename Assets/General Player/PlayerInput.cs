@@ -5,22 +5,26 @@ using System;
 using FMODUnity;
 using Unity.VisualScripting;
 using System.Runtime.CompilerServices;
+using Coherence.Toolkit;
+using Coherence;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField]
-    GameObject cameraRef;
+    private GameObject cameraObj;
+    private GameObject cameraRef;
     [SerializeField]
-    GameObject selfBodyModel;
+    private GameObject selfBodyModel;
     [SerializeField]
-    GameObject selfGunModel;
+    private GameObject selfGunModel;
     [SerializeField]
-    Transform head;
+    private Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
     AbilityInputSystem playerAbility;
 
+    CoherenceBridge bridgeRef;
     public GameObject pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
 
     Vector3 inputtedMoveDirection = Vector3.zero;
@@ -72,18 +76,29 @@ public class PlayerInput : MonoBehaviour
     {
         SetLayerRecursively(selfBodyModel, 9);
         SetLayerRecursively(selfGunModel, 10);
-        cameraRef = Instantiate(cameraRef);
         SetUpCamera();
+
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<WeaponHolder>();
         playerAbility = GetComponent<AbilityInputSystem>();
         weapon.cam = cameraRef.GetComponent<Camera>();
+
+        DictionaryInit();
+
+        //manager references
         InfoTextManager.GetManager().SetCamera(cameraRef.GetComponent<Camera>());
+        bridgeRef = FindObjectOfType<CoherenceBridge>();
+        bridgeRef.onConnected.AddListener(delegate { SetInMenuBehaviour(false); });
+        bridgeRef.onDisconnected.AddListener(delegate { SetInMenuBehaviour(true); });
+    }
+
+    private void DictionaryInit()
+    {
         foreach (InputAndName ii in wasdKeysInit) wasdKeys.Add(ii.name, ii.input);
         foreach (InputAndName ii in abilityKeysInit) abilityKeys.Add(ii.name, ii.input);
     }
 
-    void Update()
+    private void Update()
     {
         if (!inMenuBehaviour) DefualtBehaviour();
     }
@@ -119,14 +134,6 @@ public class PlayerInput : MonoBehaviour
 
             if(pauseMenu != null) pauseMenu.SetActive(true);
         }
-        /*else if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
-        {
-            HideMouse();
-            playerMovement.SetDefaultMovementEnabled(true);
-            weapon.SetDefaultBehaviourEnabled(true);
-
-            FMODUnity.RuntimeManager.PauseAllEvents(false);
-        }*/
         
         inputtedMoveDirection = Vector3.zero;
         if (Input.GetKey(wasdKeys["forward"])) inputtedMoveDirection += transform.forward;
@@ -144,30 +151,17 @@ public class PlayerInput : MonoBehaviour
 
         if (weapon != null)
         {
-            if (Input.GetKeyDown(shootKey))
-            {
-                weapon.StartInput();
-            }
-            else if (Input.GetKeyUp(shootKey))
-            {
-                weapon.EndInput();
-            }
-            if (Input.GetKeyDown(reloadKey))
-            {
-                weapon.StartReload();
-            }
-        }
+            if (Input.GetKeyDown(shootKey)) weapon.StartInput();
+            else if (Input.GetKeyUp(shootKey)) weapon.EndInput();
 
+            if (Input.GetKeyDown(reloadKey)) weapon.StartReload();
+        }
 
         if (playerAbility != null)
         {
             if (Input.GetKeyDown(abilityKeys["ability1"])) playerAbility.AttemptCast(0);
-
             if (Input.GetKeyDown(abilityKeys["ability2"])) playerAbility.AttemptCast(1);
-
             if (Input.GetKeyDown(abilityKeys["ability3"])) playerAbility.AttemptCast(2);
-
-
         }
     }
 
@@ -191,6 +185,9 @@ public class PlayerInput : MonoBehaviour
 
     private void SetUpCamera()
     {
+        if (cameraRef != null) Destroy(cameraRef);
+        cameraRef = Instantiate(cameraObj);
+
         cameraRef.transform.parent = transform.parent;
         cameraRef.GetComponent<MainCameraScript>().playerHead = head;
         cameraRef.GetComponent<MainCameraScript>().playerEyes = head.GetChild(0);
