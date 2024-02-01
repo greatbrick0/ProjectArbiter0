@@ -6,12 +6,42 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
-    [SerializeField] Camera gameCamera;
-    
-    //DISPLAY SETTINGS
-    public void SetResolution(int width, int height)
+    private void Start()
     {
-        Screen.SetResolution(width, height, Screen.fullScreenMode);
+        resolutionsArray = Screen.resolutions;
+
+        resolutionsDropdown.ClearOptions();
+        List<string> resolutionsList = new List<string>();
+
+        int initialResolution = 0;
+        for (int i = 0; i < resolutionsArray.Length; i++)
+        {
+            resolutionsList.Add(resolutionsArray[i].width + " x " + resolutionsArray[i].height);
+
+            if (resolutionsArray[i].width == Screen.currentResolution.width && resolutionsArray[i].height == Screen.currentResolution.height)
+            {
+                initialResolution = i;
+            }
+        }
+
+        resolutionsDropdown.AddOptions(resolutionsList);
+
+        resolutionsDropdown.value = initialResolution;
+        resolutionsDropdown.RefreshShownValue();
+
+
+        fpsDisplay.text = "Unlimited";
+    }
+
+    //DISPLAY SETTINGS
+    [SerializeField] Camera gameCamera;
+    [SerializeField] TMP_Dropdown resolutionsDropdown;
+    [SerializeField] TextMeshProUGUI fpsDisplay;
+    Resolution[] resolutionsArray;
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution chosenResolution = resolutionsArray[resolutionIndex];
+        Screen.SetResolution(chosenResolution.width, chosenResolution.height, Screen.fullScreenMode);
     }
 
     public void SetGraphics(int qualityLevel)
@@ -19,14 +49,23 @@ public class SettingsManager : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityLevel);
     }
 
-    public void SetFullscreen(FullScreenMode fullscreenMode)
+    public void SetFullscreen(bool isFullscreen)
     {
-        Screen.fullScreenMode = fullscreenMode;
+        Screen.fullScreen = isFullscreen;
     }
 
-    public void SetFPSLimit(int limit)
+    public void SetFPSLimit(float limit)
     {
-        Application.targetFrameRate = limit;
+        if (limit == 301)
+        {
+            Application.targetFrameRate = -1;
+            fpsDisplay.text = "Unlimited";
+        }
+        else
+        {
+            Application.targetFrameRate = (int)limit;
+            fpsDisplay.text = limit.ToString();
+        }
     }
 
     public void SetFOV(int fov)
