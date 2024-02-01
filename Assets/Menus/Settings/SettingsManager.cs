@@ -171,4 +171,25 @@ public class SettingsManager : MonoBehaviour
         menuSlider.value = volumeLevel;
     }
 
+
+    public void RestoreDefaults()
+    {
+        //Controls
+        SetSensitivity(15);
+        SetSensitivity("15");
+        //Display
+        SetGraphics(2);
+        SetFullscreen(true);
+        SetFPSLimit(300);
+        SetFPSLimit("300");
+        //Audio
+        SetMasterVolume(100);
+        SetMasterVolume("100");
+        SetSoundsVolume(100);
+        SetSoundsVolume("100");
+        SetMusicVolume(100);
+        SetMusicVolume("100");
+        SetMusicVolume(100);
+        SetMusicVolume("100");
+    }
 }
