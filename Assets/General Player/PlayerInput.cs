@@ -85,6 +85,12 @@ public class PlayerInput : MonoBehaviour
         bridgeRef = FindObjectOfType<CoherenceBridge>();
         bridgeRef.onConnected.AddListener(delegate { SetInMenuBehaviour(false); });
         bridgeRef.onDisconnected.AddListener(delegate { SetInMenuBehaviour(true); });
+
+        //Load Default Settings
+        if (PlayerPrefs.HasKey("Sensitivity")) mouseXSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
+        else mouseXSens = 0.3f;
+        if (PlayerPrefs.HasKey("Sensitivity")) mouseYSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
+        else mouseYSens = 0.3f;
     }
 
     /// <summary>

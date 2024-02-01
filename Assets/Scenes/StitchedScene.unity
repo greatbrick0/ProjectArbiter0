@@ -6402,6 +6402,7 @@ GameObject:
   - component: {fileID: 1438909642}
   - component: {fileID: 1438909643}
   - component: {fileID: 1438909644}
+  - component: {fileID: 1438909645}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -6731,6 +6732,18 @@ MonoBehaviour:
     colour: {r: 0.5305047, g: 0.20630117, b: 0.7169812, a: 1}
   critIcon: {fileID: 21300000, guid: d2e9bb96dd0bdff47aaac58ac0416512, type: 3}
   armourIcon: {fileID: 21300000, guid: f5418a3bddcf1b04e9ac5d1ebb8b9c46, type: 3}
+--- !u!114 &1438909645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438909636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b941bcc19d48d6947bbe1024eecc9d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1463048006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7439,6 +7452,18 @@ RectTransform:
   m_AnchoredPosition: {x: 9, y: -420}
   m_SizeDelta: {x: 150, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1521786150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6136661802324017044, guid: cf7af06c052c684479ebbe7fa270cd56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1788345774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1528986007
 Mesh:
   m_ObjectHideFlags: 0
@@ -10770,9 +10795,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensSlider: {fileID: 1768630238}
   sensInputField: {fileID: 1805786329}
+  playerInput: {fileID: 89672326}
   resolutionsDropdown: {fileID: 1788345776}
   fpsSlider: {fileID: 1135406952}
   fpsInputField: {fileID: 1377136379}
+  graphicsDropdown: {fileID: 1521786150}
   masterSlider: {fileID: 784402696}
   masterInputField: {fileID: 1512319663}
   soundsSlider: {fileID: 1021655255}
