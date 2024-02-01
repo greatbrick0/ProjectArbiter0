@@ -28,16 +28,40 @@ public class SettingsManager : MonoBehaviour
 
         resolutionsDropdown.value = initialResolution;
         resolutionsDropdown.RefreshShownValue();
-
-
-        fpsDisplay.text = "Unlimited";
     }
 
+
+    //CONTROLS SETTINGS
+    [SerializeField] Slider sensSlider;
+    [SerializeField] TMP_InputField sensInputField;
+
+    public void SetSensitivity(float sens) //Used by Slider
+    {
+        Mathf.Clamp(sens, 0.1f, 100);
+        sens = Mathf.Round(sens * 10.0f) * 0.1f;
+
+        //Adjust player sens
+
+        sensInputField.text = sens.ToString();
+    }
+    public void SetSensitivity(string sensString) //Used by InputField
+    {
+        float.TryParse(sensString, out float sens);
+        Mathf.Clamp(sens, 0.1f, 100);
+        sens = Mathf.Round(sens * 10.0f) * 0.1f;
+
+        //Adjust player sens
+
+        sensSlider.value = sens;
+    }
+
+
     //DISPLAY SETTINGS
-    [SerializeField] Camera gameCamera;
     [SerializeField] TMP_Dropdown resolutionsDropdown;
-    [SerializeField] TextMeshProUGUI fpsDisplay;
+    [SerializeField] Slider fpsSlider;
+    [SerializeField] TMP_InputField fpsInputField;
     Resolution[] resolutionsArray;
+
     public void SetResolution(int resolutionIndex)
     {
         Resolution chosenResolution = resolutionsArray[resolutionIndex];
@@ -54,50 +78,97 @@ public class SettingsManager : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
-    public void SetFPSLimit(float limit)
+    public void SetFPSLimit(float limit) //Used by Slider
     {
-        if (limit == 301)
-        {
-            Application.targetFrameRate = -1;
-            fpsDisplay.text = "Unlimited";
-        }
-        else
-        {
-            Application.targetFrameRate = (int)limit;
-            fpsDisplay.text = limit.ToString();
-        }
-    }
+        Application.targetFrameRate = (int)limit;
 
-    public void SetFOV(int fov)
+        fpsInputField.text = limit.ToString();
+    }
+    public void SetFPSLimit(string limitString) //Used by InputField
     {
-        gameCamera.fieldOfView = fov;
+        int.TryParse(limitString, out int limit);
+        Mathf.Clamp(limit, 30, 300);
+
+        Application.targetFrameRate = limit;
+
+        fpsSlider.value = limit;
     }
 
 
     //AUDIO SETTINGS
-    [SerializeField] TextMeshProUGUI masterDisplay;
-    [SerializeField] TextMeshProUGUI soundsDisplay;
-    [SerializeField] TextMeshProUGUI musicDisplay;
-    [SerializeField] TextMeshProUGUI menuDisplay;
-    public void SetMasterVolume(float volumeLevel)
+    [SerializeField] Slider masterSlider;
+    [SerializeField] TMP_InputField masterInputField;
+    [SerializeField] Slider soundsSlider;
+    [SerializeField] TMP_InputField soundsInputField;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] TMP_InputField musicInputField;
+    [SerializeField] Slider menuSlider;
+    [SerializeField] TMP_InputField menuInputField;
+
+    public void SetMasterVolume(float volumeLevel) //Used by Slider
     {
+        AudioManager.instance.masterVolume = volumeLevel / 100;
+
+        masterInputField.text = volumeLevel.ToString();
+    }
+    public void SetMasterVolume(string volumeLevelString) //Used by InputField
+    {
+        float.TryParse(volumeLevelString, out float volumeLevel);
+        Mathf.Clamp(volumeLevel, 0, 100);
+
         AudioManager.instance.masterVolume = volumeLevel;
-        masterDisplay.text = Mathf.Round(volumeLevel * 100).ToString();
+
+        masterSlider.value = volumeLevel;
     }
-    public void SetSoundsVolume(float volumeLevel)
+
+    public void SetSoundsVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.SFXVolume = volumeLevel;
-        AudioManager.instance.ambienceVolume = volumeLevel;
-        soundsDisplay.text = Mathf.Round(volumeLevel * 100).ToString();
+        AudioManager.instance.SFXVolume = volumeLevel / 100;
+        AudioManager.instance.ambienceVolume = volumeLevel / 100;
+
+        soundsInputField.text = volumeLevel.ToString();
     }
-    public void SetMusicVolume(float volumeLevel)
+    public void SetSoundsVolume(string volumeLevelString) //Used by InputField
     {
+        float.TryParse(volumeLevelString, out float volumeLevel);
+        Mathf.Clamp(volumeLevel, 0, 100);
+
+        AudioManager.instance.SFXVolume = volumeLevel / 100;
+        AudioManager.instance.ambienceVolume = volumeLevel / 100;
+
+        soundsSlider.value = volumeLevel;
+    }
+
+    public void SetMusicVolume(float volumeLevel) //Used by Slider
+    {
+        AudioManager.instance.musicVolume = volumeLevel / 100;
+
+        musicInputField.text = volumeLevel.ToString();
+    }
+    public void SetMusicVolume(string volumeLevelString) //Used by InputField
+    {
+        float.TryParse(volumeLevelString, out float volumeLevel);
+        Mathf.Clamp(volumeLevel, 0, 100);
+
         AudioManager.instance.musicVolume = volumeLevel;
-        musicDisplay.text = Mathf.Round(volumeLevel * 100).ToString();
+
+        musicSlider.value = volumeLevel;
     }
-    public void SetMenuVolume(float volumeLevel)
+
+    public void SetMenuVolume(float volumeLevel) //Used by Slider
     {
-        //Doesn't exist currently
-        menuDisplay.text = Mathf.Round(volumeLevel * 100).ToString();
+        //Does not exist yet
+
+        menuInputField.text = volumeLevel.ToString();
     }
+    public void SetMenuVolume(string volumeLevelString) //Used by InputField
+    {
+        float.TryParse(volumeLevelString, out float volumeLevel);
+        Mathf.Clamp(volumeLevel, 0, 100);
+
+        //Does not exist yet
+
+        menuSlider.value = volumeLevel;
+    }
+
 }
