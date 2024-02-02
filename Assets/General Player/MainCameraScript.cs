@@ -37,4 +37,9 @@ public class MainCameraScript : MonoBehaviour
         newVector += transform.forward * oldVector.z;
         return newVector;
     }
+
+    public void SetFov(float newFov)
+    {
+        GetComponent<Camera>().fieldOfView = newFov;
+    }
 }

@@ -94,6 +94,7 @@ public class PlayerInput : MonoBehaviour
         else mouseXSens = 0.3f;
         if (PlayerPrefs.HasKey("Sensitivity")) mouseYSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
         else mouseYSens = 0.3f;
+        //cameraRef.GetComponent<MainCameraScript>().SetFov( _ );
 
         if (PlayerPrefs.HasKey("forward")) wasdKeys["forward"] = (KeyCode)PlayerPrefs.GetInt("forward");
         if (PlayerPrefs.HasKey("backward")) wasdKeys["backward"] = (KeyCode)PlayerPrefs.GetInt("backward");
