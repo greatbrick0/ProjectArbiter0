@@ -54,7 +54,6 @@ public class VariantSettingsManager : MonoBehaviour
     //CONTROLS SETTINGS
     [SerializeField] Slider sensSlider;
     [SerializeField] TMP_InputField sensInputField;
-    [SerializeField] PlayerInput playerInput;
     [SerializeField] List<TextMeshProUGUI> bindButtonTextList;
 
     public void SetSensitivity(float sens) //Used by Slider
@@ -62,7 +61,7 @@ public class VariantSettingsManager : MonoBehaviour
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
 
-        sensInputField.text = sens.ToString();
+        sensInputField.text = sens.ToString("#.0");
 
         PlayerPrefs.SetFloat("Sensitivity", sens);
     }
@@ -78,7 +77,7 @@ public class VariantSettingsManager : MonoBehaviour
     }
     private void LoadSensitivity(float sens)
     {
-        sensInputField.text = sens.ToString();
+        sensInputField.text = sens.ToString("#.0");
         sensSlider.value = sens;
     }
 
@@ -308,8 +307,31 @@ public class VariantSettingsManager : MonoBehaviour
         //Controls
         SetSensitivity(15);
         SetSensitivity("15");
+        UpdateBind("forward", 119);
+        LoadBind(bindButtonTextList[0], "W");
+        UpdateBind("backward", 115);
+        LoadBind(bindButtonTextList[1], "S");
+        UpdateBind("left", 97);
+        LoadBind(bindButtonTextList[2], "A");
+        UpdateBind("right", 100);
+        LoadBind(bindButtonTextList[3], "D");
+        UpdateBind("jump", 32);
+        LoadBind(bindButtonTextList[4], "Space");
+        UpdateBind("reload", 114);
+        LoadBind(bindButtonTextList[5], "R");
+        UpdateBind("shoot", 323);
+        LoadBind(bindButtonTextList[6], "Mouse0");
+        UpdateBind("aim", 324);
+        LoadBind(bindButtonTextList[7], "Mouse1");
+        UpdateBind("ability1", 113);
+        LoadBind(bindButtonTextList[8], "Q");
+        UpdateBind("ability2", 304);
+        LoadBind(bindButtonTextList[9], "LeftShift");
+        UpdateBind("ability3", 101);
+        LoadBind(bindButtonTextList[10], "E");
         //Display
         SetGraphics(2);
+        LoadGraphics(2);
         SetFullscreen(true);
         SetFPSLimit(300);
         SetFPSLimit("300");

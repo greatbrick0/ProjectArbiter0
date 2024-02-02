@@ -48,6 +48,7 @@ public class SettingsManager : MonoBehaviour
         if (PlayerPrefs.HasKey("ability1")) LoadBind(bindButtonTextList[8], ((KeyCode)PlayerPrefs.GetInt("ability1")).ToString());
         if (PlayerPrefs.HasKey("ability2")) LoadBind(bindButtonTextList[9], ((KeyCode)PlayerPrefs.GetInt("ability2")).ToString());
         if (PlayerPrefs.HasKey("ability3")) LoadBind(bindButtonTextList[10], ((KeyCode)PlayerPrefs.GetInt("ability3")).ToString());
+        playerInput.LoadSettings();
     }
 
 
@@ -65,7 +66,7 @@ public class SettingsManager : MonoBehaviour
         playerInput.mouseXSens = sens / 50;
         playerInput.mouseYSens = sens / 50;
 
-        sensInputField.text = sens.ToString();
+        sensInputField.text = sens.ToString("#.0");
 
         PlayerPrefs.SetFloat("Sensitivity", sens);
     }
@@ -84,7 +85,7 @@ public class SettingsManager : MonoBehaviour
     }
     private void LoadSensitivity(float sens)
     {
-        sensInputField.text = sens.ToString();
+        sensInputField.text = sens.ToString("#.0");
         sensSlider.value = sens;
     }
 
@@ -350,6 +351,7 @@ public class SettingsManager : MonoBehaviour
         LoadBind(bindButtonTextList[9], "LeftShift");
         UpdateBind("ability3", 101);
         LoadBind(bindButtonTextList[10], "E");
+        playerInput.LoadSettings();
         //Display
         SetGraphics(2);
         LoadGraphics(2);
