@@ -118,6 +118,49 @@ public class PlayerInput : MonoBehaviour
         if (!inMenuBehaviour) DefualtBehaviour();
     }
 
+    public void RebindKey(string type, string inputName, KeyCode newBind)
+    {
+        switch (type)
+        {
+            case "wasd": //Working with the wasdKeys dictionary
+                if (wasdKeys.ContainsKey(inputName)) //Fail case, nothing else executes if the input name doesn't match anything in the dictionary
+                {
+                    wasdKeys[inputName] = newBind; //Actually binds new key
+                }
+                break;
+
+            case "ability":
+                if (abilityKeys.ContainsKey(inputName))
+                {
+                    abilityKeys[inputName] = newBind;
+                }
+                break;
+
+            case "other":
+                switch (inputName)
+                {
+                    case "jump":
+                        jumpKey = newBind;
+                        break;
+
+                    case "reload":
+                        reloadKey = newBind;
+                        break;
+
+                    case "shoot":
+                        shootKey = newBind;
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
     public void SetInMenuBehaviour(bool newBehaviour)
     {
         inMenuBehaviour = newBehaviour;
