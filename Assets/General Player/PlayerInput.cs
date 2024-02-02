@@ -90,10 +90,16 @@ public class PlayerInput : MonoBehaviour
 
     public void LoadSettings()
     {
-        if (PlayerPrefs.HasKey("Sensitivity")) mouseXSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
-        else mouseXSens = 0.3f;
-        if (PlayerPrefs.HasKey("Sensitivity")) mouseYSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
-        else mouseYSens = 0.3f;
+        if (PlayerPrefs.HasKey("Sensitivity"))
+        {
+            mouseXSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
+            mouseYSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
+        }
+        else
+        {
+            mouseXSens = 0.3f;
+            mouseYSens = 0.3f;
+        }
         //cameraRef.GetComponent<MainCameraScript>().SetFov( _ );
 
         if (PlayerPrefs.HasKey("forward")) wasdKeys["forward"] = (KeyCode)PlayerPrefs.GetInt("forward");
