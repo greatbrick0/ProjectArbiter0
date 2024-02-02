@@ -91,6 +91,17 @@ public class PlayerInput : MonoBehaviour
         else mouseXSens = 0.3f;
         if (PlayerPrefs.HasKey("Sensitivity")) mouseYSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
         else mouseYSens = 0.3f;
+
+        if (PlayerPrefs.HasKey("forward")) wasdKeys["forward"] = (KeyCode)PlayerPrefs.GetInt("forward");
+        if (PlayerPrefs.HasKey("backward")) wasdKeys["backward"] = (KeyCode)PlayerPrefs.GetInt("backward");
+        if (PlayerPrefs.HasKey("left")) wasdKeys["left"] = (KeyCode)PlayerPrefs.GetInt("left");
+        if (PlayerPrefs.HasKey("right")) wasdKeys["right"] = (KeyCode)PlayerPrefs.GetInt("right");
+        if (PlayerPrefs.HasKey("ability1")) abilityKeys["ability1"] = (KeyCode)PlayerPrefs.GetInt("ability1");
+        if (PlayerPrefs.HasKey("ability2")) abilityKeys["ability2"] = (KeyCode)PlayerPrefs.GetInt("ability2");
+        if (PlayerPrefs.HasKey("ability3")) abilityKeys["ability3"] = (KeyCode)PlayerPrefs.GetInt("ability3");
+        if (PlayerPrefs.HasKey("jump")) jumpKey = (KeyCode)PlayerPrefs.GetInt("jump");
+        if (PlayerPrefs.HasKey("reload")) reloadKey = (KeyCode)PlayerPrefs.GetInt("reload");
+        if (PlayerPrefs.HasKey("shoot")) shootKey = (KeyCode)PlayerPrefs.GetInt("shoot");
     }
 
     /// <summary>

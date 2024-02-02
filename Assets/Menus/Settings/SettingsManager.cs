@@ -37,6 +37,17 @@ public class SettingsManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Master Volume")) LoadMasterVolume(PlayerPrefs.GetFloat("Master Volume"));
         if (PlayerPrefs.HasKey("Sounds Volume")) LoadSoundsVolume(PlayerPrefs.GetFloat("Sounds Volume"));
         if (PlayerPrefs.HasKey("Music Volume")) LoadMusicVolume(PlayerPrefs.GetFloat("Music Volume"));
+        if (PlayerPrefs.HasKey("forward")) LoadBind(bindButtonTextList[0], ((KeyCode)PlayerPrefs.GetInt("forward")).ToString());
+        if (PlayerPrefs.HasKey("backward")) LoadBind(bindButtonTextList[1], ((KeyCode)PlayerPrefs.GetInt("backward")).ToString());
+        if (PlayerPrefs.HasKey("left")) LoadBind(bindButtonTextList[2], ((KeyCode)PlayerPrefs.GetInt("left")).ToString());
+        if (PlayerPrefs.HasKey("right")) LoadBind(bindButtonTextList[3], ((KeyCode)PlayerPrefs.GetInt("right")).ToString());
+        if (PlayerPrefs.HasKey("jump")) LoadBind(bindButtonTextList[4], ((KeyCode)PlayerPrefs.GetInt("jump")).ToString());
+        if (PlayerPrefs.HasKey("reload")) LoadBind(bindButtonTextList[5], ((KeyCode)PlayerPrefs.GetInt("reload")).ToString());
+        if (PlayerPrefs.HasKey("shoot")) LoadBind(bindButtonTextList[6], ((KeyCode)PlayerPrefs.GetInt("shoot")).ToString());
+        if (PlayerPrefs.HasKey("aim")) LoadBind(bindButtonTextList[7], ((KeyCode)PlayerPrefs.GetInt("aim")).ToString());
+        if (PlayerPrefs.HasKey("ability1")) LoadBind(bindButtonTextList[8], ((KeyCode)PlayerPrefs.GetInt("ability1")).ToString());
+        if (PlayerPrefs.HasKey("ability2")) LoadBind(bindButtonTextList[9], ((KeyCode)PlayerPrefs.GetInt("ability2")).ToString());
+        if (PlayerPrefs.HasKey("ability3")) LoadBind(bindButtonTextList[10], ((KeyCode)PlayerPrefs.GetInt("ability3")).ToString());
     }
 
 
@@ -44,6 +55,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] Slider sensSlider;
     [SerializeField] TMP_InputField sensInputField;
     [SerializeField] PlayerInput playerInput;
+    [SerializeField] List<TextMeshProUGUI> bindButtonTextList;
 
     public void SetSensitivity(float sens) //Used by Slider
     {
@@ -74,6 +86,80 @@ public class SettingsManager : MonoBehaviour
     {
         sensInputField.text = sens.ToString();
         sensSlider.value = sens;
+    }
+
+    public void UpdateBind(string actionName, int keyCodeInt)
+    {
+        switch (actionName)
+        {
+            case "forward":
+                PlayerPrefs.SetInt("forward", keyCodeInt);
+                break;
+
+            case "backward":
+                PlayerPrefs.SetInt("backward", keyCodeInt);
+                break;
+
+            case "left":
+                PlayerPrefs.SetInt("left", keyCodeInt);
+                break;
+
+            case "right":
+                PlayerPrefs.SetInt("right", keyCodeInt);
+                break;
+
+            case "jump":
+                PlayerPrefs.SetInt("jump", keyCodeInt);
+                break;
+
+            case "reload":
+                PlayerPrefs.SetInt("reload", keyCodeInt);
+                break;
+
+            case "shoot":
+                PlayerPrefs.SetInt("shoot", keyCodeInt);
+                break;
+
+            case "aim":
+                PlayerPrefs.SetInt("aim", keyCodeInt);
+                break;
+
+            case "ability1":
+                PlayerPrefs.SetInt("ability1", keyCodeInt);
+                break;
+
+            case "ability2":
+                PlayerPrefs.SetInt("ability2", keyCodeInt);
+                break;
+
+            case "ability3":
+                PlayerPrefs.SetInt("ability3", keyCodeInt);
+                break;
+
+            default:
+                break;
+        }
+    }
+    private void LoadBind(TextMeshProUGUI buttonText, string bind)
+    {
+        switch (bind)
+        {
+            case "Mouse0":
+                buttonText.text = "Left Click";
+                break;
+
+            case "Mouse1":
+                buttonText.text = "Right Click";
+                break;
+
+            case "Mouse2":
+                buttonText.text = "Middle Click";
+                break;
+
+            default:
+                buttonText.text = bind;
+                break;
+        }
     }
 
 
