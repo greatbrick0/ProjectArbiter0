@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class VariantSettingsManager : MonoBehaviour
 {
     private void Start()
     {
@@ -48,23 +48,18 @@ public class SettingsManager : MonoBehaviour
         if (PlayerPrefs.HasKey("ability1")) LoadBind(bindButtonTextList[8], ((KeyCode)PlayerPrefs.GetInt("ability1")).ToString());
         if (PlayerPrefs.HasKey("ability2")) LoadBind(bindButtonTextList[9], ((KeyCode)PlayerPrefs.GetInt("ability2")).ToString());
         if (PlayerPrefs.HasKey("ability3")) LoadBind(bindButtonTextList[10], ((KeyCode)PlayerPrefs.GetInt("ability3")).ToString());
-        playerInput.LoadSettings();
     }
 
 
     //CONTROLS SETTINGS
     [SerializeField] Slider sensSlider;
     [SerializeField] TMP_InputField sensInputField;
-    [SerializeField] PlayerInput playerInput;
     [SerializeField] List<TextMeshProUGUI> bindButtonTextList;
 
     public void SetSensitivity(float sens) //Used by Slider
     {
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
-
-        playerInput.mouseXSens = sens / 50;
-        playerInput.mouseYSens = sens / 50;
 
         sensInputField.text = sens.ToString("#.0");
 
@@ -75,9 +70,6 @@ public class SettingsManager : MonoBehaviour
         float.TryParse(sensString, out float sens);
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
-
-        playerInput.mouseXSens = sens / 50;
-        playerInput.mouseYSens = sens / 50;
 
         sensSlider.value = sens;
 
@@ -231,8 +223,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetMasterVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.masterVolume = volumeLevel / 100;
-
         masterInputField.text = volumeLevel.ToString();
 
         PlayerPrefs.SetFloat("Master Volume", volumeLevel);
@@ -241,8 +231,6 @@ public class SettingsManager : MonoBehaviour
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
-
-        AudioManager.instance.masterVolume = volumeLevel / 100;
 
         masterSlider.value = volumeLevel;
 
@@ -256,9 +244,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetSoundsVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.SFXVolume = volumeLevel / 100;
-        AudioManager.instance.ambienceVolume = volumeLevel / 100;
-
         soundsInputField.text = volumeLevel.ToString();
 
         PlayerPrefs.SetFloat("Sounds Volume", volumeLevel);
@@ -267,9 +252,6 @@ public class SettingsManager : MonoBehaviour
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
-
-        AudioManager.instance.SFXVolume = volumeLevel / 100;
-        AudioManager.instance.ambienceVolume = volumeLevel / 100;
 
         soundsSlider.value = volumeLevel;
 
@@ -283,8 +265,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetMusicVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.musicVolume = volumeLevel / 100;
-
         musicInputField.text = volumeLevel.ToString();
 
         PlayerPrefs.SetFloat("Music Volume", volumeLevel);
@@ -293,8 +273,6 @@ public class SettingsManager : MonoBehaviour
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
-
-        AudioManager.instance.musicVolume = volumeLevel / 100;
 
         musicSlider.value = volumeLevel;
 
@@ -351,7 +329,6 @@ public class SettingsManager : MonoBehaviour
         LoadBind(bindButtonTextList[9], "LeftShift");
         UpdateBind("ability3", 101);
         LoadBind(bindButtonTextList[10], "E");
-        playerInput.LoadSettings();
         //Display
         SetGraphics(2);
         LoadGraphics(2);

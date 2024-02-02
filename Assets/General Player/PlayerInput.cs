@@ -85,6 +85,26 @@ public class PlayerInput : MonoBehaviour
         bridgeRef = FindObjectOfType<CoherenceBridge>();
         bridgeRef.onConnected.AddListener(delegate { SetInMenuBehaviour(false); });
         bridgeRef.onDisconnected.AddListener(delegate { SetInMenuBehaviour(true); });
+        LoadSettings();
+    }
+
+    public void LoadSettings()
+    {
+        if (PlayerPrefs.HasKey("Sensitivity")) mouseXSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
+        else mouseXSens = 0.3f;
+        if (PlayerPrefs.HasKey("Sensitivity")) mouseYSens = PlayerPrefs.GetFloat("Sensitivity") / 50;
+        else mouseYSens = 0.3f;
+
+        if (PlayerPrefs.HasKey("forward")) wasdKeys["forward"] = (KeyCode)PlayerPrefs.GetInt("forward");
+        if (PlayerPrefs.HasKey("backward")) wasdKeys["backward"] = (KeyCode)PlayerPrefs.GetInt("backward");
+        if (PlayerPrefs.HasKey("left")) wasdKeys["left"] = (KeyCode)PlayerPrefs.GetInt("left");
+        if (PlayerPrefs.HasKey("right")) wasdKeys["right"] = (KeyCode)PlayerPrefs.GetInt("right");
+        if (PlayerPrefs.HasKey("ability1")) abilityKeys["ability1"] = (KeyCode)PlayerPrefs.GetInt("ability1");
+        if (PlayerPrefs.HasKey("ability2")) abilityKeys["ability2"] = (KeyCode)PlayerPrefs.GetInt("ability2");
+        if (PlayerPrefs.HasKey("ability3")) abilityKeys["ability3"] = (KeyCode)PlayerPrefs.GetInt("ability3");
+        if (PlayerPrefs.HasKey("jump")) jumpKey = (KeyCode)PlayerPrefs.GetInt("jump");
+        if (PlayerPrefs.HasKey("reload")) reloadKey = (KeyCode)PlayerPrefs.GetInt("reload");
+        if (PlayerPrefs.HasKey("shoot")) shootKey = (KeyCode)PlayerPrefs.GetInt("shoot");
     }
 
     /// <summary>
@@ -110,6 +130,49 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         if (!inMenuBehaviour) DefualtBehaviour();
+    }
+
+    public void RebindKey(string type, string inputName, KeyCode newBind)
+    {
+        switch (type)
+        {
+            case "wasd": //Working with the wasdKeys dictionary
+                if (wasdKeys.ContainsKey(inputName)) //Fail case, nothing else executes if the input name doesn't match anything in the dictionary
+                {
+                    wasdKeys[inputName] = newBind; //Actually binds new key
+                }
+                break;
+
+            case "ability":
+                if (abilityKeys.ContainsKey(inputName))
+                {
+                    abilityKeys[inputName] = newBind;
+                }
+                break;
+
+            case "other":
+                switch (inputName)
+                {
+                    case "jump":
+                        jumpKey = newBind;
+                        break;
+
+                    case "reload":
+                        reloadKey = newBind;
+                        break;
+
+                    case "shoot":
+                        shootKey = newBind;
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void SetInMenuBehaviour(bool newBehaviour)
