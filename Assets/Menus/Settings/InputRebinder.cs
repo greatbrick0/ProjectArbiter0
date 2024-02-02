@@ -40,6 +40,7 @@ public class InputRebinder : MonoBehaviour
                     playerInput.RebindKey(activeType, activeInputName, detectInput.keyCode);
                     activeButtonText.text = detectInput.keyCode.ToString();
                     settingsManager.UpdateBind(activeInputName, (int)detectInput.keyCode);
+                    Debug.Log((int)detectInput.keyCode);
                     gameObject.SetActive(false);
                 }
             }

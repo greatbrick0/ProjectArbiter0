@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class VariantSettingsManager : MonoBehaviour
 {
     private void Start()
     {
@@ -62,9 +62,6 @@ public class SettingsManager : MonoBehaviour
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
 
-        playerInput.mouseXSens = sens / 50;
-        playerInput.mouseYSens = sens / 50;
-
         sensInputField.text = sens.ToString();
 
         PlayerPrefs.SetFloat("Sensitivity", sens);
@@ -74,9 +71,6 @@ public class SettingsManager : MonoBehaviour
         float.TryParse(sensString, out float sens);
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
-
-        playerInput.mouseXSens = sens / 50;
-        playerInput.mouseYSens = sens / 50;
 
         sensSlider.value = sens;
 
@@ -230,8 +224,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetMasterVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.masterVolume = volumeLevel / 100;
-
         masterInputField.text = volumeLevel.ToString();
 
         PlayerPrefs.SetFloat("Master Volume", volumeLevel);
@@ -240,8 +232,6 @@ public class SettingsManager : MonoBehaviour
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
-
-        AudioManager.instance.masterVolume = volumeLevel / 100;
 
         masterSlider.value = volumeLevel;
 
@@ -255,9 +245,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetSoundsVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.SFXVolume = volumeLevel / 100;
-        AudioManager.instance.ambienceVolume = volumeLevel / 100;
-
         soundsInputField.text = volumeLevel.ToString();
 
         PlayerPrefs.SetFloat("Sounds Volume", volumeLevel);
@@ -266,9 +253,6 @@ public class SettingsManager : MonoBehaviour
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
-
-        AudioManager.instance.SFXVolume = volumeLevel / 100;
-        AudioManager.instance.ambienceVolume = volumeLevel / 100;
 
         soundsSlider.value = volumeLevel;
 
@@ -282,8 +266,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetMusicVolume(float volumeLevel) //Used by Slider
     {
-        AudioManager.instance.musicVolume = volumeLevel / 100;
-
         musicInputField.text = volumeLevel.ToString();
 
         PlayerPrefs.SetFloat("Music Volume", volumeLevel);
@@ -292,8 +274,6 @@ public class SettingsManager : MonoBehaviour
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
-
-        AudioManager.instance.musicVolume = volumeLevel / 100;
 
         musicSlider.value = volumeLevel;
 
@@ -328,31 +308,8 @@ public class SettingsManager : MonoBehaviour
         //Controls
         SetSensitivity(15);
         SetSensitivity("15");
-        UpdateBind("forward", 119);
-        LoadBind(bindButtonTextList[0], "W");
-        UpdateBind("backward", 115);
-        LoadBind(bindButtonTextList[1], "S");
-        UpdateBind("left", 97);
-        LoadBind(bindButtonTextList[2], "A");
-        UpdateBind("right", 100);
-        LoadBind(bindButtonTextList[3], "D");
-        UpdateBind("jump", 32);
-        LoadBind(bindButtonTextList[4], "Space");
-        UpdateBind("reload", 114);
-        LoadBind(bindButtonTextList[5], "R");
-        UpdateBind("shoot", 323);
-        LoadBind(bindButtonTextList[6], "Mouse0");
-        UpdateBind("aim", 324);
-        LoadBind(bindButtonTextList[7], "Mouse1");
-        UpdateBind("ability1", 113);
-        LoadBind(bindButtonTextList[8], "Q");
-        UpdateBind("ability2", 304);
-        LoadBind(bindButtonTextList[9], "LeftShift");
-        UpdateBind("ability3", 101);
-        LoadBind(bindButtonTextList[10], "E");
         //Display
         SetGraphics(2);
-        LoadGraphics(2);
         SetFullscreen(true);
         SetFPSLimit(300);
         SetFPSLimit("300");
