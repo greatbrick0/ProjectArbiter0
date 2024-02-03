@@ -6249,6 +6249,7 @@ GameObject:
   - component: {fileID: 1438909643}
   - component: {fileID: 1438909644}
   - component: {fileID: 1438909645}
+  - component: {fileID: 1438909646}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -6590,6 +6591,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941bcc19d48d6947bbe1024eecc9d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1438909646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438909636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5857d6b39b4517e429be9ce547a1a385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 3939332882595698496}
+  resumeButton: {fileID: 1944586886}
+  settingsManager: {fileID: 1888809411}
 --- !u!1001 &1463048006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9371,6 +9387,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1888809411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8695480049823991208, guid: c386d817c0b2bfa408e068eb6b104f95,
+    type: 3}
+  m_PrefabInstance: {fileID: 8695480048390944796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cd7d8ffb7205046b5ffa50752de365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1895104255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10101,6 +10129,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944586886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5227373061503281607, guid: c386d817c0b2bfa408e068eb6b104f95,
+    type: 3}
+  m_PrefabInstance: {fileID: 8695480048390944796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1957611826
 Mesh:
   m_ObjectHideFlags: 0
@@ -11395,7 +11435,7 @@ PrefabInstance:
     - target: {fileID: 5622708306506641244, guid: c386d817c0b2bfa408e068eb6b104f95,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5706019501174148553, guid: c386d817c0b2bfa408e068eb6b104f95,
         type: 3}

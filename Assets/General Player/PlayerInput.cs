@@ -25,7 +25,8 @@ public class PlayerInput : MonoBehaviour
     AbilityInputSystem playerAbility;
 
     CoherenceBridge bridgeRef;
-    public GameObject pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
+    [HideInInspector]
+    public PauseMenuConnecter pauseMenu; //REMOVE WHEN UI MANAGER SCRIPT IS MADE
 
     Vector3 inputtedMoveDirection = Vector3.zero;
     Vector2 inputtedLookDirection = Vector2.zero;
@@ -85,6 +86,9 @@ public class PlayerInput : MonoBehaviour
         bridgeRef = FindObjectOfType<CoherenceBridge>();
         bridgeRef.onConnected.AddListener(delegate { SetInMenuBehaviour(false); });
         bridgeRef.onDisconnected.AddListener(delegate { SetInMenuBehaviour(true); });
+        pauseMenu = FindObjectOfType<PauseMenuConnecter>();
+        pauseMenu.resumeButton.onClick.AddListener(delegate { SetInMenuBehaviour(false); });
+
         LoadSettings();
     }
 
@@ -187,17 +191,14 @@ public class PlayerInput : MonoBehaviour
         inMenuBehaviour = newBehaviour;
         playerMovement.SetDefaultMovementEnabled(!newBehaviour);
         weapon.SetDefaultBehaviourEnabled(!newBehaviour);
+        FMODUnity.RuntimeManager.PauseAllEvents(newBehaviour);
         if (newBehaviour) ShowMouse();
         else HideMouse();
     }
 
     public void ResumeDefaultBehaviour()
     {
-        HideMouse();
-        playerMovement.SetDefaultMovementEnabled(true);
-        weapon.SetDefaultBehaviourEnabled(true);
-
-        FMODUnity.RuntimeManager.PauseAllEvents(false);
+        SetInMenuBehaviour(false);
     }
 
     private void DefualtBehaviour()
@@ -205,13 +206,8 @@ public class PlayerInput : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Escape))
         {
-            ShowMouse();
-            playerMovement.SetDefaultMovementEnabled(false);
-            weapon.SetDefaultBehaviourEnabled(false);
-
-            FMODUnity.RuntimeManager.PauseAllEvents(true);
-
-            if(pauseMenu != null) pauseMenu.SetActive(true);
+            SetInMenuBehaviour(true);
+            if (pauseMenu != null) pauseMenu.PauseMenuActive(true);
         }
         
         inputtedMoveDirection = Vector3.zero;
