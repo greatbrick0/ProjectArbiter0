@@ -97,13 +97,20 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     void Update()
     {
-        if (enhancementActive)
-            sanityCostTimer -= Time.deltaTime;
-        if (sanityCostTimer <= 0)
+        if (AbilityHoldRef != null)
         {
-            if (sanityRef != null)
-            sanityRef.Sanity -= sanityCost;
-            sanityCostTimer = sanityCostInterval;
+            if (AbilityHoldRef.demonic)
+            {
+
+            }
+            else if (enhancementActive)
+                sanityCostTimer -= Time.deltaTime;
+            if (sanityCostTimer <= 0)
+            {
+                if (sanityRef != null)
+                    sanityRef.Sanity -= sanityCost;
+                sanityCostTimer = sanityCostInterval;
+            }
         }
     }
 
@@ -112,5 +119,11 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         onCooldown = true;
         yield return new WaitForSeconds(maxCooldownTime);
         onCooldown = false;
+    }
+
+    public override void newDemonic()
+    {
+        Debug.Log("WeaponEnhancement disabled due to becoming demonic");
+        RemoveEnhancement();
     }
 }

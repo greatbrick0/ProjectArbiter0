@@ -48,4 +48,6 @@ public abstract class Ability : MonoBehaviour
 
     protected abstract void GetNeededComponents();
 
+    public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.
+
 }

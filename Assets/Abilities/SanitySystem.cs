@@ -10,6 +10,9 @@ public class SanitySystem : MonoBehaviour
     [SerializeField]
     AbilityInputSystem abilitySystemRef;
 
+    [SerializeField]
+    GameObject demonicVFX;
+
 
     [SerializeField]
     float maxSanity;
@@ -49,15 +52,14 @@ public class SanitySystem : MonoBehaviour
             if (!demonic && currentSanity <= 0.9) //nerf, but improves clarity
             
             {
-                currentSanity = 0;
-                demonic = true;
-                abilitySystemRef.SetDemonic(true);
+                
+                BecomeDemonic();
+                
             }
 
             if (demonic && currentSanity >= maxSanity)
             {
-                demonic = false;
-                abilitySystemRef.SetDemonic(false);
+                EndDemonic();
             }
 
         }
@@ -73,7 +75,7 @@ public class SanitySystem : MonoBehaviour
 
     private void Update()
     {
-        if (demonic)
+        if (!demonic)
         {
             if (sanityPauseTimer > 0)
                 sanityPauseTimer -= Time.deltaTime;
@@ -88,7 +90,28 @@ public class SanitySystem : MonoBehaviour
         {
             Sanity += Time.deltaTime * demonicRecoverySpeedModifier;
         }
+
+
     }
 
+    private void BecomeDemonic()
+    {
+        Debug.Log("Starting Demonic");
+        currentSanity = 0;
+        demonic = true;
+        abilitySystemRef.SetDemonic(true);
+        sanityHUDRef.SetDemonic(true);
+        demonicVFX.SetActive(true);
+
+    }
+
+    private void EndDemonic()
+    {
+        Debug.Log("ending demonic");
+        demonic = false;
+        abilitySystemRef.SetDemonic(false);
+        sanityHUDRef.SetDemonic(false);
+        demonicVFX.SetActive(false);
+    }
 }
     

@@ -1,17 +1,16 @@
-using Coherence;
 using Coherence.Toolkit;
+using Coherence;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceSpikesTestSpell : Ability
+public class PlayerSpellHammerSwing : Ability
 {
-    
+
 
     [SerializeField]
-    GameObject iceSpike;
+    GameObject IceHammer;
 
-    GameObject newSpike;
 
     protected override void GetNeededComponents()
     {
@@ -20,8 +19,8 @@ public class IceSpikesTestSpell : Ability
         movementRef = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         sync = GetComponent<CoherenceSync>();
-        
-        
+
+
     }
 
 
@@ -34,7 +33,7 @@ public class IceSpikesTestSpell : Ability
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
-        sync.SendCommand<IceSpikesTestSpell>(nameof(CastSpikes), MessageTarget.All, false);
+        sync.SendCommand<PlayerSpellHammerSwing>(nameof(BeginSwing), MessageTarget.All);
     }
 
     public override void DemonicStartAbility()
@@ -48,10 +47,9 @@ public class IceSpikesTestSpell : Ability
         StartCoroutine(Cooldown(true));
     }
 
-    public void CastSpikes(bool demonic)
+    public void BeginSwing()
     {
-        newSpike = Instantiate(iceSpike, spellOrigin.transform.position, spellOrigin.transform.rotation);
-        newSpike.GetComponent<IceShatter>().demonic = true;
+
     }
 
 
@@ -59,9 +57,9 @@ public class IceSpikesTestSpell : Ability
     {
         onCooldown = true;
         if (demonic)
-        yield return new WaitForSeconds(maxCooldownTime/2);
+            yield return new WaitForSeconds(maxCooldownTime / 2);
         else
-        yield return new WaitForSeconds(maxCooldownTime);
+            yield return new WaitForSeconds(maxCooldownTime);
         onCooldown = false;
     }
 

@@ -60,7 +60,7 @@ public class AbilityInputSystem : MonoBehaviour
         {
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
-                    if (demonic)
+                    if (!demonic)
                         AbilityList[tier].StartAbility();
                     else
                         AbilityList[tier].DemonicStartAbility();
@@ -103,11 +103,20 @@ public class AbilityInputSystem : MonoBehaviour
             playerState = CastingState.exhausted;
             StartCoroutine(ExhaustedTimer());
         }
+
+        if (demonic)
+        {
+            foreach (Ability a in AbilityList)
+            {
+                a.newDemonic();
+            }
+        }
     }
 
     IEnumerator ExhaustedTimer()
     {
         yield return new WaitForSeconds(exhaustTime);
+        playerState = CastingState.idle;
     }
     IEnumerator TimeCasting(float duration)
     {
