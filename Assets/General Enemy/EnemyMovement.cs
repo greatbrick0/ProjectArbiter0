@@ -42,11 +42,11 @@ public class EnemyMovement : MonoBehaviour
             targetPlayer = ChooseTargetPlayer();
             targetPos = targetPlayer.transform.position;
             agent.SetDestination(targetPos);
-            if (agent.remainingDistance < 4) Attack(targetPlayer.GetComponent<PlayerHealth>());
+            if (Vector3.Distance(transform.position, targetPos) < 3) Attack(targetPlayer.GetComponent<PlayerHealth>());
         }
         else
         {
-            targetPos = spawnPos + (Vector3.right * Mathf.Round(Mathf.Sin(age / 4)) * 4);
+            //targetPos = spawnPos + (Vector3.right * Mathf.Round(Mathf.Sin(age / 4)) * 4);
             agent.SetDestination(targetPos);
         }
     }

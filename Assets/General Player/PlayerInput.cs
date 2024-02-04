@@ -91,6 +91,7 @@ public class PlayerInput : MonoBehaviour
         pauseMenu.settingsManager.playerInput = this;
 
         LoadSettings();
+        SetInMenuBehaviour(false);
     }
 
     public void LoadSettings()
