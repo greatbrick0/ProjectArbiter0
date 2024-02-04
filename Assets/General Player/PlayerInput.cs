@@ -88,6 +88,7 @@ public class PlayerInput : MonoBehaviour
         bridgeRef.onDisconnected.AddListener(delegate { SetInMenuBehaviour(true); });
         pauseMenu = FindObjectOfType<PauseMenuConnecter>();
         pauseMenu.resumeButton.onClick.AddListener(delegate { SetInMenuBehaviour(false); });
+        pauseMenu.settingsManager.playerInput = this;
 
         LoadSettings();
     }

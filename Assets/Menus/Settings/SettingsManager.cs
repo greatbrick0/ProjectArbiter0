@@ -7,6 +7,33 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     List<string> actionKeys = new List<string>(){ "forward", "backward", "left", "right", "jump", "reload", "shoot", "aim", "ability1", "ability2", "ability3" };
+    [HideInInspector] public PlayerInput playerInput;
+
+    //CONTROLS SETTINGS
+    [Header("Control Settings")]
+    [SerializeField] Slider sensSlider;
+    [SerializeField] TMP_InputField sensInputField;
+    [SerializeField] List<TextMeshProUGUI> bindButtonTextList;
+
+    //DISPLAY SETTINGS
+    [Header("Display Settings")]
+    [SerializeField] TMP_Dropdown resolutionsDropdown;
+    [SerializeField] Slider fpsSlider;
+    [SerializeField] TMP_InputField fpsInputField;
+    [SerializeField] TMP_Dropdown graphicsDropdown;
+    Resolution[] resolutionsArray;
+
+    //AUDIO SETTINGS
+    [Header("Audio Settings")]
+    [SerializeField] Slider masterSlider;
+    [SerializeField] TMP_InputField masterInputField;
+    [SerializeField] Slider soundsSlider;
+    [SerializeField] TMP_InputField soundsInputField;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] TMP_InputField musicInputField;
+    [SerializeField] Slider menuSlider;
+    [SerializeField] TMP_InputField menuInputField;
+
     private void Start()
     {
         resolutionsArray = Screen.resolutions;
@@ -47,13 +74,6 @@ public class SettingsManager : MonoBehaviour
 
         playerInput.LoadSettings();
     }
-
-
-    //CONTROLS SETTINGS
-    [SerializeField] Slider sensSlider;
-    [SerializeField] TMP_InputField sensInputField;
-    [SerializeField] PlayerInput playerInput;
-    [SerializeField] List<TextMeshProUGUI> bindButtonTextList;
 
     public void SetSensitivity(float sens) //Used by Slider
     {
@@ -116,14 +136,6 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-
-    //DISPLAY SETTINGS
-    [SerializeField] TMP_Dropdown resolutionsDropdown;
-    [SerializeField] Slider fpsSlider;
-    [SerializeField] TMP_InputField fpsInputField;
-    [SerializeField] TMP_Dropdown graphicsDropdown;
-    Resolution[] resolutionsArray;
-
     public void SetResolution(int resolutionIndex)
     {
         Resolution chosenResolution = resolutionsArray[resolutionIndex];
@@ -170,17 +182,6 @@ public class SettingsManager : MonoBehaviour
         fpsInputField.text = limit.ToString();
         fpsSlider.value = limit;
     }
-
-
-    //AUDIO SETTINGS
-    [SerializeField] Slider masterSlider;
-    [SerializeField] TMP_InputField masterInputField;
-    [SerializeField] Slider soundsSlider;
-    [SerializeField] TMP_InputField soundsInputField;
-    [SerializeField] Slider musicSlider;
-    [SerializeField] TMP_InputField musicInputField;
-    [SerializeField] Slider menuSlider;
-    [SerializeField] TMP_InputField menuInputField;
 
     public void SetMasterVolume(float volumeLevel) //Used by Slider
     {
