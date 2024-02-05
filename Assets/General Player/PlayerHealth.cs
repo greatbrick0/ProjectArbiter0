@@ -7,6 +7,7 @@ using Coherence;
 public class PlayerHealth : MonoBehaviour
 {
     private CoherenceSync sync;
+    private HUDSystem hudRef;
 
     [SerializeField]
     public bool playerDead = false;
@@ -29,7 +30,9 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         sync = GetComponent<CoherenceSync>();
+        hudRef = FindObjectOfType<HUDSystem>();
         mainHealth = maxMainHealth;
+        UpdateHealthLabel();
     }
 
     private void Update()
@@ -37,13 +40,14 @@ public class PlayerHealth : MonoBehaviour
         if (playerDead) return;
 
         timeSinceDamaged += 1.0f * Time.deltaTime;
-        if (timeSinceDamaged >= regenDelay)
+        if (timeSinceDamaged >= regenDelay && mainHealth < maxMainHealth)
         {
             regenBank += regenRate * Time.deltaTime;
-            while (regenBank >= 1) //probably not the best solution, ill fix it later
-            { // i hate while loops for a system with no user input
-                regenBank -= 1;
-                mainHealth += 1;
+            if (regenBank >= 1) 
+            { 
+                mainHealth += Mathf.FloorToInt(regenBank);
+                regenBank -= Mathf.FloorToInt(regenBank);
+                UpdateHealthLabel();
             }
         }
     }
@@ -59,6 +63,8 @@ public class PlayerHealth : MonoBehaviour
             mainHealth += tempShield;
             tempShield = 0;
         }
+
+        UpdateHealthLabel();
 
         if (mainHealth <= 0)
         {
@@ -79,5 +85,10 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<PlayerMovement>().SetDefaultMovementEnabled(false);
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
         print("player died");
+    }
+
+    private void UpdateHealthLabel()
+    {
+        hudRef.SetHealthLabel(mainHealth.ToString());
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDSystem : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class HUDSystem : MonoBehaviour
     GameObject SanityBar;
     //private float targetSanity = 100;
 
+    [SerializeField]
+    TextMeshProUGUI healthLabel;
+
  
     public void UseAbility(int tier)
     {
@@ -29,9 +33,8 @@ public class HUDSystem : MonoBehaviour
         abilityIcons[tier].CooldownTimeManipulate(cooldownTime);
     }
 
-    
-
-    
-
-
+    public void SetHealthLabel(string newText)
+    {
+        healthLabel.text = newText;
+    }
 }

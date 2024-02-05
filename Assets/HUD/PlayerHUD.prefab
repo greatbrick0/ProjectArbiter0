@@ -264,6 +264,8 @@ MonoBehaviour:
   sanityBar: {fileID: 6621008854687904291}
   sanityWarning: {fileID: 0}
   sanityWarping: {fileID: 0}
+  sanityTarget: 0
+  age: 0
 --- !u!1 &1739892079082632712
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +517,7 @@ MonoBehaviour:
   - {fileID: 2234468146238913017}
   gunHUDRef: {fileID: 2706454648881133493}
   SanityBar: {fileID: 6621008854687904291}
+  healthLabel: {fileID: 1691283268488247221}
 --- !u!1 &5486746219305531116
 GameObject:
   m_ObjectHideFlags: 0
