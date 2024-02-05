@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
     private float regenDelay = 5.0f;
     [SerializeField]
     private float regenRate = 15.0f;
+    [SerializeField]
+    private int regenChunkSize = 3;
     private float regenBank = 0.0f;
     [Header("Shield")]
     [SerializeField]
@@ -43,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
         if (timeSinceDamaged >= regenDelay && mainHealth < maxMainHealth)
         {
             regenBank += regenRate * Time.deltaTime;
-            if (regenBank >= 1) 
+            if (regenBank >= Mathf.Min(regenChunkSize, maxMainHealth - mainHealth)) 
             { 
                 mainHealth += Mathf.FloorToInt(regenBank);
                 regenBank -= Mathf.FloorToInt(regenBank);

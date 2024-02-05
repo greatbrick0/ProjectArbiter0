@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerHUDCreator : MonoBehaviour
 {
     // Start is called before the first frame update
+    [HideInInspector]
     public GameObject HUDref;
-
 
     public void Awake()
     {
