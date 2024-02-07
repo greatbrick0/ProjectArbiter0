@@ -21,7 +21,7 @@ public class PlayerSpellIceDash : Ability
 
     GameObject collideHitboxRef;
 
-    private void GetNeededComponents()
+    protected override void GetNeededComponents()
     { 
         AbilityHoldRef = GetComponent<AbilityInputSystem>();
         sanityRef = GetComponent<SanitySystem>();
@@ -32,7 +32,7 @@ public class PlayerSpellIceDash : Ability
 
     public override void StartAbility()
     {
-        Debug.Log("StartedAbility");
+        Debug.Log("StartedIceDashAbility");
         GetNeededComponents();
         movementRef.canJump = false;
 
@@ -51,7 +51,7 @@ public class PlayerSpellIceDash : Ability
 
     public void PhaseOneDash()
     {
-        Debug.Log("BeginPause");
+
         movementRef.SetDefaultMovementEnabled(false);
         rb.drag = 3;
         rb.AddForce(-spellOrigin.transform.forward * backVelocity, ForceMode.Impulse);
@@ -107,4 +107,8 @@ public class PlayerSpellIceDash : Ability
         onCooldown = false;
     }
 
+    public override void newDemonic()
+    {
+
+    }
 }

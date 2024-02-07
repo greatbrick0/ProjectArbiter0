@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "8c0b59b124f9190d7d8ba8b18a62596302cecb36";
+		public const string schemaId = "5accaa4819fcb580d0c43e3c1d9c93a57e1177d9";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -127,8 +127,8 @@ namespace Coherence.Generated
 		public const uint InternalAdoptOrphan = 3;
 		public const uint InternalPersistenceReady = 4;
 		public const uint InternalGenericCommand = 5;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129 = 6;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e = 7;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e = 6;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_BeginSwing_17d5af6a_3460_4e5f_b7da_070092a4334a = 7;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e = 8;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514 = 9;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_ApplyEnhancement_c41bab82_6099_432e_9766_0df6ba37ab5d = 10;
@@ -709,10 +709,10 @@ namespace Coherence.Generated
 					return PersistenceReady.Deserialize(bitStream);
 				case Definition.InternalGenericCommand:
 					return GenericCommand.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_BeginSwing_17d5af6a_3460_4e5f_b7da_070092a4334a:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_BeginSwing_17d5af6a_3460_4e5f_b7da_070092a4334a.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_DashFinished_41d26fe1_5f49_44a8_885c_7a6c1958d514:
@@ -802,11 +802,11 @@ namespace Coherence.Generated
 				case Definition.InternalGenericCommand:
 					GenericCommand.Serialize((GenericCommand)data, bitStream);
 					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_IceSpikesTestSpell__char_46_CastSpikes_9964a90e_c819_4644_bc64_0d0faed72129)data, bitStream);
-					break;
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
 					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e)data, bitStream);
+					break;
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_BeginSwing_17d5af6a_3460_4e5f_b7da_070092a4334a:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_BeginSwing_17d5af6a_3460_4e5f_b7da_070092a4334a.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_BeginSwing_17d5af6a_3460_4e5f_b7da_070092a4334a)data, bitStream);
 					break;
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e:
 					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_CreateVFX_c9d1c20a_c487_4558_8ff5_21571fa3ca1e)data, bitStream);

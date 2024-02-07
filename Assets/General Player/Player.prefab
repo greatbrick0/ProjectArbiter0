@@ -27,7 +27,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3901741527115270495}
   m_Father: {fileID: 3402058366864678147}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,7 +52,7 @@ GameObject:
   - component: {fileID: 8751002839937151779}
   - component: {fileID: 8988836857019749150}
   - component: {fileID: 4206427362788723892}
-  - component: {fileID: 6540549076412505571}
+  - component: {fileID: -3141529984283832000}
   - component: {fileID: 225340334539899874}
   - component: {fileID: 4427282155619615523}
   - component: {fileID: 7902894017888744999}
@@ -76,6 +77,7 @@ Transform:
   m_Children:
   - {fileID: 787267086442653583}
   - {fileID: 3402058366864678147}
+  - {fileID: 10393347547172878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,8 +191,6 @@ MonoBehaviour:
     - component: {fileID: 8988836857019749150}
       lodStepsActive: 1
     - component: {fileID: 4206427362788723892}
-      lodStepsActive: 1
-    - component: {fileID: 6540549076412505571}
       lodStepsActive: 1
     - component: {fileID: 225340334539899874}
       lodStepsActive: 1
@@ -642,6 +642,14 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 1111314683962167162}
       lodStepsActive: 1
+    - component: {fileID: 10393347547172878}
+      lodStepsActive: 1
+    - component: {fileID: 3751469314193522342}
+      lodStepsActive: 1
+    - component: {fileID: 3832098440283532401}
+      lodStepsActive: 1
+    - component: {fileID: -3141529984283832000}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -682,8 +690,8 @@ MonoBehaviour:
   - rid: 726511650095759417
   - rid: 726511650095759419
   - rid: 726511650095759421
-  - rid: 726511650095759423
   - rid: 726511650095759425
+  - rid: 1197954311314473110
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1126,45 +1134,6 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 726511650095759423
-      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 726511650095759424
-        routing: 1
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: 9964a90e-c819-4644-bc64-0d0faed72129
-        archetypeData:
-          type: 0
-          minRange: 0
-          maxRange: 0
-          sampleRate: 0
-          floatCompression: 0
-          fields: []
-        unityComponent: {fileID: 6540549076412505571}
-        coherenceSync: {fileID: -2931630549695675886}
-        interpolationSettings: {fileID: 0}
-    - rid: 726511650095759424
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: CastSpikes
-        monoAssemblyType: 
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 0
-        valueSyncCallbackName: 
-        memberType: 8
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: IceSpikesTestSpell, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
     - rid: 726511650095759425
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
@@ -1233,6 +1202,45 @@ MonoBehaviour:
         component: {fileID: 1182243954846214141}
         setOnRemote: 1
         resetOnAuthority: 0
+    - rid: 1197954311314473110
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 1197954311314473111
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 17d5af6a-3460-4e5f-b7da-070092a4334a
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: -3141529984283832000}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 1197954311314473111
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: BeginSwing
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerSpellHammerSwing, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
 --- !u!114 &6000918072062803087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1347,6 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityList: []
   playerState: 0
+  exhaustTime: 0
 --- !u!114 &4206427362788723892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,11 +1369,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilitySystemRef: {fileID: 8988836857019749150}
+  demonicVFX: {fileID: 6981442414540266668}
   maxSanity: 100
-  currentSanity: 100
   sanityRecoverySpeedModifier: 1
+  demonicRecoverySpeedModifier: 3
   sanityRecoveryPause: 3
---- !u!114 &6540549076412505571
+--- !u!114 &-3141529984283832000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1373,22 +1383,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3294123685879425709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1955d2543887ae4a9ac806921011e99, type: 3}
+  m_Script: {fileID: 11500000, guid: 2581f3125938fdc47b16406c3454ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sync: {fileID: 0}
-  rb: {fileID: 1182243954846214141}
-  AbilityHoldRef: {fileID: 0}
-  sanityRef: {fileID: 4206427362788723892}
-  movementRef: {fileID: 0}
   spellOrigin: {fileID: 3800042346541162947}
-  maxCooldownTime: 0
+  sanityCost: 15
   onCooldown: 0
-  isActive: 0
-  sanityCost: 0
+  maxCooldownTime: 4
   HUDRef: {fileID: 0}
-  tier: 0
-  iceSpike: {fileID: 5313861381907764904, guid: 022cd925dbc80434e987d249e3a6a0a8,
+  IceHammer: {fileID: 5961615394419238897, guid: 6a300d5f4b675f94ba1b0abb6ab4caf0,
     type: 3}
 --- !u!114 &225340334539899874
 MonoBehaviour:
@@ -1402,18 +1405,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ecb51f0fa4f7249a5fc1dc9221c1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sync: {fileID: 0}
-  rb: {fileID: 1182243954846214141}
-  AbilityHoldRef: {fileID: 0}
-  sanityRef: {fileID: 4206427362788723892}
-  movementRef: {fileID: 0}
   spellOrigin: {fileID: 3800042346541162947}
-  maxCooldownTime: 7
-  onCooldown: 0
-  isActive: 0
   sanityCost: 30
+  onCooldown: 0
+  maxCooldownTime: 7
   HUDRef: {fileID: 0}
-  tier: 0
   pauseDuration: 0.5
   backVelocity: 3
   forwardVelocity: 30
@@ -1432,23 +1428,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb9b1d27e7ed6343b5f32f6c6e30d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sync: {fileID: 0}
-  rb: {fileID: 0}
-  AbilityHoldRef: {fileID: 0}
-  sanityRef: {fileID: 4206427362788723892}
-  movementRef: {fileID: 0}
   spellOrigin: {fileID: 3800042346541162947}
-  maxCooldownTime: 0
-  onCooldown: 0
-  isActive: 0
   sanityCost: 5
+  onCooldown: 0
+  maxCooldownTime: 0
   HUDRef: {fileID: 0}
-  tier: 0
+  sanityCostInterval: 2
   weaponRef: {fileID: 2021298388301607510}
   upgradedWeaponInfo: {fileID: 11400000, guid: f61329d5c186bac4cad8b243a975f338, type: 2}
   muzzleFlash: {fileID: 0}
   newmuzzleColor: {r: 0, g: 0, b: 0, a: 0}
-  sanityCostInterval: 2
 --- !u!114 &7902894017888744999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,13 +1590,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3800042346541162947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.20000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 787267086442653583}
-  m_RootOrder: 1
+  m_Father: {fileID: 1111314683962167162}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3883505156724150720
 GameObject:
@@ -1638,7 +1627,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 290404473468998225}
-  - {fileID: 3901741527115270495}
   - {fileID: 8127347517799184015}
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 0
@@ -1675,6 +1663,116 @@ Transform:
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6981442414540266668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 10393347547172878}
+  - component: {fileID: 3751469314193522342}
+  - component: {fileID: 3832098440283532401}
+  m_Layer: 0
+  m_Name: DemonicVFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &10393347547172878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981442414540266668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8872450027310171148}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!2083052967 &3751469314193522342
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981442414540266668}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: b794cb1f6372a6442b81b72dd0c9de94, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array: []
+    m_Vector2f:
+      m_Array: []
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array: []
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
+--- !u!73398921 &3832098440283532401
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981442414540266668}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &7189452040746007017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,7 +3107,7 @@ PrefabInstance:
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
