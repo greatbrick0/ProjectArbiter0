@@ -11,6 +11,7 @@ public class PlayerSpellHammerSwing : Ability
     [SerializeField]
     GameObject IceHammer;
 
+    GameObject newHammer;
 
     protected override void GetNeededComponents()
     {
@@ -49,7 +50,8 @@ public class PlayerSpellHammerSwing : Ability
 
     public void BeginSwing()
     {
-
+        newHammer = Instantiate(IceHammer, spellOrigin.transform);
+        
     }
 
 

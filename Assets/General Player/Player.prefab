@@ -27,7 +27,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3901741527115270495}
   m_Father: {fileID: 3402058366864678147}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -690,7 +691,7 @@ MonoBehaviour:
   - rid: 726511650095759419
   - rid: 726511650095759421
   - rid: 726511650095759425
-  - rid: 8327199152142286876
+  - rid: 1197954311314473110
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1201,15 +1202,15 @@ MonoBehaviour:
         component: {fileID: 1182243954846214141}
         setOnRemote: 1
         resetOnAuthority: 0
-    - rid: 8327199152142286876
+    - rid: 1197954311314473110
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 8327199152142286877
+          rid: 1197954311314473111
         routing: 1
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 9e7896fc-a8a5-4139-991e-5a6a7a91c14d
+        guid: 17d5af6a-3460-4e5f-b7da-070092a4334a
         archetypeData:
           type: 0
           minRange: 0
@@ -1217,22 +1218,21 @@ MonoBehaviour:
           sampleRate: 0
           floatCompression: 0
           fields: []
-        unityComponent: {fileID: 0}
+        unityComponent: {fileID: -3141529984283832000}
         coherenceSync: {fileID: -2931630549695675886}
         interpolationSettings: {fileID: 0}
-    - rid: 8327199152142286877
+    - rid: 1197954311314473111
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
-        name: CastSpikes
+        name: BeginSwing
         monoAssemblyType: 
         required: 0
         enforcesLODingWhenFieldsOverriden: 0
         valueSyncCallbackName: 
         memberType: 8
-        parameterAssemblyTypes:
-        - System.Boolean, mscorlib
+        parameterAssemblyTypes: []
         ownerType:
-          assemblyQualifiedName: IceSpikesTestSpell, Assembly-CSharp, Version=0.0.0.0,
+          assemblyQualifiedName: PlayerSpellHammerSwing, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         CustomData:
           rid: -2
@@ -1389,9 +1389,10 @@ MonoBehaviour:
   spellOrigin: {fileID: 3800042346541162947}
   sanityCost: 15
   onCooldown: 0
-  maxCooldownTime: 5
+  maxCooldownTime: 4
   HUDRef: {fileID: 0}
-  IceHammer: {fileID: 0}
+  IceHammer: {fileID: 5961615394419238897, guid: 6a300d5f4b675f94ba1b0abb6ab4caf0,
+    type: 3}
 --- !u!114 &225340334539899874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,13 +1589,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3800042346541162947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.20000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 787267086442653583}
-  m_RootOrder: 1
+  m_Father: {fileID: 1111314683962167162}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3883505156724150720
 GameObject:
@@ -1625,7 +1626,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 290404473468998225}
-  - {fileID: 3901741527115270495}
   - {fileID: 8127347517799184015}
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 0
@@ -3106,7 +3106,7 @@ PrefabInstance:
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2180681522144102242, guid: c1d930555b2eb17498f991eee3da5dd2,
         type: 3}
