@@ -25,6 +25,7 @@ public class HUDSanity : MonoBehaviour
     private bool barAtRest = true;
 
     private bool demonic = false;
+    private bool exhausted = false;
 
     private bool doLerp = true;
 
@@ -48,15 +49,11 @@ public class HUDSanity : MonoBehaviour
     public void SanityBarColourChange()
     {
         if (demonic)
-        {
-            Debug.Log("Changing to red");
             sanityBar.GetComponent<Image>().color = Color.red;
-        }
+        else if (exhausted)
+            sanityBar.GetComponent<Image>().color = Color.grey;
         else
-        {
-            Debug.Log("Changing to green");
             sanityBar.GetComponent<Image>().color = Color.green;
-        }
     }
 
     private void Update()

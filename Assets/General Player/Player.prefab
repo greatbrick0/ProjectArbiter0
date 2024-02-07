@@ -1372,7 +1372,7 @@ MonoBehaviour:
   demonicVFX: {fileID: 6981442414540266668}
   maxSanity: 100
   sanityRecoverySpeedModifier: 1
-  demonicRecoverySpeedModifier: 3
+  demonicRecoverySpeedModifier: 10
   sanityRecoveryPause: 3
 --- !u!114 &-3141529984283832000
 MonoBehaviour:
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   spellOrigin: {fileID: 3800042346541162947}
   sanityCost: 5
   onCooldown: 0
-  maxCooldownTime: 0
+  maxCooldownTime: 1
   HUDRef: {fileID: 0}
   sanityCostInterval: 2
   weaponRef: {fileID: 2021298388301607510}
@@ -1690,8 +1690,8 @@ Transform:
   m_GameObject: {fileID: 6981442414540266668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 2

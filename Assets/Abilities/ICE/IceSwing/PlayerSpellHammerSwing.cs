@@ -27,7 +27,7 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void StartAbility()
     {
-        Debug.Log("StartedAbility");
+        Debug.Log("StartedHammerSwing");
         GetNeededComponents();
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
 
