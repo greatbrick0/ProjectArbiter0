@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceShatter : AbilityRedundant
+public class IceShatter : MonoBehaviour
 {
     [SerializeField]
     GameObject attackRef;
@@ -11,6 +11,9 @@ public class IceShatter : AbilityRedundant
 
     [SerializeField]
     List<GameObject> phases = new List<GameObject>();
+
+
+    public bool demonic = false;
 
 
     private void OnEnable() //this plays after AssignAbilityComponents.
@@ -30,14 +33,6 @@ public class IceShatter : AbilityRedundant
         }
 
         StartCoroutine(StartChain());
-    }
-
-    protected override void AssignAbilityComponents()
-    {
-        if (caster == null)
-        {
-            
-        }
     }
 
     private IEnumerator Duplicate()

@@ -7,6 +7,9 @@ public class HUDSanity : MonoBehaviour
 {
     [SerializeField]
     GameObject sanityBar;
+    [SerializeField]
+    GameObject secondaryBar;
+
 
     [SerializeField]
     GameObject sanityWarning;
@@ -22,6 +25,7 @@ public class HUDSanity : MonoBehaviour
     private bool barAtRest = true;
 
     private bool demonic = false;
+    private bool exhausted = false;
 
     private bool doLerp = true;
 
@@ -36,14 +40,6 @@ public class HUDSanity : MonoBehaviour
         else
             doLerp = true;
         sanityTarget = sanity;
-       
-
-        if (sanityTarget <= 0.0)
-        {
-            sanityTarget = 0.0F;
-            demonic = true;
-            SanityBarColourChange();
-        }
 
 
         age = 0;
@@ -52,8 +48,12 @@ public class HUDSanity : MonoBehaviour
 
     public void SanityBarColourChange()
     {
-        if (demonic) sanityBar.GetComponent<Image>().color = Color.red;
-        else sanityBar.GetComponent<Image>().color = Color.green;
+        if (demonic)
+            sanityBar.GetComponent<Image>().color = Color.red;
+        else if (exhausted)
+            sanityBar.GetComponent<Image>().color = Color.grey;
+        else
+            sanityBar.GetComponent<Image>().color = Color.green;
     }
 
     private void Update()
@@ -61,20 +61,28 @@ public class HUDSanity : MonoBehaviour
         if (barAtRest)
             return;
         if (age < 1)
-            age += Time.deltaTime/2;
+            age += Time.deltaTime / 4;
         if (age > 1)
             age = 1;
 
+        sanityBar.transform.localScale = new Vector3(sanityTarget / 100, 1, 1);
         if (doLerp)
-            sanityBar.transform.localScale = new Vector3(Mathf.Lerp(sanityBar.transform.localScale.x, sanityTarget / 100, age), 1, 1);
+            secondaryBar.transform.localScale = new Vector3(Mathf.Lerp(secondaryBar.transform.localScale.x, sanityTarget / 100, age), 1, 1);
         else
-            sanityBar.transform.localScale = new Vector3(sanityTarget/100, 1, 1);
+            secondaryBar.transform.localScale = new Vector3(sanityTarget / 100, 1, 1);
 
 
         if (age == 1)
             barAtRest = true;
-       
-        
+
+
+    }
+
+    public void SetDemonic(bool newDemonic)
+    {
+        demonic = newDemonic;
+        Debug.Log(":::" + demonic);
+        SanityBarColourChange();
     }
 
 }
