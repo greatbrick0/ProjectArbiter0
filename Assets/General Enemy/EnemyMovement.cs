@@ -17,12 +17,15 @@ public class EnemyMovement : MonoBehaviour
     private List<GameObject> sensedPlayers = new List<GameObject>();
     private GameObject targetPlayer;
 
+    private EnemyAnimation anim;
+
     private float attackCooldown = 0.0f;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<EnemyAnimation>();
         spawnPos = transform.position;
     }
 
@@ -42,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
             targetPlayer = ChooseTargetPlayer();
             targetPos = targetPlayer.transform.position;
             agent.SetDestination(targetPos);
+            anim.walking = true;
             if (Vector3.Distance(transform.position, targetPos) < 3) Attack(targetPlayer.GetComponent<PlayerHealth>());
         }
         else
