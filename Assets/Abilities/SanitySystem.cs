@@ -1,3 +1,5 @@
+using Coherence.Toolkit;
+using Coherence;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,6 +14,11 @@ public class SanitySystem : MonoBehaviour
 
     [SerializeField]
     GameObject demonicVFX;
+    GameObject auraRef;
+
+    [SerializeField]
+    CoherenceSync sync;
+
 
 
     [SerializeField]
@@ -71,6 +78,7 @@ public class SanitySystem : MonoBehaviour
     public void GetHUDReference()
     {
         sanityHUDRef = GameObject.Find("SanityHUDOverlay").GetComponent<HUDSanity>();
+        sync = GetComponent<CoherenceSync>(); //this really should be here. whatever.
     }
 
     private void Update()
@@ -94,24 +102,34 @@ public class SanitySystem : MonoBehaviour
 
     }
 
-    private void BecomeDemonic()
+    public void BecomeDemonic()
     {
         Debug.Log("Starting Demonic");
         currentSanity = 0;
         demonic = true;
         abilitySystemRef.SetDemonic(true);
         sanityHUDRef.SetDemonic(true);
-        demonicVFX.SetActive(true);
-
+        sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All,true);
+        
     }
 
-    private void EndDemonic()
+    public void ShowAura(bool useAura)
+    {
+        Debug.Log("ShowAura");
+        if (useAura)
+            auraRef = Instantiate(demonicVFX, transform);
+        else
+            Destroy(auraRef.gameObject);
+    }
+
+
+    public void EndDemonic()
     {
         Debug.Log("ending demonic");
         demonic = false;
         abilitySystemRef.SetDemonic(false);
         sanityHUDRef.SetDemonic(false);
-        demonicVFX.SetActive(false);
+        sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All, false);
     }
 }
     
