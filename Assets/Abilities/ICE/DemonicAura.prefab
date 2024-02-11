@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5961615393430998858
+--- !u!1 &4685705596498176747
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5961615393430998859}
-  - component: {fileID: 5961615393430998853}
-  - component: {fileID: 5961615393430998852}
-  m_Layer: 7
-  m_Name: swingVFX
+  - component: {fileID: 2432229915798693449}
+  - component: {fileID: 1579090004214909153}
+  - component: {fileID: 1498486685111704118}
+  m_Layer: 0
+  m_Name: DemonicVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5961615393430998859
+--- !u!4 &2432229915798693449
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961615393430998858}
-  m_LocalRotation: {x: -0.07572795, y: -0.2569839, z: -0.0000000745058, w: 0.9634442}
-  m_LocalPosition: {x: -0.06484093, y: 0.01910731, z: 0.20612901}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_GameObject: {fileID: 4685705596498176747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5961615394419238898}
+  m_Father: {fileID: 3716857749164073224}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -8.391, y: -30.036, z: 2.255}
---- !u!2083052967 &5961615393430998853
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!2083052967 &1579090004214909153
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961615393430998858}
+  m_GameObject: {fileID: 4685705596498176747}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: c0d85654e24ac0146913702c6f22e525, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: b794cb1f6372a6442b81b72dd0c9de94, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -49,13 +49,7 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array:
-      - m_Value: 6
-        m_Name: Velocity
-        m_Overridden: 1
-      - m_Value: -6
-        m_Name: VelocityHammer
-        m_Overridden: 1
+      m_Array: []
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -76,16 +70,16 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &5961615393430998852
+--- !u!73398921 &1498486685111704118
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961615393430998858}
+  m_GameObject: {fileID: 4685705596498176747}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -116,7 +110,7 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &5961615394419238897
+--- !u!1 &8755152484764518962
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,57 +118,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5961615394419238898}
-  - component: {fileID: 1313082802025150157}
-  - component: {fileID: 2733044322889325772}
-  m_Layer: 7
-  m_Name: HammerPrefab
+  - component: {fileID: 3716857749164073224}
+  m_Layer: 0
+  m_Name: DemonicAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5961615394419238898
+--- !u!4 &3716857749164073224
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961615394419238897}
-  m_LocalRotation: {x: -0, y: -0, z: 0.14279458, w: 0.9897524}
-  m_LocalPosition: {x: 0.26177, y: -0.013479, z: -0.28}
-  m_LocalScale: {x: 1.2127, y: 1, z: 1.8015}
+  m_GameObject: {fileID: 8755152484764518962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5961615393430998859}
+  - {fileID: 2432229915798693449}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.419}
---- !u!65 &1313082802025150157
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961615394419238897}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.9503675, y: 1, z: 1.5725763}
-  m_Center: {x: -0.047294855, y: 0, z: 0.7092266}
---- !u!114 &2733044322889325772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961615394419238897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e5b5828f11783448f171349cf48cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hammerAbilityRef: {fileID: 0}
-  abilityDamage: 30
-  hitTargets: []
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
