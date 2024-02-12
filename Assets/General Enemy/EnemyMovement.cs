@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
+    private PlayerTracker playerTracker;
     private float age = 0.0f;
     [SerializeField]
     public Vector3 targetPos;
@@ -13,8 +14,6 @@ public class EnemyMovement : MonoBehaviour
 
     private NavMeshAgent agent;
     private Rigidbody rb;
-
-    private List<GameObject> sensedPlayers = new List<GameObject>();
     private GameObject targetPlayer;
 
     private EnemyAnimation anim;
@@ -31,16 +30,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        playerTracker = FindObjectOfType<PlayerTracker>();
         targetPos = transform.position;
-        age += transform.position.z;
     }
 
     void Update()
     {
         age += 1.0f * Time.deltaTime;
 
-        CleanDeadPlayers();
-        if(sensedPlayers.Count > 0)
+        if(playerTracker.playerCount > 0)
         {
             targetPlayer = ChooseTargetPlayer();
             targetPos = targetPlayer.transform.position;
@@ -65,38 +63,26 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void SensePlayer(GameObject newPlayer)
-    {
-        sensedPlayers.Add(newPlayer);
-    }
-
-    private void CleanDeadPlayers()
-    {
-        for (int ii = sensedPlayers.Count - 1; ii >= 0; ii--)
-        {
-            if (sensedPlayers[ii] == null) sensedPlayers.RemoveAt(ii);
-            else if (sensedPlayers[ii].GetComponent<PlayerHealth>().playerDead) sensedPlayers.RemoveAt(ii);
-        }
-    }
-
     /// <summary>
     /// Chooses a player from the list sensedPlayers to become the target of the pathfinding.
     /// </summary>
     /// <returns>Returns the player that has the best score. Score is determined between a mix of max health and distance.</returns>
     GameObject ChooseTargetPlayer()
     {
-        GameObject outputPlayer = sensedPlayers[0];
+        GameObject outputPlayer = playerTracker.GetPlayerObject(0);
         float bestScore = 0;
         float dist;
         float score;
 
-        foreach(GameObject ii in sensedPlayers)
+        for(int ii = 0; ii < playerTracker.playerCount; ii++)
         {
-            dist = (transform.position - ii.transform.position).magnitude;
-            score = Mathf.Pow(ii.GetComponent<PlayerHealth>().maxMainHealth, 2) / dist; // score = maxHealth^2 / distance
+            if (playerTracker.GetPlayerObject(ii).GetComponent<PlayerHealth>().playerDead) continue;
+
+            dist = (transform.position - playerTracker.GetPlayerObject(ii).transform.position).magnitude;
+            score = Mathf.Pow(playerTracker.GetPlayerObject(ii).GetComponent<PlayerHealth>().maxMainHealth, 2) / dist; // score = maxHealth^2 / distance
             if (score >= bestScore)
             {
-                outputPlayer = ii;
+                outputPlayer = playerTracker.GetPlayerObject(0);
                 bestScore = score;
             }
         }

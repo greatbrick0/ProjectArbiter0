@@ -9,6 +9,8 @@ public class PlayerTracker : MonoBehaviour
     [SerializeField]
     private CoherenceBridge bridge;
     private CoherenceClientConnectionManager clientsData;
+    [SerializeField]
+    private List<GameObject> playerList;
     [field: SerializeField]
     public int playerCount { get; private set; }
     [SerializeField]
@@ -21,6 +23,21 @@ public class PlayerTracker : MonoBehaviour
 
     private void Update()
     {
+        if (playerCount != clientsData.ClientConnectionCount) RefreshPlayerList();
         playerCount = clientsData.ClientConnectionCount;
+    }
+
+    private void RefreshPlayerList()
+    {
+        playerList.Clear();
+        foreach(CoherenceClientConnection ii in clientsData.GetAllClients())
+        {
+            playerList.Add(ii.GameObject);
+        }
+    }
+
+    public GameObject GetPlayerObject(int index)
+    {
+        return playerList[index];
     }
 }
