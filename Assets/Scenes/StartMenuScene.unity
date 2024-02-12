@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 127515092}
   - component: {fileID: 127515091}
   - component: {fileID: 127515090}
+  - component: {fileID: 127515094}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -599,6 +600,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &127515092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,6 +650,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127515088}
   m_CullTransparentMesh: 1
+--- !u!114 &127515094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127515088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &185107124
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +945,7 @@ GameObject:
   - component: {fileID: 217782813}
   - component: {fileID: 217782812}
   - component: {fileID: 217782815}
+  - component: {fileID: 217782816}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -1016,6 +1042,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &217782813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,6 +1107,18 @@ MonoBehaviour:
   titleText: {fileID: 0}
   descText: {fileID: 0}
   borderImage: {fileID: 0}
+--- !u!114 &217782816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217782810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &218990856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1479,7 @@ GameObject:
   - component: {fileID: 270207914}
   - component: {fileID: 270207913}
   - component: {fileID: 270207912}
+  - component: {fileID: 270207916}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -1515,7 +1566,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270207914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &270207914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,6 +1617,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270207910}
   m_CullTransparentMesh: 1
+--- !u!114 &270207916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270207910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276598214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2496,7 @@ GameObject:
   - component: {fileID: 440197211}
   - component: {fileID: 440197210}
   - component: {fileID: 440197214}
+  - component: {fileID: 440197215}
   m_Layer: 5
   m_Name: Tutorial Button
   m_TagString: Untagged
@@ -2506,7 +2582,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 440197212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &440197212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,6 +2648,18 @@ MonoBehaviour:
   titleText: {fileID: 1340540842}
   descText: {fileID: 436339440}
   borderImage: {fileID: 1790866565}
+--- !u!114 &440197215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440197208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &442578924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2944,7 @@ GameObject:
   - component: {fileID: 595324605}
   - component: {fileID: 595324604}
   - component: {fileID: 595324608}
+  - component: {fileID: 595324609}
   m_Layer: 5
   m_Name: Find Lobby Button
   m_TagString: Untagged
@@ -2943,6 +3044,18 @@ MonoBehaviour:
           m_StringArgument: StitchedScene
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &595324606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2991,6 +3104,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad320b97f5c0dae47bbc0efa5bc3c744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &595324609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595324602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &743691137
@@ -3235,6 +3360,7 @@ GameObject:
   - component: {fileID: 808262401}
   - component: {fileID: 808262404}
   - component: {fileID: 808262405}
+  - component: {fileID: 808262406}
   m_Layer: 5
   m_Name: MultiPlayer Button
   m_TagString: Untagged
@@ -3332,6 +3458,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &808262402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3398,6 +3536,18 @@ MonoBehaviour:
   titleText: {fileID: 1909543148}
   descText: {fileID: 794990661}
   borderImage: {fileID: 2145562481}
+--- !u!114 &808262406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808262399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876195640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3773,7 @@ GameObject:
   - component: {fileID: 883114514}
   - component: {fileID: 883114516}
   - component: {fileID: 883114517}
+  - component: {fileID: 883114518}
   m_Layer: 5
   m_Name: Level 4
   m_TagString: Untagged
@@ -3727,6 +3878,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &883114518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883114512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &895683209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3950,6 +4113,7 @@ GameObject:
   - component: {fileID: 1015616431}
   - component: {fileID: 1015616430}
   - component: {fileID: 1015616434}
+  - component: {fileID: 1015616435}
   m_Layer: 5
   m_Name: SinglePlayer Button
   m_TagString: Untagged
@@ -4035,7 +4199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1015616432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1015616432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4089,6 +4265,18 @@ MonoBehaviour:
   titleText: {fileID: 294568833}
   descText: {fileID: 256279589}
   borderImage: {fileID: 238995023}
+--- !u!114 &1015616435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015616428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1106026307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,6 +4290,7 @@ GameObject:
   - component: {fileID: 1106026309}
   - component: {fileID: 1106026311}
   - component: {fileID: 1106026312}
+  - component: {fileID: 1106026313}
   m_Layer: 5
   m_Name: Level 2
   m_TagString: Untagged
@@ -4206,6 +4395,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &1106026313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106026307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1111947273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,6 +5262,7 @@ GameObject:
   - component: {fileID: 1296505208}
   - component: {fileID: 1296505211}
   - component: {fileID: 1296505210}
+  - component: {fileID: 1296505212}
   m_Layer: 5
   m_Name: Lab Level
   m_TagString: Untagged
@@ -5165,6 +5367,18 @@ MonoBehaviour:
   outline: {fileID: 895683211}
   dimmer: {fileID: 1125656567}
   isActive: 1
+--- !u!114 &1296505212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296505206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1340540838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5393,6 +5607,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347819846}
   m_CullTransparentMesh: 1
+--- !u!1 &1363184379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363184381}
+  - component: {fileID: 1363184380}
+  - component: {fileID: 1363184382}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1363184380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363184379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1ed1903b75b2d4493e95f8b8abf298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <playerReloading>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <pistolShoot>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <iceSpikes>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <iceCharge>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <bulletHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <music>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <menuHover>k__BackingField:
+    Guid:
+      Data1: -284830723
+      Data2: 1155657129
+      Data3: -2117843271
+      Data4: 505187259
+    Path: event:/SFX/UI/UI Hover
+  <menuSelect>k__BackingField:
+    Guid:
+      Data1: -1252596676
+      Data2: 1106201292
+      Data3: -1230553163
+      Data4: -48956823
+    Path: event:/SFX/UI/UI Select
+--- !u!4 &1363184381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363184379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363184382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363184379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1368178712
 GameObject:
   m_ObjectHideFlags: 0
@@ -6368,6 +6695,7 @@ GameObject:
   - component: {fileID: 1759642212}
   - component: {fileID: 1759642214}
   - component: {fileID: 1759642215}
+  - component: {fileID: 1759642216}
   m_Layer: 5
   m_Name: Level 3
   m_TagString: Untagged
@@ -6472,6 +6800,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &1759642216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759642210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1773433808
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,6 +7118,7 @@ GameObject:
   - component: {fileID: 1851496359}
   - component: {fileID: 1851496358}
   - component: {fileID: 1851496357}
+  - component: {fileID: 1851496361}
   m_Layer: 5
   m_Name: Options Button
   m_TagString: Untagged
@@ -6889,6 +7230,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1851496359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6927,6 +7280,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851496355}
   m_CullTransparentMesh: 1
+--- !u!114 &1851496361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851496355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1909543144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7471,6 +7836,7 @@ GameObject:
   - component: {fileID: 2040648565}
   - component: {fileID: 2040648564}
   - component: {fileID: 2040648567}
+  - component: {fileID: 2040648568}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -7567,6 +7933,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2040648565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7620,6 +7998,18 @@ MonoBehaviour:
   titleText: {fileID: 0}
   descText: {fileID: 0}
   borderImage: {fileID: 0}
+--- !u!114 &2040648568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040648562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2064354971
 GameObject:
   m_ObjectHideFlags: 0
@@ -8758,6 +9148,7 @@ GameObject:
   - component: {fileID: 8123587865515126579}
   - component: {fileID: 2841685823166476170}
   - component: {fileID: 2267038058544066684}
+  - component: {fileID: 8123587865515126580}
   m_Layer: 5
   m_Name: ButtonObject
   m_TagString: Untagged
@@ -11005,6 +11396,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1500585970273559671
 GameObject:
   m_ObjectHideFlags: 0
@@ -11057,6 +11460,7 @@ GameObject:
   - component: {fileID: 4747130829692711787}
   - component: {fileID: 8838726889773509774}
   - component: {fileID: 5958141796429809844}
+  - component: {fileID: 8838726889773509775}
   m_Layer: 5
   m_Name: ButtonObject
   m_TagString: Untagged
@@ -12620,6 +13024,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &2159892453559698646
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12768,8 +13184,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+      - m_Target: {fileID: 5385606262810710213}
+        m_TargetAssemblyTypeName: VariantSettingsManager, Assembly-CSharp
         m_MethodName: RestoreDefaults
         m_Mode: 1
         m_Arguments:
@@ -12780,10 +13196,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 224460298255111545}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15258,7 +15686,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3863767799724509303}
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1293950649}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -15270,7 +15710,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1293950649}
+      - m_Target: {fileID: 3863767799724509303}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -17366,7 +17806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 224460298255111545}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -17382,6 +17822,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17700,6 +18152,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 7111637202034327487}
           m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -18090,6 +18554,7 @@ GameObject:
   - component: {fileID: 6333006167914053438}
   - component: {fileID: 4043278655118001618}
   - component: {fileID: 4561388501671579064}
+  - component: {fileID: 6741885890965435451}
   m_Layer: 5
   m_Name: ButtonObject
   m_TagString: Untagged
@@ -18268,6 +18733,7 @@ GameObject:
   - component: {fileID: 5157749032675639375}
   - component: {fileID: 7617109439656810532}
   - component: {fileID: 3480394784992594087}
+  - component: {fileID: 7617109439656810533}
   m_Layer: 5
   m_Name: ButtonObject
   m_TagString: Untagged
@@ -18451,6 +18917,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 3825915375671616586}
           m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19396,6 +19874,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &5516334235451813981
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20088,7 +20578,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8838726889773509774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 224460298255111545}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2896901092717130189}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!224 &5966137172442600406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21109,6 +21635,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &6545566613689797657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21500,6 +22038,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &6703742699411534032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21591,6 +22141,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6741885890965435451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924138912680772041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6763626694736916758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22543,6 +23105,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 3373642428299182541}
           m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -23538,6 +24112,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
+--- !u!114 &7617109439656810533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039589894699269278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &7633083792796319356
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23633,6 +24219,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 2990315381631258879}
           m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -24311,6 +24909,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7945740567650620411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24589,6 +25199,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364723802164616698}
   m_CullTransparentMesh: 0
+--- !u!114 &8123587865515126580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364723802164616698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &8157867537573792620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25065,6 +25687,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 6438171431762618200}
           m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -25815,6 +26449,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!222 &8739258231441241973
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25956,6 +26602,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
+--- !u!114 &8838726889773509775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539923265801881637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8839437996332804497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26129,6 +26787,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &8887269907853078523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26293,6 +26963,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 7737777386429948560}
           m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1363184382}
+        m_TargetAssemblyTypeName: MenuSoundsPlayer, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
