@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
-    private PlayerTracker playerTracker;
+    public PlayerTracker playerTracker;
     private float age = 0.0f;
     [SerializeField]
     public Vector3 targetPos;
@@ -25,12 +25,12 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<EnemyAnimation>();
-        spawnPos = transform.position;
     }
 
     private void Start()
     {
-        playerTracker = FindObjectOfType<PlayerTracker>();
+        spawnPos = transform.position;
+        agent.enabled = true;
         targetPos = transform.position;
     }
 

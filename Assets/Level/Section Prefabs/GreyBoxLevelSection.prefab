@@ -11665,6 +11665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154950848732895492}
+  - component: {fileID: 9218864062490320029}
   m_Layer: 0
   m_Name: GreyBoxLevelSection
   m_TagString: Untagged
@@ -11691,6 +11692,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9218864062490320029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221185273392859101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e351d544e749c4a9a898bb5938c9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpawns:
+  - position: {x: 0, y: 1, z: 0}
+    supportedTypes:
+    - {fileID: 3294123685879425709, guid: 7365a46dbef03be41b6173e6147d68d1, type: 3}
+  firstRoom: 0
+  continuousSpawns: []
 --- !u!1001 &165710089313702078
 PrefabInstance:
   m_ObjectHideFlags: 0

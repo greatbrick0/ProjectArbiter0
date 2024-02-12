@@ -22,6 +22,7 @@ public class MainCameraScript : MonoBehaviour
 
     void Update()
     {
+        if (playerHead == null) mode = "";
         if(mode == "firstperson")
         {
             t.position = playerHead.position + TransformOffset(offset);
