@@ -36,6 +36,8 @@ public class PlayerSpellIceDash : Ability
         GetNeededComponents();
         movementRef.canJump = false;
 
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceCharge, gameObject);
+
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown());
