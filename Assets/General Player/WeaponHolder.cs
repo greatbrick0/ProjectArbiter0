@@ -46,6 +46,7 @@ public class WeaponHolder : MonoBehaviour
     private float resetTime;
     private EventReference shootSound;
     private EventReference reloadSound;
+    private EventReference stopShootSound;
 
     [field: Header("Trackers")]
     [field: SerializeField]
@@ -76,6 +77,7 @@ public class WeaponHolder : MonoBehaviour
         movementScript.maxRecoilBounds = weapon.maxRecoilBounds;
         shootSound = weapon.shootSound;
         reloadSound = weapon.reloadSound;
+        if (!weapon.stopShootSound.IsNull) stopShootSound = weapon.stopShootSound;
     }
 
     public void StartInput()
@@ -89,6 +91,7 @@ public class WeaponHolder : MonoBehaviour
         if (!defaultBehaviourEnabled) return;
         if (reloading) inputtingFire = false;
         if (automatic) inputtingFire = false;
+        if (!stopShootSound.IsNull) FMODUnity.RuntimeManager.PlayOneShotAttached(stopShootSound, gameObject);
     }
 
     private void Awake()

@@ -15,27 +15,22 @@ MonoBehaviour:
   <gunName>k__BackingField: ICELMG
   <automatic>k__BackingField: 1
   <reloadTime>k__BackingField: 4
-  <maxAmmo>k__BackingField: 30
-  <closeDamage>k__BackingField: {x: 3, y: 18}
-  <farDamage>k__BackingField: {x: 15, y: 6}
+  <maxAmmo>k__BackingField: 48
+  <closeDamage>k__BackingField: {x: 10, y: 16}
+  <farDamage>k__BackingField: {x: 25, y: 8}
   <shotPattern>k__BackingField:
   - <points>k__BackingField:
     - {x: 0, y: 0}
-    <cooldownTime>k__BackingField: 0.13
-    <recoilDirection>k__BackingField: {x: 0.6, y: 2}
-    <recoilTime>k__BackingField: 0.1
+    <cooldownTime>k__BackingField: 0.1
+    <recoilDirection>k__BackingField: {x: 0.14, y: 0.75}
+    <recoilTime>k__BackingField: 0.07
   - <points>k__BackingField:
     - {x: 0, y: 0}
-    <cooldownTime>k__BackingField: 0.13
-    <recoilDirection>k__BackingField: {x: -0.6, y: 2}
-    <recoilTime>k__BackingField: 0.1
-  - <points>k__BackingField:
-    - {x: 0, y: 0}
-    <cooldownTime>k__BackingField: 0.13
-    <recoilDirection>k__BackingField: {x: -2, y: 1}
-    <recoilTime>k__BackingField: 0.1
-  <range>k__BackingField: 20
-  <resetTime>k__BackingField: 0.2
+    <cooldownTime>k__BackingField: 0.1
+    <recoilDirection>k__BackingField: {x: -0.14, y: 0.75}
+    <recoilTime>k__BackingField: 0.07
+  <range>k__BackingField: 40
+  <resetTime>k__BackingField: 0.24
   <maxRecoilBounds>k__BackingField: {x: 20, y: 20}
   <shootSound>k__BackingField:
     Guid:
@@ -51,3 +46,10 @@ MonoBehaviour:
       Data3: -549843026
       Data4: -915836398
     Path: event:/SFX/Guns/General Reload
+  <stopShootSound>k__BackingField:
+    Guid:
+      Data1: 146572482
+      Data2: 1272511653
+      Data3: 776296108
+      Data4: 1563991340
+    Path: event:/SFX/Guns/LMG/Tail/Tail

@@ -51,6 +51,9 @@ public class WeaponData : ScriptableObject
     [field: SerializeField]
     [field: Tooltip("The sound that plays when this weapon is reloaded.")]
     public EventReference reloadSound { get; private set; }
+    [field: SerializeField]
+    [field: Tooltip("The sound that plays when this weapon stops shooting.")]
+    public EventReference stopShootSound { get; private set; }
 }
 
 [Serializable]
