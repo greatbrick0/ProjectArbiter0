@@ -31,6 +31,8 @@ public class PlayerSpellHammerSwing : Ability
         GetNeededComponents();
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
 
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
+
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
