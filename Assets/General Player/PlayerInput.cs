@@ -193,7 +193,7 @@ public class PlayerInput : MonoBehaviour
         inMenuBehaviour = newBehaviour;
         playerMovement.SetDefaultMovementEnabled(!newBehaviour);
         weapon.SetDefaultBehaviourEnabled(!newBehaviour);
-        FMODUnity.RuntimeManager.PauseAllEvents(newBehaviour);
+        //FMODUnity.RuntimeManager.PauseAllEvents(newBehaviour);
         if (newBehaviour) ShowMouse();
         else HideMouse();
     }
