@@ -5,9 +5,8 @@ using FMODUnity;
 
 public class FMODEvents : MonoBehaviour
 {
+    //This script is for non-player specific sounds.
     [field: Header ("Player SFX")]
-    [field: SerializeField] public EventReference playerReloading { get; private set; }
-    [field: SerializeField] public EventReference pistolShoot { get; private set; }
     [field: SerializeField] public EventReference iceSpikes { get; private set; }
     [field: SerializeField] public EventReference iceCharge { get; private set; }
     [field: SerializeField] public EventReference bulletHit { get; private set; }

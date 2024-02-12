@@ -44,7 +44,7 @@ public class WeaponData : ScriptableObject
     [field: Tooltip("The maximum distance the camera can be offset by recoil in each axis. Measured in degrees.")]
     public Vector2 maxRecoilBounds { get; private set; } = Vector2.one * 20.0f;
 
-    [field: Header("Decorations")]
+    [field: Header("SFX")]
     [field: SerializeField]
     [field: Tooltip("The sound that plays when this weapon is used.")]
     public EventReference shootSound { get; private set; }
