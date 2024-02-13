@@ -21,6 +21,10 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField]
     private int objectiveIndex = 0;
 
+    [SerializeField]
+    HUDSystem hudRef;
+
+
     [Serializable] public class Objective
     {
         [field: SerializeField] public List<Requirement> requirements { get; private set; }
@@ -67,7 +71,7 @@ public class ObjectiveManager : MonoBehaviour
     public void UpdateStat(string stat, float amount, bool checkForCompletion)
     {
         trackedStats[stat] += amount;
-
+        UpdatePlayerObjectivesHUD((int)amount);
         if (!checkForCompletion) return;
         if (objectives[objectiveIndex].EvaluateObjective(trackedStats)) CompleteObjective();
     }
@@ -80,6 +84,7 @@ public class ObjectiveManager : MonoBehaviour
         if (objectives.Count > objectiveIndex + 1)
         {
             objectiveIndex += 1;
+            UpdatePlayerObjectivesHUD();
         }
         else
         {
@@ -93,5 +98,29 @@ public class ObjectiveManager : MonoBehaviour
         {
             trackedStats[stat] = 0;
         }
+    }
+
+
+    private void Start()
+    {
+        UpdatePlayerObjectivesHUD();
+    }
+    private void UpdatePlayerObjectivesHUD()
+    {
+        switch (objectives[objectiveIndex].requirements[0].statType)
+        {
+            case "EnemiesKilled":
+                hudRef.UpdateObjective((int)trackedStats["EnemiesKilled"],(int)objectives[objectiveIndex].requirements[0].minValue, "Current Objective: \n Defeat all Enemies");
+                break;
+            default:
+                Debug.Log("Fail-ObjectiveManagerHudRefSwitch");
+                break;
+
+        }
+    }
+
+    private void UpdatePlayerObjectivesHUD(int amount)
+    {
+        hudRef.UpdateObjective(amount);
     }
 }

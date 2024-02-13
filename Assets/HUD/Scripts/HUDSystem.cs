@@ -22,6 +22,11 @@ public class HUDSystem : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI healthLabel;
 
+    [SerializeField]
+    TextMeshProUGUI ObjectiveText;
+    int progress, maxprogress;
+    string objective;
+
  
     public void UseAbility(int tier)
     {
@@ -36,5 +41,19 @@ public class HUDSystem : MonoBehaviour
     public void SetHealthLabel(string newText)
     {
         healthLabel.text = newText;
+    }
+
+    public void UpdateObjective(int newprogress, int newmaxprogress, string newObjective)
+    {
+        progress = newprogress;
+        maxprogress = newmaxprogress;
+        objective = newObjective;
+        ObjectiveText.text = objective + "\n  " + progress + " / " + maxprogress;
+    }
+
+    public void UpdateObjective(int increment)
+    {
+        progress += increment;
+        ObjectiveText.text = objective + "\n  " + progress + " / " + maxprogress;
     }
 }
