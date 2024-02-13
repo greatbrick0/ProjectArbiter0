@@ -1480,6 +1480,7 @@ GameObject:
   - component: {fileID: 270207913}
   - component: {fileID: 270207912}
   - component: {fileID: 270207916}
+  - component: {fileID: 270207917}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -1579,6 +1580,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 270207917}
+        m_TargetAssemblyTypeName: QuitApp, Assembly-CSharp
+        m_MethodName: QuitApplication
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &270207914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,6 +1640,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e24711abc4b4ea44b2b13a377e0c6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &270207917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270207910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc77e1c53ec3dc4f8c6d16021c76dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &276598214
@@ -5637,20 +5662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1ed1903b75b2d4493e95f8b8abf298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <playerReloading>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <pistolShoot>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
   <iceSpikes>k__BackingField:
     Guid:
       Data1: 0
