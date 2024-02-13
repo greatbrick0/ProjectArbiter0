@@ -61,6 +61,8 @@ public class WeaponHolder : MonoBehaviour
     private float timeSinceLastShot = 0.0f;
     [SerializeField]
     private int patternIndex = 0;
+    private bool shootingThisFrame = false;
+    private bool shotLastFrame = false;
 
     private void SetAllStats()
     {
@@ -91,7 +93,6 @@ public class WeaponHolder : MonoBehaviour
         if (!defaultBehaviourEnabled) return;
         if (reloading) inputtingFire = false;
         if (automatic) inputtingFire = false;
-        if (!stopShootSound.IsNull) FMODUnity.RuntimeManager.PlayOneShotAttached(stopShootSound, gameObject);
     }
 
     private void Awake()
@@ -114,7 +115,7 @@ public class WeaponHolder : MonoBehaviour
 
     /* I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...                         */
     /*  i saw on a forum somewhere: Awake() is for init within a script, Start() is for connecting to other objects.
-     *  i  think Start() would fit well for this purpose.     -S                                                        */
+     *  i think Start() would fit well for this purpose.     -S                                                         */
     public void GetHUDReference() 
     {
         hudGunRef = GameObject.Find("GunHUD").GetComponent<HUDGunAmmoScript>();
@@ -126,6 +127,7 @@ public class WeaponHolder : MonoBehaviour
     {
         if (!defaultBehaviourEnabled) return;
 
+        shootingThisFrame = false;
         timeSinceLastShot += 1.0f * Time.deltaTime;
         if (timeSinceLastShot >= resetTime)
         {
@@ -133,7 +135,11 @@ public class WeaponHolder : MonoBehaviour
             movementScript.recoilActive = false;
         }
 
-        if (cooling) CoolDown();
+        if (cooling)
+        {
+            CoolDown();
+            shootingThisFrame = true;
+        }
         else if (reloading) Reload();
         else if (inputtingFire)
         {
@@ -144,8 +150,15 @@ public class WeaponHolder : MonoBehaviour
                 originPos = cam.transform.position;
                 sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
                 hudGunRef.UseShot();
+                shootingThisFrame = true;
             }
         }
+
+        if (!shootingThisFrame && shotLastFrame)
+        {
+            if (!stopShootSound.IsNull) FMODUnity.RuntimeManager.PlayOneShotAttached(stopShootSound, gameObject);
+        }
+        shotLastFrame = shootingThisFrame;
     }
 
     private void CoolDown()
