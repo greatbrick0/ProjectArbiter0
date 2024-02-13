@@ -111,44 +111,62 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hVelocity = new Vector2(rb.velocity.x, rb.velocity.z);
+        hVelocity = Vec2FromXZ(rb.velocity);
         yVelocity = rb.velocity.y;
 
         if (!defaultMovementEnabled)
         {
             if (partialControlValue > 0)
             {
-                AdditiveMotion();
+                hVelocity = AdditiveMotion(hVelocity, inputtedMoveDirection);
             }
-            return;
-        }
-
-        if(inputtedMoveDirection.sqrMagnitude == 0)
-        {
-            if (hVelocity.sqrMagnitude <= moveSpeedDeccel * Time.deltaTime) hVelocity = Vector3.zero;
-            else hVelocity -= hVelocity.normalized * moveSpeedDeccel * Time.deltaTime;
-            anim.walking = false;
+            else
+            {
+                hVelocity = DeccelerateHorizontal(hVelocity);
+                yVelocity = AccelerateGravity(yVelocity);
+                anim.walking = false;
+            }
         }
         else
         {
-            
-            hVelocity += new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime;
-            hVelocity = Vector2.ClampMagnitude(hVelocity, maxMoveSpeed);
-            anim.walking = true;
+            if (inputtedMoveDirection.sqrMagnitude == 0)
+            {
+                hVelocity = DeccelerateHorizontal(hVelocity);
+                anim.walking = false;
+            }
+            else
+            {
+                hVelocity = AccelerateHorizontal(hVelocity, inputtedMoveDirection);
+                anim.walking = true;
+            }
+            yVelocity = AccelerateGravity(yVelocity);
+            if (jumpInputted && grounded) PlayerJump();
         }
-
-        yVelocity -= defualtGravityAccel * Time.deltaTime;
-        if (jumpInputted && grounded) PlayerJump();
 
         rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
         grounded = false;
     }
 
-    private void AdditiveMotion()
+    private float AccelerateGravity(float prevMotion)
     {
-        hVelocity = new Vector2(rb.velocity.x, rb.velocity.z);
-        hVelocity += new Vector2(inputtedMoveDirection.x, inputtedMoveDirection.z).normalized * moveSpeedAccel * Time.deltaTime * partialControlValue;
-        rb.velocity = new Vector3(hVelocity.x, yVelocity, hVelocity.y);
+        return prevMotion - (defualtGravityAccel * Time.deltaTime);
+    }
+
+    private Vector3 DeccelerateHorizontal(Vector2 prevMotion)
+    {
+        if (prevMotion.sqrMagnitude <= moveSpeedDeccel * Time.deltaTime) return Vector2.zero;
+        else return prevMotion - (prevMotion.normalized * moveSpeedDeccel * Time.deltaTime);
+    }
+
+    private Vector2 AccelerateHorizontal(Vector2 prevMotion, Vector3 inputMotion)
+    {
+        prevMotion += Vec2FromXZ(inputMotion).normalized * moveSpeedAccel * Time.deltaTime;
+        return Vector2.ClampMagnitude(prevMotion, maxMoveSpeed);
+    }
+
+    private Vector2 AdditiveMotion(Vector2 prevMotion, Vector3 inputMotion)
+    {
+        return prevMotion + (Vec2FromXZ(inputMotion).normalized * moveSpeedAccel * Time.deltaTime * partialControlValue);
     }
 
     private void PlayerJump()
@@ -217,6 +235,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.GetContact(0).normal.y < 0.5) return;
         else if (collision.gameObject.layer == 8) grounded = true;
+    }
+
+    private Vector2 Vec2FromXZ(Vector3 vec3)
+    {
+        return new Vector2(vec3.x, vec3.z);
     }
     
 }
