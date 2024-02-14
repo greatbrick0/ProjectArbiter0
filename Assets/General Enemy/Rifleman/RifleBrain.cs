@@ -11,9 +11,11 @@ public class RifleBrain : EnemyBrain
 
     private GameObject targetPlayer;
     [SerializeField]
+    [Tooltip("Determines the behaviour of this enemy. ")]
     private States state = States.Idle;
 
     [SerializeField]
+    [Tooltip("The maximum distance the AI can shoot a player from. Will start to try to shoot the player within 90% of the distance. Measured in units. ")]
     private float shootRange = 10.0f;
 
     private enum States

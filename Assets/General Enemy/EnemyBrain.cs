@@ -5,6 +5,7 @@ public abstract class EnemyBrain : MonoBehaviour
     [HideInInspector]
     public PlayerTracker playerTracker;
     [SerializeField]
+    [Tooltip("The period of time between state calculations. Measured in seconds. ")]
     private float cycleTime = 1.0f;
     private float timeSinceLastCycle = 0.0f;
 
