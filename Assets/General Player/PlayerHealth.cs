@@ -66,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
             tempShield = 0;
         }
 
-        UpdateHealthLabel();
+        UpdateHealthLabel(true);
 
         if (mainHealth <= 0)
         {
@@ -89,8 +89,9 @@ public class PlayerHealth : MonoBehaviour
         print("player died");
     }
 
-    private void UpdateHealthLabel()
+    private void UpdateHealthLabel(bool damaged = false)
     {
         hudRef.SetHealthLabel(mainHealth.ToString());
+        if (damaged) hudRef.EnableDamageGradient();
     }
 }
