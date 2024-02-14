@@ -34,23 +34,28 @@ public class EnemyMovement : MonoBehaviour
         targetPos = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         age += 1.0f * Time.deltaTime;
 
-        if(playerTracker.playerCount > 0)
-        {
-            targetPlayer = ChooseTargetPlayer();
-            targetPos = targetPlayer.transform.position;
-            agent.SetDestination(targetPos);
-            anim.walking = true;
-            if (Vector3.Distance(transform.position, targetPos) < 3) Attack(targetPlayer.GetComponent<PlayerHealth>());
-        }
-        else
-        {
-            //targetPos = spawnPos + (Vector3.right * Mathf.Round(Mathf.Sin(age / 4)) * 4);
-            agent.SetDestination(targetPos);
-        }
+        targetPlayer = ChooseTargetPlayer();
+        if (targetPlayer == null) IdleBehaviour();
+        else WalkTowardsPlayer();
+
+    }
+
+    private void WalkTowardsPlayer()
+    {
+        targetPos = targetPlayer.transform.position;
+        agent.SetDestination(targetPos);
+        anim.walking = true;
+        if (Vector3.Distance(transform.position, targetPos) < 3) Attack(targetPlayer.GetComponent<PlayerHealth>());
+    }
+
+    private void IdleBehaviour()
+    {
+        agent.SetDestination(spawnPos);
+        anim.walking = (Vector3.Distance(transform.position, targetPos) < 0.2f);
     }
 
     private void Attack(PlayerHealth player)
@@ -69,7 +74,8 @@ public class EnemyMovement : MonoBehaviour
     /// <returns>Returns the player that has the best score. Score is determined between a mix of max health and distance.</returns>
     GameObject ChooseTargetPlayer()
     {
-        GameObject outputPlayer = playerTracker.GetPlayerObject(0);
+        if (playerTracker.playerCount == 0) return null;
+        GameObject outputPlayer = null;
         float bestScore = 0;
         float dist;
         float score;
@@ -82,7 +88,7 @@ public class EnemyMovement : MonoBehaviour
             score = Mathf.Pow(playerTracker.GetPlayerObject(ii).GetComponent<PlayerHealth>().maxMainHealth, 2) / dist; // score = maxHealth^2 / distance
             if (score >= bestScore)
             {
-                outputPlayer = playerTracker.GetPlayerObject(0);
+                outputPlayer = playerTracker.GetPlayerObject(ii);
                 bestScore = score;
             }
         }

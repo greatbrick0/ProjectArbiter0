@@ -36,7 +36,6 @@ public class WeaponHolder : MonoBehaviour
     private bool randomizePattern = false;
     [SerializeField] 
     private float reloadTime = 2.0f;
-    [SerializeField]
     private int maxAmmo = 12;
     private Vector2 closeDamage;
     private Vector2 farDamage;
