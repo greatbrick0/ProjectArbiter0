@@ -1597,6 +1597,7 @@ GameObject:
   - component: {fileID: 3096550180487374425}
   - component: {fileID: 5473549330693851184}
   - component: {fileID: 5932626005989770402}
+  - component: {fileID: 8294746302932343368}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1725,8 +1726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e850b94cb9cf14c8ea49d1736390c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTracker: {fileID: 0}
-  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &5932626005989770402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1739,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 3402058366864678147}
+  attackTime: 1.5
+  attackDamage: 35
+--- !u!114 &8294746302932343368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b98e89a77e9874ab45bce9d586f30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTracker: {fileID: 0}
+  cycleTime: 1
+  state: 0
+  shootRange: 4
 --- !u!1 &3305774416657295634
 GameObject:
   m_ObjectHideFlags: 0

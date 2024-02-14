@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
         instanceRef = Instantiate(enemyTypes[typeIndex]);
         instanceRef.transform.parent = transform;
         instanceRef.transform.position = pos;
-        instanceRef.GetComponent<EnemyMovement>().playerTracker = playerTracker;
+        instanceRef.GetComponent<EnemyBrain>().playerTracker = playerTracker;
     }
 
     public void SpawnEnemy(Vector3 pos, GameObject typePrefab)
@@ -23,6 +23,6 @@ public class EnemySpawner : MonoBehaviour
         instanceRef = Instantiate(typePrefab);
         instanceRef.transform.parent = transform;
         instanceRef.transform.position = pos;
-        instanceRef.GetComponent<EnemyMovement>().playerTracker = playerTracker;
+        instanceRef.GetComponent<EnemyBrain>().playerTracker = playerTracker;
     }
 }

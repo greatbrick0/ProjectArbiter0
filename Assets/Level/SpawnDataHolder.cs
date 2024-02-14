@@ -59,7 +59,6 @@ public class SpawnDataHolder : MonoBehaviour
             timeSinceLastSpawn = 0.0f;
             if (spawningDuration >= frequencyCurveDuration) timeUntilNextSpawn = beyondCurveFrequency;
             else timeUntilNextSpawn = spawnFrequency.Evaluate(spawningDuration / frequencyCurveDuration);
-            print(timeUntilNextSpawn);
             SpawnSingleEnemy();
         }
 
