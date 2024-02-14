@@ -6,19 +6,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
-    public PlayerTracker playerTracker;
     private float age = 0.0f;
-    [SerializeField]
-    public Vector3 targetPos;
     private Vector3 spawnPos;
 
     private NavMeshAgent agent;
     private Rigidbody rb;
-    private GameObject targetPlayer;
 
     private EnemyAnimation anim;
-
-    private float attackCooldown = 0.0f;
 
     private void Awake()
     {
@@ -31,62 +25,29 @@ public class EnemyMovement : MonoBehaviour
     {
         spawnPos = transform.position;
         agent.enabled = true;
-        targetPos = transform.position;
+        agent.SetDestination(transform.position);
     }
 
-    void Update()
+    private void Update()
     {
         age += 1.0f * Time.deltaTime;
-
-        if(playerTracker.playerCount > 0)
-        {
-            targetPlayer = ChooseTargetPlayer();
-            targetPos = targetPlayer.transform.position;
-            agent.SetDestination(targetPos);
-            anim.walking = true;
-            if (Vector3.Distance(transform.position, targetPos) < 3) Attack(targetPlayer.GetComponent<PlayerHealth>());
-        }
-        else
-        {
-            //targetPos = spawnPos + (Vector3.right * Mathf.Round(Mathf.Sin(age / 4)) * 4);
-            agent.SetDestination(targetPos);
-        }
     }
 
-    private void Attack(PlayerHealth player)
+    public void WalkTowardsPlayer(GameObject playerObj)
     {
-        attackCooldown += 1.0f * Time.deltaTime;
-        if (attackCooldown >= 1.0f)
-        {
-            player.TakeDamage(35);
-            attackCooldown = 0;
-        }
+        agent.SetDestination(playerObj.transform.position);
+        anim.walking = true;
     }
 
-    /// <summary>
-    /// Chooses a player from the list sensedPlayers to become the target of the pathfinding.
-    /// </summary>
-    /// <returns>Returns the player that has the best score. Score is determined between a mix of max health and distance.</returns>
-    GameObject ChooseTargetPlayer()
+    public void StandStill()
     {
-        GameObject outputPlayer = playerTracker.GetPlayerObject(0);
-        float bestScore = 0;
-        float dist;
-        float score;
+        agent.SetDestination(transform.position);
+        anim.walking = false;
+    }
 
-        for(int ii = 0; ii < playerTracker.playerCount; ii++)
-        {
-            if (playerTracker.GetPlayerObject(ii).GetComponent<PlayerHealth>().playerDead) continue;
-
-            dist = (transform.position - playerTracker.GetPlayerObject(ii).transform.position).magnitude;
-            score = Mathf.Pow(playerTracker.GetPlayerObject(ii).GetComponent<PlayerHealth>().maxMainHealth, 2) / dist; // score = maxHealth^2 / distance
-            if (score >= bestScore)
-            {
-                outputPlayer = playerTracker.GetPlayerObject(0);
-                bestScore = score;
-            }
-        }
-
-        return outputPlayer;
+    public void IdleBehaviour()
+    {
+        agent.SetDestination(spawnPos);
+        anim.walking = (agent.velocity == Vector3.zero);
     }
 }

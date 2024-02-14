@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 {
     private CoherenceSync sync;
     private HUDSystem hudRef;
+    [field:  SerializeField]
+    public Transform head { get; private set; }
 
     [SerializeField]
     public bool playerDead = false;
@@ -56,7 +58,6 @@ public class PlayerHealth : MonoBehaviour
 
     public bool TakeDamage(int realAmount)
     {
-        print(realAmount);
         timeSinceDamaged = 0.0f;
 
         tempShield -= realAmount;
@@ -66,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
             tempShield = 0;
         }
 
-        UpdateHealthLabel();
+        UpdateHealthLabel(true);
 
         if (mainHealth <= 0)
         {
@@ -89,8 +90,9 @@ public class PlayerHealth : MonoBehaviour
         print("player died");
     }
 
-    private void UpdateHealthLabel()
+    private void UpdateHealthLabel(bool damaged = false)
     {
         hudRef.SetHealthLabel(mainHealth.ToString());
+        if (damaged) hudRef.EnableDamageGradient();
     }
 }

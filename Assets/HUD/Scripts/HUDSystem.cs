@@ -21,6 +21,8 @@ public class HUDSystem : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI healthLabel;
+    [SerializeField]
+    DamageOpacity damageGradient;
 
     [SerializeField]
     TextMeshProUGUI ObjectiveText;
@@ -41,6 +43,11 @@ public class HUDSystem : MonoBehaviour
     public void SetHealthLabel(string newText)
     {
         healthLabel.text = newText;
+    }
+
+    public void EnableDamageGradient()
+    {
+        damageGradient.FullOpacity();
     }
 
     public void UpdateObjective(int newprogress, int newmaxprogress, string newObjective)
