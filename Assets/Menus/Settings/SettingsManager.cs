@@ -9,13 +9,11 @@ public class SettingsManager : MonoBehaviour
     List<string> actionKeys = new List<string>(){ "forward", "backward", "left", "right", "jump", "reload", "shoot", "aim", "ability1", "ability2", "ability3" };
     [HideInInspector] public PlayerInput playerInput;
 
-    //CONTROLS SETTINGS
     [Header("Control Settings")]
     [SerializeField] Slider sensSlider;
     [SerializeField] TMP_InputField sensInputField;
     [SerializeField] List<TextMeshProUGUI> bindButtonTextList;
 
-    //DISPLAY SETTINGS
     [Header("Display Settings")]
     [SerializeField] TMP_Dropdown resolutionsDropdown;
     [SerializeField] Slider fpsSlider;
@@ -23,7 +21,6 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] TMP_Dropdown graphicsDropdown;
     Resolution[] resolutionsArray;
 
-    //AUDIO SETTINGS
     [Header("Audio Settings")]
     [SerializeField] Slider masterSlider;
     [SerializeField] TMP_InputField masterInputField;
@@ -163,6 +160,7 @@ public class SettingsManager : MonoBehaviour
         Application.targetFrameRate = (int)limit;
 
         fpsInputField.text = limit.ToString();
+        fpsSlider.value = limit;
 
         PlayerPrefs.SetInt("FPS Limit", (int)limit);
     }
@@ -171,11 +169,7 @@ public class SettingsManager : MonoBehaviour
         int.TryParse(limitString, out int limit);
         Mathf.Clamp(limit, 30, 300);
 
-        Application.targetFrameRate = limit;
-
-        fpsSlider.value = limit;
-
-        PlayerPrefs.SetInt("FPS Limit", limit);
+        SetFPSLimit(limit);
     }
     private void LoadFPSLimit(float limit)
     {
@@ -188,6 +182,7 @@ public class SettingsManager : MonoBehaviour
         AudioManager.instance.masterVolume = volumeLevel / 100;
 
         masterInputField.text = volumeLevel.ToString();
+        masterSlider.value = volumeLevel;
 
         PlayerPrefs.SetFloat("Master Volume", volumeLevel);
     }
@@ -196,11 +191,7 @@ public class SettingsManager : MonoBehaviour
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
 
-        AudioManager.instance.masterVolume = volumeLevel / 100;
-
-        masterSlider.value = volumeLevel;
-
-        PlayerPrefs.SetFloat("Master Volume", volumeLevel);
+        SetMasterVolume(volumeLevel);
     }
     private void LoadMasterVolume(float volumeLevel)
     {
@@ -214,6 +205,7 @@ public class SettingsManager : MonoBehaviour
         AudioManager.instance.ambienceVolume = volumeLevel / 100;
 
         soundsInputField.text = volumeLevel.ToString();
+        soundsSlider.value = volumeLevel;
 
         PlayerPrefs.SetFloat("Sounds Volume", volumeLevel);
     }
@@ -222,12 +214,7 @@ public class SettingsManager : MonoBehaviour
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
 
-        AudioManager.instance.SFXVolume = volumeLevel / 100;
-        AudioManager.instance.ambienceVolume = volumeLevel / 100;
-
-        soundsSlider.value = volumeLevel;
-
-        PlayerPrefs.SetFloat("Sounds Volume", volumeLevel);
+        SetSoundsVolume(volumeLevel);
     }
     private void LoadSoundsVolume(float volumeLevel)
     {
@@ -240,6 +227,7 @@ public class SettingsManager : MonoBehaviour
         AudioManager.instance.musicVolume = volumeLevel / 100;
 
         musicInputField.text = volumeLevel.ToString();
+        musicSlider.value = volumeLevel;
 
         PlayerPrefs.SetFloat("Music Volume", volumeLevel);
     }
@@ -248,11 +236,7 @@ public class SettingsManager : MonoBehaviour
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
 
-        AudioManager.instance.musicVolume = volumeLevel / 100;
-
-        musicSlider.value = volumeLevel;
-
-        PlayerPrefs.SetFloat("Music Volume", volumeLevel);
+        SetMusicVolume(volumeLevel);
     }
     private void LoadMusicVolume(float volumeLevel)
     {
@@ -265,15 +249,14 @@ public class SettingsManager : MonoBehaviour
         //Does not exist yet
 
         menuInputField.text = volumeLevel.ToString();
+        menuSlider.value = volumeLevel;
     }
     public void SetMenuVolume(string volumeLevelString) //Used by InputField
     {
         float.TryParse(volumeLevelString, out float volumeLevel);
         Mathf.Clamp(volumeLevel, 0, 100);
 
-        //Does not exist yet
-
-        menuSlider.value = volumeLevel;
+        SetMenuVolume(volumeLevel);
     }
 
 
@@ -282,7 +265,6 @@ public class SettingsManager : MonoBehaviour
     {
         //Controls
         SetSensitivity(15);
-        SetSensitivity("15");
         UpdateBind("forward", 119);
         LoadBind(bindButtonTextList[0], "W");
         UpdateBind("backward", 115);
@@ -311,15 +293,10 @@ public class SettingsManager : MonoBehaviour
         LoadGraphics(2);
         SetFullscreen(true);
         SetFPSLimit(300);
-        SetFPSLimit("300");
         //Audio
         SetMasterVolume(100);
-        SetMasterVolume("100");
         SetSoundsVolume(100);
-        SetSoundsVolume("100");
         SetMusicVolume(100);
-        SetMusicVolume("100");
         SetMenuVolume(100);
-        SetMenuVolume("100");
     }
 }
