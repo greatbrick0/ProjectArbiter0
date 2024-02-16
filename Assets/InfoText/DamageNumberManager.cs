@@ -39,6 +39,8 @@ public class DamageNumberManager : MonoBehaviour
     [SerializeField]
     private Color defualtColour = Color.white;
     [SerializeField]
+    private Color critColor;
+    [SerializeField]
     private List<ElementAndColour> colourDictInit = new List<ElementAndColour>();
     private Dictionary<DamageElement, Color> colourDict = new Dictionary<DamageElement, Color>();
     [SerializeField]
@@ -80,6 +82,7 @@ public class DamageNumberManager : MonoBehaviour
     {
         Color colourType = defualtColour;
         if (colourDict.ContainsKey(element)) colourType = colourDict[element];
+        if (spotType == DamageSpot.Head) colourType = critColor;
 
         InfoText newInfoText = textManager.CreateInfoText(damageAmount.ToString(), hitPos, numberDuration, colourType);
         newInfoText.SetExtra(true, driftDirection * Screen.height * numberDriftDist, RandomPointInCircle(maxRandomOffsetDist * Screen.height), spotType != DamageSpot.Body);
