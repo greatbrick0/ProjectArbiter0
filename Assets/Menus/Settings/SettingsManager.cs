@@ -69,7 +69,7 @@ public class SettingsManager : MonoBehaviour
                 LoadBind(bindButtonTextList[ii], ((KeyCode)PlayerPrefs.GetInt(actionKeys[ii])).ToString());
         }
 
-        playerInput.LoadSettings();
+        if(playerInput != null) playerInput.LoadSettings();
     }
 
     public void SetSensitivity(float sens) //Used by Slider
