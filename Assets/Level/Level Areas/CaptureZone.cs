@@ -41,18 +41,28 @@ public class CaptureZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        GameObject obj = other.gameObject;
+        if (obj.CompareTag("Player"))
         {
-            playersInZone += 1;
-            timeSincePlayerInZone = 0.0f;
+            if (!obj.GetComponent<PlayerHealth>().playerDead)
+            {
+                playersInZone += 1;
+                timeSincePlayerInZone = 0.0f;
+                obj.GetComponent<PlayerHealth>().playerDied += PlayerDied;
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        GameObject obj = other.gameObject;
+        if (obj.CompareTag("Player"))
         {
-            playersInZone -= 1;
+            if (!obj.GetComponent<PlayerHealth>().playerDead)
+            {
+                playersInZone -= 1;
+                obj.GetComponent<PlayerHealth>().playerDied -= PlayerDied;
+            }
         }
     }
 
@@ -80,7 +90,7 @@ public class CaptureZone : MonoBehaviour
         }
         if (trackAllPlayersCondition)
         {
-            SetTracker((playersInZone == playerTracker.playerCount) ? 1 : 0, "AllPlayersInZone");
+            SetTracker((playersInZone == playerTracker.playerCount - playerTracker.spectatorCount) ? 1 : 0, "AllPlayersInZone");
         }
     }
 
@@ -93,5 +103,10 @@ public class CaptureZone : MonoBehaviour
     private void SetTracker(float amount, string tracker)
     {
         objectiveTracker.SetStat(tracker, amount);
+    }
+
+    private void PlayerDied()
+    {
+        playersInZone -= 1;
     }
 }

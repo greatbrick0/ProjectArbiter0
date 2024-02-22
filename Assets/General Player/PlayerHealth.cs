@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     public bool playerDead = false;
+    public delegate void PlayerDied();
+    public event PlayerDied playerDied;
     [field: Header("Health")]
     [field: SerializeField]
     public int maxMainHealth { get; private set; } = 200;
@@ -85,8 +87,10 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerDown()
     {
         playerDead = true;
+        if(playerDied != null) playerDied();
         GetComponent<PlayerMovement>().SetDefaultMovementEnabled(false);
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
+        FindObjectOfType<PlayerTracker>().spectatorCount += 1;
         print("player died");
     }
 
