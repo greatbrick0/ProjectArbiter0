@@ -75,8 +75,8 @@ public class ObjectiveManager : MonoBehaviour
 
     public void SetStat(string stat, float amount, bool checkForCompletion = true)
     {
-        trackedStats[stat] = amount;
-        UpdatePlayerObjectivesHUD((int)amount);
+        trackedStats[stat] = Mathf.Max(amount, 0);
+        UpdatePlayerObjectivesHUD((int)trackedStats[stat]);
         if (!checkForCompletion) return;
         if (objectives[objectiveIndex].EvaluateObjective(trackedStats)) CompleteObjective();
     }

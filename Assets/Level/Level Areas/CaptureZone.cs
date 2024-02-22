@@ -25,6 +25,13 @@ public class CaptureZone : MonoBehaviour
         "\nThe 0th rate will be used when one player is in, the 1st rate will be used when two players are in, etc. " +
         "\nIf more players are in the zone than there are rates in the list, the last rate will be used. ")]
     private List<float> ratePerPlayer = new List<float>() { 1.0f };
+    [SerializeField]
+    [Tooltip("The rate that will be used if no players are in the zone. ")]
+    private float lossRate = 0.0f;
+    private float timeSincePlayerInZone = 0.0f;
+    [SerializeField]
+    [Tooltip("The time the players are given to stay outside of the zone before being punished with lossRate.")]
+    private float lossBufferTime = 5.0f;
 
     private void Start()
     {
@@ -37,7 +44,7 @@ public class CaptureZone : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             playersInZone += 1;
-            print("in");
+            timeSincePlayerInZone = 0.0f;
         }
     }
 
@@ -46,7 +53,6 @@ public class CaptureZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playersInZone -= 1;
-            print("out");
         }
     }
 
@@ -58,6 +64,14 @@ public class CaptureZone : MonoBehaviour
             {
                 if (playersInZone > ratePerPlayer.Count) UpdateTracker(ratePerPlayer[^1]);
                 else UpdateTracker(ratePerPlayer[playersInZone - 1]);
+            }
+            else
+            {
+                timeSincePlayerInZone += 1.0f * Time.deltaTime;
+                if(timeSincePlayerInZone > lossBufferTime)
+                {
+                    UpdateTracker(lossRate);
+                }
             }
         }
         if (trackPlayerCount)

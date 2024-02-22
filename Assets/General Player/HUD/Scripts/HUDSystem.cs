@@ -60,7 +60,7 @@ public class HUDSystem : MonoBehaviour
 
     public void UpdateObjective(int increment)
     {
-        progress += increment;
+        progress = increment;
         ObjectiveText.text = objective + "\n  " + progress + " / " + maxprogress;
     }
 }
