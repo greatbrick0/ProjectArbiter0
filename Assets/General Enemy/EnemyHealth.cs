@@ -14,6 +14,9 @@ public class EnemyHealth : Damageable
     [SerializeField]
     float armourSpotMult = 0.5f;
 
+    public delegate void EnemyDied();
+    public event EnemyDied enemyDied;
+
     private void Start()
     {
         health = maxHealth;
@@ -39,7 +42,7 @@ public class EnemyHealth : Damageable
 
     void Die()
     {
-        FindObjectOfType<ObjectiveManager>().UpdateStat("EnemiesKilled", 1, true);
+        if(enemyDied != null) enemyDied();
         Destroy(this.gameObject);
     }
 }

@@ -68,9 +68,14 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
-    public void UpdateStat(string stat, float amount, bool checkForCompletion)
+    public void UpdateStat(string stat, float amount, bool checkForCompletion = true)
     {
-        trackedStats[stat] += amount;
+        SetStat(stat, trackedStats[stat] + amount, checkForCompletion);
+    }
+
+    public void SetStat(string stat, float amount, bool checkForCompletion = true)
+    {
+        trackedStats[stat] = amount;
         UpdatePlayerObjectivesHUD((int)amount);
         if (!checkForCompletion) return;
         if (objectives[objectiveIndex].EvaluateObjective(trackedStats)) CompleteObjective();
