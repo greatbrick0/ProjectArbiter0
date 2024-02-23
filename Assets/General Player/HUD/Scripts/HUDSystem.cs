@@ -22,6 +22,8 @@ public class HUDSystem : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI healthLabel;
     [SerializeField]
+    Image healthBar;
+    [SerializeField]
     DamageOpacity damageGradient;
 
     [SerializeField]
@@ -43,6 +45,11 @@ public class HUDSystem : MonoBehaviour
     public void SetHealthLabel(string newText)
     {
         healthLabel.text = newText;
+    }
+
+    public void SetHealthBarFill(float newFillAmount)
+    {
+        healthBar.fillAmount = newFillAmount;
     }
 
     public void EnableDamageGradient()
