@@ -11,9 +11,12 @@ public class DashHitBoxScipt : MonoBehaviour
 
     public List<Damageable> hitTargets;
 
+    public float lifespan;
+
     private void Start()
     {
         hitNumberRef = DamageNumberManager.GetManager();
+        StartCoroutine("DurationDash");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -24,7 +27,6 @@ public class DashHitBoxScipt : MonoBehaviour
             {
                 if (hitbox.GetOwner() == ii)
                 {
-                    Debug.Log("Already hit this enemy");
                     return;
                 }
             }
@@ -33,11 +35,17 @@ public class DashHitBoxScipt : MonoBehaviour
                 var spot = hitbox.GetSpotType();
                 int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType());
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-                hitNumberRef.CreateDamageNumber(hit,location,DamageDetails.DamageElement.Ice, spot);
+                hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Ice, spot);
                 hitTargets.Add(hitbox.GetOwner());
                 dashAbilityRef.EndDash();
             }
         }
+    }
+
+    public IEnumerator DurationDash()
+    {
+        yield return new WaitForSeconds(lifespan);
+        dashAbilityRef.EndDash();
     }
 
     public void RequestDestroy() //Hello there!
