@@ -13,15 +13,14 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     private float sanityCostInterval;
     private float sanityCostTimer = 2.0f;
 
-    //Weapon
-    [SerializeField]
-    WeaponHolder weaponRef;
+    
 
+    //Weapon
     [SerializeField]
     WeaponData upgradedWeaponInfo;
 
     WeaponData weaponStore;
-    
+
     //muzzle
     [SerializeField]
     VisualEffect muzzleFlash;
@@ -31,11 +30,8 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     Color muzzleStore;
 
-    bool enhancementActive;
-   
-    
+    bool enhancementActive = false;
 
-    
 
     protected override void GetNeededComponents()
     {
@@ -44,55 +40,66 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         movementRef = GetComponent<PlayerMovement>();
         sync = GetComponent<CoherenceSync>();
         weaponRef = GetComponent<WeaponHolder>();
-        
-        
+
     }
 
 
-    public override void StartAbility()
+    public override void RecieveAbilityRequest()
     {
         Debug.Log("Enhancment spell cast recieved");
         GetNeededComponents();
 
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
-
-        if (!enhancementActive)
-        sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(ApplyEnhancement), MessageTarget.All);
-        else
-        sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(RemoveEnhancement), MessageTarget.All);
-       
-        
-        
-        
-
-        
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown());
-        
+
+        sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(StartAbility), MessageTarget.All);
+
     }
 
-    public override void DemonicStartAbility()
+    public override void RecieveDemonicAbilityRequest()
     {
 
     }
 
-    public void ApplyEnhancement()
+    public override void StartAbility()
     {
-        Debug.Log("ApplyEnhancement");
-        sanityCostTimer = sanityCostInterval;
-        weaponStore = weaponRef.GetWeaponData();
-        weaponRef.SetWeaponData(upgradedWeaponInfo);
-        enhancementActive = true;
-        //muzzleStore = muzzleFlash.GetColor("Color01");
-      //  muzzleFlash.SetColor("Color01", newmuzzleColor);
+        CastSlow(); //applies slow to player during casting.
+        AbilityIntroductionDecorations();
+        StartCoroutine("Windup");
+
     }
 
-    public void RemoveEnhancement()
+    public override void AbilityIntroductionDecorations()//usually the beginning of startAbility
     {
-        sanityCostTimer = sanityCostInterval;
-        weaponRef.SetWeaponData(weaponStore);
-        enhancementActive = false;
-    //    muzzleFlash.SetColor("Color01", muzzleStore);
+        //animation component
+        //enhancement activate vfx
+        //enhancement activate sfx
+    }
+
+    public override void AbilityAction()
+    {
+        if (!enhancementActive)
+        {
+            enhancementActive = true;
+            Debug.Log("ApplyEnhancement");
+            sanityCostTimer = sanityCostInterval;
+            weaponStore = weaponRef.GetWeaponData();
+            weaponRef.SetWeaponData(upgradedWeaponInfo);
+            enhancementActive = true;
+            //muzzleStore = muzzleFlash.GetColor("Color01");
+            //  muzzleFlash.SetColor("Color01", newmuzzleColor);
+        }
+        else
+        {
+            Debug.Log("RemoveEnhancement");
+            enhancementActive = false;
+            sanityCostTimer = sanityCostInterval;
+            weaponRef.SetWeaponData(weaponStore);
+            enhancementActive = false;
+            //    muzzleFlash.SetColor("Color01", muzzleStore);
+        }
+
     }
 
     void Update()
@@ -121,9 +128,19 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         onCooldown = false;
     }
 
+    public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    {
+        weaponRef.SetDefaultBehaviourEnabled(true, false);
+        yield return new WaitForSeconds(windupTime);
+        Debug.Log("Finished baseAbility internal Windup");
+        AbilityAction();
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
+    }
+
     public override void newDemonic()
     {
         Debug.Log("WeaponEnhancement disabled due to becoming demonic");
-        RemoveEnhancement();
+        if (enhancementActive)
+        sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(StartAbility), MessageTarget.All);
     }
 }

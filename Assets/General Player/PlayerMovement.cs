@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     [field: SerializeField]
     public bool defaultMovementEnabled { get; private set; } = false;
 
+    [field: SerializeField]
+    public bool cameraControlsEnabled { get; private set; } = false;
+
+
     public float partialControlValue { get; set; } = 0f; //used to gather a portion of the player's movement when not using defaultMovement
 
     [Header("References")]
@@ -53,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 maxRecoilBounds { private get; set; } = Vector2.one * 20.0f;
     public Vector2 lookDirection {get; private set;} = Vector2.zero;
 
-    [SerializeField]
-    public float spellSlowValue;
 
     private void Start()
     {
@@ -63,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (defaultMovementEnabled)
+        if (cameraControlsEnabled)
         {
             DetermineLookDirection();
         }
@@ -176,9 +178,19 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<PlayerInput>()?.FinishJump();
     }
 
-    public void SetDefaultMovementEnabled(bool newValue)
+    public void SetEnabledControls(bool newMoveEnabled,bool newCamEnabled)
+    {
+        defaultMovementEnabled = newMoveEnabled;
+        cameraControlsEnabled = newCamEnabled; 
+    }
+
+    public void SetEnabledControls(bool newValue)
     {
         defaultMovementEnabled = newValue;
+        if (defaultMovementEnabled)
+            cameraControlsEnabled = true;
+        else
+            cameraControlsEnabled = false;
     }
 
     public void SetPartialControl(float newValue)
@@ -219,16 +231,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ExternalMotionApply(float slowDuration) //i guess you can overload this with a forcedirection if that is cooler.
+    public void ApplySpellSlow(float modifyValue, float slowDuration) //i guess you can overload this with a forcedirection if that is cooler.
     {
-        StartCoroutine(ApplySlow(slowDuration));
+        StartCoroutine(ApplySlow(modifyValue,slowDuration));
     }
     
-    public IEnumerator ApplySlow(float duration)
+    public IEnumerator ApplySlow(float slowValue, float duration)
     {
-        maxMoveSpeed += spellSlowValue;
+        Debug.Log("Applying slow");
+        maxMoveSpeed += slowValue;
         yield return new WaitForSeconds(duration);
-        maxMoveSpeed -= spellSlowValue;
+        maxMoveSpeed -= slowValue;
+        Debug.Log("Removing slow");
     }
     
     private void OnCollisionStay(Collision collision)

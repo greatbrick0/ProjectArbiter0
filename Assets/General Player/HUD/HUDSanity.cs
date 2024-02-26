@@ -81,7 +81,6 @@ public class HUDSanity : MonoBehaviour
     public void SetDemonic(bool newDemonic)
     {
         demonic = newDemonic;
-        Debug.Log(":::" + demonic);
         SanityBarColourChange();
     }
 
