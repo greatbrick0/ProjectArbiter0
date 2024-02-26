@@ -3,7 +3,6 @@ using Coherence.Toolkit;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlayerSpellIceDash : Ability
 {
@@ -12,14 +11,8 @@ public class PlayerSpellIceDash : Ability
 
     [SerializeField]
     float backVelocity;
-
-    bool shouldRepeatAction = false;
     [SerializeField]
-    float repeatActionInterval;
-    [SerializeField]
-    float speedMax;
-    float actionIntervalTimer;
-
+    float forwardVelocity;
     [SerializeField]
     float slideDuration;
 
@@ -37,89 +30,76 @@ public class PlayerSpellIceDash : Ability
         sync = GetComponent<CoherenceSync>();
     }
 
-    public override void RecieveAbilityRequest()
+    public override void StartAbility()
     {
         Debug.Log("StartedIceDashAbility");
         GetNeededComponents();
         movementRef.canJump = false;
 
-        
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceCharge, gameObject);
 
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown());
 
-        sync.SendCommand<PlayerSpellIceDash>(nameof(StartAbility), MessageTarget.All);
+        PhaseOneDash();
 
     }
 
-    public override void RecieveDemonicAbilityRequest()
+    public override void DemonicStartAbility()
     {
 
     }
 
-     
-
-
-    public override void StartAbility()
+    public void PhaseOneDash()
     {
-        AbilityIntroductionDecorations();
-        StartCoroutine(Windup());
-    }
-    public override void AbilityIntroductionDecorations()
-    {
-        movementRef.SetEnabledControls(false,true);
-        GetComponent<PlayerInput>().mouseXSens *= 0.1f;
-        GetComponent<PlayerInput>().mouseYSens *= 0.01f;
+
+        movementRef.SetDefaultMovementEnabled(false);
         rb.drag = 3;
         rb.AddForce(-spellOrigin.transform.forward * backVelocity, ForceMode.Impulse);
-        
+        StartCoroutine(WindPause());
     }
-    public override void AbilityAction()
-    {
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceCharge, gameObject);
 
-        rb.drag = 0;
-        shouldRepeatAction = true;
-        actionIntervalTimer = repeatActionInterval;
-        
-        //rb.AddForce(spellOrigin.transform.forward * forwardVelocity, ForceMode.Impulse);
-        //movementRef.SetPartialControl(0.1f);
+    IEnumerator WindPause()
+    {
+        yield return new WaitForSeconds(pauseDuration);
+        DashForward();
+
+    }
+
+    public void CreateVFX()
+    {
         collideHitboxRef = Instantiate(collideHitboxObject, spellOrigin.transform);
         collideHitboxRef.GetComponent<DashHitBoxScipt>().dashAbilityRef = this;
-        collideHitboxRef.GetComponent<DashHitBoxScipt>().lifespan = slideDuration;
     }
 
-    private void Update()
+    public void DashForward()
     {
-        if (shouldRepeatAction)
-        {
-            if (actionIntervalTimer <= 0)
-            {
-                rb.AddForce(gameObject.transform.forward * 8, ForceMode.Impulse);
-                if (rb.velocity.magnitude > speedMax)
-                    
-                    rb.velocity = Vector3.ClampMagnitude(rb.velocity,speedMax);
-                actionIntervalTimer = repeatActionInterval;
-            }
-            else
-            {
-                actionIntervalTimer -= Time.deltaTime;
-            }
-        }
+        rb.drag = 1;
+        rb.AddForce(spellOrigin.transform.forward * forwardVelocity, ForceMode.Impulse);
+        movementRef.SetPartialControl(0.1f);
+        sync.SendCommand<PlayerSpellIceDash>(nameof(CreateVFX), MessageTarget.All);
+        
+        StartCoroutine(DurationDash());
     }
 
     public void EndDash()
     {
-        Debug.Log("Dash completed");
-        movementRef.SetEnabledControls(true,true);
-        shouldRepeatAction = false;
-        actionIntervalTimer = repeatActionInterval;
+        movementRef.SetDefaultMovementEnabled(true);
         rb.drag = 0;
-        GetComponent<PlayerInput>().mouseXSens /= 0.1f;
-        GetComponent<PlayerInput>().mouseYSens /= 0.01f;
+        sync.SendCommand<PlayerSpellIceDash>(nameof(DashFinished), MessageTarget.All);
+       
+    }
+
+    public void DashFinished()
+    {
         if (collideHitboxRef != null)
-            collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
+        collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
+    }
+    IEnumerator DurationDash()
+    {
+        yield return new WaitForSeconds(slideDuration);
+        EndDash();
     }
 
     IEnumerator Cooldown()

@@ -1,6 +1,5 @@
 using Coherence;
 using Coherence.Toolkit;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +25,7 @@ public class IceSpikesTestSpell : Ability
     }
 
 
-    public override void RecieveAbilityRequest()
+    public override void StartAbility()
     {
         Debug.Log("StartedAbility");
         GetNeededComponents();
@@ -35,10 +34,10 @@ public class IceSpikesTestSpell : Ability
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
-        sync.SendCommand<IceSpikesTestSpell>(nameof(StartAbility), MessageTarget.All, false);
+        sync.SendCommand<IceSpikesTestSpell>(nameof(CastSpikes), MessageTarget.All, false);
     }
 
-    public override void RecieveDemonicAbilityRequest()
+    public override void DemonicStartAbility()
     {
         Debug.Log("DemonicVarient-StartIceSpike");
         GetNeededComponents();
@@ -49,19 +48,21 @@ public class IceSpikesTestSpell : Ability
         StartCoroutine(Cooldown(true));
     }
 
-    public override void StartAbility()
-    {
-        AbilityIntroductionDecorations();
-    }
-
-    public override void AbilityIntroductionDecorations()
-    {
-    }
-
-    public override void AbilityAction()
+    public void CastSpikes(bool demonic)
     {
         newSpike = Instantiate(iceSpike, spellOrigin.transform.position, spellOrigin.transform.rotation);
         newSpike.GetComponent<IceShatter>().demonic = true;
+    }
+
+
+    IEnumerator Cooldown(bool demonic)
+    {
+        onCooldown = true;
+        if (demonic)
+        yield return new WaitForSeconds(maxCooldownTime/2);
+        else
+        yield return new WaitForSeconds(maxCooldownTime);
+        onCooldown = false;
     }
 
     public override void newDemonic()

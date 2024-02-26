@@ -20,59 +20,51 @@ public class PlayerSpellHammerSwing : Ability
         movementRef = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         sync = GetComponent<CoherenceSync>();
-        weaponRef = GetComponent<WeaponHolder>();
+
+
     }
 
 
-    public override void RecieveAbilityRequest()
+    public override void StartAbility()
     {
         Debug.Log("StartedHammerSwing");
         GetNeededComponents();
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
 
-        
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
 
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
-        
-        sync.SendCommand<PlayerSpellHammerSwing>(nameof(StartAbility), MessageTarget.All);
+        sync.SendCommand<PlayerSpellHammerSwing>(nameof(BeginSwing), MessageTarget.All);
     }
 
-    public override void RecieveDemonicAbilityRequest()
+    public override void DemonicStartAbility()
     {
-        Debug.Log("DemonicVarient-HammerSwing-UNIMPLEMENTED");
+        Debug.Log("DemonicVarient-StartIceSpike");
         GetNeededComponents();
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime / 2);
+
+        //Skip sanitycost, you are DEMONIC!!
+        HUDRef.UseAbility(tier);
+        StartCoroutine(Cooldown(true));
     }
 
-    public override void StartAbility()
+    public void BeginSwing()
     {
-        CastSlow(); //applies slow to player during casting.
-        AbilityIntroductionDecorations();
-        StartCoroutine(Windup());
-    }
-
-    public override void AbilityIntroductionDecorations()
-    {
-        //Hammer windup animations
-        //hammer windup sfx
-    }
-
-    public override void AbilityAction() //begins at end of Windup (base ability)
-    {
-        Debug.Log("hammer- AbilityAction");
         newHammer = Instantiate(IceHammer, spellOrigin.transform);
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
+        
     }
 
-    public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+
+    IEnumerator Cooldown(bool demonic)
     {
-        weaponRef.SetDefaultBehaviourEnabled(true, false);
-        yield return new WaitForSeconds(windupTime);
-        AbilityAction();
-        yield return new WaitForSeconds(1.0f);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        onCooldown = true;
+        if (demonic)
+            yield return new WaitForSeconds(maxCooldownTime / 2);
+        else
+            yield return new WaitForSeconds(maxCooldownTime);
+        onCooldown = false;
     }
 
     public override void newDemonic()
