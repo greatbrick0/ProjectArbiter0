@@ -97,7 +97,7 @@ public class PlayerHealth : MonoBehaviour
     private void UpdateHealthLabel(bool damaged = false)
     {
         hudRef.SetHealthLabel(mainHealth.ToString());
-        Debug.Log(mainHealth + "    " + maxMainHealth + "    " + mainHealth / maxMainHealth);
+        //Debug.Log(mainHealth + "    " + maxMainHealth + "    " + mainHealth / maxMainHealth);
         hudRef.SetHealthBarFill((float)mainHealth / (float)maxMainHealth);
         if (damaged) hudRef.EnableDamageGradient();
     }

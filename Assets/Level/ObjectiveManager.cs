@@ -10,10 +10,11 @@ public class ObjectiveManager : MonoBehaviour
     Dictionary<string, float> trackedStats = new Dictionary<string, float>()
     {
         { "EnemiesKilled", 0 },
+        { "EnemiesKilledInZone", 0 },
         { "TimeInZone", 0 },
         { "TimeSurvived", 0 },
         { "PlayersInZone", 0 }, //the amount of players in an area
-        { "AllPlayersInZone", 0 } //whether or not every player is in an area
+        { "AllPlayersInZone", 0 }, //whether or not every player is in an area
     };
 
     [SerializeField]

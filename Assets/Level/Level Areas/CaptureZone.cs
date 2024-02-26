@@ -44,12 +44,11 @@ public class CaptureZone : MonoBehaviour
         GameObject obj = other.gameObject;
         if (obj.CompareTag("Player"))
         {
-            if (!obj.GetComponent<PlayerHealth>().playerDead)
-            {
-                playersInZone += 1;
-                timeSincePlayerInZone = 0.0f;
-                obj.GetComponent<PlayerHealth>().playerDied += PlayerDied;
-            }
+            if (obj.GetComponent<PlayerHealth>().playerDead) return;
+
+            playersInZone += 1;
+            timeSincePlayerInZone = 0.0f;
+            obj.GetComponent<PlayerHealth>().playerDied += PlayerDied;
         }
     }
 
@@ -58,11 +57,10 @@ public class CaptureZone : MonoBehaviour
         GameObject obj = other.gameObject;
         if (obj.CompareTag("Player"))
         {
-            if (!obj.GetComponent<PlayerHealth>().playerDead)
-            {
-                playersInZone -= 1;
-                obj.GetComponent<PlayerHealth>().playerDied -= PlayerDied;
-            }
+            if (obj.GetComponent<PlayerHealth>().playerDead) return;
+
+            playersInZone -= 1;
+            obj.GetComponent<PlayerHealth>().playerDied -= PlayerDied;
         }
     }
 
