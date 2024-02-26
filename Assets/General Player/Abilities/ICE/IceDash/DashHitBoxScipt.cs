@@ -14,7 +14,7 @@ public class DashHitBoxScipt : MonoBehaviour
     public float lifespan;
 
     private void Start()
-    {
+    {   
         hitNumberRef = DamageNumberManager.GetManager();
         StartCoroutine("DurationDash");
     }

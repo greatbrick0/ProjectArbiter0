@@ -231,18 +231,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ApplySpellSlow(float modifyValue, float slowDuration) //i guess you can overload this with a forcedirection if that is cooler.
+    public void ApplyExternalSpeedModification(float modifyValue) 
     {
-        StartCoroutine(ApplySlow(modifyValue, slowDuration));
+        maxMoveSpeed += modifyValue;
     }
 
-    public IEnumerator ApplySlow(float slowValue, float duration)
-    {
-        maxMoveSpeed += slowValue;
-        yield return new WaitForSeconds(duration);
-        maxMoveSpeed -= slowValue;
-    }
-
+    
     private void OnCollisionStay(Collision collision)
     {
         if (collision.GetContact(0).normal.y < 0.5) return;

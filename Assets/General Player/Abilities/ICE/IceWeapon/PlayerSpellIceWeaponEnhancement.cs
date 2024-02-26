@@ -64,7 +64,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     public override void StartAbility()
     {
-        CastSlow(); //applies slow to player during casting.
+        ApplyPlayerCastMotion(); //applies slow to player during casting.
         AbilityIntroductionDecorations();
         StartCoroutine("Windup");
 
@@ -99,7 +99,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             enhancementActive = false;
             //    muzzleFlash.SetColor("Color01", muzzleStore);
         }
-
+        RemovePlayerCastMotion();
     }
 
     void Update()

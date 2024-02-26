@@ -24,9 +24,9 @@ public abstract class Ability : MonoBehaviour
     public float maxCooldownTime;
 
     [SerializeField]
-    public float windupTime;
+    protected float windupTime;
     [SerializeField]
-    float castSlowDuration;
+    protected float castSlowDuration;
 
     [SerializeField]
     public float activeTime { get; private set; } //how long the spell is doing 'it's thing', preventing other spells/shooting.
@@ -60,10 +60,14 @@ public abstract class Ability : MonoBehaviour
         AbilityAction();
     }
 
-    public virtual void CastSlow()
+    public virtual void ApplyPlayerCastMotion()
     {
-        Debug.Log("Sending Slow");
-        movementRef.ApplySpellSlow(AbilityHoldRef.castSlowAmount, castSlowDuration);
+        movementRef.ApplyExternalSpeedModification(AbilityHoldRef.castSlowAmount);
+    }
+
+    public virtual void RemovePlayerCastMotion()
+    {
+        movementRef.ApplyExternalSpeedModification(-AbilityHoldRef.castSlowAmount);
     }
 
     public virtual IEnumerator Cooldown(bool demonic)

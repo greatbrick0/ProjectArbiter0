@@ -48,7 +48,7 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void StartAbility()
     {
-        CastSlow(); //applies slow to player during casting.
+        ApplyPlayerCastMotion(); //applies slow to player during casting.
         AbilityIntroductionDecorations();
         StartCoroutine(Windup());
     }
@@ -71,8 +71,9 @@ public class PlayerSpellHammerSwing : Ability
         weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(castSlowDuration - windupTime);
         weaponRef.SetDefaultBehaviourEnabled(true, true);
+        RemovePlayerCastMotion();
     }
 
     public override void newDemonic()
