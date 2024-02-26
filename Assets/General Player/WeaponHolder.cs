@@ -31,10 +31,10 @@ public class WeaponHolder : MonoBehaviour
     [Header("Stats")]
     [SerializeField]
     private string gunName = "basic";
-    [SerializeField] 
+    [SerializeField]
     private bool automatic = false;
     private bool randomizePattern = false;
-    [SerializeField] 
+    [SerializeField]
     private float reloadTime = 2.0f;
     private int maxAmmo = 12;
     private Vector2 closeDamage;
@@ -62,6 +62,8 @@ public class WeaponHolder : MonoBehaviour
     private int patternIndex = 0;
     private bool shootingThisFrame = false;
     private bool shotLastFrame = false;
+
+    private bool defaultShootingEnabled = true;
 
     private void SetAllStats()
     {
@@ -98,10 +100,10 @@ public class WeaponHolder : MonoBehaviour
     {
         sync = GetComponent<CoherenceSync>();
         movementScript = GetComponent<PlayerMovement>();
-        
+
         SetAllStats();
         currentAmmo = maxAmmo;
-        
+
 #if (UNITY_EDITOR)
         if (closeDamage.x > farDamage.x) Debug.LogError(gunName + " close damage point cannot be farther than far damage point");
 #endif
@@ -115,7 +117,7 @@ public class WeaponHolder : MonoBehaviour
     /* I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...                         */
     /*  i saw on a forum somewhere: Awake() is for init within a script, Start() is for connecting to other objects.
      *  i think Start() would fit well for this purpose.     -S                                                         */
-    public void GetHUDReference() 
+    public void GetHUDReference()
     {
         hudGunRef = GameObject.Find("GunHUD").GetComponent<HUDGunAmmoScript>();
         hudGunRef.SetCurrentAmmo(currentAmmo);
@@ -143,7 +145,7 @@ public class WeaponHolder : MonoBehaviour
         else if (inputtingFire)
         {
             if (currentAmmo == 0 && !reloading) StartReload();
-            else
+            else if (defaultShootingEnabled)
             {
                 straight = cam.transform.forward;
                 originPos = cam.transform.position;
@@ -253,7 +255,7 @@ public class WeaponHolder : MonoBehaviour
         {
             patternIndex = Mathf.FloorToInt(Random.Range(0, shotPatterns.Count));
         }
-        
+
     }
 
     /// <summary>
@@ -303,12 +305,18 @@ public class WeaponHolder : MonoBehaviour
         defaultBehaviourEnabled = newValue;
     }
 
+    public void SetDefaultBehaviourEnabled(bool newValue, bool firePermitted)
+    {
+        defaultBehaviourEnabled = newValue;
+        defaultShootingEnabled = firePermitted;
+    }
+
     public WeaponData GetWeaponData()
     {
         if (weapon != null)
-        return weapon;
+            return weapon;
         else
-        return null; 
+            return null;
         //This is for you, Spencer. :)
     }
     public void SetWeaponData(WeaponData newWeapon)

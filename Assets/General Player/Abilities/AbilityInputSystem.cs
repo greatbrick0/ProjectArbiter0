@@ -8,8 +8,8 @@ public class AbilityInputSystem : MonoBehaviour
 {
     //Gotta build some shizz first :)
 
-    enum CastingState //wether the player is casting or not. used for allow/lock casting logic.
-    { 
+    public enum CastingState //wether the player is casting or not. used for allow/lock casting logic.
+    {
         idle, //not casting at the moment
         casting, //currently casting
         exhausted, //after demonic, you will be locked from spells for a while
@@ -20,7 +20,7 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     public Ability[] AbilityList;
     [SerializeField]
-    private CastingState playerState = CastingState.idle;
+    public CastingState playerState = CastingState.idle;
 
     private HUDSystem HUDRef;
 
@@ -28,30 +28,27 @@ public class AbilityInputSystem : MonoBehaviour
 
     [SerializeField]
     private float exhaustTime;
-    
- 
+
+    [SerializeField]
+    public float castSlowAmount = 2.0f;
 
     private void Start()
     {
-              
+
         AbilityList = GetComponents<Ability>();
         Debug.Log("Grabbed Abilities?");
-
-        
-        
-        
     }
 
     void Update()
     {
-       
+
 
     }
 
-    
+
     public void AttemptCast(int tier) //Recieved input by player input
     {
-       
+
         if (AbilityList[tier].onCooldown) //is that ability on cooldown? if so, end process.
             return;
 
@@ -61,14 +58,14 @@ public class AbilityInputSystem : MonoBehaviour
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
                     if (!demonic)
-                        AbilityList[tier].StartAbility();
+                        AbilityList[tier].RecieveAbilityRequest();
                     else
-                        AbilityList[tier].DemonicStartAbility();
+                        AbilityList[tier].RecieveDemonicAbilityRequest();
                     break;
                 }
             case CastingState.casting: //if you are currently casting something, you gotta wait!
                 break;
-            
+
             case CastingState.exhausted:
                 {
                     //invalid cast feedback
@@ -78,7 +75,7 @@ public class AbilityInputSystem : MonoBehaviour
                 {
                     break;
                 }
-                
+
         }
 
     }
@@ -90,16 +87,16 @@ public class AbilityInputSystem : MonoBehaviour
         for (int i = 0; i < AbilityList.Length; i++)
         {
             AbilityList[i].RecieveHUDReference(HUDRef, i);
-        }   
+        }
     }
-    
+
     public void SetDemonic(bool setDemonic)
     {
         if (setDemonic)
             demonic = true;
         else
         {
-            demonic = false;;
+            demonic = false; ;
             playerState = CastingState.exhausted;
             StartCoroutine(ExhaustedTimer());
         }
