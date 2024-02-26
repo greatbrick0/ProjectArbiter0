@@ -11,6 +11,8 @@ public class DashHitBoxScipt : MonoBehaviour
 
     public List<Damageable> hitTargets;
 
+    public float lifeSpan;
+
     private void Start()
     {
         hitNumberRef = DamageNumberManager.GetManager();
