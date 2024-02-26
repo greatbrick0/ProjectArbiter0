@@ -922,6 +922,9 @@ MonoBehaviour:
   - rid: 726511650095759413
   - rid: 726511650095759425
   - rid: 1197954471362035718
+  - rid: 1197954811585363968
+  - rid: 1197954811585363970
+  - rid: 1197954811585363972
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1308,6 +1311,123 @@ MonoBehaviour:
         - System.Boolean, mscorlib
         ownerType:
           assemblyQualifiedName: SanitySystem, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 1197954811585363968
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 1197954811585363969
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 9e326a16-aa2b-4c63-99b9-5620de7349f4
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 225340334539899874}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 1197954811585363969
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: StartAbility
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerSpellIceDash, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 1197954811585363970
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 1197954811585363971
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 611b932f-57f1-430d-a913-136fb9e11863
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 4427282155619615523}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 1197954811585363971
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: StartAbility
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerSpellIceWeaponEnhancement, Assembly-CSharp,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 1197954811585363972
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 1197954811585363973
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 1921ed48-089a-4125-8625-c70b389e1f17
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: -3141529984283832000}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 1197954811585363973
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: StartAbility
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerSpellHammerSwing, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         CustomData:
           rid: -2
