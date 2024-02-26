@@ -63,6 +63,8 @@ public class WeaponHolder : MonoBehaviour
     private bool shootingThisFrame = false;
     private bool shotLastFrame = false;
 
+    private bool defaultShootingEnabled = true;
+
     private void SetAllStats()
     {
         gunName = weapon.gunName;
@@ -143,7 +145,7 @@ public class WeaponHolder : MonoBehaviour
         else if (inputtingFire)
         {
             if (currentAmmo == 0 && !reloading) StartReload();
-            else
+            else if (defaultShootingEnabled)
             {
                 straight = cam.transform.forward;
                 originPos = cam.transform.position;
@@ -301,6 +303,12 @@ public class WeaponHolder : MonoBehaviour
     public void SetDefaultBehaviourEnabled(bool newValue)
     {
         defaultBehaviourEnabled = newValue;
+    }
+
+    public void SetDefaultBehaviourEnabled(bool newValue, bool firePermitted)
+    {
+        defaultBehaviourEnabled = newValue;
+        defaultShootingEnabled = firePermitted;
     }
 
     public WeaponData GetWeaponData()

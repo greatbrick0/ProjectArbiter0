@@ -7,8 +7,8 @@ using UnityEngine;
 public class AbilityInputSystem : MonoBehaviour
 {
     //Gotta build some shizz first :)
-
-    enum CastingState //wether the player is casting or not. used for allow/lock casting logic.
+    
+    public enum CastingState //wether the player is casting or not. used for allow/lock casting logic.
     { 
         idle, //not casting at the moment
         casting, //currently casting
@@ -20,7 +20,7 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     public Ability[] AbilityList;
     [SerializeField]
-    private CastingState playerState = CastingState.idle;
+    public CastingState playerState = CastingState.idle;
 
     private HUDSystem HUDRef;
 
@@ -28,18 +28,15 @@ public class AbilityInputSystem : MonoBehaviour
 
     [SerializeField]
     private float exhaustTime;
-    
- 
+
+    [SerializeField]
+    public float castSlowAmount = 2.0f;
 
     private void Start()
     {
               
         AbilityList = GetComponents<Ability>();
         Debug.Log("Grabbed Abilities?");
-
-        
-        
-        
     }
 
     void Update()
@@ -61,9 +58,9 @@ public class AbilityInputSystem : MonoBehaviour
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
                     if (!demonic)
-                        AbilityList[tier].StartAbility();
+                        AbilityList[tier].RecieveAbilityRequest();
                     else
-                        AbilityList[tier].DemonicStartAbility();
+                        AbilityList[tier].RecieveDemonicAbilityRequest();
                     break;
                 }
             case CastingState.casting: //if you are currently casting something, you gotta wait!

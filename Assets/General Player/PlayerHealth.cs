@@ -88,7 +88,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         if(playerDied != null) playerDied();
-        GetComponent<PlayerMovement>().SetDefaultMovementEnabled(false);
+        GetComponent<PlayerMovement>().SetEnabledControls(false);
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
         FindObjectOfType<PlayerTracker>().spectatorCount += 1;
         print("player died");

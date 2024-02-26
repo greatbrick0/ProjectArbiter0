@@ -12,6 +12,7 @@ public abstract class Ability : MonoBehaviour
     protected AbilityInputSystem AbilityHoldRef;
     protected SanitySystem sanityRef;
     protected PlayerMovement movementRef;
+    protected WeaponHolder weaponRef;
     [SerializeField]
     protected GameObject spellOrigin;
 
@@ -21,13 +22,17 @@ public abstract class Ability : MonoBehaviour
     [HideInInspector]
     public bool onCooldown = false;
     public float maxCooldownTime;
-    
+
+    [SerializeField]
+    public float windupTime;
+    [SerializeField]
+    float castSlowDuration;
 
     [SerializeField]
     public float activeTime { get; private set; } //how long the spell is doing 'it's thing', preventing other spells/shooting.
 
-    
 
+    [HideInInspector]
     public HUDSystem HUDRef;
 
     protected int tier;
@@ -42,9 +47,41 @@ public abstract class Ability : MonoBehaviour
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
     }
 
-    public abstract void StartAbility();
+    public abstract void RecieveAbilityRequest();
 
-    public abstract void DemonicStartAbility(); //new function > passing demonic bool. fite me
+    public abstract void RecieveDemonicAbilityRequest(); //new function > passing demonic bool. fite me
+
+    public abstract void StartAbility(); //begins the spell itself, what is portrayed to all players. 
+    public abstract void AbilityIntroductionDecorations();//usually the beginning of startAbility, also calls Windup for it's duration
+
+    public virtual IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    {
+        yield return new WaitForSeconds(windupTime);
+        AbilityAction();
+    }
+
+    public virtual void CastSlow()
+    {
+        Debug.Log("Sending Slow");
+        movementRef.ApplySpellSlow(AbilityHoldRef.castSlowAmount, castSlowDuration);
+    }
+
+    public virtual IEnumerator Cooldown(bool demonic)
+    {
+        onCooldown = true;
+        if (demonic)
+            yield return new WaitForSeconds(maxCooldownTime / 2);
+        else
+            yield return new WaitForSeconds(maxCooldownTime);
+        onCooldown = false;
+    }
+
+    public virtual IEnumerator WholeSpellDuration()
+    {
+        AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        yield return new WaitForSeconds(activeTime);
+    }
+    public abstract void AbilityAction(); //the 'fun' part of the spell
 
     protected abstract void GetNeededComponents();
 
