@@ -50,7 +50,7 @@ public class PlayerInput : MonoBehaviour
     {
         new InputAndName("ability1", KeyCode.Q),
         new InputAndName("ability2", KeyCode.LeftShift),
-        new InputAndName("ability3", KeyCode.F)
+        new InputAndName("ability3", KeyCode.E)
     };
 
     Dictionary<string, KeyCode> abilityKeys = new Dictionary<string, KeyCode> { };
