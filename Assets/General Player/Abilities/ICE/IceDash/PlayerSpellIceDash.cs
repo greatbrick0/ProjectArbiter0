@@ -6,10 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerSpellIceDash : Ability
-{
-    [SerializeField]
-    float pauseDuration;
-
+{ 
     [SerializeField]
     float backVelocity;
 
@@ -72,7 +69,7 @@ public class PlayerSpellIceDash : Ability
         GetComponent<PlayerInput>().mouseXSens *= 0.1f;
         GetComponent<PlayerInput>().mouseYSens *= 0.01f;
         rb.drag = 3;
-        rb.AddForce(-spellOrigin.transform.forward * backVelocity, ForceMode.Impulse);
+        rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity/5)) , ForceMode.Impulse);
 
     }
     public override void AbilityAction()
@@ -109,7 +106,7 @@ public class PlayerSpellIceDash : Ability
         }
     }
 
-    public void EndDash()
+    public void EndDash(bool collide)
     {
         Debug.Log("Dash completed");
         movementRef.SetEnabledControls(true, true);
@@ -120,6 +117,15 @@ public class PlayerSpellIceDash : Ability
         GetComponent<PlayerInput>().mouseYSens /= 0.01f;
         if (collideHitboxRef != null)
             collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
+        if (collide)
+        {
+            Debug.Log("Collision Caused Dash to End");
+            rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity / 5)), ForceMode.Impulse);
+        }
+        else
+        {
+            Debug.Log("Dash Expired Naturally");
+        }
     }
 
     IEnumerator Cooldown()

@@ -37,7 +37,7 @@ public class DashHitBoxScipt : MonoBehaviour
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Ice, spot);
                 hitTargets.Add(hitbox.GetOwner());
-                dashAbilityRef.EndDash();
+                dashAbilityRef.EndDash(true);
             }
         }
     }
@@ -45,7 +45,7 @@ public class DashHitBoxScipt : MonoBehaviour
     public IEnumerator DurationDash()
     {
         yield return new WaitForSeconds(lifespan);
-        dashAbilityRef.EndDash();
+        dashAbilityRef.EndDash(false);
     }
 
     public void RequestDestroy() //Hello there!
