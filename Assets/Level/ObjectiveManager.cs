@@ -10,10 +10,11 @@ public class ObjectiveManager : MonoBehaviour
     Dictionary<string, float> trackedStats = new Dictionary<string, float>()
     {
         { "EnemiesKilled", 0 },
+        { "EnemiesKilledInZone", 0 },
         { "TimeInZone", 0 },
         { "TimeSurvived", 0 },
         { "PlayersInZone", 0 }, //the amount of players in an area
-        { "AllPlayersInZone", 0 } //whether or not every player is in an area
+        { "AllPlayersInZone", 0 }, //whether or not every player is in an area
     };
 
     [SerializeField]
@@ -68,10 +69,15 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
-    public void UpdateStat(string stat, float amount, bool checkForCompletion)
+    public void UpdateStat(string stat, float amount, bool checkForCompletion = true)
     {
-        trackedStats[stat] += amount;
-        UpdatePlayerObjectivesHUD((int)amount);
+        SetStat(stat, trackedStats[stat] + amount, checkForCompletion);
+    }
+
+    public void SetStat(string stat, float amount, bool checkForCompletion = true)
+    {
+        trackedStats[stat] = Mathf.Max(amount, 0);
+        UpdatePlayerObjectivesHUD((int)trackedStats[stat]);
         if (!checkForCompletion) return;
         if (objectives[objectiveIndex].EvaluateObjective(trackedStats)) CompleteObjective();
     }

@@ -31,36 +31,33 @@ public class InputRebinder : MonoBehaviour
             Event detectInput = Event.current;
             if (detectInput.isKey)
             {
-                if (detectInput.keyCode == KeyCode.Escape)
-                {
-                    gameObject.SetActive(false);
-                }
+                if (detectInput.keyCode == KeyCode.Escape) gameObject.SetActive(false);
                 else
                 {
-                    playerInput.RebindKey(activeType, activeInputName, detectInput.keyCode);
+                    if(playerInput != null) playerInput.RebindKey(activeType, activeInputName, detectInput.keyCode);
                     activeButtonText.text = detectInput.keyCode.ToString();
                     settingsManager.UpdateBind(activeInputName, (int)detectInput.keyCode);
                     gameObject.SetActive(false);
                 }
             }
-            if (detectInput.isMouse)
+            else if (detectInput.isMouse)
             {
                 switch (detectInput.button)
                 {
                     case 0:
-                        playerInput.RebindKey(activeType, activeInputName, KeyCode.Mouse0);
+                        if (playerInput != null) playerInput.RebindKey(activeType, activeInputName, KeyCode.Mouse0);
                         activeButtonText.text = "Left Click";
                         settingsManager.UpdateBind(activeInputName, 323);
                         break;
 
                     case 1:
-                        playerInput.RebindKey(activeType, activeInputName, KeyCode.Mouse1);
+                        if (playerInput != null) playerInput.RebindKey(activeType, activeInputName, KeyCode.Mouse1);
                         activeButtonText.text = "Right Click";
                         settingsManager.UpdateBind(activeInputName, 324);
                         break;
 
                     case 2:
-                        playerInput.RebindKey(activeType, activeInputName, KeyCode.Mouse2);
+                        if (playerInput != null) playerInput.RebindKey(activeType, activeInputName, KeyCode.Mouse2);
                         activeButtonText.text = "Middle Click";
                         settingsManager.UpdateBind(activeInputName, 325);
                         break;

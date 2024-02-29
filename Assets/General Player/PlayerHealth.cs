@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     public bool playerDead = false;
+    public delegate void PlayerDied();
+    public event PlayerDied playerDied;
     [field: Header("Health")]
     [field: SerializeField]
     public int maxMainHealth { get; private set; } = 200;
@@ -85,14 +87,18 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerDown()
     {
         playerDead = true;
-        GetComponent<PlayerMovement>().SetDefaultMovementEnabled(false);
+        if(playerDied != null) playerDied();
+        GetComponent<PlayerMovement>().SetEnabledControls(false);
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
+        FindObjectOfType<PlayerTracker>().spectatorCount += 1;
         print("player died");
     }
 
     private void UpdateHealthLabel(bool damaged = false)
     {
         hudRef.SetHealthLabel(mainHealth.ToString());
+        //Debug.Log(mainHealth + "    " + maxMainHealth + "    " + mainHealth / maxMainHealth);
+        hudRef.SetHealthBarFill((float)mainHealth / (float)maxMainHealth);
         if (damaged) hudRef.EnableDamageGradient();
     }
 }

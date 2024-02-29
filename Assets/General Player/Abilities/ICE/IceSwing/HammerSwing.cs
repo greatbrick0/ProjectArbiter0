@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HammerSwing : MonoBehaviour
 {
-
+    [HideInInspector]
     public PlayerSpellHammerSwing hammerAbilityRef;
     public int abilityDamage;
     DamageNumberManager hitNumberRef;

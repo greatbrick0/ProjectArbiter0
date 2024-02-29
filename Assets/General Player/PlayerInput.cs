@@ -50,7 +50,7 @@ public class PlayerInput : MonoBehaviour
     {
         new InputAndName("ability1", KeyCode.Q),
         new InputAndName("ability2", KeyCode.LeftShift),
-        new InputAndName("ability3", KeyCode.F)
+        new InputAndName("ability3", KeyCode.E)
     };
 
     Dictionary<string, KeyCode> abilityKeys = new Dictionary<string, KeyCode> { };
@@ -191,7 +191,7 @@ public class PlayerInput : MonoBehaviour
     public void SetInMenuBehaviour(bool newBehaviour)
     {
         inMenuBehaviour = newBehaviour;
-        playerMovement.SetDefaultMovementEnabled(!newBehaviour);
+        playerMovement.SetEnabledControls(!newBehaviour);
         weapon.SetDefaultBehaviourEnabled(!newBehaviour);
         //FMODUnity.RuntimeManager.PauseAllEvents(newBehaviour);
         if (newBehaviour) ShowMouse();
