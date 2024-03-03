@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool recoilActive = false;
     public Vector2 maxRecoilBounds { private get; set; } = Vector2.one * 20.0f;
-    public Vector2 lookDirection {get; private set;} = Vector2.zero;
+    private Vector2 lookDirection = Vector2.zero;
 
 
     private void Start()
@@ -76,23 +76,26 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void DetermineLookDirection()
     {
-        if (!recoilActive)
-        {
-            if (recoilLookDirection.magnitude != 0)
-            {
-                StopAllCoroutines();
-                recoilLookDirection -= recoilLookDirection.normalized * Mathf.Min(recoilLookDirection.magnitude, recoilRecentreSpeed * Time.deltaTime);
-            }
-        }
-        else
-        {
-            recoilLookDirection.y = Math.Clamp(recoilLookDirection.y, -maxRecoilBounds.y, maxRecoilBounds.y);
-            recoilLookDirection.x = Math.Clamp(recoilLookDirection.x, -maxRecoilBounds.x, maxRecoilBounds.x);
-        }
+        //if (!recoilActive)
+        //{
+        //    if (recoilLookDirection.magnitude != 0)
+        //    {
+        //        StopAllCoroutines();
+        //        recoilLookDirection -= recoilLookDirection.normalized * Mathf.Min(recoilLookDirection.magnitude, recoilRecentreSpeed * Time.deltaTime);
+        //    }
+        //}
+        //else
+        //{
+        //    recoilLookDirection.y = Math.Clamp(recoilLookDirection.y, -maxRecoilBounds.y, maxRecoilBounds.y);
+        //    recoilLookDirection.x = Math.Clamp(recoilLookDirection.x, -maxRecoilBounds.x, maxRecoilBounds.x);
+        //}
+        controlledLookDirection += recoilLookDirection;
+        recoilLookDirection = Vector2.zero;
 
         controlledLookDirection += inputtedLookDirection * 12;
         controlledLookDirection.y = Mathf.Clamp(controlledLookDirection.y, -85.0f, 85.0f);
         lookDirection = controlledLookDirection + recoilLookDirection;
+        lookDirection.y = Mathf.Clamp(lookDirection.y, -89.5f, 89.5f);
 
         transform.localRotation = Quaternion.Euler(0, lookDirection.x, 0);
         head.localRotation = Quaternion.Euler(lookDirection.y * -1, 0, 0);
