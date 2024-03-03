@@ -33,7 +33,7 @@ public class DashHitBoxScipt : MonoBehaviour
             if (hitbox.GetOwner().team == "Enemy")
             {
                 var spot = hitbox.GetSpotType();
-                int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType());
+                int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Ice, spot);
                 hitTargets.Add(hitbox.GetOwner());

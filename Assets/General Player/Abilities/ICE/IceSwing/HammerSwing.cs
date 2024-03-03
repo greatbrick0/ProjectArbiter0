@@ -33,7 +33,7 @@ public class HammerSwing : MonoBehaviour
             }
             if (hitbox.GetOwner().team == "Enemy")
             {
-                int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType());
+                int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit,location,DamageDetails.DamageElement.Ice, hitbox.GetSpotType());
                 hitTargets.Add(hitbox.GetOwner());
