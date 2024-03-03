@@ -19428,6 +19428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8449746830852276817}
+  - component: {fileID: 7717487994658580522}
   m_Layer: 0
   m_Name: Cryogenics
   m_TagString: Untagged
@@ -19443,7 +19444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8449746830852276814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.26489, y: 0.7490533, z: -20.235939}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19453,6 +19454,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7717487994658580522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449746830852276814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f66df80f25128e47b128328158add2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <entryPoint>k__BackingField: {fileID: 0}
+  <exitPoint>k__BackingField: {fileID: 0}
 --- !u!1 &8449746830887649466
 GameObject:
   m_ObjectHideFlags: 0

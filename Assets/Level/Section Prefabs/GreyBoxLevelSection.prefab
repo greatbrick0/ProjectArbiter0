@@ -12462,6 +12462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6154950848732895492}
   - component: {fileID: 9218864062490320029}
+  - component: {fileID: 347845916881954890}
   m_Layer: 0
   m_Name: GreyBoxLevelSection
   m_TagString: Untagged
@@ -12524,6 +12525,20 @@ MonoBehaviour:
     m_RotationOrder: 4
   frequencyCurveDuration: 0
   beyondCurveFrequency: 0
+--- !u!114 &347845916881954890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221185273392859101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f66df80f25128e47b128328158add2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <entryPoint>k__BackingField: {fileID: 5719293661602584116}
+  <exitPoint>k__BackingField: {fileID: 6216740008963747758}
 --- !u!1001 &165710089313702078
 PrefabInstance:
   m_ObjectHideFlags: 0
