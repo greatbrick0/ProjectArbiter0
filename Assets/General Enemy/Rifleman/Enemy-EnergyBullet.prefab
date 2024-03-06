@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6709903636790074386}
   - component: {fileID: 960812819490379930}
+  - component: {fileID: 6325614890376946449}
+  - component: {fileID: 2951460803364663966}
+  - component: {fileID: 4949853145848948276}
   m_Layer: 0
   m_Name: Enemy-EnergyBullet
   m_TagString: Untagged
@@ -45,9 +48,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11510142e7500c40b40a79b3b064be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 10}
   acceleration: {x: 0, y: 0, z: 0}
   gravity: 0
+  lifeTime: 5
+--- !u!135 &6325614890376946449
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647691613277375361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0.05}
+--- !u!114 &2951460803364663966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647691613277375361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116a7b1296a38194d8a88aadcd02af31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!54 &4949853145848948276
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647691613277375361}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &7471743638013865694
 GameObject:
   m_ObjectHideFlags: 0

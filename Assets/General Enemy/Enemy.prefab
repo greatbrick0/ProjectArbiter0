@@ -1740,6 +1740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 3402058366864678147}
   attackTime: 1.5
+  attackPoint: {fileID: 0}
   attackObj: {fileID: 3647691613277375361, guid: 1e07f17b4e20dbc4b9db93af13b33031,
     type: 3}
   attackDamage: 35
@@ -1758,7 +1759,7 @@ MonoBehaviour:
   playerTracker: {fileID: 0}
   cycleTime: 1
   state: 0
-  shootRange: 4
+  shootRange: 15
 --- !u!1 &3305774416657295634
 GameObject:
   m_ObjectHideFlags: 0

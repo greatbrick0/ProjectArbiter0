@@ -31,7 +31,7 @@ public class EnemyGun : MonoBehaviour
         bool didCollide;
         int layers = (1 << 6) | (1 << 8) ; //los will be blocked by other enemies and terrain
 
-        ray = new Ray(head.position, head.position - targetPos);
+        ray = new Ray(head.position, targetPos - head.position);
         didCollide = Physics.Raycast(ray, out hit, checkRange, layers);
 
         return !didCollide;
@@ -43,7 +43,17 @@ public class EnemyGun : MonoBehaviour
         if (attackCooldown >= attackTime)
         {
             attackCooldown = 0.0f;
-            player.TakeDamage(attackDamage);
+            if (attackObj == null) player.TakeDamage(attackDamage);
+            else CreateBullet(player.transform.position - head.position);
         }
+    }
+
+    private void CreateBullet(Vector3 direction)
+    {
+        GameObject bulletRef = Instantiate(attackObj);
+        bulletRef.transform.SetParent(transform.parent);
+        bulletRef.transform.position = (attackPoint == null) ? transform.position : attackPoint.position;
+        bulletRef.GetComponent<Projectile>().velocity = direction.normalized * bulletRef.GetComponent<Projectile>().velocity.magnitude;
+        bulletRef.GetComponent<EnemySlowBullet>().damage = attackDamage;
     }
 }
