@@ -27,6 +27,8 @@ public class WeaponHolder : MonoBehaviour
 
     [SerializeField]
     VisualEffect muzzleFlash;
+    [SerializeField]
+    GameObject bulletHole;
 
     [Header("Stats")]
     [SerializeField]
@@ -281,9 +283,11 @@ public class WeaponHolder : MonoBehaviour
         }
         else
         {
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            GameObject sphere = Instantiate(bulletHole);
             sphere.transform.position = hit.point;
-            sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            sphere.transform.LookAt(sphere.transform.position + hit.normal);
+            sphere.transform.position += hit.normal * 0.01f;
+            //sphere.transform.rotation = Quaternion.Euler(hit.normal);
             FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bulletHit, sphere);
         }
     }
