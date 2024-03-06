@@ -15,7 +15,7 @@ public class EnemyGun : MonoBehaviour
     private float attackTime = 1.0f;
     private float attackCooldown = 0.0f;
     [SerializeField]
-    [Tooltip("The point the attack projectile will be spawned from. ")]
+    [Tooltip("The point the attack projectile will be spawned from, such as the barrel of a gun. ")]
     private Transform attackPoint;
     [SerializeField]
     private GameObject attackObj;
