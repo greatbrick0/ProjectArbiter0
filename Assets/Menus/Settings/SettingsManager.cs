@@ -108,6 +108,7 @@ public class SettingsManager : MonoBehaviour
         if (actionKeys.Contains(actionName))
         {
             PlayerPrefs.SetInt(actionName, keyCodeInt);
+            if (playerInput != null) playerInput.LoadSettings();
         }
     }
 
@@ -287,7 +288,7 @@ public class SettingsManager : MonoBehaviour
         LoadBind(bindButtonTextList[9], "LeftShift");
         UpdateBind("ability3", 101);
         LoadBind(bindButtonTextList[10], "E");
-        playerInput.LoadSettings();
+        if(playerInput != null) playerInput.LoadSettings();
         //Display
         SetGraphics(2);
         LoadGraphics(2);
