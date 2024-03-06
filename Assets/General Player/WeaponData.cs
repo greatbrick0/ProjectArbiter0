@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using FMODUnity;
+using DamageDetails;
 
 [CreateAssetMenu(menuName = "Weapon")]
 public class WeaponData : ScriptableObject
@@ -34,6 +35,9 @@ public class WeaponData : ScriptableObject
     [field: SerializeField]
     [field: Tooltip("Data related to individual shots of this weapon. Used either cyclically or randomly depending on randomizePattern.")]
     public List<ShotShape> shotPattern { get; private set; } = new List<ShotShape>() { new ShotShape(Vector2.zero, 0.2f) };
+    [field: SerializeField]
+    [field: Tooltip("The element of damage that will be dealt. ")]
+    public DamageElement bulletElement { get; private set; }
     [field: SerializeField]
     [field: Tooltip("The distance bullets will check for collisions, measured in units.")]
     public float range { get; private set; } = 20.0f;

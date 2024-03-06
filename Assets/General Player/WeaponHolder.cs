@@ -40,6 +40,7 @@ public class WeaponHolder : MonoBehaviour
     private Vector2 closeDamage;
     private Vector2 farDamage;
     private List<ShotShape> shotPatterns;
+    private DamageElement bulletElement;
     [SerializeField]
     private float range = 10.0f;
     private float resetTime;
@@ -75,6 +76,7 @@ public class WeaponHolder : MonoBehaviour
         closeDamage = weapon.closeDamage;
         farDamage = weapon.farDamage;
         shotPatterns = weapon.shotPattern;
+        bulletElement = weapon.bulletElement;
         range = weapon.range;
         resetTime = weapon.resetTime;
         movementScript.maxRecoilBounds = weapon.maxRecoilBounds;
@@ -295,9 +297,9 @@ public class WeaponHolder : MonoBehaviour
     {
         if (hitbox.GetOwner().team != "Enemy") return;
 
-        int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType());
+        int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType(), bulletElement);
 
-        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point, DamageElement.Normal, hitbox.GetSpotType());
+        damageNumberScript.CreateDamageNumber(damageAmount, hitDetails.point, bulletElement, hitbox.GetSpotType());
     }
 
     public void SetDefaultBehaviourEnabled(bool newValue)
