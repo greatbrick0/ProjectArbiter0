@@ -6,6 +6,8 @@ public class EnemyGun : MonoBehaviour
 {
     [SerializeField]
     private Transform head;
+    [SerializeField]
+    private EnemyAnimation anim;
 
     private Ray ray;
     private RaycastHit hit;
@@ -43,8 +45,10 @@ public class EnemyGun : MonoBehaviour
         if (attackCooldown >= attackTime)
         {
             attackCooldown = 0.0f;
+
             if (attackObj == null) player.TakeDamage(attackDamage);
             else CreateBullet(player.transform.position - head.position);
+            anim.ShootAnim();
         }
     }
 

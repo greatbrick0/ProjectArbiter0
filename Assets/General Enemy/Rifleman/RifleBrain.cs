@@ -49,6 +49,7 @@ public class RifleBrain : EnemyBrain
                 break;
             case States.Shoot:
                 moveScript.StandStill();
+                moveScript.LookAtPlayer(targetPlayer);
                 if (gunScript.CheckLosToPlayer(targetPlayer, shootRange))
                     gunScript.Attack(targetPlayer.GetComponent<PlayerHealth>());
                 break;

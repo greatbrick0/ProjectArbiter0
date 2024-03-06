@@ -12,13 +12,13 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     private Rigidbody rb;
 
+    [SerializeField]
     private EnemyAnimation anim;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        anim = GetComponentInChildren<EnemyAnimation>();
     }
 
     private void Start()
@@ -37,6 +37,19 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(playerObj.transform.position);
         anim.walking = true;
+        anim.directionAngle = 0.0f;
+    }
+
+    public void LookAtPlayer(GameObject playerObj)
+    {
+        Vector2 playerHorizontalDir = Vec2FromXZ(playerObj.transform.position - transform.position).normalized;
+        //float difference = Vector2.Angle(Vector2.up, playerHorizontalDir);
+        Vector2 myHorizontalDir = Vec2FromXZ(transform.forward).normalized;
+        float difference = Vector2.Angle(myHorizontalDir, playerHorizontalDir);
+
+        //transform.Rotate(Vector3.up, difference);
+        print(difference/360);
+        anim.directionAngle = difference / 360;
     }
 
     public void StandStill()
@@ -49,5 +62,10 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(spawnPos);
         anim.walking = (agent.velocity == Vector3.zero);
+    }
+
+    private Vector2 Vec2FromXZ(Vector3 vec3)
+    {
+        return new Vector2(vec3.x, vec3.z);
     }
 }
