@@ -273,8 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af283813667ec7e4bb208d98f884bfb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voidLevel: -10
-  boostHeight: 20
+  voidLevel: -50
+  boostHeight: 100
 --- !u!114 &-2931630549695675886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,8 +1691,8 @@ MonoBehaviour:
   <maxMainHealth>k__BackingField: 200
   mainHealth: 1
   regenDelay: 5
-  regenRate: 15
-  regenChunkSize: 2
+  regenRate: 30
+  regenChunkSize: 4
   tempShield: 0
 --- !u!1 &3607976606283600887
 GameObject:

@@ -27,7 +27,7 @@ public class HammerSwing : MonoBehaviour
             {
                 if (hitbox.GetOwner() == ii)
                 {
-                    Debug.Log("Already hit this enemy");
+                    //Debug.Log("Already hit this enemy");
                     return;
                 }
             }

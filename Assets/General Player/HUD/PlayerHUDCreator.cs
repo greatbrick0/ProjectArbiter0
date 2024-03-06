@@ -11,15 +11,14 @@ public class PlayerHUDCreator : MonoBehaviour
     public void Awake()
     {
         if (HUDref != null) Instantiate(HUDref);
-        Invoke(nameof(AssignUIToComponents),0.5f);
-        
+        StartCoroutine(AssignUIToComponents());
     }
 
-    private void AssignUIToComponents()
+    private IEnumerator AssignUIToComponents()
     {
+        yield return new WaitForEndOfFrame();
         GetComponent<WeaponHolder>().GetHUDReference();
         GetComponent<SanitySystem>().GetHUDReference();
         GetComponent<AbilityInputSystem>().GetHUDReference();
-        Debug.Log("Assigned UI");
     }
 }

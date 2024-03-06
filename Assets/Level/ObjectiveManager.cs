@@ -74,7 +74,6 @@ public class ObjectiveManager : MonoBehaviour
                 hudRef.UpdateObjective((int)trackedStats["EnemiesKilled"],(int)objectives[objectiveIndex].requirements[0].minValue, "Current Objective: \n Defeat all Enemies");
                 break;
             default:
-                Debug.Log("Fail-ObjectiveManagerHudRefSwitch");
                 break;
 
         }

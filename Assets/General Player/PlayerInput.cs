@@ -11,14 +11,20 @@ using Coherence;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField]
+    [Tooltip("The camera that will be instantiated during runtime, mainly for first person use. ")]
     private GameObject cameraObj;
     private GameObject cameraRef;
     [SerializeField]
+    [Tooltip("This object and all of its children will be hidden from the player in first person, but shown to other players. ")]
     private GameObject selfBodyModel;
     [SerializeField]
+    [Tooltip("This object and all of its children will be shown to the player in first person, but will be hidden from other players. " +
+        "\nThis object should be on the layer 'HiddenViewModel' before runtime.")]
     private GameObject selfGunModel;
     [SerializeField]
+    [Tooltip("This will determine the position and direction of the camera when it is instantiated. ")]
     private Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
