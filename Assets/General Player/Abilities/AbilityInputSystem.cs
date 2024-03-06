@@ -34,17 +34,8 @@ public class AbilityInputSystem : MonoBehaviour
 
     private void Start()
     {
-
         AbilityList = GetComponents<Ability>();
-        Debug.Log("Grabbed Abilities?");
     }
-
-    void Update()
-    {
-
-
-    }
-
 
     public void AttemptCast(int tier) //Recieved input by player input
     {
@@ -83,7 +74,6 @@ public class AbilityInputSystem : MonoBehaviour
     public void GetHUDReference()
     {
         HUDRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>();
-        Debug.Log("AbilityInputSystem: " + nameof(HUDRef));
         for (int i = 0; i < AbilityList.Length; i++)
         {
             AbilityList[i].RecieveHUDReference(HUDRef, i);
