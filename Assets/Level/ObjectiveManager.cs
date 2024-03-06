@@ -13,6 +13,7 @@ public class ObjectiveManager : MonoBehaviour
         { "TimeSurvived", 0 },
         { "PlayersInZone", 0 }, //the amount of players in an area
         { "AllPlayersInZone", 0 }, //whether or not every player is in an area
+        { "ButtonsPressed", 0 },
     };
 
     [SerializeField]

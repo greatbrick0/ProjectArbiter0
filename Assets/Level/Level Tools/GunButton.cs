@@ -36,4 +36,10 @@ public class GunButton : Damageable
         readyModel.SetActive(true);
         usedModel.SetActive(false);
     }
+
+    public void ProgressTracker(string tracker = "ButtonsPressed")
+    {
+        if (tracker.Length == 0) tracker = "ButtonsPressed";
+        FindObjectOfType<ObjectiveManager>().UpdateStat(tracker, 1);
+    }
 }
