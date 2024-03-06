@@ -163,7 +163,6 @@ GameObject:
   - component: {fileID: 8751002839937151779}
   - component: {fileID: 8988836857019749150}
   - component: {fileID: 4206427362788723892}
-  - component: {fileID: 63225655736374224}
   - component: {fileID: -3141529984283832000}
   - component: {fileID: 225340334539899874}
   - component: {fileID: 4427282155619615523}
@@ -885,8 +884,6 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 7046344112807627911}
       lodStepsActive: 1
-    - component: {fileID: 63225655736374224}
-      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -1456,7 +1453,7 @@ MonoBehaviour:
           sampleRate: 0
           floatCompression: 0
           fields: []
-        unityComponent: {fileID: 63225655736374224}
+        unityComponent: {fileID: 0}
         coherenceSync: {fileID: -2931630549695675886}
         interpolationSettings: {fileID: 0}
     - rid: 8135352634086785025
@@ -1614,27 +1611,6 @@ MonoBehaviour:
   sanityRecoverySpeedModifier: 1
   demonicRecoverySpeedModifier: 10
   sanityRecoveryPause: 3
---- !u!114 &63225655736374224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3294123685879425709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a5d6ffcaae3a848ab84c45c889e494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellOrigin: {fileID: 3800042346541162947}
-  sanityCost: 15
-  onCooldown: 0
-  maxCooldownTime: 3
-  windupTime: 0.3
-  castSlowDuration: 0.4
-  HUDRef: {fileID: 0}
-  flareObj: {fileID: 5961615394419238897, guid: cddeff006cc91784b93e9c9ff44b95e6,
-    type: 3}
 --- !u!114 &-3141529984283832000
 MonoBehaviour:
   m_ObjectHideFlags: 0
