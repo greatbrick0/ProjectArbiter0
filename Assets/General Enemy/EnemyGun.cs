@@ -13,8 +13,15 @@ public class EnemyGun : MonoBehaviour
     private RaycastHit hit;
 
     [SerializeField]
-    [Tooltip("The time between attacks, measured in seconds. ")]
+    [Tooltip("The time between attacks or bursts, measured in seconds. ")]
     private float attackTime = 1.0f;
+    [SerializeField]
+    [Tooltip("The amount of projectiles that will be fired in a single burst. "), Min(1)]
+    private int attackBurstAmount = 1;
+    private int burstTracker = 0;
+    [SerializeField]
+    [Tooltip("The time between attacks within a single burst, measured in seconds. ")]
+    private float attackBurstTime = 0.1f;
     private float attackCooldown = 0.0f;
     [SerializeField]
     [Tooltip("The point the attack projectile will be spawned from, such as the barrel of a gun. ")]
@@ -41,10 +48,20 @@ public class EnemyGun : MonoBehaviour
 
     public void Attack(PlayerHealth player)
     {
-        attackCooldown += 1.0f * Time.deltaTime;
-        if (attackCooldown >= attackTime)
+        attackCooldown -= 1.0f * Time.deltaTime;
+        if (attackCooldown <= 0.0f)
         {
-            attackCooldown = 0.0f;
+            if(burstTracker >= attackBurstAmount - 1)
+            {
+                attackCooldown = attackTime;
+                burstTracker = 0;
+            }
+            else
+            {
+                attackCooldown = attackBurstTime;
+                burstTracker += 1;
+            }
+            
 
             if (attackObj == null) player.TakeDamage(attackDamage);
             else CreateBullet(player.transform.position - head.position);

@@ -43,11 +43,9 @@ public class EnemyMovement : MonoBehaviour
     public void LookAtPlayer(GameObject playerObj)
     {
         Vector2 playerHorizontalDir = Vec2FromXZ(playerObj.transform.position - transform.position).normalized;
-        //float difference = Vector2.Angle(Vector2.up, playerHorizontalDir);
         Vector2 myHorizontalDir = Vec2FromXZ(transform.forward).normalized;
         float difference = Vector2.Angle(myHorizontalDir, playerHorizontalDir);
 
-        //transform.Rotate(Vector3.up, difference);
         print(difference/360);
         anim.directionAngle = difference / 360;
     }
