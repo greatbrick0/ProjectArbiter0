@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class EnemyHealth : Damageable
 {
+    [field: SerializeField]
+    public int maxHealth { get; private set; } = 100;
+    [field: SerializeField]
+    public int health { get; private set; }
+
     [SerializeField]
-    int maxHealth = 100;
+    private float weakSpotMult = 2.0f;
     [SerializeField]
-    int health;
+    private float armourSpotMult = 0.5f;
     [SerializeField]
-    float weakSpotMult = 2.0f;
+    public List<DamageElement> ignoredElements = new List<DamageElement>();
     [SerializeField]
-    float armourSpotMult = 0.5f;
+    public List<DamageSource> ignoredSources = new List<DamageSource>();
+
 
     public delegate void EnemyDied();
     public event EnemyDied enemyDied;
@@ -26,6 +32,7 @@ public class EnemyHealth : Damageable
     {
         int prevHealth = health;
 
+        if (ignoredElements.Contains(element) || ignoredSources.Contains(sourceType)) damageAmount = 0;
         if (spotType == DamageSpot.Armour) damageAmount = Mathf.CeilToInt(damageAmount * armourSpotMult);
         else if (spotType == DamageSpot.Head) damageAmount = Mathf.FloorToInt(damageAmount * weakSpotMult);
 
