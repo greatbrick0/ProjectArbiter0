@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "0eb279a910d561f895fcd991124566210a764e59";
+		public const string schemaId = "992ec2dff96e1fce98441e8d88a5bdf5a4866e3d";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -128,12 +128,11 @@ namespace Coherence.Generated
 		public const uint InternalPersistenceReady = 4;
 		public const uint InternalGenericCommand = 5;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e = 6;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellFire_Shot__char_46_StartAbility_daa1ec89_da68_494f_b48d_756bb44cb322 = 7;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17 = 8;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4 = 9;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863 = 10;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 = 11;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 = 12;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17 = 7;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4 = 8;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863 = 9;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 = 10;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 = 11;
 
 		private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>() {
 			{ 0, "WorldPosition" },
@@ -711,8 +710,6 @@ namespace Coherence.Generated
 					return GenericCommand.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellFire_Shot__char_46_StartAbility_daa1ec89_da68_494f_b48d_756bb44cb322:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellFire_Shot__char_46_StartAbility_daa1ec89_da68_494f_b48d_756bb44cb322.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4:
@@ -804,9 +801,6 @@ namespace Coherence.Generated
 					break;
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
 					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e)data, bitStream);
-					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellFire_Shot__char_46_StartAbility_daa1ec89_da68_494f_b48d_756bb44cb322:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellFire_Shot__char_46_StartAbility_daa1ec89_da68_494f_b48d_756bb44cb322.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellFire_Shot__char_46_StartAbility_daa1ec89_da68_494f_b48d_756bb44cb322)data, bitStream);
 					break;
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17:
 					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17)data, bitStream);

@@ -35,17 +35,15 @@ public class PlayerMovement : MonoBehaviour
     float jumpStrength = 10.0f;
     [SerializeField]
     float defualtGravityAccel = 8.0f;
-    float recoilRecentreSpeed = 90;
+    //float recoilRecentreSpeed = 90;
 
     Vector2 hVelocity = Vector2.zero;
     float yVelocity = 0.0f;
 
     public bool canJump;
     bool jumpInputted = false;
-    float timeSinceJumpInput = 0.0f;
     [field: SerializeField]
     public bool grounded { get; private set; } = false;
-    float timeSinceGrounded = 0.0f;
 
     Vector3 inputtedMoveDirection = Vector3.zero;
 

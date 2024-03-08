@@ -7,9 +7,6 @@ public class DummyBrain : EnemyBrain
 {
     private EnemyMovement moveScript;
 
-    [SerializeField]
-    private bool returnToSpot = false;
-
     private void Start()
     {
         moveScript = GetComponent<EnemyMovement>();
@@ -17,7 +14,6 @@ public class DummyBrain : EnemyBrain
 
     public override void Logic()
     {
-        //if (returnToSpot) moveScript.IdleBehaviour();
         moveScript.StandStill();
     }
 }

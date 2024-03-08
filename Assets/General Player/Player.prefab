@@ -967,7 +967,6 @@ MonoBehaviour:
   - rid: 1197954811585363968
   - rid: 1197954811585363970
   - rid: 1197954811585363972
-  - rid: 8135352634086785024
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1479,45 +1478,6 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 8135352634086785024
-      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 8135352634086785025
-        routing: 1
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: daa1ec89-da68-494f-b48d-756bb44cb322
-        archetypeData:
-          type: 0
-          minRange: 0
-          maxRange: 0
-          sampleRate: 0
-          floatCompression: 0
-          fields: []
-        unityComponent: {fileID: 0}
-        coherenceSync: {fileID: -2931630549695675886}
-        interpolationSettings: {fileID: 0}
-    - rid: 8135352634086785025
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: StartAbility
-        monoAssemblyType: 
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 0
-        valueSyncCallbackName: 
-        memberType: 8
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: PlayerSpellFire_Shot, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
 --- !u!114 &6000918072062803087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,6 +1593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityList: []
   playerState: 0
+  abilityLocks: 010101
   exhaustTime: 0
   castSlowAmount: -4
 --- !u!114 &4206427362788723892
