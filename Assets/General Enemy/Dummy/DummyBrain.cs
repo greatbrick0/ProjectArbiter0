@@ -17,7 +17,7 @@ public class DummyBrain : EnemyBrain
 
     public override void Logic()
     {
-        if (returnToSpot) moveScript.IdleBehaviour();
-        else moveScript.StandStill();
+        //if (returnToSpot) moveScript.IdleBehaviour();
+        moveScript.StandStill();
     }
 }

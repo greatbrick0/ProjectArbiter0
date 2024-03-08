@@ -68,19 +68,22 @@ public class ObjectiveManager : MonoBehaviour
     }
     private void UpdatePlayerObjectivesHUD()
     {
-        switch (objectives[objectiveIndex].requirements[0].statType)
+        if (hudRef != null)
         {
-            case "EnemiesKilled":
-                hudRef.UpdateObjective((int)trackedStats["EnemiesKilled"],(int)objectives[objectiveIndex].requirements[0].minValue, "Current Objective: \n Defeat all Enemies");
-                break;
-            default:
-                break;
+            switch (objectives[objectiveIndex].requirements[0].statType)
+            {
+                case "EnemiesKilled":
+                    hudRef.UpdateObjective((int)trackedStats["EnemiesKilled"], (int)objectives[objectiveIndex].requirements[0].minValue, "Current Objective: \n Defeat all Enemies");
+                    break;
+                default:
+                    break;
 
+            }
         }
     }
 
     private void UpdatePlayerObjectivesHUD(int amount)
     {
-        hudRef.UpdateObjective(amount);
+        if (hudRef != null) hudRef.UpdateObjective(amount);
     }
 }

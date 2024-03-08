@@ -6,5 +6,8 @@ public class TutorialObjectiveManager : MonoBehaviour
 {
     public int currentTutorialPrompt = 0;
 
-
+    public void UpdateTutorialPrompt(int currentPrompt)
+    {
+        currentTutorialPrompt = currentPrompt;
+    }
 }
