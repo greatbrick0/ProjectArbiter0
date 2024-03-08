@@ -87,7 +87,15 @@ public abstract class Ability : MonoBehaviour
     }
     public abstract void AbilityAction(); //the 'fun' part of the spell
 
-    protected abstract void GetNeededComponents();
+    protected virtual void GetNeededComponents()
+    {
+        AbilityHoldRef = GetComponent<AbilityInputSystem>();
+        sanityRef = GetComponent<SanitySystem>();
+        movementRef = GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
+        sync = GetComponent<CoherenceSync>();
+        weaponRef = GetComponent<WeaponHolder>();
+    }
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.
 

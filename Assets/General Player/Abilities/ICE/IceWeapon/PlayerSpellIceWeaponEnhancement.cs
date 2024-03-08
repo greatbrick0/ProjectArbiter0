@@ -35,16 +35,6 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     bool enhancementActive = false;
 
 
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        sync = GetComponent<CoherenceSync>();
-        weaponRef = GetComponent<WeaponHolder>();
-
-    }
-
 
     public override void RecieveAbilityRequest()
     {

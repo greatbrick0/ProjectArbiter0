@@ -1,24 +1,18 @@
-using Coherence.Toolkit;
 using Coherence;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpellHammerSwing : Ability
+public class PlayerSpellFireBomb : Ability
 {
-
-
     [SerializeField]
-    GameObject IceHammer;
+    GameObject spellBomb;
 
-    GameObject newHammer;
-
-    
-
+    GameObject bombRef;
 
     public override void RecieveAbilityRequest()
     {
-        Debug.Log("StartedHammerSwing");
+        Debug.Log("StartedFireBomb");
         GetNeededComponents();
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
 
@@ -33,14 +27,14 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void RecieveDemonicAbilityRequest()
     {
-        Debug.Log("DemonicVarient-HammerSwing-UNIMPLEMENTED");
+        Debug.Log("DemonicVarient-FireBomb-UNIMPLEMENTED");
         GetNeededComponents();
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime / 2);
     }
 
     public override void StartAbility()
     {
-        ApplyPlayerCastMotion(); //applies slow to player during casting.
+        //ApplyPlayerCastMotion(); //applies slow to player during casting.
         AbilityIntroductionDecorations();
         StartCoroutine(Windup());
     }
@@ -53,9 +47,9 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void AbilityAction() //begins at end of Windup (base ability)
     {
-        Debug.Log("hammer- AbilityAction");
-        newHammer = Instantiate(IceHammer, spellOrigin.transform);
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
+        Debug.Log("FireBomb- AbilityAction");
+        bombRef = Instantiate(spellBomb, spellOrigin.transform);
+        //FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
     }
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
@@ -68,8 +62,6 @@ public class PlayerSpellHammerSwing : Ability
         RemovePlayerCastMotion();
     }
 
-    public override void newDemonic()
-    {
+    public override void newDemonic() { }
 
-    }
 }

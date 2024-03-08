@@ -25,15 +25,6 @@ public class PlayerSpellIceDash : Ability
 
     GameObject collideHitboxRef;
 
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
-        sync = GetComponent<CoherenceSync>();
-    }
-
     public override void RecieveAbilityRequest()
     {
         Debug.Log("StartedIceDashAbility");
