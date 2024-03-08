@@ -46,7 +46,7 @@ public class IconCooldown : MonoBehaviour
             {
                 isCooldown = false;
                 ImageCooldown.fillAmount = 1.0f;
-                ImageCooldown.color = activeColor;
+                //ImageCooldown.color = activeColor;
                 //offCooldownGlow.gameObject.SetActive(true);
             }
             else
@@ -67,7 +67,7 @@ public class IconCooldown : MonoBehaviour
         }
         isCooldown = true;
         timeOnCooldown = 0.0f;
-        ImageCooldown.color = inactiveColor;
+        //ImageCooldown.color = inactiveColor;
        // offCooldownGlow.gameObject.SetActive(!isCooldown);
     }
 

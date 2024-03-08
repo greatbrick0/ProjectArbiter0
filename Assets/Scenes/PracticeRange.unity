@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ad1e04e32ed23a946b186d77cc78da07,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -122,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: f0714f4a29f327a479081cd81896c6c5, type: 2}
 --- !u!1 &12647774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1031,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81042
+  m_Name: pb_Mesh429294
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1370,8 +1371,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597610
-  m_fontColor: {r: 0.41709685, g: 0.8418342, b: 0.8584906, a: 1}
+    rgba: 14407530
+  m_fontColor: {r: 0.41709685, g: 0.8418342, b: 0.8584906, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1444,7 +1445,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81718
+  m_Name: pb_Mesh429978
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2532,6 +2533,7 @@ GameObject:
   - component: {fileID: 225401423}
   - component: {fileID: 225401422}
   - component: {fileID: 225401421}
+  - component: {fileID: 225401426}
   m_Layer: 8
   m_Name: Cube (32) - Tut
   m_TagString: Untagged
@@ -2862,6 +2864,47 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &225401426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225401419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e351d544e749c4a9a898bb5938c9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpawns:
+  - position: {x: -33, y: -2.5, z: 5}
+    supportedTypes:
+    - {fileID: 3294123685879425709, guid: d6864f6b08ef2f74cb5656579a40e8c1, type: 3}
+    weight: 0
+  - position: {x: -30, y: -2.5, z: 9}
+    supportedTypes:
+    - {fileID: 3294123685879425709, guid: d6864f6b08ef2f74cb5656579a40e8c1, type: 3}
+    weight: 0
+  - position: {x: -33, y: -2.5, z: 13}
+    supportedTypes:
+    - {fileID: 3294123685879425709, guid: d6864f6b08ef2f74cb5656579a40e8c1, type: 3}
+    weight: 0
+  - position: {x: -23, y: -2.5, z: 15}
+    supportedTypes:
+    - {fileID: 3294123685879425709, guid: d6864f6b08ef2f74cb5656579a40e8c1, type: 3}
+    weight: 0
+  firstRoom: 0
+  continuousSpawns: []
+  maxEnemies: 0
+  maxDuration: 0
+  spawnFrequency:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  frequencyCurveDuration: 0
+  beyondCurveFrequency: 0
 --- !u!1001 &249894281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3293,7 +3336,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-235934
+  m_Name: pb_Mesh429226
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3537,7 +3580,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-574936
+  m_Name: pb_Mesh429342
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3701,7 +3744,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81480
+  m_Name: pb_Mesh429842
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5125,7 +5168,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-407222
+  m_Name: pb_Mesh429260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6019,7 +6062,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-380724
+  m_Name: pb_Mesh428998
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6641,7 +6684,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh80866
+  m_Name: pb_Mesh428960
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6940,7 +6983,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81072
+  m_Name: pb_Mesh429372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7205,7 +7248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-576086
+  m_Name: pb_Mesh429042
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7378,7 +7421,7 @@ GameObject:
   - component: {fileID: 646226994}
   - component: {fileID: 646226993}
   - component: {fileID: 646226992}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TutorialPrompter (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7413,6 +7456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialManager: {fileID: 1523687330}
+  requiredCurrentPrompt: 3
   tutorialPromptNumber: 4
 --- !u!64 &646226993
 MeshCollider:
@@ -7728,7 +7772,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-564024
+  m_Name: pb_Mesh429422
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8236,7 +8280,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-568512
+  m_Name: pb_Mesh429094
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8409,7 +8453,7 @@ GameObject:
   - component: {fileID: 707031310}
   - component: {fileID: 707031309}
   - component: {fileID: 707031308}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TutorialPrompter (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8444,6 +8488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialManager: {fileID: 1523687330}
+  requiredCurrentPrompt: 5
   tutorialPromptNumber: 6
 --- !u!64 &707031309
 MeshCollider:
@@ -9287,7 +9332,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh82092
+  m_Name: pb_Mesh430262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9451,7 +9496,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-184230
+  m_Name: pb_Mesh429358
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9778,7 +9823,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81786
+  m_Name: pb_Mesh430018
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9971,7 +10016,7 @@ GameObject:
   - component: {fileID: 918969385}
   - component: {fileID: 918969384}
   - component: {fileID: 918969389}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TutorialPrompter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10314,6 +10359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialManager: {fileID: 1523687330}
+  requiredCurrentPrompt: 1
   tutorialPromptNumber: 2
 --- !u!1 &939785806
 GameObject:
@@ -10665,7 +10711,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-192040
+  m_Name: pb_Mesh429532
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11517,7 +11563,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-402298
+  m_Name: pb_Mesh429162
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11681,7 +11727,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-629744
+  m_Name: pb_Mesh429562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11845,7 +11891,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-366596
+  m_Name: pb_Mesh429244
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12009,7 +12055,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-205892
+  m_Name: pb_Mesh429326
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12173,7 +12219,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81564
+  m_Name: pb_Mesh429894
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12357,7 +12403,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh80956
+  m_Name: pb_Mesh429126
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12521,7 +12567,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-194914
+  m_Name: pb_Mesh429462
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12760,8 +12806,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597610
-  m_fontColor: {r: 0.41709685, g: 0.8418342, b: 0.8584906, a: 1}
+    rgba: 14407530
+  m_fontColor: {r: 0.41709685, g: 0.8418342, b: 0.8584906, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12834,7 +12880,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81314
+  m_Name: pb_Mesh429708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13163,7 +13209,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81204
+  m_Name: pb_Mesh429598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13679,15 +13725,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpawns:
-  - position: {x: 2.5, y: -2, z: 27}
+  - position: {x: 0, y: -2.5, z: 21}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: 03cae38ad2ee1be41926ecf791a4649a, type: 3}
     weight: 0
-  - position: {x: 5, y: -2, z: 28}
+  - position: {x: 2.5, y: -2.5, z: 20}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: 03cae38ad2ee1be41926ecf791a4649a, type: 3}
     weight: 0
-  - position: {x: 7.5, y: -2, z: 28}
+  - position: {x: 5, y: -2.5, z: 21}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: 03cae38ad2ee1be41926ecf791a4649a, type: 3}
     weight: 0
@@ -13709,7 +13755,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-349854
+  m_Name: pb_Mesh428930
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13883,7 +13929,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-375822
+  m_Name: pb_Mesh429020
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14798,7 +14844,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-393368
+  m_Name: pb_Mesh429188
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15417,7 +15463,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81630
+  m_Name: pb_Mesh429936
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15837,7 +15883,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-572830
+  m_Name: pb_Mesh429744
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16076,8 +16122,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597610
-  m_fontColor: {r: 0.41709685, g: 0.8418342, b: 0.8584906, a: 1}
+    rgba: 14407530
+  m_fontColor: {r: 0.41709685, g: 0.8418342, b: 0.8584906, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17035,7 +17081,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81254
+  m_Name: pb_Mesh429648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17208,7 +17254,7 @@ GameObject:
   - component: {fileID: 1451995445}
   - component: {fileID: 1451995444}
   - component: {fileID: 1451995443}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TutorialPrompter (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17243,6 +17289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialManager: {fileID: 1523687330}
+  requiredCurrentPrompt: 7
   tutorialPromptNumber: 8
 --- !u!64 &1451995444
 MeshCollider:
@@ -17982,7 +18029,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-355268
+  m_Name: pb_Mesh429062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18676,9 +18723,9 @@ MonoBehaviour:
     <completionEvent>k__BackingField:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 225401419}
+        - m_Target: {fileID: 225401426}
           m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
-          m_MethodName: 
+          m_MethodName: InitialWaveSpawn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18695,7 +18742,62 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 9
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1523687330}
+          m_TargetAssemblyTypeName: TutorialObjectiveManager, Assembly-CSharp
+          m_MethodName: FadeInSanity
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - <requirements>k__BackingField:
+    - <statType>k__BackingField: EnemiesKilled
+      <minValue>k__BackingField: 4
+      <maxValue>k__BackingField: 0
+    <completionEvent>k__BackingField:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1523687330}
+          m_TargetAssemblyTypeName: TutorialObjectiveManager, Assembly-CSharp
+          m_MethodName: UpdateTutorialPrompt
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 11
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1523687330}
+          m_TargetAssemblyTypeName: TutorialObjectiveManager, Assembly-CSharp
+          m_MethodName: StartEndSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1523687330}
+          m_TargetAssemblyTypeName: TutorialObjectiveManager, Assembly-CSharp
+          m_MethodName: FadeInHealthBar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -19022,6 +19124,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTutorialPrompt: 0
+  ability1Icon: {fileID: 416635466459510451}
+  ability1Back: {fileID: 1135210362616974285}
+  ability1BackFill: {fileID: 2612369812776926957}
+  ability1Bind: {fileID: 138821690}
+  ability2Icon: {fileID: 8107126200149510237}
+  ability2Back: {fileID: 1986702781665340001}
+  ability2BackFill: {fileID: 3157329222939543903}
+  ability2Bind: {fileID: 1045725139}
+  ability3Icon: {fileID: 6022818981381557595}
+  ability3Back: {fileID: 7533609896504604940}
+  ability3BackFill: {fileID: 7186924377615658947}
+  ability3Bind: {fileID: 1315841125}
+  sanityMeter: {fileID: 6080948945021000533}
+  sanityMeterBack: {fileID: 4878053913978536730}
+  sanityMeterTrail: {fileID: 5263614764955468010}
+  sanityMeterLabel: {fileID: 2055788833185905577}
+  healthBar: {fileID: 7123887692812063429}
+  healthBarBack: {fileID: 9049282477330162081}
+  healthBarText: {fileID: 1691283270283596948}
 --- !u!1 &1618780065
 GameObject:
   m_ObjectHideFlags: 0
@@ -19075,7 +19196,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81186
+  m_Name: pb_Mesh429578
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19623,7 +19744,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81350
+  m_Name: pb_Mesh429758
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19787,7 +19908,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-566142
+  m_Name: pb_Mesh429518
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20000,7 +20121,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81726
+  m_Name: pb_Mesh429986
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21074,7 +21195,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh82584
+  m_Name: pb_Mesh430604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21238,7 +21359,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81300
+  m_Name: pb_Mesh429694
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22703,7 +22824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23426,7 +23547,7 @@ RectTransform:
   - {fileID: 7377785784033691036}
   - {fileID: 2322323224082805150}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -23530,7 +23651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24162,8 +24283,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290818368
-  m_fontColor: {r: 0.25204694, g: 0.6929077, b: 0.754717, a: 1}
+    rgba: 12628288
+  m_fontColor: {r: 0.25204694, g: 0.6929077, b: 0.754717, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24284,14 +24405,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!222 &1723688776818541424
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584973941283357626}
-  m_CullTransparentMesh: 1
 --- !u!4 &1724654852051251543
 Transform:
   m_ObjectHideFlags: 0
@@ -24456,7 +24569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24540,8 +24653,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24615,7 +24728,7 @@ RectTransform:
   - {fileID: 7775148322027829510}
   - {fileID: 5334920891265797974}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -24635,7 +24748,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24950,25 +25063,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!1 &2584973941283357626
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6073671246365015209}
-  - component: {fileID: 1723688776818541424}
-  - component: {fileID: 3626868688753763687}
-  - component: {fileID: 3661599210957848372}
-  m_Layer: 5
-  m_Name: DamageGradient
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!23 &2605122793706850256
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25039,7 +25133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25238,7 +25332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25463,72 +25557,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382730360420734932}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3626868688753763687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584973941283357626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9f3e6dd1fb7a73499ef5efbaa7cf1dc, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &3661599210957848372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584973941283357626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583dc61ba379f5742a639438bcf1a117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  opacityCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.995283
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5416667
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3666975437791007289
 GameObject:
   m_ObjectHideFlags: 0
@@ -25605,7 +25633,7 @@ RectTransform:
   - {fileID: 7798853294533503300}
   - {fileID: 138821688}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -26069,7 +26097,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26301,7 +26329,7 @@ RectTransform:
   - {fileID: 1207942126277365617}
   - {fileID: 1315841123}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -26436,8 +26464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 58}
-  m_SizeDelta: {x: 325, y: 150}
+  m_AnchoredPosition: {x: 0, y: 53}
+  m_SizeDelta: {x: 722.4, y: 304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4849725978059542676
 GameObject:
@@ -27903,7 +27931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18191527, g: 0.23643316, b: 0.3301887, a: 1}
+  m_Color: {r: 0.18191527, g: 0.23643316, b: 0.3301887, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28579,7 +28607,7 @@ RectTransform:
   - {fileID: 5658509718337388755}
   - {fileID: 5155543706028117570}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -28649,7 +28677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20986114, g: 0.34103665, b: 0.4245283, a: 1}
+  m_Color: {r: 0.20986114, g: 0.34103665, b: 0.4245283, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28899,7 +28927,7 @@ GameObject:
   - component: {fileID: 3892116834287719163}
   - component: {fileID: 2234468146891447000}
   m_Layer: 5
-  m_Name: Ability 2
+  m_Name: Ability 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29319,7 +29347,7 @@ RectTransform:
   - {fileID: 6647698012980983698}
   - {fileID: 1045725137}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -29339,7 +29367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29371,26 +29399,6 @@ Transform:
   m_Father: {fileID: 1724654852051251543}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &6073671246365015209
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584973941283357626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!64 &6075934792701482390
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29447,7 +29455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5981132, g: 0.908103, b: 1, a: 1}
+  m_Color: {r: 0.5981132, g: 0.908103, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -37685,7 +37693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40256318, g: 0.7337331, b: 0.8301887, a: 1}
+  m_Color: {r: 0.40256318, g: 0.7337331, b: 0.8301887, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -37714,7 +37722,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6073671246365015209}
   - {fileID: 956278945437077579}
   - {fileID: 2145527380575114403}
   - {fileID: 3892116834287719163}
@@ -37755,7 +37762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -38361,7 +38368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -38783,7 +38790,7 @@ MonoBehaviour:
   SanityBar: {fileID: 6621008854270234882}
   healthLabel: {fileID: 1691283270283596948}
   healthBar: {fileID: 7123887692812063429}
-  damageGradient: {fileID: 3661599210957848372}
+  damageGradient: {fileID: 0}
   ObjectiveText: {fileID: 5304167789348365871}
 --- !u!1 &8075066613455162482
 GameObject:
@@ -38824,7 +38831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -39880,11 +39887,13 @@ MonoBehaviour:
   - Do not forget, you are only a 3rd generation Archangel, and all of your abilities
     come at the cost of your sanity. Do not run out of sanity again. We all remember
     what happened last time.
-  - Your enemies will always come in groups. Use everything you've learned to destroy
-    these final enemies.
   - Oh and remember, the real enemies will shoot back. You cost a lot of money to
     produce, so don't die, ok?
-  - Daily training complete. Come back tomorrow to do the exact same thing again.
+  - Training complete. Exiting practice range in 5
+  - Training complete. Exiting practice range in 4
+  - Training complete. Exiting practice range in 3
+  - Training complete. Exiting practice range in 2
+  - Training complete. Exiting practice range in 1
 --- !u!65 &8807816902151967852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39911,7 +39920,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8824078197230766544
 GameObject:
@@ -40031,12 +40040,12 @@ RectTransform:
   m_Children:
   - {fileID: 4806452591690612815}
   m_Father: {fileID: 7134191745110868258}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 280}
-  m_SizeDelta: {x: 341, y: 270}
+  m_AnchoredPosition: {x: 0, y: 336.6}
+  m_SizeDelta: {x: 801.61, y: 303.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9049282477330162081
 MonoBehaviour:
@@ -40051,7 +40060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
