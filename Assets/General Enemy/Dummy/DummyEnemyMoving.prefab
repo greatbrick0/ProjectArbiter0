@@ -1622,10 +1622,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <team>k__BackingField: Enemy
-  maxHealth: 100
-  health: 100
+  <maxHealth>k__BackingField: 50
+  <health>k__BackingField: 0
   weakSpotMult: 2
   armourSpotMult: 0.5
+  ignoredElements: 
+  ignoredSources: 
 --- !u!195 &3096550180487374425
 NavMeshAgent:
   m_ObjectHideFlags: 0
