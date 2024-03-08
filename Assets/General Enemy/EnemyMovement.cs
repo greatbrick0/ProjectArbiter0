@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -38,6 +39,7 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(playerObj.transform.position);
         anim.walking = true;
         anim.directionAngle = 0.0f;
+        LookAtPlayer(playerObj);
     }
 
     public void LookAtPlayer(GameObject playerObj)
@@ -46,8 +48,16 @@ public class EnemyMovement : MonoBehaviour
         Vector2 myHorizontalDir = Vec2FromXZ(transform.forward).normalized;
         float difference = Vector2.Angle(myHorizontalDir, playerHorizontalDir);
 
-        print(difference/360);
-        anim.directionAngle = difference / 360;
+        //Trying to correct rotation
+        Vector3 directionToPlayer = Vector3.Normalize(playerObj.transform.position - transform.position);
+        Vector3 horizontalDir = transform.forward;
+        Vector3 crossProduct = Vector3.Cross(directionToPlayer, horizontalDir);
+        float sign = Mathf.Sign(crossProduct.y);
+        difference *= -sign; //It's the opposite way for some reason
+
+        //Removed /360 as animation controller takes values from -180 to 180 now
+        print(difference);
+        anim.directionAngle = difference;
     }
 
     public void StandStill()
