@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
     public void IdleBehaviour()
     {
         agent.SetDestination(spawnPos);
-        anim.walking = (agent.velocity == Vector3.zero);
+        anim.walking = !(agent.velocity.sqrMagnitude < 0.2f);
     }
 
     private Vector2 Vec2FromXZ(Vector3 vec3)
