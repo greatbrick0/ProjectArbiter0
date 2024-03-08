@@ -22,6 +22,9 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     public CastingState playerState = CastingState.idle;
 
+    [SerializeField]
+    public bool[] abilityLocks = {true,true,true};
+
     private HUDSystem HUDRef;
 
     public bool demonic { get; private set; }
@@ -37,12 +40,15 @@ public class AbilityInputSystem : MonoBehaviour
         AbilityList = GetComponents<Ability>();
     }
 
+    
+
     public void AttemptCast(int tier) //Recieved input by player input
     {
 
         if (AbilityList[tier].onCooldown) //is that ability on cooldown? if so, end process.
             return;
-
+        if (abilityLocks[tier])
+            return;
 
         switch (playerState)
         {
