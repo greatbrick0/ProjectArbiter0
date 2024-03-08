@@ -8,6 +8,14 @@ using TMPro;
 public class TutorialObjectiveManager : MonoBehaviour
 {
     public int currentTutorialPrompt = 0;
+    [SerializeField] AbilityInputSystem abilityInputSystem;
+
+    private void Start()
+    {
+        abilityInputSystem.abilityLocks[0] = false;
+        abilityInputSystem.abilityLocks[1] = false;
+        abilityInputSystem.abilityLocks[2] = false;
+    }
 
     [SerializeField] Image ability1Icon;
     [SerializeField] Image ability1Back;

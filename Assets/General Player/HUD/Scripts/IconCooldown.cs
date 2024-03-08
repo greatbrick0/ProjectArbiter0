@@ -11,8 +11,8 @@ public class IconCooldown : MonoBehaviour
     [SerializeField]
     private Image ImageIcon;
 
-    private Color activeColor = new Color(1, 1, 1, 1);
-    private Color inactiveColor = new Color(0.4f, 0.5f, 0.6f, 1);
+    private Color activeColor = new Color(1, 1, 1);
+    private Color inactiveColor = new Color(0.4f, 0.5f, 0.6f);
 
 
 
@@ -46,7 +46,7 @@ public class IconCooldown : MonoBehaviour
             {
                 isCooldown = false;
                 ImageCooldown.fillAmount = 1.0f;
-                //ImageCooldown.color = activeColor;
+                ImageCooldown.color = activeColor;
                 //offCooldownGlow.gameObject.SetActive(true);
             }
             else
@@ -67,7 +67,7 @@ public class IconCooldown : MonoBehaviour
         }
         isCooldown = true;
         timeOnCooldown = 0.0f;
-        //ImageCooldown.color = inactiveColor;
+        ImageCooldown.color = inactiveColor;
        // offCooldownGlow.gameObject.SetActive(!isCooldown);
     }
 
