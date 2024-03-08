@@ -47,7 +47,7 @@ public class AbilityInputSystem : MonoBehaviour
 
         if (AbilityList[tier].onCooldown) //is that ability on cooldown? if so, end process.
             return;
-        if (abilityLocks[tier])
+        if (!abilityLocks[tier])
             return;
 
         switch (playerState)
