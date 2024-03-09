@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CameraGlide : MonoBehaviour
 {
+    [SerializeField]
     private Vector3 pos1 = new Vector3(-7.2f, 6.4f, -3.5f);
+    [SerializeField]
     private Vector3 pos2 = new Vector3(3.7f, 6.4f, -10.8f);
     private Vector3 targetPos;
 
