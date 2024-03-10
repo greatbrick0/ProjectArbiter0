@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 8751002839937151779}
   - component: {fileID: 8988836857019749150}
   - component: {fileID: 4206427362788723892}
+  - component: {fileID: 1162613746593882785}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -989,6 +990,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 4585713409332330798}
       lodStepsActive: 1
+    - component: {fileID: 1162613746593882785}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -1474,6 +1477,26 @@ MonoBehaviour:
   sanityRecoverySpeedModifier: 1
   demonicRecoverySpeedModifier: 10
   sanityRecoveryPause: 3
+--- !u!114 &1162613746593882785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd3d7b2c58eac147a9140791fbcb43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <head>k__BackingField: {fileID: 3402058366864678147}
+  playerDead: 0
+  <maxMainHealth>k__BackingField: 200
+  mainHealth: 1
+  regenDelay: 5
+  regenRate: 15
+  regenChunkSize: 3
+  tempShield: 0
 --- !u!1 &3523645066877098434
 GameObject:
   m_ObjectHideFlags: 0
