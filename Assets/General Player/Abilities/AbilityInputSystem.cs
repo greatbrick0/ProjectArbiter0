@@ -18,7 +18,7 @@ public class AbilityInputSystem : MonoBehaviour
 
     //Variables
     [SerializeField]
-    public Ability[] AbilityList;
+    public Ability[] AbilityList; //not a list...
     [SerializeField]
     public CastingState playerState = CastingState.idle;
 
@@ -35,11 +35,19 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     public float castSlowAmount = 2.0f;
 
+    [SerializeField]
+    CoherenceSync sync;
+
     private void Start()
     {
-        AbilityList = GetComponents<Ability>();
+        RegisterAbilities();
     }
 
+    public void RegisterAbilities()
+    {
+        AbilityList = GetComponentsInChildren<Ability>();
+        Debug.Log("test3- "+AbilityList.Length);
+    }
     
 
     public void AttemptCast(int tier) //Recieved input by player input
@@ -55,9 +63,9 @@ public class AbilityInputSystem : MonoBehaviour
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
                     if (!demonic)
-                        AbilityList[tier].RecieveAbilityRequest();
+                        sync.SendCommand<AbilityInputSystem>(nameof(SendCastToAbility), MessageTarget.All, tier, false);
                     else
-                        AbilityList[tier].RecieveDemonicAbilityRequest();
+                        sync.SendCommand<AbilityInputSystem>(nameof(SendCastToAbility), MessageTarget.All, tier, true);
                     break;
                 }
             case CastingState.casting: //if you are currently casting something, you gotta wait!
@@ -77,11 +85,21 @@ public class AbilityInputSystem : MonoBehaviour
 
     }
 
+    public void SendCastToAbility(int tier, bool doDemon)
+    {
+        if (doDemon)
+        AbilityList[tier].RecieveDemonicAbilityRequest();
+        else
+        AbilityList[tier].RecieveAbilityRequest();
+
+    }
+
     public void GetHUDReference()
     {
         HUDRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>();
         for (int i = 0; i < AbilityList.Length; i++)
         {
+            Debug.Log(i);
             AbilityList[i].RecieveHUDReference(HUDRef, i);
         }
     }

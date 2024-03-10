@@ -45,7 +45,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown());
 
-        sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
 
     }
 
@@ -135,6 +135,6 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     {
         Debug.Log("WeaponEnhancement disabled due to becoming demonic");
         if (enhancementActive)
-            sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(StartAbility), MessageTarget.All);
+            StartAbility();
     }
 }

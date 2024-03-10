@@ -28,7 +28,7 @@ public class PlayerSpellHammerSwing : Ability
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
 
-        sync.SendCommand<PlayerSpellHammerSwing>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
     }
 
     public override void RecieveDemonicAbilityRequest()

@@ -7,13 +7,11 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
 
-    protected CoherenceSync sync;
     protected Rigidbody rb;
     protected AbilityInputSystem AbilityHoldRef;
     protected SanitySystem sanityRef;
     protected PlayerMovement movementRef;
     protected WeaponHolder weaponRef;
-    [SerializeField]
     protected GameObject spellOrigin;
 
     [SerializeField]
@@ -42,6 +40,7 @@ public abstract class Ability : MonoBehaviour
 
     public void RecieveHUDReference(HUDSystem HUD, int tier)
     {
+        Debug.Log("testmessage-RecieveHUDReference");
         HUDRef = HUD;
         this.tier = tier;
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
@@ -89,12 +88,12 @@ public abstract class Ability : MonoBehaviour
 
     protected virtual void GetNeededComponents()
     {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
-        sync = GetComponent<CoherenceSync>();
-        weaponRef = GetComponent<WeaponHolder>();
+        AbilityHoldRef = transform.parent.parent.parent.parent.GetComponent<AbilityInputSystem>();
+        sanityRef = transform.parent.parent.parent.parent.GetComponent<SanitySystem>();
+        movementRef = transform.parent.parent.parent.parent.GetComponent<PlayerMovement>();
+        rb = transform.parent.parent.parent.parent.GetComponent<Rigidbody>();
+        weaponRef = transform.parent.parent.parent.parent.GetComponent<WeaponHolder>();
+        spellOrigin = transform.parent.gameObject;
     }
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.

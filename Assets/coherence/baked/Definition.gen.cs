@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "992ec2dff96e1fce98441e8d88a5bdf5a4866e3d";
+		public const string schemaId = "dca64510109ca7c86140fa2830b205437368de8f";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -120,19 +120,15 @@ namespace Coherence.Generated
 		public const uint InternalGenericFieldULong3 = 100;
 		public const uint InternalGenericFieldColor0 = 101;
 		public const uint InternalGenericFieldColor1 = 102;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999 = 103;
 		public const uint InternalAuthorityRequest = 0;
 		public const uint InternalAuthorityTransfer = 1;
 		public const uint InternalQuerySynced = 2;
 		public const uint InternalAdoptOrphan = 3;
 		public const uint InternalPersistenceReady = 4;
 		public const uint InternalGenericCommand = 5;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e = 6;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17 = 7;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4 = 8;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863 = 9;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 = 10;
-		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 = 11;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da = 6;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 = 7;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 = 8;
 
 		private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>() {
 			{ 0, "WorldPosition" },
@@ -238,7 +234,6 @@ namespace Coherence.Generated
 			{ 100, "GenericFieldULong3" },
 			{ 101, "GenericFieldColor0" },
 			{ 102, "GenericFieldColor1" },
-			{ 103, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999" },
 		};
 
 		public static string ComponentNameForTypeId(uint typeId)
@@ -466,8 +461,6 @@ namespace Coherence.Generated
 					return GenericFieldColor0.Deserialize(inProtocolStream);
 				case InternalGenericFieldColor1:
 					return GenericFieldColor1.Deserialize(inProtocolStream);
-				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999.Deserialize(inProtocolStream);
 				default:
 					return (null, 0);
 			}
@@ -684,8 +677,6 @@ namespace Coherence.Generated
 					return GenericFieldColor0.Serialize((GenericFieldColor0)data, mask, protocolStream);
 				case InternalGenericFieldColor1:
 					return GenericFieldColor1.Serialize((GenericFieldColor1)data, mask, protocolStream);
-				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999)data, mask, protocolStream);
 				default:
 					logger.Error("Missing serialization implementation for a component.", ("component", data.GetComponentType()));
 					return 0;
@@ -708,14 +699,8 @@ namespace Coherence.Generated
 					return PersistenceReady.Deserialize(bitStream);
 				case Definition.InternalGenericCommand:
 					return GenericCommand.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4.Deserialize(bitStream);
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863:
-					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863.Deserialize(bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960:
@@ -799,17 +784,8 @@ namespace Coherence.Generated
 				case Definition.InternalGenericCommand:
 					GenericCommand.Serialize((GenericCommand)data, bitStream);
 					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e)data, bitStream);
-					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17)data, bitStream);
-					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4)data, bitStream);
-					break;
-				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863:
-					Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863)data, bitStream);
+				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da:
+					Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da)data, bitStream);
 					break;
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096:
 					Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096)data, bitStream);

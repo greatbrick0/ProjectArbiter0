@@ -37,7 +37,7 @@ public class PlayerSpellIceDash : Ability
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown());
 
-        sync.SendCommand<PlayerSpellIceDash>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
 
     }
 
@@ -57,8 +57,8 @@ public class PlayerSpellIceDash : Ability
     public override void AbilityIntroductionDecorations()
     {
         movementRef.SetEnabledControls(false, true);
-        GetComponent<PlayerInput>().mouseXSens *= 0.3f;
-        GetComponent<PlayerInput>().mouseYSens *= 0.01f;
+        sanityRef.GetComponent<PlayerInput>().mouseXSens *= 0.3f;
+        sanityRef.GetComponent<PlayerInput>().mouseYSens *= 0.01f;
         rb.drag = 3;
         rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity/5)) , ForceMode.Impulse);
 
@@ -104,8 +104,8 @@ public class PlayerSpellIceDash : Ability
         shouldRepeatAction = false;
         actionIntervalTimer = repeatActionInterval;
         rb.drag = 0;
-        GetComponent<PlayerInput>().mouseXSens /= 0.3f;
-        GetComponent<PlayerInput>().mouseYSens /= 0.01f;
+        sanityRef.GetComponent<PlayerInput>().mouseXSens /= 0.3f;
+        sanityRef.GetComponent<PlayerInput>().mouseYSens /= 0.01f;
         if (collideHitboxRef != null)
             collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
         if (collide)
