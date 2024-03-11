@@ -45,8 +45,10 @@ public class AbilityInputSystem : MonoBehaviour
 
     public void RegisterAbilities()
     {
+        AbilityList = null;
         AbilityList = GetComponentsInChildren<Ability>();
         Debug.Log("test3- "+AbilityList.Length);
+        GetHUDReference();
     }
     
 

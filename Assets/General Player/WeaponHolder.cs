@@ -123,7 +123,7 @@ public class WeaponHolder : MonoBehaviour
      *  i think Start() would fit well for this purpose.     -S                                                         */
     public void GetHUDReference()
     {
-        hudGunRef = GameObject.Find("GunHUD").GetComponent<HUDGunAmmoScript>();
+        hudGunRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>().gunHUDRef;
         hudGunRef.SetCurrentAmmo(currentAmmo);
         hudGunRef.SetMaxAmmo(maxAmmo);
     }

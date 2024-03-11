@@ -40,7 +40,6 @@ public abstract class Ability : MonoBehaviour
 
     public void RecieveHUDReference(HUDSystem HUD, int tier)
     {
-        Debug.Log("testmessage-RecieveHUDReference");
         HUDRef = HUD;
         this.tier = tier;
         HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
