@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8485847271426321538}
   - component: {fileID: 6171471607706154609}
   - component: {fileID: 3020461105643150937}
+  - component: {fileID: 8171817131936360637}
   m_Layer: 0
   m_Name: FireSpellHolder
   m_TagString: Untagged
@@ -75,3 +76,26 @@ MonoBehaviour:
     type: 3}
   bombRef: {fileID: 0}
   bombActive: 0
+--- !u!114 &8171817131936360637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683947374999564920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac5f767a2f3ac7488a7fe6402fae762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityCost: 20
+  onCooldown: 0
+  maxCooldownTime: 4
+  windupTime: 0
+  castSlowDuration: 1.3
+  HUDRef: {fileID: 0}
+  upgradedWeaponInfo: {fileID: 11400000, guid: 826814ce33a749f44b845aa1d3c6437a, type: 2}
+  gunVFXRef: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+  newmuzzleColor: {r: 0, g: 0, b: 0, a: 0}
+  stimBoostValue: 6

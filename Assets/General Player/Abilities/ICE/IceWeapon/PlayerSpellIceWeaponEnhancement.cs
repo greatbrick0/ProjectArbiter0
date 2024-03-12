@@ -22,6 +22,9 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     WeaponData weaponStore;
 
     [SerializeField]
+    GameObject gunVFX;
+
+    [SerializeField]
     GameObject gunVFXRef;
     //muzzle
     [SerializeField]
@@ -79,7 +82,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
-            gunVFXRef.SetActive(true);
+            //gunVFXRef = Instantiate(gunVFX, )
             //muzzleStore = muzzleFlash.GetColor("Color01");
             //  muzzleFlash.SetColor("Color01", newmuzzleColor);
         }
@@ -90,7 +93,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
-            gunVFXRef.SetActive(false);
+            //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
         }
         RemovePlayerCastMotion();

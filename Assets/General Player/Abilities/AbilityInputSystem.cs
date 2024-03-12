@@ -38,6 +38,8 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     CoherenceSync sync;
 
+    [SerializeField]
+    GameObject spellOrigin;
     private void Start()
     {
         RegisterAbilities();

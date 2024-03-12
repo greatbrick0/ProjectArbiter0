@@ -330,4 +330,9 @@ public class WeaponHolder : MonoBehaviour
         weapon = newWeapon;
         SetAllStats();
     }
+
+    public void MaxOutAmmo()
+    {
+        currentAmmo = maxAmmo;
+    }
 }

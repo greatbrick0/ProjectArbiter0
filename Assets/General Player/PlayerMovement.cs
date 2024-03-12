@@ -243,6 +243,16 @@ public class PlayerMovement : MonoBehaviour
         maxMoveSpeed += modifyValue;
     }
 
+    public float GetMaxMoveSpeed()
+    {
+        return maxMoveSpeed;
+    }
+
+    public void ApplyExternalAccelModification(float modifyValue)
+    {
+        moveSpeedAccel += modifyValue;
+    }
+
     
     private void OnCollisionStay(Collision collision)
     {
