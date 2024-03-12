@@ -11,8 +11,13 @@ public class BombLogic : MonoBehaviour
     DamageNumberManager hitNumberRef;
 
 
+
+    [SerializeField]
+    GameObject bombVisual;
     [SerializeField]
     GameObject explosionvisual;
+
+
 
     public List<Damageable> hitTargets;
 
@@ -77,6 +82,8 @@ public class BombLogic : MonoBehaviour
 
     public void Trigger()
     {
+        bombVisual.SetActive(false);
+        explosionvisual.SetActive(true);
         bombAbilityRef.bombRef = null;
         bombAbilityRef.bombActive = false;
         GetComponent<SphereCollider>().radius = 3;
