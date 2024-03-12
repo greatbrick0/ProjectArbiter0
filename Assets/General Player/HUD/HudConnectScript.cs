@@ -27,9 +27,10 @@ public class HudConnectScript : MonoBehaviour
     TextMeshProUGUI ObjectiveText;
 
 
-
-
-
+    private void Start()
+    {
+        transform.SetAsFirstSibling();
+    }
 
     public void ConnectToHUDSystem()
     {

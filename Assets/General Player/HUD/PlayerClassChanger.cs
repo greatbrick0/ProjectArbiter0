@@ -31,7 +31,6 @@ public class PlayerClassChanger : MonoBehaviour
                 GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
                 initRef = Instantiate(Class[1], HUDRef.transform);
                 initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
-
                 
             }
             
