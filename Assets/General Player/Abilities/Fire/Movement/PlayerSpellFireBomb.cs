@@ -8,6 +8,12 @@ public class PlayerSpellFireBomb : Ability
     [SerializeField]
     GameObject spellBomb;
 
+    [SerializeField]
+    GameObject dashMotionVFX;
+
+    GameObject motionVFXRef;
+
+    [HideInInspector]
     public GameObject bombRef;
     float bombActiveTimer;
     public bool bombActive;
@@ -103,6 +109,7 @@ public class PlayerSpellFireBomb : Ability
 
     public void ChangeControls()
     {
+        motionVFXRef = Instantiate(dashMotionVFX, spellOrigin.transform);
         GetComponentInParent<PlayerMovement>().SetEnabledControls(false, true);
         //GetComponentInParent<PlayerMovement>().SetPartialControl(0.1f);
         Invoke("ReturnControls",2.0f);
@@ -110,6 +117,7 @@ public class PlayerSpellFireBomb : Ability
 
     public void ReturnControls()
     {
+        Destroy(motionVFXRef.gameObject);
         GetComponentInParent<PlayerMovement>().SetEnabledControls(true, true);
     }
 

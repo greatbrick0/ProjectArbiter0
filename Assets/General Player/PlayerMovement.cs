@@ -243,6 +243,11 @@ public class PlayerMovement : MonoBehaviour
         maxMoveSpeed += modifyValue;
     }
 
+    public void SetMoveSpeed(float newValue)
+    {
+        maxMoveSpeed = newValue;
+    }
+
     public float GetMaxMoveSpeed()
     {
         return maxMoveSpeed;

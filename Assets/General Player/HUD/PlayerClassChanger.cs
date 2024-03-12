@@ -20,6 +20,7 @@ public class PlayerClassChanger : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
+            Debug.Log("Detected player");
             currentPlayer = collision.gameObject;
             if (collision.transform.GetComponentInChildren<Ability>() != null)
             {

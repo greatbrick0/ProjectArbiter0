@@ -7,8 +7,11 @@ using UnityEngine.VFX;
 
 public class PlayerSpellFireEnhancement : Ability
 {
+    [SerializeField]
+    GameObject dashMotionVFX;
 
-    
+    GameObject motionVFXRef;
+
     [SerializeField]
     WeaponData upgradedWeaponInfo;
 
@@ -29,6 +32,7 @@ public class PlayerSpellFireEnhancement : Ability
     float stimBoostValue;
 
     float stimBoostTimer;
+    float lerpTime;
 
     float storebaseMovementSpeed;
 
@@ -77,25 +81,41 @@ public class PlayerSpellFireEnhancement : Ability
             enhancementActive = true;
         storebaseMovementSpeed = movementRef.GetMaxMoveSpeed();
             stimBoostTimer = castSlowDuration *2;
+        lerpTime = 0;
             movementRef.ApplyExternalSpeedModification(stimBoostValue);
         Debug.Log(movementRef.GetMaxMoveSpeed());
+        motionVFXRef = Instantiate(dashMotionVFX, spellOrigin.transform);
     }
 
     void Update()
     {
         if (enhancementActive)
         {
+
             if (stimBoostTimer > 0)
             {
+
                 stimBoostTimer -= Time.deltaTime;
                 if (stimBoostTimer < castSlowDuration)
                 {
+
+                    lerpTime += Time.deltaTime;
+                    if (lerpTime > 1)
+                        lerpTime = 1;
                     movementRef.ApplyExternalSpeedModification(-0.01f);
-                    if (movementRef.GetMaxMoveSpeed() < storebaseMovementSpeed)
+                    if (movementRef.GetMaxMoveSpeed() > storebaseMovementSpeed)
                     {
-                        movementRef.ApplyExternalSpeedModification
+                        Debug.Log(movementRef.GetMaxMoveSpeed());
+                        movementRef.SetMoveSpeed(Mathf.Lerp(movementRef.GetMaxMoveSpeed(), storebaseMovementSpeed, lerpTime));
                     }
                 }
+            }
+            else
+            {
+                enhancementActive = false;
+                Destroy(motionVFXRef.gameObject);
+                ReturnNormalWeapon();
+                movementRef.SetMoveSpeed(storebaseMovementSpeed);
             }
         }
         
