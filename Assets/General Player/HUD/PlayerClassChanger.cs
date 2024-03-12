@@ -16,7 +16,7 @@ public class PlayerClassChanger : MonoBehaviour
 
     GameObject currentPlayer;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "Player")
         {
