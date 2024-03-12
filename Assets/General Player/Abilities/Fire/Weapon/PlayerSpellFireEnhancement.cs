@@ -79,6 +79,7 @@ public class PlayerSpellFireEnhancement : Ability
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
+        weaponRef.MaxOutAmmo();
         storebaseMovementSpeed = movementRef.GetMaxMoveSpeed();
             stimBoostTimer = castSlowDuration *2;
         lerpTime = 0;

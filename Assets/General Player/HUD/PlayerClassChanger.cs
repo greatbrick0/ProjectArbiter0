@@ -7,8 +7,8 @@ public class PlayerClassChanger : MonoBehaviour
     [SerializeField]
     GameObject[] Class;
 
-   
-
+    [SerializeField]
+    WeaponData weaponData;
     [SerializeField]
     HUDSystem HUDRef;
 
@@ -28,7 +28,8 @@ public class PlayerClassChanger : MonoBehaviour
                 GameObject.Destroy(originRef.GetComponentInChildren<Ability>().gameObject);
                 initRef = Instantiate(Class[0], originRef.transform);
                 Invoke("Connect", 0.1f);
-
+                currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
+                currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
                 GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
                 initRef = Instantiate(Class[1], HUDRef.transform);
                 initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
