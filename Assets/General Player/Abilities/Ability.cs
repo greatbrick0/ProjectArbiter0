@@ -33,7 +33,7 @@ public abstract class Ability : MonoBehaviour
     [HideInInspector]
     public HUDSystem HUDRef;
 
-    protected int tier;
+    public int tier { get; protected set; }
 
 
 

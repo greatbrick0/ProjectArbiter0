@@ -24,7 +24,6 @@ public class PlayerClassChanger : MonoBehaviour
             if (collision.transform.GetComponentInChildren<Ability>() != null)
             {
                 GameObject originRef = collision.transform.GetComponentInChildren<Ability>().transform.parent.gameObject;
-                Debug.Log(originRef.name);
                 GameObject.Destroy(originRef.GetComponentInChildren<Ability>().gameObject);
                 initRef = Instantiate(Class[0], originRef.transform);
                 Invoke("Connect", 0.1f);
@@ -47,5 +46,6 @@ public class PlayerClassChanger : MonoBehaviour
         currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
         currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
         HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
+        currentPlayer.transform.GetComponent<SanitySystem>().GetHUDReference();
     }
 }

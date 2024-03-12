@@ -47,7 +47,6 @@ public class AbilityInputSystem : MonoBehaviour
     {
         AbilityList = null;
         AbilityList = GetComponentsInChildren<Ability>();
-        Debug.Log("test3- "+AbilityList.Length);
         GetHUDReference();
     }
     
@@ -101,7 +100,7 @@ public class AbilityInputSystem : MonoBehaviour
         HUDRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>();
         for (int i = 0; i < AbilityList.Length; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             AbilityList[i].RecieveHUDReference(HUDRef, i);
         }
     }

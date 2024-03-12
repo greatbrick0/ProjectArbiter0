@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                hVelocity = DeccelerateHorizontal(hVelocity);
+                //hVelocity = DeccelerateHorizontal(hVelocity);
                 yVelocity = AccelerateGravity(yVelocity);
                 anim.walking = false;
             }

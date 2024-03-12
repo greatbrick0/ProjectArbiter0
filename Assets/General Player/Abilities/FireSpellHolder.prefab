@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8485847271426321538}
   - component: {fileID: 6171471607706154609}
+  - component: {fileID: 3020461105643150937}
   m_Layer: 0
-  m_Name: FireSpellHolder 1
+  m_Name: FireSpellHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,9 +47,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanityCost: 20
   onCooldown: 0
-  maxCooldownTime: 5
+  maxCooldownTime: 4
   windupTime: 0.3
   castSlowDuration: 0.7
   HUDRef: {fileID: 0}
   flareObj: {fileID: 5961615394419238897, guid: cddeff006cc91784b93e9c9ff44b95e6,
     type: 3}
+--- !u!114 &3020461105643150937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683947374999564920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d9127eb4d463349959bbf13ce5ed14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityCost: 40
+  onCooldown: 0
+  maxCooldownTime: 8
+  windupTime: 0.1
+  castSlowDuration: 0.4
+  HUDRef: {fileID: 0}
+  spellBomb: {fileID: 8684246793536005794, guid: f29bfb624ce3c9d4bac6b2d222bec5c1,
+    type: 3}
+  bombRef: {fileID: 0}
+  bombActive: 0
