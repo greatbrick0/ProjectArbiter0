@@ -53,7 +53,7 @@ public class SanitySystem : MonoBehaviour
                 sanityPauseTimer = sanityRecoveryPause;
 
             currentSanity = value;
-            if (sanityHUDRef != null)
+            if (sanityHUDRef != null && GetComponent<PlayerInput>().authority)
             sanityHUDRef.UpdateSanityHUD(currentSanity);
 
             if (!demonic && currentSanity <= 0.9) //nerf, but improves clarity
@@ -107,8 +107,10 @@ public class SanitySystem : MonoBehaviour
         Debug.Log("Starting Demonic");
         currentSanity = 0;
         demonic = true;
-        abilitySystemRef.SetDemonic(true);
-        sanityHUDRef.SetDemonic(true);
+        if (GetComponent<PlayerInput>().authority){
+            abilitySystemRef.SetDemonic(true);
+            sanityHUDRef.SetDemonic(true);
+        }
         sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All,true);
         
     }
@@ -127,8 +129,11 @@ public class SanitySystem : MonoBehaviour
     {
         Debug.Log("ending demonic");
         demonic = false;
-        abilitySystemRef.SetDemonic(false);
-        sanityHUDRef.SetDemonic(false);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            abilitySystemRef.SetDemonic(false);
+            sanityHUDRef.SetDemonic(false);
+        }
         sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All, false);
     }
 }
