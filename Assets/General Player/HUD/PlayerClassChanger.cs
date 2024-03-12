@@ -30,7 +30,7 @@ public class PlayerClassChanger : MonoBehaviour
                 Invoke("Connect", 0.1f);
                 currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
                 currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
-                currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
+         
 
                 if (currentPlayer.GetComponent<PlayerInput>().authority)
                 {
@@ -49,6 +49,7 @@ public class PlayerClassChanger : MonoBehaviour
 
     public void Connect()
     {
+        currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
         if (currentPlayer.GetComponent<PlayerInput>().authority)
         { 
             currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
