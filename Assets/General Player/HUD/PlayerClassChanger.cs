@@ -30,10 +30,11 @@ public class PlayerClassChanger : MonoBehaviour
                 Invoke("Connect", 0.1f);
                 currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
                 currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
-                GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
+                
 
                 if (currentPlayer.GetComponent<PlayerInput>().authority)
                 {
+                    GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
                     initRef = Instantiate(Class[1], HUDRef.transform);
                     initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
                 }
