@@ -260,7 +260,19 @@ MonoBehaviour:
       m_Calls: []
   OnStateAuthority:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7446777447677368580}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
+        m_MethodName: SetAuthority
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnInputAuthority:
     m_PersistentCalls:
       m_Calls: []
@@ -913,7 +925,7 @@ MonoBehaviour:
     Assembly-CSharp
   approveAuthorityTransferRequests: 1
   simulationType: 0
-  authorityTransferType: 2
+  authorityTransferType: 0
   orphanedBehavior: 0
   lifetimeType: 0
   uniquenessType: 0
@@ -1273,6 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35ae61fed14df4982150d0233854ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  authority: 0
   cameraObj: {fileID: 5459987798418853067, guid: bf6d424187e85e24a9129fc767e092cd,
     type: 3}
   selfBodyModel: {fileID: 8127347517799184009}
@@ -1356,6 +1369,7 @@ MonoBehaviour:
   exhaustTime: 0
   castSlowAmount: -3
   sync: {fileID: -2931630549695675886}
+  spellOrigin: {fileID: 0}
 --- !u!114 &4206427362788723892
 MonoBehaviour:
   m_ObjectHideFlags: 0
