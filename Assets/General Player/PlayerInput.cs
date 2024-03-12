@@ -12,7 +12,7 @@ using Coherence;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField]
-    bool authority = false;
+    public bool authority = false;
     [Header("References")]
     [SerializeField]
     [Tooltip("The camera that will be instantiated during runtime, mainly for first person use. ")]

@@ -31,8 +31,12 @@ public class PlayerClassChanger : MonoBehaviour
                 currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
                 currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
                 GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
-                initRef = Instantiate(Class[1], HUDRef.transform);
-                initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
+
+                if (currentPlayer.GetComponent<PlayerInput>().authority)
+                {
+                    initRef = Instantiate(Class[1], HUDRef.transform);
+                    initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
+                }
                 
             }
             
@@ -44,9 +48,12 @@ public class PlayerClassChanger : MonoBehaviour
 
     public void Connect()
     {
-        currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
-        currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
-        HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
-        currentPlayer.transform.GetComponent<SanitySystem>().GetHUDReference();
+        if (currentPlayer.GetComponent<PlayerInput>().authority)
+        {
+            currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
+            currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
+            HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
+            currentPlayer.transform.GetComponent<SanitySystem>().GetHUDReference();
+        }
     }
 }
