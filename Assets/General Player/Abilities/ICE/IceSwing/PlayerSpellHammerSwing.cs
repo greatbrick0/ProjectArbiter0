@@ -20,12 +20,15 @@ public class PlayerSpellHammerSwing : Ability
     {
         Debug.Log("StartedHammerSwing");
         GetNeededComponents();
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
 
 
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
 
         StartAbility();

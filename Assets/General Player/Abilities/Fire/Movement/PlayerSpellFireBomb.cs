@@ -31,12 +31,15 @@ public class PlayerSpellFireBomb : Ability
         else
         Debug.Log("StartedFireBomb");
         GetNeededComponents();
-        HUDRef.SetCooldownForIcon(tier, 0.5f);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            HUDRef.SetCooldownForIcon(tier, 0.5f);
+            HUDRef.UseAbility(tier);
+        }
 
 
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.UseAbility(tier);
         //StartCoroutine(Cooldown(false));
 
         StartAbility();
@@ -80,8 +83,11 @@ public class PlayerSpellFireBomb : Ability
     public void ExplosionOccured()
     {
         bombActive = false;
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime - bombActiveTimer);
-        HUDRef.UseAbility(tier);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime - bombActiveTimer);
+            HUDRef.UseAbility(tier);
+        }
         StartCoroutine(Cooldown(false));
     }
 

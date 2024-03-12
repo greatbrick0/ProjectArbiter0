@@ -46,8 +46,11 @@ public class PlayerSpellFireEnhancement : Ability
         GetNeededComponents();
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
-        HUDRef.UseAbility(tier);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
         StartCoroutine(Cooldown());
 
         StartAbility();

@@ -20,10 +20,13 @@ public class PlayerSpellFire_Shot : Ability
     {
         Debug.Log("StartedAbility");
         GetNeededComponents();
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
         StartAbility();
     }
