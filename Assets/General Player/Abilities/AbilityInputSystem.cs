@@ -49,6 +49,10 @@ public class AbilityInputSystem : MonoBehaviour
     {
         AbilityList = null;
         AbilityList = GetComponentsInChildren<Ability>();
+        foreach(Ability a in AbilityList)
+        {
+            a.playerRef = this.gameObject;
+        }
         GetHUDReference();
     }
     

@@ -20,7 +20,7 @@ public class PlayerSpellHammerSwing : Ability
     {
         Debug.Log("StartedHammerSwing");
         GetNeededComponents();
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
             HUDRef.UseAbility(tier);

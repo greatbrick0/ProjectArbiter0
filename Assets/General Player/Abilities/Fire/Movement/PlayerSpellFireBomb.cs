@@ -13,10 +13,12 @@ public class PlayerSpellFireBomb : Ability
 
     GameObject motionVFXRef;
 
+    
     [HideInInspector]
     public GameObject bombRef;
     float bombActiveTimer;
     public bool bombActive;
+
 
     public override void RecieveAbilityRequest()
     {
@@ -31,7 +33,7 @@ public class PlayerSpellFireBomb : Ability
         else
         Debug.Log("StartedFireBomb");
         GetNeededComponents();
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, 0.5f);
             HUDRef.UseAbility(tier);
@@ -83,7 +85,7 @@ public class PlayerSpellFireBomb : Ability
     public void ExplosionOccured()
     {
         bombActive = false;
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, maxCooldownTime - bombActiveTimer);
             HUDRef.UseAbility(tier);

@@ -20,7 +20,7 @@ public class PlayerSpellFire_Shot : Ability
     {
         Debug.Log("StartedAbility");
         GetNeededComponents();
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
             HUDRef.UseAbility(tier);

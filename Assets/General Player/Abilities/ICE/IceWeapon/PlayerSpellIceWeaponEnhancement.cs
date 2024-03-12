@@ -43,7 +43,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     {
         Debug.Log("Enhancment spell cast recieved");
         GetNeededComponents();
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
             HUDRef.UseAbility(tier);

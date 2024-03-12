@@ -34,7 +34,7 @@ public class PlayerSpellIceDash : Ability
 
 
         sanityRef.Sanity -= sanityCost;
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
             HUDRef.UseAbility(tier);

@@ -14,6 +14,10 @@ public abstract class Ability : MonoBehaviour
     protected WeaponHolder weaponRef;
     protected GameObject spellOrigin;
 
+    [HideInInspector]
+    public GameObject playerRef;
+
+
     [SerializeField]
     public int sanityCost;
 
@@ -97,4 +101,8 @@ public abstract class Ability : MonoBehaviour
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.
 
+    public bool HasAuthority()
+    {
+        return playerRef.GetComponent<PlayerInput>().authority;
+    }
 }

@@ -46,7 +46,7 @@ public class PlayerSpellFireEnhancement : Ability
         GetNeededComponents();
 
         sanityRef.Sanity -= sanityCost;
-        if (GetComponent<PlayerInput>().authority)
+        if (HasAuthority())
         {
             HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
             HUDRef.UseAbility(tier);
@@ -117,6 +117,7 @@ public class PlayerSpellFireEnhancement : Ability
             else
             {
                 enhancementActive = false;
+                if (motionVFXRef != null)
                 Destroy(motionVFXRef.gameObject);
                 ReturnNormalWeapon();
                 movementRef.SetMoveSpeed(storebaseMovementSpeed);
