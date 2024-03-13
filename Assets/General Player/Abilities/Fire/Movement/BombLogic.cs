@@ -58,7 +58,6 @@ public class BombLogic : MonoBehaviour
             if (hitbox.GetOwner().team == "Enemy")
             {
                 Trigger();
-                Debug.Log("Firebomb hits enemy");
                 var spot = hitbox.GetSpotType();
                 int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
@@ -80,6 +79,11 @@ public class BombLogic : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void EndAttack()
+    {
+        Destroy(GetComponent<SphereCollider>());
+    }
+
     public void Trigger()
     {
         bombVisual.SetActive(false);
@@ -89,7 +93,8 @@ public class BombLogic : MonoBehaviour
         GetComponent<SphereCollider>().radius = 3;
         explosionvisual.SetActive(true);
         
-        Invoke(nameof(RequestDestroy), 0.6f);
+        Invoke(nameof(RequestDestroy), 1.6f);
+        Invoke(nameof(EndAttack), 0.6f);
         bombAbilityRef.ExplosionOccured();
         if ((bombAbilityRef.GetComponentInParent<CapsuleCollider>().transform.position - transform.position).magnitude <= 6)
         {

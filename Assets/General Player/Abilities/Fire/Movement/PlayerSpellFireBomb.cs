@@ -22,7 +22,7 @@ public class PlayerSpellFireBomb : Ability
 
     public override void RecieveAbilityRequest()
     {
-        Debug.Log("Request-Bomb");
+
         if (bombActive )
         {
             if (bombActiveTimer <= 2.5)
