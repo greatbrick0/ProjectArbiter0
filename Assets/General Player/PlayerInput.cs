@@ -11,6 +11,8 @@ using Coherence;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField]
+    public bool authority = false;
     [Header("References")]
     [SerializeField]
     [Tooltip("The camera that will be instantiated during runtime, mainly for first person use. ")]
@@ -296,5 +298,10 @@ public class PlayerInput : MonoBehaviour
             }
             SetLayerRecursively(child.gameObject, newLayer);
         }
+    }
+
+    public void SetAuthority(bool newAuth)
+    {
+        authority = newAuth;
     }
 }

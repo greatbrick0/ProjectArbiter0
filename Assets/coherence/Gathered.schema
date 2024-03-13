@@ -1,14 +1,6 @@
-component Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_7902894017888744999
-  mainHealth Int [bits "32", range-min "-2147483648", range-max "2147483647"]
-  playerDead Bool [bits "1"]
-
-command Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8e8dcd6f_8f34_45e3_8311_df59eaf4787e [routing "All"]
-
-command Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellHammerSwing__char_46_StartAbility_1921ed48_089a_4125_8625_c70b389e1f17 [routing "All"]
-
-command Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceDash__char_46_StartAbility_9e326a16_aa2b_4c63_99b9_5620de7349f4 [routing "All"]
-
-command Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerSpellIceWeaponEnhancement__char_46_StartAbility_611b932f_57f1_430d_a913_136fb9e11863 [routing "All"]
+command Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da [routing "All"]
+  tier Int 
+  doDemon Bool 
 
 command Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 [routing "All"]
   useAura Bool 

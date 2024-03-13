@@ -7,6 +7,7 @@ using Coherence;
 public class PlayerHealth : MonoBehaviour
 {
     private CoherenceSync sync;
+    private bool autority = false;
     private HUDSystem hudRef;
     [field:  SerializeField]
     public Transform head { get; private set; }
@@ -36,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         sync = GetComponent<CoherenceSync>();
+        autority = GetComponent<PlayerInput>().authority;
         hudRef = FindObjectOfType<HUDSystem>();
         mainHealth = maxMainHealth;
         UpdateHealthLabel();
@@ -96,6 +98,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthLabel(bool damaged = false)
     {
+        if(!autority) return;
+
         hudRef.SetHealthLabel(mainHealth.ToString());
         hudRef.SetHealthBarFill(mainHealth / (float)maxMainHealth);
         if (damaged) hudRef.EnableDamageGradient();

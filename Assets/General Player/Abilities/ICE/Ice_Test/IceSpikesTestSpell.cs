@@ -14,17 +14,6 @@ public class IceSpikesTestSpell : Ability
 
     GameObject newSpike;
 
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
-        sync = GetComponent<CoherenceSync>();
-
-
-    }
-
 
     public override void RecieveAbilityRequest()
     {
@@ -35,7 +24,7 @@ public class IceSpikesTestSpell : Ability
         sanityRef.Sanity -= sanityCost;
         HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
-        sync.SendCommand<IceSpikesTestSpell>(nameof(StartAbility), MessageTarget.All, false);
+        StartAbility();
     }
 
     public override void RecieveDemonicAbilityRequest()

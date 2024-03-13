@@ -7,14 +7,16 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
 
-    protected CoherenceSync sync;
     protected Rigidbody rb;
     protected AbilityInputSystem AbilityHoldRef;
     protected SanitySystem sanityRef;
     protected PlayerMovement movementRef;
     protected WeaponHolder weaponRef;
-    [SerializeField]
     protected GameObject spellOrigin;
+
+    [HideInInspector]
+    public GameObject playerRef;
+
 
     [SerializeField]
     public int sanityCost;
@@ -35,7 +37,7 @@ public abstract class Ability : MonoBehaviour
     [HideInInspector]
     public HUDSystem HUDRef;
 
-    protected int tier;
+    public int tier { get; protected set; }
 
 
 
@@ -87,8 +89,20 @@ public abstract class Ability : MonoBehaviour
     }
     public abstract void AbilityAction(); //the 'fun' part of the spell
 
-    protected abstract void GetNeededComponents();
+    protected virtual void GetNeededComponents()
+    {
+        AbilityHoldRef = transform.parent.parent.parent.parent.GetComponent<AbilityInputSystem>();
+        sanityRef = transform.parent.parent.parent.parent.GetComponent<SanitySystem>();
+        movementRef = transform.parent.parent.parent.parent.GetComponent<PlayerMovement>();
+        rb = transform.parent.parent.parent.parent.GetComponent<Rigidbody>();
+        weaponRef = transform.parent.parent.parent.parent.GetComponent<WeaponHolder>();
+        spellOrigin = transform.parent.gameObject;
+    }
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.
 
+    public bool HasAuthority()
+    {
+        return playerRef.GetComponent<PlayerInput>().authority;
+    }
 }

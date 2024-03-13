@@ -25,15 +25,6 @@ public class PlayerSpellIceDash : Ability
 
     GameObject collideHitboxRef;
 
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
-        sync = GetComponent<CoherenceSync>();
-    }
-
     public override void RecieveAbilityRequest()
     {
         Debug.Log("StartedIceDashAbility");
@@ -43,10 +34,14 @@ public class PlayerSpellIceDash : Ability
 
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.UseAbility(tier);
+        if (HasAuthority())
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
         StartCoroutine(Cooldown());
 
-        sync.SendCommand<PlayerSpellIceDash>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
 
     }
 
@@ -66,8 +61,8 @@ public class PlayerSpellIceDash : Ability
     public override void AbilityIntroductionDecorations()
     {
         movementRef.SetEnabledControls(false, true);
-        GetComponent<PlayerInput>().mouseXSens *= 0.3f;
-        GetComponent<PlayerInput>().mouseYSens *= 0.01f;
+        sanityRef.GetComponent<PlayerInput>().mouseXSens *= 0.3f;
+        sanityRef.GetComponent<PlayerInput>().mouseYSens *= 0.01f;
         rb.drag = 3;
         rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity/5)) , ForceMode.Impulse);
 
@@ -113,8 +108,8 @@ public class PlayerSpellIceDash : Ability
         shouldRepeatAction = false;
         actionIntervalTimer = repeatActionInterval;
         rb.drag = 0;
-        GetComponent<PlayerInput>().mouseXSens /= 0.3f;
-        GetComponent<PlayerInput>().mouseYSens /= 0.01f;
+        sanityRef.GetComponent<PlayerInput>().mouseXSens /= 0.3f;
+        sanityRef.GetComponent<PlayerInput>().mouseYSens /= 0.01f;
         if (collideHitboxRef != null)
             collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
         if (collide)

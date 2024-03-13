@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                hVelocity = DeccelerateHorizontal(hVelocity);
+                //hVelocity = DeccelerateHorizontal(hVelocity);
                 yVelocity = AccelerateGravity(yVelocity);
                 anim.walking = false;
             }
@@ -241,6 +241,21 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyExternalSpeedModification(float modifyValue) 
     {
         maxMoveSpeed += modifyValue;
+    }
+
+    public void SetMoveSpeed(float newValue)
+    {
+        maxMoveSpeed = newValue;
+    }
+
+    public float GetMaxMoveSpeed()
+    {
+        return maxMoveSpeed;
+    }
+
+    public void ApplyExternalAccelModification(float modifyValue)
+    {
+        moveSpeedAccel += modifyValue;
     }
 
     

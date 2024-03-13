@@ -13,21 +13,21 @@ public class HUDSystem : MonoBehaviour
     //UIHealth healthRef;
 
     [SerializeField]
-    HUDGunAmmoScript gunHUDRef;
+    public HUDGunAmmoScript gunHUDRef;
 
     [SerializeField]
-    GameObject SanityBar;
+    public GameObject SanityBar;
     //private float targetSanity = 100;
 
     [SerializeField]
-    TextMeshProUGUI healthLabel;
+    public TextMeshProUGUI healthLabel;
     [SerializeField]
-    Image healthBar;
+    public Image healthBar;
     [SerializeField]
-    DamageOpacity damageGradient;
+    public DamageOpacity damageGradient;
 
     [SerializeField]
-    TextMeshProUGUI ObjectiveText;
+    public TextMeshProUGUI ObjectiveText;
     int progress, maxprogress;
     string objective;
 

@@ -15,27 +15,20 @@ public class PlayerSpellFire_Shot : Ability
     GameObject flareRef;
 
     List<GameObject> enemyHitList;
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
-        sync = GetComponent<CoherenceSync>();
-
-    }
-
-
+    
     public override void RecieveAbilityRequest()
     {
         Debug.Log("StartedAbility");
         GetNeededComponents();
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+        if (HasAuthority())
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
-        sync.SendCommand<PlayerSpellFire_Shot>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
     }
 
     public override void RecieveDemonicAbilityRequest()

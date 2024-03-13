@@ -22,6 +22,9 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     WeaponData weaponStore;
 
     [SerializeField]
+    GameObject gunVFX;
+
+    [SerializeField]
     GameObject gunVFXRef;
     //muzzle
     [SerializeField]
@@ -35,27 +38,19 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     bool enhancementActive = false;
 
 
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        sync = GetComponent<CoherenceSync>();
-        weaponRef = GetComponent<WeaponHolder>();
-
-    }
-
 
     public override void RecieveAbilityRequest()
     {
         Debug.Log("Enhancment spell cast recieved");
         GetNeededComponents();
-
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
-        HUDRef.UseAbility(tier);
+        if (HasAuthority())
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
         StartCoroutine(Cooldown());
 
-        sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
 
     }
 
@@ -89,7 +84,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
-            gunVFXRef.SetActive(true);
+            //gunVFXRef = Instantiate(gunVFX, )
             //muzzleStore = muzzleFlash.GetColor("Color01");
             //  muzzleFlash.SetColor("Color01", newmuzzleColor);
         }
@@ -100,7 +95,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
-            gunVFXRef.SetActive(false);
+            //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
         }
         RemovePlayerCastMotion();
@@ -145,6 +140,6 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     {
         Debug.Log("WeaponEnhancement disabled due to becoming demonic");
         if (enhancementActive)
-            sync.SendCommand<PlayerSpellIceWeaponEnhancement>(nameof(StartAbility), MessageTarget.All);
+            StartAbility();
     }
 }

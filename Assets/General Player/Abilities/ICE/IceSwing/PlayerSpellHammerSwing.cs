@@ -13,30 +13,25 @@ public class PlayerSpellHammerSwing : Ability
 
     GameObject newHammer;
 
-    protected override void GetNeededComponents()
-    {
-        AbilityHoldRef = GetComponent<AbilityInputSystem>();
-        sanityRef = GetComponent<SanitySystem>();
-        movementRef = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
-        sync = GetComponent<CoherenceSync>();
-        weaponRef = GetComponent<WeaponHolder>();
-    }
+    
 
 
     public override void RecieveAbilityRequest()
     {
         Debug.Log("StartedHammerSwing");
         GetNeededComponents();
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+        if (HasAuthority())
+        {
+            HUDRef.SetCooldownForIcon(tier, maxCooldownTime);
+            HUDRef.UseAbility(tier);
+        }
 
 
 
         sanityRef.Sanity -= sanityCost;
-        HUDRef.UseAbility(tier);
         StartCoroutine(Cooldown(false));
 
-        sync.SendCommand<PlayerSpellHammerSwing>(nameof(StartAbility), MessageTarget.All);
+        StartAbility();
     }
 
     public override void RecieveDemonicAbilityRequest()

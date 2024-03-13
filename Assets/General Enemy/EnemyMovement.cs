@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
         difference *= -sign; //It's the opposite way for some reason
 
         //Removed /360 as animation controller takes values from -180 to 180 now
-        print(difference);
+        //print(difference);
         anim.directionAngle = difference;
     }
 
