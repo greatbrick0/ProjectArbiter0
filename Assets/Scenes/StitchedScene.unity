@@ -4370,6 +4370,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &794993373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2952132814515850125, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579589850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cd7d8ffb7205046b5ffa50752de365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9572,9 +9584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5857d6b39b4517e429be9ce547a1a385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  resumeButton: {fileID: 0}
-  settingsManager: {fileID: 0}
+  pauseMenu: {fileID: 1869602254}
+  resumeButton: {fileID: 1748644101}
+  settingsManager: {fileID: 794993373}
 --- !u!43 &1481229897
 Mesh:
   m_ObjectHideFlags: 0
@@ -11682,6 +11694,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029303316, y: 0.47, z: 0.03}
   m_Center: {x: -9.313226e-10, y: 0.14529645, z: -0.267}
+--- !u!114 &1748644101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1792366909650757602, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579589850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1752967306 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8019984381063643668, guid: 2dac7bc844b9c824f8523977dd4b98c4,
@@ -12046,6 +12070,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1869602254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2185168608824123769, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579589850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1895104255
 PrefabInstance:
   m_ObjectHideFlags: 0
