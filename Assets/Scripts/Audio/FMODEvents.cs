@@ -5,11 +5,12 @@ using FMODUnity;
 
 public class FMODEvents : MonoBehaviour
 {
-    //This script is for non-player specific sounds.
-    [field: Header ("Player SFX")]
+    //Player Abilities
+    [field: Header ("Player Abilities")]
     [field: SerializeField] public EventReference iceSpikes { get; private set; }
     [field: SerializeField] public EventReference iceCharge { get; private set; }
 
+    //This is for non-player specific sounds.
     [field: Header ("General SFX")]
     [field: SerializeField] public EventReference bulletHit { get; private set; }
     [field: SerializeField] public EventReference bodyHit { get; private set; }
@@ -19,9 +20,6 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header ("Music")]
     [field: SerializeField] public EventReference music { get; private set; }
-
-    [field: Header ("Menu Sounds")]
-    
 
     public static FMODEvents instance { get; private set; }
     private void Awake()
