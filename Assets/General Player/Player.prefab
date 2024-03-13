@@ -1343,6 +1343,7 @@ MonoBehaviour:
   - rid: 726511650095759425
   - rid: 1197954471362035718
   - rid: 6149391758099218432
+  - rid: 2107348470674227200
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1612,6 +1613,51 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 2107348470674227200
+      type: {class: BoolAnimatorParameterBinding, ns: Coherence.Toolkit.Bindings,
+        asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2107348470674227201
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: d4e8fc08-72c3-4f82-88d9-fe3c1f941da2
+        archetypeData:
+          type: 3
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 3
+            bits: 1
+            precision: 0
+            floatCompression: 0
+        unityComponent: {fileID: 8450259073051062080}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 2107348470674227201
+      type: {class: AnimatorDescriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: walking
+        monoAssemblyType: System.Boolean, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 64
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: UnityEngine.Animator, UnityEngine.AnimationModule,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.BoolAnimatorParameterBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+        parameterHash: -1472183017
     - rid: 6149391758099218432
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
