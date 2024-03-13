@@ -3710,6 +3710,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029303316, y: 0.47, z: 0.03}
   m_Center: {x: 0.000000014901161, y: 0.14529644, z: -0.267}
+--- !u!114 &614937068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4022101307708065498, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579589850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &650582383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,12 +4615,12 @@ PrefabInstance:
         type: 3}
       propertyPath: disconnectButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 614937068}
     - target: {fileID: 6764396711035072300, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: disconnectDialog
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1588080121}
     - target: {fileID: 7300550018610163683, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -10944,6 +10956,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dac7bc844b9c824f8523977dd4b98c4, type: 3}
+--- !u!1 &1588080121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6527159596418948059, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579589850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1599212558
 Mesh:
   m_ObjectHideFlags: 0
