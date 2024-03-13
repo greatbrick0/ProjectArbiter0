@@ -56,14 +56,12 @@ public class SettingsManager : MonoBehaviour
 
 
         //Loading Saved Settings
-        if (PlayerPrefs.HasKey("Sensitivity")) LoadSensitivity(PlayerPrefs.GetFloat("Sensitivity"));
-        if (PlayerPrefs.HasKey("Graphics Quality")) LoadGraphics(PlayerPrefs.GetInt("Graphics Quality"));
-        if (PlayerPrefs.HasKey("FPS Limit")) LoadFPSLimit(PlayerPrefs.GetFloat("Sensitivity"));
-        if (PlayerPrefs.HasKey("Master Volume")) LoadMasterVolume(PlayerPrefs.GetFloat("Master Volume"));
-        if (PlayerPrefs.HasKey("Sounds Volume")) LoadSoundsVolume(PlayerPrefs.GetFloat("Sounds Volume"));
-        if (PlayerPrefs.HasKey("Music Volume")) LoadMusicVolume(PlayerPrefs.GetFloat("Music Volume"));
+        SettingsLoader.LoadGraphicsSettings();
+        SettingsLoader.LoadVolumeSettings();
 
-        for(int ii = 0; ii < actionKeys.Count; ii++)
+        if (PlayerPrefs.HasKey("Sensitivity")) LoadSensitivity(PlayerPrefs.GetFloat("Sensitivity"));
+
+        for (int ii = 0; ii < actionKeys.Count; ii++)
         {
             if (PlayerPrefs.HasKey(actionKeys[ii])) 
                 LoadBind(bindButtonTextList[ii], ((KeyCode)PlayerPrefs.GetInt(actionKeys[ii])).ToString());
@@ -138,6 +136,9 @@ public class SettingsManager : MonoBehaviour
     {
         Resolution chosenResolution = resolutionsArray[resolutionIndex];
         Screen.SetResolution(chosenResolution.width, chosenResolution.height, Screen.fullScreenMode);
+
+        PlayerPrefs.SetInt("Resolution Width", chosenResolution.width);
+        PlayerPrefs.SetInt("Resolution Height", chosenResolution.height);
     }
 
     public void SetGraphics(int qualityLevel)
@@ -154,6 +155,7 @@ public class SettingsManager : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        PlayerPrefs.SetInt("FullScreen", isFullscreen ? 1 : 0);
     }
 
     public void SetFPSLimit(float limit) //Used by Slider

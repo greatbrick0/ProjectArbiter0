@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    Animator player;
+    [SerializeField] Animator player;
     private float a;
     public bool walking;
     void Start()
     {
-        player = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
