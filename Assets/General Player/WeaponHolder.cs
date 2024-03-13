@@ -288,7 +288,7 @@ public class WeaponHolder : MonoBehaviour
             sphere.transform.LookAt(sphere.transform.position + hit.normal);
             sphere.transform.position += hit.normal * 0.01f;
             //sphere.transform.rotation = Quaternion.Euler(hit.normal);
-            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bulletHit, sphere);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.groundImpact, sphere);
         }
     }
 
