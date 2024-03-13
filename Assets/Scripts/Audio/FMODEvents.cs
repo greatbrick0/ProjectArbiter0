@@ -9,9 +9,7 @@ public class FMODEvents : MonoBehaviour
     [field: Header ("Player SFX")]
     [field: SerializeField] public EventReference iceSpikes { get; private set; }
     [field: SerializeField] public EventReference iceCharge { get; private set; }
-    [field: SerializeField] public EventReference groundImpact { get; private set; }
-    [field: SerializeField] public EventReference bodyShot { get; private set; }
-    [field: SerializeField] public EventReference headShot { get; private set; }
+    [field: SerializeField] public EventReference bulletHit { get; private set; }
 
     [field: Header ("Music")]
     [field: SerializeField] public EventReference music { get; private set; }
