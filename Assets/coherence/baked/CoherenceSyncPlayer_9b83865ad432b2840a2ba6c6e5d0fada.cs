@@ -140,7 +140,51 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_d4e8fc08_72c3_4f82_88d9_fe3c1f941da2 : BoolAnimatorParameterBinding
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_668cdd97_e39f_4c1e_9e8b_022112ce3dac : BoolBinding
+	{
+		private global::PlayerAnimation CastedUnityComponent;
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (global::PlayerAnimation)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014";
+
+		public override uint FieldMask => 0b00000000000000000000000000000001;
+
+		public override bool Value
+		{
+			get { return (System.Boolean)(CastedUnityComponent.walking); }
+			set { CastedUnityComponent.walking = (System.Boolean)(value); }
+		}
+
+		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
+		{
+			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014)coherenceComponent).walking;
+			return value;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
+		{
+			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014)coherenceComponent;
+			if (RuntimeInterpolationSettings.IsInterpolationNone) 
+			{
+				update.walking = Value;
+			}
+			else 
+			{
+				update.walking = GetInterpolatedAt(time);
+			}
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014();
+		}
+	}
+
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_67b8021e_626b_4a0c_987b_0a90e1741376 : BoolAnimatorParameterBinding
 	{
 		private global::UnityEngine.Animator CastedUnityComponent;
 
@@ -194,7 +238,7 @@ namespace Coherence.Generated
 		// Cached targets for commands		
 		private global::AbilityInputSystem Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da_CommandTarget;		
 		private global::SanitySystem Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget;		
-		private global::WeaponHolder Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960_CommandTarget;
+		private global::WeaponHolder Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d_CommandTarget;
 
 		private IClient client;
 		private CoherenceBridge bridge;
@@ -204,7 +248,8 @@ namespace Coherence.Generated
 			["696f6b8e-6989-42d0-b2dc-00169501f2c9"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_696f6b8e_6989_42d0_b2dc_00169501f2c9(),
 			["7602e59e-d135-46a9-bdc7-9ce8a0b4ed43"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_7602e59e_d135_46a9_bdc7_9ce8a0b4ed43(),
 			["3590a821-8003-423e-af9d-f66e982ae4b9"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_3590a821_8003_423e_af9d_f66e982ae4b9(),
-			["d4e8fc08-72c3-4f82-88d9-fe3c1f941da2"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_d4e8fc08_72c3_4f82_88d9_fe3c1f941da2(),
+			["668cdd97-e39f-4c1e-9e8b-022112ce3dac"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_668cdd97_e39f_4c1e_9e8b_022112ce3dac(),
+			["67b8021e-626b-4a0c-987b-0a90e1741376"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_67b8021e_626b_4a0c_987b_0a90e1741376(),
 		};
 
 		private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings =
@@ -214,7 +259,7 @@ namespace Coherence.Generated
 		{
 			bakedCommandBindings.Add("09631ba5-b8ad-4b21-8720-2dcef6abf6da", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da);
 			bakedCommandBindings.Add("b60d8eb5-ad38-4c3c-ac1f-824f2ecab096", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096);
-			bakedCommandBindings.Add("21bd6c41-31e7-4e15-88e2-e887d233b960", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960);
+			bakedCommandBindings.Add("4580daad-388d-444f-92c3-72b98a4d593d", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d);
 		}
 
 		public override Binding BakeValueBinding(Binding valueBinding)
@@ -247,11 +292,11 @@ namespace Coherence.Generated
 			commandsHandler.AddBakedCommand("SanitySystem.ShowAura", "(System.Boolean)",
 				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget,false);
 		}
-		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960(CommandBinding commandBinding, CommandsHandler commandsHandler)
+		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
-			Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960_CommandTarget = (global::WeaponHolder)commandBinding.UnityComponent;
-			commandsHandler.AddBakedCommand("WeaponHolder.Shoot", "(UnityEngine.Vector3UnityEngine.Vector3)",
-				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960_CommandTarget,false);
+			Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d_CommandTarget = (global::WeaponHolder)commandBinding.UnityComponent;
+			commandsHandler.AddBakedCommand("WeaponHolder.Shoot", "(UnityEngine.Vector3UnityEngine.Vector3UnityEngine.Vector3)",
+				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d_CommandTarget,false);
 		}
 
 		public override List<ICoherenceComponentData> CreateEntity(bool usesLodsAtRuntime, string archetypeName)
@@ -334,28 +379,30 @@ namespace Coherence.Generated
 			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget;
 			target.ShowAura((System.Boolean)(command.useAura));
 		}
-		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960(MessageTarget target, object[] args)
+		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(MessageTarget target, object[] args)
 		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960();
+			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d();
 			int i = 0;
 			command.straight = (Vector3)((UnityEngine.Vector3)args[i++]);
+			command.up = (Vector3)((UnityEngine.Vector3)args[i++]);
 			command.originPos = (Vector3)((UnityEngine.Vector3)args[i++]);
 			client.SendCommand(command, target, entityId);
 		}
 
-		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960(MessageTarget target, object[] args)
+		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(MessageTarget target, object[] args)
 		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960();
+			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d();
 			int i = 0;
 			command.straight = (Vector3)((UnityEngine.Vector3)args[i++]);
+			command.up = (Vector3)((UnityEngine.Vector3)args[i++]);
 			command.originPos = (Vector3)((UnityEngine.Vector3)args[i++]);
-			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960(command);
+			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(command);
 		}
 
-		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960(Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 command)
+		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d command)
 		{
-			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960_CommandTarget;
-			target.Shoot((UnityEngine.Vector3)(command.straight),(UnityEngine.Vector3)(command.originPos));
+			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d_CommandTarget;
+			target.Shoot((UnityEngine.Vector3)(command.straight),(UnityEngine.Vector3)(command.up),(UnityEngine.Vector3)(command.originPos));
 		}
 
 		public override void ReceiveCommand(IEntityCommand command)
@@ -368,8 +415,8 @@ namespace Coherence.Generated
 				case Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 castedCommand:
 					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(castedCommand);
 					break;
-				case Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 castedCommand:
-					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960(castedCommand);
+				case Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d castedCommand:
+					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(castedCommand);
 					break;
 				default:
 					logger.Warning($"[CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada] Unhandled command: {command.GetType()}.");

@@ -1,3 +1,6 @@
+component Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014
+  walking Bool [bits "1"]
+
 component Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Animator_8450259073051062080
   walking Bool [bits "1"]
 
@@ -8,7 +11,8 @@ command Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_Send
 command Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 [routing "All"]
   useAura Bool 
 
-command Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 [routing "All"]
+command Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d [routing "All"]
   straight Vector3 [compression "None"]
+  up Vector3 [compression "None"]
   originPos Vector3 [compression "None"]
 

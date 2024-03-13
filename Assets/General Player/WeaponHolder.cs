@@ -20,6 +20,7 @@ public class WeaponHolder : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
     Vector3 straight;
+    Vector3 up;
     Vector3 originPos;
 
     [SerializeField]
@@ -152,8 +153,9 @@ public class WeaponHolder : MonoBehaviour
             else if (defaultShootingEnabled)
             {
                 straight = cam.transform.forward;
+                up = cam.transform.up;
                 originPos = cam.transform.position;
-                sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, originPos);
+                sync.SendCommand<WeaponHolder>(nameof(Shoot), MessageTarget.All, straight, up, originPos);
                 hudGunRef.UseShot();
                 shootingThisFrame = true;
             }
@@ -227,18 +229,21 @@ public class WeaponHolder : MonoBehaviour
     /// Creates bullets in the pattern of shotPattern.
     /// </summary>
     /// <param name="straight">The direction the bullets will fire.</param>
+    /// <param name="up">A vector perpendicular to the direction the bullets will fire. 
+    /// Used for offsetting the bullets from the center of the shot.</param>
     /// <param name="originPos">The position the bllets will be created.</param>
-    public void Shoot(Vector3 straight, Vector3 originPos)
+    public void Shoot(Vector3 straight, Vector3 up, Vector3 originPos)
     {
         bool didHit;
+        Vector3 right = Vector3.Cross(up, straight);
 
         ShootDecorations();
 
         currentAmmo -= 1;
         foreach (Vector2 ii in shotPatterns[patternIndex].points)
         {
-            Vector3 angle = Quaternion.AngleAxis(ii.x, Vector3.up) * straight;
-            angle = Quaternion.AngleAxis(-ii.y, Vector3.right) * angle;
+            Vector3 angle = Quaternion.AngleAxis(ii.x, up) * straight;
+            angle = Quaternion.AngleAxis(-ii.y, right) * angle;
             ray = new Ray(originPos, angle);
 
             didHit = Physics.Raycast(ray, out hit, range, (1 << 6) | (1 << 8));

@@ -12,42 +12,50 @@ namespace Coherence.Generated
 	using UnityEngine;
 	using Coherence.Entity;
 
-	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 : IEntityCommand
+	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d : IEntityCommand
 	{
 		public Vector3 straight;
+		public Vector3 up;
 		public Vector3 originPos;
 
 		public MessageTarget Routing => MessageTarget.All;
-		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960;
+		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d;
 
-		public Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960
+		public Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d
 		(
 			Vector3 datastraight,
+			Vector3 dataup,
 			Vector3 dataoriginPos
 		)
 		{
 			straight = datastraight;
+			up = dataup;
 			originPos = dataoriginPos;
 		}
 
-		public static void Serialize(Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 commandData, IOutProtocolBitStream bitStream)
+		public static void Serialize(Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d commandData, IOutProtocolBitStream bitStream)
 		{
 			var converted_straight = commandData.straight.ToCoreVector3();
 			bitStream.WriteVector3(converted_straight, FloatMeta.NoCompression());
+			var converted_up = commandData.up.ToCoreVector3();
+			bitStream.WriteVector3(converted_up, FloatMeta.NoCompression());
 			var converted_originPos = commandData.originPos.ToCoreVector3();
 			bitStream.WriteVector3(converted_originPos, FloatMeta.NoCompression());
 		}
 
-		public static Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960 Deserialize(IInProtocolBitStream bitStream)
+		public static Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d Deserialize(IInProtocolBitStream bitStream)
 		{
 			var converted_straight = bitStream.ReadVector3(FloatMeta.NoCompression());
 			var datastraight = converted_straight.ToUnityVector3();
+			var converted_up = bitStream.ReadVector3(FloatMeta.NoCompression());
+			var dataup = converted_up.ToUnityVector3();
 			var converted_originPos = bitStream.ReadVector3(FloatMeta.NoCompression());
 			var dataoriginPos = converted_originPos.ToUnityVector3();
 
-			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_21bd6c41_31e7_4e15_88e2_e887d233b960
+			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d
 			(
 				datastraight,
+				dataup,
 				dataoriginPos
 			){};
 		}
