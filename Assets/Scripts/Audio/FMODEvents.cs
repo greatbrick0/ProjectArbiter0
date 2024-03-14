@@ -2,13 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using Unity.VisualScripting;
 
 public class FMODEvents : MonoBehaviour
 {
     //Player Abilities
     [field: Header ("Player Abilities")]
-    [field: SerializeField] public EventReference iceSpikes { get; private set; }
+    [field: Header ("Ice")]
+    [field: SerializeField] public EventReference hammerSwing { get; private set; }
     [field: SerializeField] public EventReference iceCharge { get; private set; }
+    [field: SerializeField] public EventReference iceEnhancement { get; private set; }
+    [field: Header ("Fire")]
+    [field: SerializeField] public EventReference fireCone { get; private set; }
+    [field: SerializeField] public EventReference fireBomb { get; private set; }
+    [field: SerializeField] public EventReference fireEnhancement { get; private set; }
+    [field: Header ("Mutant")]
+    [field: SerializeField] public EventReference mutant1 { get; private set; }
+    [field: SerializeField] public EventReference mutant2 { get; private set; }
+    [field: SerializeField] public EventReference mutant3 { get; private set; }
 
     //This is for non-player specific sounds.
     [field: Header ("General SFX")]
