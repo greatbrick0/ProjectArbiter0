@@ -75,8 +75,11 @@ public class SettingsManager : MonoBehaviour
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
 
-        playerInput.mouseXSens = sens / 50;
-        playerInput.mouseYSens = sens / 50;
+        if (playerInput != null)
+        {
+            playerInput.mouseXSens = sens / 50;
+            playerInput.mouseYSens = sens / 50;
+        }
 
         sensInputField.text = sens.ToString("#.0");
 
@@ -88,8 +91,11 @@ public class SettingsManager : MonoBehaviour
         Mathf.Clamp(sens, 0.1f, 100);
         sens = Mathf.Round(sens * 10.0f) * 0.1f;
 
-        playerInput.mouseXSens = sens / 50;
-        playerInput.mouseYSens = sens / 50;
+        if (playerInput != null)
+        {
+            playerInput.mouseXSens = sens / 50;
+            playerInput.mouseYSens = sens / 50;
+        }
 
         sensSlider.value = sens;
 

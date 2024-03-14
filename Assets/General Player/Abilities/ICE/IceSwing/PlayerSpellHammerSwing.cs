@@ -58,7 +58,7 @@ public class PlayerSpellHammerSwing : Ability
     {
         Debug.Log("hammer- AbilityAction");
         newHammer = Instantiate(IceHammer, spellOrigin.transform);
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.hammerSwing, gameObject);
     }
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction

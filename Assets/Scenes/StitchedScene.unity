@@ -839,6 +839,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &149813215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5190530701877095570, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+    type: 3}
+  m_PrefabInstance: {fileID: 859747412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &149813219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+    type: 3}
+  m_PrefabInstance: {fileID: 859747412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149813215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &149813220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149813215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703d23d135d915341af2a6812c7ff663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 149813219}
 --- !u!43 &155295900
 Mesh:
   m_ObjectHideFlags: 0
@@ -4276,10 +4307,40 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1521264329606617042, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+        type: 3}
+      propertyPath: m_Text
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3124577393129443887, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: m_Text
       value: This is an Error.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+        type: 3}
+      propertyPath: m_Text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+        type: 3}
+      propertyPath: m_KeyboardType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+        type: 3}
+      propertyPath: m_CharacterLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510135349019760892, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
+        type: 3}
+      propertyPath: m_Text
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5627161928050324789, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
@@ -9279,13 +9340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1ed1903b75b2d4493e95f8b8abf298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <iceSpikes>k__BackingField:
+  <hammerSwing>k__BackingField:
     Guid:
       Data1: -2037129516
       Data2: 1149855509
       Data3: -2121555529
       Data4: -1741223326
-    Path: event:/SFX/Character/Ice/Abilities/Ability 1/Ice Spikes
+    Path: event:/SFX/Character/Ice/Abilities/Ability 1/Ice Melle
   <iceCharge>k__BackingField:
     Guid:
       Data1: 1696502353
@@ -9293,6 +9354,55 @@ MonoBehaviour:
       Data3: 1077111687
       Data4: -1643331505
     Path: event:/SFX/Character/Ice/Abilities/Ability 2/Ice Charge
+  <iceEnhancement>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <fireCone>k__BackingField:
+    Guid:
+      Data1: -56629920
+      Data2: 1336009543
+      Data3: 460385921
+      Data4: -1787356253
+    Path: event:/SFX/Character/Fire/Ability 1/Fire Cone
+  <fireBomb>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <fireEnhancement>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <mutant1>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <mutant2>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <mutant3>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <bulletHit>k__BackingField:
     Guid:
       Data1: 55242279
