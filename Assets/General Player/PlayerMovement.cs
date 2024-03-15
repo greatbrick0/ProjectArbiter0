@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     PlayerAnimation anim;
+    [HideInInspector]
+    public GunNudger nudger;
 
     [Header("Movement Variables")]
     [SerializeField]
@@ -133,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //hVelocity = DeccelerateHorizontal(hVelocity);
                 yVelocity = AccelerateGravity(yVelocity);
-                anim.walking = false;
+                SetWalkingVisuals(false);
             }
         }
         else
@@ -141,12 +143,12 @@ public class PlayerMovement : MonoBehaviour
             if (inputtedMoveDirection.sqrMagnitude == 0)
             {
                 hVelocity = DeccelerateHorizontal(hVelocity);
-                anim.walking = false;
+                SetWalkingVisuals(false);
             }
             else
             {
                 hVelocity = AccelerateHorizontal(hVelocity, inputtedMoveDirection);
-                anim.walking = true;
+                SetWalkingVisuals(true);
             }
             yVelocity = AccelerateGravity(yVelocity);
             if (jumpInputted && grounded) PlayerJump();
@@ -194,10 +196,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetEnabledControls(bool newValue)
     {
         defaultMovementEnabled = newValue;
-        if (defaultMovementEnabled)
-            cameraControlsEnabled = true;
-        else
-            cameraControlsEnabled = false;
+        cameraControlsEnabled = defaultMovementEnabled;
     }
 
     public void SetPartialControl(float newValue)
@@ -258,6 +257,11 @@ public class PlayerMovement : MonoBehaviour
         moveSpeedAccel += modifyValue;
     }
 
+    private void SetWalkingVisuals(bool newValue)
+    {
+        if (anim != null) anim.walking = newValue;
+        if (nudger != null) nudger.walking = newValue;
+    }
     
     private void OnCollisionStay(Collision collision)
     {

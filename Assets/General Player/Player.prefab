@@ -1307,6 +1307,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 6833188524643353094}
       lodStepsActive: 1
+    - component: {fileID: 7816598764001434441}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -1364,6 +1366,7 @@ MonoBehaviour:
   - rid: 726511650095759429
   - rid: 726511650095759430
   - rid: 726511650095759431
+  - rid: 2532949677146898442
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -1703,6 +1706,11 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 2532949677146898442
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 7816598764001434441}
     - rid: 6149391758099218432
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
@@ -1760,6 +1768,7 @@ MonoBehaviour:
   <cameraControlsEnabled>k__BackingField: 0
   head: {fileID: 3402058366864678147}
   anim: {fileID: 8127347517799184014}
+  nudger: {fileID: 0}
   maxMoveSpeed: 8.5
   moveSpeedAccel: 70
   moveSpeedDeccel: 60
@@ -3207,6 +3216,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4262624706554589562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7816598764001434441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028060057830706219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce8c2ce83173b74680ff45b90fe0cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 6000918072062803087}
+  walking: 0
+  stepFequency: 0.3
+  stepHeight: 0.005
+  timeToRecover: 0.2
 --- !u!4 &4203201941424275480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -9118901443587280542, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
