@@ -137,9 +137,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4372251879904646801}
-  - {fileID: 3901741527115270495}
+  m_Children: []
   m_Father: {fileID: 3402058366864678147}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1344,9 +1342,10 @@ MonoBehaviour:
   - rid: 726511650095759405
   - rid: 1197954471362035718
   - rid: 6149391758099218432
-  - rid: 2107348470674227235
   - rid: 2107348470674227254
   - rid: 2532949631103139844
+  - rid: 2532949677146898443
+  - rid: 2532949677146898448
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1576,49 +1575,6 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 2107348470674227235
-      type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 2107348470674227236
-        routing: 0
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: 668cdd97-e39f-4c1e-9e8b-022112ce3dac
-        archetypeData:
-          type: 3
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 3
-            bits: 1
-            precision: 0
-            floatCompression: 0
-        unityComponent: {fileID: 8127347517799184014}
-        coherenceSync: {fileID: -2931630549695675886}
-        interpolationSettings: {fileID: 0}
-    - rid: 2107348470674227236
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: walking
-        monoAssemblyType: System.Boolean, mscorlib
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 4
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: PlayerAnimation, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.BoolBinding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
     - rid: 2107348470674227254
       type: {class: BoolAnimatorParameterBinding, ns: Coherence.Toolkit.Bindings,
         asm: Coherence.Toolkit}
@@ -1711,6 +1667,88 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 7816598764001434441}
+    - rid: 2532949677146898443
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2532949677146898444
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 8ed7af65-8faa-4df4-a8bc-d05c5ec8b2a1
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 1162613746593882785}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 2532949677146898444
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: PlayerDown
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerHealth, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 2532949677146898448
+      type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2532949677146898449
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 4f88e77b-cc25-44e0-945c-3463b7c14b3d
+        archetypeData:
+          type: 3
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 3
+            bits: 1
+            precision: 0
+            floatCompression: 0
+        unityComponent: {fileID: 8127347517799184014}
+        coherenceSync: {fileID: -2931630549695675886}
+        interpolationSettings: {fileID: 0}
+    - rid: 2532949677146898449
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: walking
+        monoAssemblyType: System.Boolean, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: PlayerAnimation, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.BoolBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
     - rid: 6149391758099218432
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
@@ -2158,13 +2196,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3800042346541162947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.20000005}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4511884202335638157}
-  m_Father: {fileID: 1111314683962167162}
-  m_RootOrder: 1
+  m_Father: {fileID: 3402058366864678147}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3883505156724150720
 GameObject:
@@ -2227,6 +2265,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1111314683962167162}
+  - {fileID: 4372251879904646801}
+  - {fileID: 3901741527115270495}
   m_Father: {fileID: 8872450027310171148}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2331,7 +2371,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1111314683962167162}
+    m_TransformParent: {fileID: 3402058366864678147}
     m_Modifications:
     - target: {fileID: -9195377099108967570, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
@@ -2351,12 +2391,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.55
+      value: 0.5500001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
@@ -2366,7 +2406,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.55
+      value: 0.5500001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
@@ -2381,27 +2421,27 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.46
+      value: -0.46000004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9993793
+      value: 0.99937934
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.03522834
+      value: 0.035228346
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 2.9103837e-11
+      value: 2.910384e-11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47b7ead2c3be5fe44bb5e12ad8b8c751,
         type: 3}

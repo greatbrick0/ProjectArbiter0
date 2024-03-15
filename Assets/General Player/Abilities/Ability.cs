@@ -91,11 +91,12 @@ public abstract class Ability : MonoBehaviour
 
     protected virtual void GetNeededComponents()
     {
-        AbilityHoldRef = transform.parent.parent.parent.parent.GetComponent<AbilityInputSystem>();
-        sanityRef = transform.parent.parent.parent.parent.GetComponent<SanitySystem>();
-        movementRef = transform.parent.parent.parent.parent.GetComponent<PlayerMovement>();
-        rb = transform.parent.parent.parent.parent.GetComponent<Rigidbody>();
-        weaponRef = transform.parent.parent.parent.parent.GetComponent<WeaponHolder>();
+        Transform t = transform.parent.parent.parent;
+        AbilityHoldRef = t.GetComponent<AbilityInputSystem>();
+        sanityRef = t.GetComponent<SanitySystem>();
+        movementRef = t.GetComponent<PlayerMovement>();
+        rb = t.GetComponent<Rigidbody>();
+        weaponRef = t.GetComponent<WeaponHolder>();
         spellOrigin = transform.parent.gameObject;
     }
 
