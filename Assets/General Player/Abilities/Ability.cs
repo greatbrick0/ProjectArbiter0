@@ -13,6 +13,7 @@ public abstract class Ability : MonoBehaviour
     protected PlayerMovement movementRef;
     protected WeaponHolder weaponRef;
     protected GameObject spellOrigin;
+    protected Animator animRef;
 
     [HideInInspector]
     public GameObject playerRef;
@@ -58,8 +59,12 @@ public abstract class Ability : MonoBehaviour
 
     public virtual IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }
 
     public virtual void ApplyPlayerCastMotion()
@@ -98,6 +103,7 @@ public abstract class Ability : MonoBehaviour
         rb = t.GetComponent<Rigidbody>();
         weaponRef = t.GetComponent<WeaponHolder>();
         spellOrigin = transform.parent.gameObject;
+        
     }
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.
