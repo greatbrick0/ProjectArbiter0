@@ -339,5 +339,6 @@ public class WeaponHolder : MonoBehaviour
     public void MaxOutAmmo()
     {
         currentAmmo = maxAmmo;
+        hudGunRef.SetCurrentAmmo(currentAmmo);
     }
 }

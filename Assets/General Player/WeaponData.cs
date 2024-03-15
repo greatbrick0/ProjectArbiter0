@@ -15,6 +15,7 @@ public class WeaponData : ScriptableObject
     [field: SerializeField]
     [field: Tooltip("Whether the player is allowed to hold the button or needs to let go between shots.")]
     public bool automatic { get; private set; } = false;
+    [field: SerializeField]
     [field: Tooltip("Whether the pattern cycles through the shotPattern predictably or chooses randomly.")]
     public bool randomizePattern { get; private set; } = false;
     [field: SerializeField]

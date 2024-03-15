@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a5d6ffcaae3a848ab84c45c889e494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
   sanityCost: 20
   onCooldown: 0
   maxCooldownTime: 4
@@ -66,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9127eb4d463349959bbf13ce5ed14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
   sanityCost: 40
   onCooldown: 0
   maxCooldownTime: 8
@@ -90,13 +92,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac5f767a2f3ac7488a7fe6402fae762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
   sanityCost: 20
   onCooldown: 0
   maxCooldownTime: 4
   windupTime: 0
   castSlowDuration: 1.3
   HUDRef: {fileID: 0}
-  upgradedWeaponInfo: {fileID: 11400000, guid: 826814ce33a749f44b845aa1d3c6437a, type: 2}
+  dashMotionVFX: {fileID: 8711109542535353726, guid: 508fe44ad959e4a41b98cf4c58db8e40,
+    type: 3}
+  upgradedWeaponInfo: {fileID: 11400000, guid: af0ef52f3a8ceaa45b94f3b71953a80a, type: 2}
   gunVFXRef: {fileID: 0}
   muzzleFlash: {fileID: 0}
   newmuzzleColor: {r: 0, g: 0, b: 0, a: 0}

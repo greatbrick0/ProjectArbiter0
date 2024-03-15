@@ -83,6 +83,7 @@ public class PlayerSpellFireEnhancement : Ability
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
         weaponRef.MaxOutAmmo();
+
         storebaseMovementSpeed = movementRef.GetMaxMoveSpeed();
             stimBoostTimer = castSlowDuration *2;
         lerpTime = 0;
@@ -109,7 +110,6 @@ public class PlayerSpellFireEnhancement : Ability
                     movementRef.ApplyExternalSpeedModification(-0.01f);
                     if (movementRef.GetMaxMoveSpeed() > storebaseMovementSpeed)
                     {
-                        Debug.Log(movementRef.GetMaxMoveSpeed());
                         movementRef.SetMoveSpeed(Mathf.Lerp(movementRef.GetMaxMoveSpeed(), storebaseMovementSpeed, lerpTime));
                     }
                 }

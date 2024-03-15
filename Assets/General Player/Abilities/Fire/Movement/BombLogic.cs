@@ -25,6 +25,7 @@ public class BombLogic : MonoBehaviour
 
     int count;
 
+    bool Triggered = false;
     private void Start()
     {
         hitNumberRef = DamageNumberManager.GetManager();
@@ -86,6 +87,8 @@ public class BombLogic : MonoBehaviour
 
     public void Trigger()
     {
+        if (Triggered)
+            return;  
         bombVisual.SetActive(false);
         explosionvisual.SetActive(true);
         bombAbilityRef.bombRef = null;
@@ -98,10 +101,11 @@ public class BombLogic : MonoBehaviour
         bombAbilityRef.ExplosionOccured();
         if ((bombAbilityRef.GetComponentInParent<CapsuleCollider>().transform.position - transform.position).magnitude <= 6)
         {
-            Debug.Log("Player is in range");
             bombAbilityRef.ChangeControls();
             bombAbilityRef.GetComponentInParent<Rigidbody>().AddForce((bombAbilityRef.GetComponentInParent<CapsuleCollider>().transform.position - transform.position).normalized * 15, ForceMode.Impulse);
         }
+
+        Triggered = true;
 
     }
 
