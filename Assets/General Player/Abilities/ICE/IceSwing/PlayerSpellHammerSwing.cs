@@ -50,7 +50,7 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void AbilityIntroductionDecorations()
     {
-        //Hammer windup animations
+        animRef.SetTrigger("Hammer");
         //hammer windup sfx
     }
 

@@ -103,7 +103,7 @@ public abstract class Ability : MonoBehaviour
         rb = t.GetComponent<Rigidbody>();
         weaponRef = t.GetComponent<WeaponHolder>();
         spellOrigin = transform.parent.gameObject;
-        
+        animRef = movementRef.nudger.GetComponent<Animator>();
     }
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.
