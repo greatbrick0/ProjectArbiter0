@@ -110,6 +110,8 @@ public class PlayerSpellIceDash : Ability
         rb.drag = 0;
         sanityRef.GetComponent<PlayerInput>().mouseXSens /= 0.3f;
         sanityRef.GetComponent<PlayerInput>().mouseYSens /= 0.01f;
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
         if (collideHitboxRef != null)
             collideHitboxRef.GetComponent<DashHitBoxScipt>().RequestDestroy();
         if (collide)
@@ -128,6 +130,14 @@ public class PlayerSpellIceDash : Ability
         onCooldown = true;
         yield return new WaitForSeconds(maxCooldownTime);
         onCooldown = false;
+    }
+
+    public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    {
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        yield return new WaitForSeconds(windupTime);
+        AbilityAction();
     }
 
     public override void newDemonic()
