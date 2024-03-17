@@ -9,6 +9,8 @@ public class GunNudger : MonoBehaviour
     private Quaternion originalRot;
     [SerializeField]
     public PlayerMovement playerMovement;
+    [SerializeField]
+    public WeaponHolder playerWeapon;
     private Transform head;
 
     [HideInInspector]
@@ -46,6 +48,7 @@ public class GunNudger : MonoBehaviour
         originalPos = t.localPosition;
         originalRot = t.localRotation;
         playerMovement.nudger = this;
+        playerWeapon.animRef = GetComponent<Animator>();
         head = transform.parent;
         transform.parent = null;
     }

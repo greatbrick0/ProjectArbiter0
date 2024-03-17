@@ -2171,6 +2171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultBehaviourEnabled: 0
   weapon: {fileID: 11400000, guid: 826814ce33a749f44b845aa1d3c6437a, type: 2}
+  animRef: {fileID: 0}
   muzzleFlash: {fileID: 8457137569243189601}
   bulletHole: {fileID: 403837077743140515, guid: 9965d965cf52d4743b0f560f98afc45f,
     type: 3}
@@ -3023,6 +3024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 6000918072062803087}
+  playerWeapon: {fileID: 2021298388301607510}
   walking: 0
   stepFequency: 0.3
   stepHeight: 0.005
@@ -4616,6 +4618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 6000918072062803087}
+  playerWeapon: {fileID: 0}
   walking: 0
   stepFequency: 0.3
   stepHeight: 0.005
