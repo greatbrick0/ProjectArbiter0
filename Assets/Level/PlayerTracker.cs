@@ -36,6 +36,7 @@ public class PlayerTracker : MonoBehaviour
         {
             playerList.Add(ii.GameObject);
         }
+        currentClient = clientsData.GetMine();
     }
 
     public GameObject GetPlayerObject(int index)
@@ -45,7 +46,6 @@ public class PlayerTracker : MonoBehaviour
 
     public bool IsPrimaryClient()
     {
-        print(currentClient.ClientId);
         return currentClient.GameObject == playerList[0];
     }
 }
