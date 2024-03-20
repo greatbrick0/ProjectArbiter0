@@ -14,12 +14,13 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(Vector3 pos, int typeIndex)
     {
-        if (!playerTracker.IsPrimaryClient()) return;
         SpawnEnemy(pos, enemyTypes[typeIndex]);
     }
 
     public void SpawnEnemy(Vector3 pos, GameObject typePrefab)
     {
+        if (!playerTracker.IsPrimaryClient()) return;
+
         instanceRef = Instantiate(typePrefab);
         instanceRef.transform.parent = transform;
         instanceRef.transform.position = pos;
