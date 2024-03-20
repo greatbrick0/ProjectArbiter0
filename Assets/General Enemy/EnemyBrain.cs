@@ -1,8 +1,10 @@
+using Coherence.Toolkit;
 using UnityEngine;
 
 public abstract class EnemyBrain : MonoBehaviour
 {
     [HideInInspector]
+    [Sync]
     public PlayerTracker playerTracker;
     [SerializeField]
     [Tooltip("The period of time between state calculations. Measured in seconds. ")]
