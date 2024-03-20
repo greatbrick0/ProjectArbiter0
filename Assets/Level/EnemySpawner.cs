@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(Vector3 pos, int typeIndex)
     {
+        if (!playerTracker.IsPrimaryClient()) return;
         SpawnEnemy(pos, enemyTypes[typeIndex]);
     }
 
