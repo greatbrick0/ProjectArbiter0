@@ -1,15 +1,30 @@
 fileFormatVersion: 2
-guid: 14f86eabc29baaa4292152d21c836433
+guid: 2855026b837c3b94e9ff3e408d07cf77
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 4781951162920444690
-    second: Armature|ArmatureAction
+      74: -8903788802121895233
+    second: Skeleton|Action
   - first:
-      74: -1422011007694221501
-    second: Armature|ArmatureAction.001
-  externalObjects: {}
+      74: 89833686428244237
+    second: LMG|ArmatureAction
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IceArbiterMaterial
+    second: {fileID: 2100000, guid: b029c0c6ecd7ea34cba14a43c0670779, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IceMaterial
+    second: {fileID: 2100000, guid: e86d133846b6443448f305ddc735c52f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LMG Material.001
+    second: {fileID: 2100000, guid: 39ba7da7daa4dcd429723115f6038aac, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -94,8 +109,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.005
-    rootMotionBoneName: 
+    globalScale: 0.5
+    rootMotionBoneName: Spine
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -103,7 +118,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
