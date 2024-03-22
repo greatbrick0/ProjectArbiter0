@@ -18,7 +18,17 @@ ModelImporter:
   - first:
       74: 4363547484759985885
     second: Armature|Armature|Armature|Cylinder.001|Cylinder.001|Cylinder.001Action
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LMG Material.002
+    second: {fileID: 2100000, guid: 39ba7da7daa4dcd429723115f6038aac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 34d5b57ced422934c941a419c8bbdbb4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
