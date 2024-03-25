@@ -3,7 +3,6 @@ using UnityEngine;
 
 public abstract class EnemyBrain : MonoBehaviour
 {
-    [HideInInspector]
     [Sync]
     public PlayerTracker playerTracker;
     [SerializeField]
@@ -49,5 +48,15 @@ public abstract class EnemyBrain : MonoBehaviour
         }
 
         return outputPlayer;
+    }
+
+    public void SetReferences(EnemySpawner enemySpawner)
+    {
+        print("set");
+        playerTracker = enemySpawner.playerTracker;
+        if(GetComponent<EnemyHealth>() != null)
+        {
+            GetComponent<EnemyHealth>().enemyDied += enemySpawner.IncrementKillStat;
+        }
     }
 }
