@@ -1,14 +1,19 @@
+using Coherence;
 using Coherence.Toolkit;
 using UnityEngine;
 
 public abstract class EnemyBrain : MonoBehaviour
 {
-    [Sync]
     public PlayerTracker playerTracker;
     [SerializeField]
     [Tooltip("The period of time between state calculations. Measured in seconds. ")]
     private float cycleTime = 1.0f;
     private float timeSinceLastCycle = 0.0f;
+
+    protected virtual void Start()
+    {
+        
+    }
 
     protected virtual void Update()
     {
@@ -48,15 +53,5 @@ public abstract class EnemyBrain : MonoBehaviour
         }
 
         return outputPlayer;
-    }
-
-    public void SetReferences(EnemySpawner enemySpawner)
-    {
-        print("set");
-        playerTracker = enemySpawner.playerTracker;
-        if(GetComponent<EnemyHealth>() != null)
-        {
-            GetComponent<EnemyHealth>().enemyDied += enemySpawner.IncrementKillStat;
-        }
     }
 }

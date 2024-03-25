@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 5473549330693851184}
   - component: {fileID: 5932626005989770402}
   - component: {fileID: 8294746302932343368}
+  - component: {fileID: 5747550862409650219}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -410,6 +411,8 @@ MonoBehaviour:
     - component: {fileID: 4060373050650029101}
       lodStepsActive: 1
     - component: {fileID: 1571684432622442800}
+      lodStepsActive: 1
+    - component: {fileID: 5747550862409650219}
       lodStepsActive: 1
     lodLevels:
     - distance: 0
@@ -1073,6 +1076,18 @@ MonoBehaviour:
   cycleTime: 1
   state: 0
   shootRange: 15
+--- !u!114 &5747550862409650219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737c0df7497b2d340a952509049cd555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3391247809837642788
 GameObject:
   m_ObjectHideFlags: 0

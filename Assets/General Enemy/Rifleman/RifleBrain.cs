@@ -26,8 +26,9 @@ public class RifleBrain : EnemyBrain
         Flee = 3,
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         moveScript = GetComponent<EnemyMovement>();
         gunScript = GetComponent<EnemyGun>();
         healthScript = GetComponent<EnemyHealth>();
