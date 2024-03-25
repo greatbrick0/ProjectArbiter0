@@ -15,6 +15,7 @@ public class EnemySyncInit : MonoBehaviour
         sync.SendCommand<EnemyBrain>(nameof(SetReferences), MessageTarget.All, enemySpawner.gameObject);
     }
 
+    [Command("SetReferences", typeof(GameObject))]
     public void SetReferences(GameObject enemySpawner)
     {
         print("set");

@@ -140,7 +140,7 @@ MonoBehaviour:
   OnInputSimulatorConnected:
     m_PersistentCalls:
       m_Calls: []
-  coherenceSyncConfig: {fileID: 3384364290421682180, guid: 1c66d2efa90ad914ab104e35a4a76465,
+  coherenceSyncConfig: {fileID: -2308153206437723810, guid: 1c66d2efa90ad914ab104e35a4a76465,
     type: 2}
   archetype:
     boundComponents:
@@ -456,6 +456,7 @@ MonoBehaviour:
   - rid: 2532949695155404860
   - rid: 2532949695155404861
   - rid: 2532949695155404862
+  - rid: 2532949919242387604
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -933,6 +934,47 @@ MonoBehaviour:
         coherenceSync: {fileID: 2559740204914824160}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
           type: 2}
+    - rid: 2532949919242387604
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2532949919242387605
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 81fc097c-f29c-4a62-9865-fea299b33b22
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 5747550862409650219}
+        coherenceSync: {fileID: 2559740204914824160}
+        interpolationSettings: {fileID: 0}
+    - rid: 2532949919242387605
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: SetReferences
+        monoAssemblyType: 
+        required: 1
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes:
+        - UnityEngine.GameObject, UnityEngine
+        ownerType:
+          assemblyQualifiedName: EnemySyncInit, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: SetReferences
+        oldParameterAssemblyTypes:
+        - UnityEngine.GameObject, UnityEngine
 --- !u!33 &3474531398460639501
 MeshFilter:
   m_ObjectHideFlags: 0
