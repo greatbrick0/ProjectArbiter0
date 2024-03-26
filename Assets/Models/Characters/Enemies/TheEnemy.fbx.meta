@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a58f47c9894ae64eae95cb9aa34f87b
+guid: 5a230d9a56e34374ea3e605dbd32cfd3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -10,13 +10,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: ffd5b1742c304054bb73322387ba72ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Light Enemy
     second: {fileID: 2100000, guid: 05dc51b41257fc3488926e25b32a2bab, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Light Enemy.003
-    second: {fileID: 2100000, guid: 05dc51b41257fc3488926e25b32a2bab, type: 2}
+      name: ShoulderAndThighArmor
+    second: {fileID: 2100000, guid: 513a4d83799508042b906bd77654844f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
