@@ -9,13 +9,15 @@ public class EnemySyncInit : MonoBehaviour
 {
     private CoherenceSync sync;
 
-    public void Init(EnemySpawner enemySpawner)
+    public IEnumerator Init(EnemySpawner enemySpawner)
     {
+        yield return new WaitForSeconds(0.5f);
         sync = GetComponent<CoherenceSync>();
-        sync.SendCommand<EnemyBrain>(nameof(SetReferences), MessageTarget.All, enemySpawner.gameObject);
+        print("hit");
+        sync.SendCommand<EnemySyncInit>(nameof(SetReferences), MessageTarget.All, enemySpawner.gameObject);
     }
 
-    [Command("SetReferences", typeof(GameObject))]
+    [Command]
     public void SetReferences(GameObject enemySpawner)
     {
         print("set");

@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         instanceRef = Instantiate(typePrefab);
         instanceRef.transform.parent = transform;
         instanceRef.transform.position = pos;
-        if(instanceRef.GetComponent<EnemySyncInit>() != null) instanceRef.GetComponent<EnemySyncInit>().Init(this);
+        if(instanceRef.GetComponent<EnemySyncInit>() != null) StartCoroutine(instanceRef.GetComponent<EnemySyncInit>().Init(this));
         else
         {
             instanceRef.GetComponent<EnemyBrain>().playerTracker = playerTracker;
