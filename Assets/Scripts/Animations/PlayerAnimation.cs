@@ -14,21 +14,24 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (walking)
+        if (player != null)
         {
-            player.SetBool("walking", true);
-            
-            //Gradual weight increase
-            //if (a <= 1)
-              //  a = a + 0.05f;
+            if (walking)
+            {
+                player.SetBool("walking", true);
 
-            player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 0f);
-        }
-        else
-        {
-            player.SetBool("walking", false);
-            player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 1f);
-            //a = 0f;
+                //Gradual weight increase
+                //if (a <= 1)
+                //  a = a + 0.05f;
+
+                player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 0f);
+            }
+            else
+            {
+                player.SetBool("walking", false);
+                player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 1f);
+                //a = 0f;
+            }
         }
     }
 }
