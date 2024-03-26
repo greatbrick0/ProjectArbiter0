@@ -19,7 +19,11 @@ public class HUDSanity : MonoBehaviour
     [SerializeField]
     GameObject sanityWarping;
 
+    [SerializeField]
     public Volume volume;
+
+    [SerializeField]
+    public Volume exhaustVolume;
 
     public float sanityTarget;
 
