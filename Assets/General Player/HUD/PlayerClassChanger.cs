@@ -43,10 +43,12 @@ public class PlayerClassChanger : MonoBehaviour
                     initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
 
                     playermodelRef = currentPlayer.GetComponent<PlayerInput>().selfBodyModel.transform.parent.gameObject;
+                    GameObject.Destroy(playermodelRef.GetComponentInChildren<Animator>());
                     GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfBodyModel.gameObject);
                     playermodelRef = Instantiate(Class[2], playermodelRef.transform);
 
 
+                    Debug.Log((currentPlayer.GetComponent<PlayerInput>().selfGunModel.name));
                     viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
                     GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
                     viewmodelRef = Instantiate(Class[3], viewmodelRef.transform);

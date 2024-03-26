@@ -11,6 +11,7 @@ public class GunNudger : MonoBehaviour
     public PlayerMovement playerMovement;
     [SerializeField]
     public WeaponHolder playerWeapon;
+    [SerializeField]
     private Transform head;
 
     [HideInInspector]
@@ -50,7 +51,7 @@ public class GunNudger : MonoBehaviour
         playerMovement.nudger = this;
         playerWeapon.animRef = GetComponent<Animator>();
         head = transform.parent;
-        transform.parent = null;
+        //transform.parent = null;
     }
 
     private void Update()
