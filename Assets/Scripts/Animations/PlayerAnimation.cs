@@ -24,12 +24,12 @@ public class PlayerAnimation : MonoBehaviour
                 //if (a <= 1)
                 //  a = a + 0.05f;
 
-                player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 0f);
+                //player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 0f);
             }
             else
             {
                 player.SetBool("walking", false);
-                player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 1f);
+                //player.SetLayerWeight(player.GetLayerIndex("IdleWeight"), 1f);
                 //a = 0f;
             }
         }

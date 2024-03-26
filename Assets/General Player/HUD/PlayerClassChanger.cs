@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerClassChanger : MonoBehaviour
 {
@@ -51,7 +52,8 @@ public class PlayerClassChanger : MonoBehaviour
                     Debug.Log((currentPlayer.GetComponent<PlayerInput>().selfGunModel.name));
                     viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
                     GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
-                    viewmodelRef = Instantiate(Class[3], viewmodelRef.transform);
+                    viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
+                    
     {
 
     }
@@ -78,6 +80,17 @@ public class PlayerClassChanger : MonoBehaviour
             currentPlayer.transform.GetComponent<PlayerMovement>().anim = playermodelRef.GetComponent<PlayerAnimation>();
 
             currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
+            // Set Gun Animator
+            currentPlayer.transform.GetComponent<WeaponHolder>().animRef = viewmodelRef.GetComponent<Animator>();
+            // Set GunNudger Script Values
+            viewmodelRef.GetComponent<GunNudger>().playerMovement = currentPlayer.GetComponent<PlayerMovement>();
+            currentPlayer.GetComponent<PlayerMovement>().nudger = viewmodelRef.GetComponent<GunNudger>();
+            viewmodelRef.GetComponent<GunNudger>().playerWeapon = currentPlayer.GetComponent<WeaponHolder>();
+            viewmodelRef.GetComponent<GunNudger>().SetHead(viewmodelRef.transform.parent);
+            // Set MuzzleFlash
+            currentPlayer.GetComponent<WeaponHolder>().SetMuzzleFlash(viewmodelRef.GetComponent<MuzzleFlashHolder>().MuzzleFlash);
+            // Viewmodel Layer
+            currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 10);
         }
     }
 }

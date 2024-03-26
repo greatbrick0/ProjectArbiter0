@@ -245,6 +245,7 @@ public class WeaponHolder : MonoBehaviour
         ShootDecorations();
 
         currentAmmo -= 1;
+        // Debug.Log(patternIndex); //trying to fix broken recoil
         foreach (Vector2 ii in shotPatterns[patternIndex].points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, up) * straight;
@@ -347,4 +348,7 @@ public class WeaponHolder : MonoBehaviour
         currentAmmo = maxAmmo;
         hudGunRef.SetCurrentAmmo(currentAmmo);
     }
+
+    // For use by clsas changer
+    public void SetMuzzleFlash(VisualEffect muzzleFlash) { this.muzzleFlash = muzzleFlash; }
 }

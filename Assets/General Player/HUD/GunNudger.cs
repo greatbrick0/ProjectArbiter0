@@ -50,7 +50,7 @@ public class GunNudger : MonoBehaviour
         originalRot = t.localRotation;
         playerMovement.nudger = this;
         playerWeapon.animRef = GetComponent<Animator>();
-        head = transform.parent;
+        //head = transform.parent;
         //transform.parent = null;
     }
 
@@ -104,4 +104,6 @@ public class GunNudger : MonoBehaviour
     {
         return new Vector3(vec2.x, vec2.y, z);
     }
+
+    public void SetHead(Transform transform) { head = transform; }
 }

@@ -32,16 +32,16 @@ MonoBehaviour:
     type: 3}
   includeInSchema: 1
   objectProvider:
-    rid: 726511650095759399
+    rid: 2107348768369147961
   objectInstantiator:
     rid: 726511650095759400
   references:
     version: 2
     RefIds:
-    - rid: 726511650095759399
+    - rid: 726511650095759400
+      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+    - rid: 2107348768369147961
       type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
       data:
         prefab: {fileID: 3294123685879425709, guid: 9b83865ad432b2840a2ba6c6e5d0fada,
           type: 3}
-    - rid: 726511650095759400
-      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
