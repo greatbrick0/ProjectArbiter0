@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Transform head;
     Rigidbody rb;
     [SerializeField]
-    PlayerAnimation anim;
+    public PlayerAnimation anim;
     [HideInInspector]
     public GunNudger nudger;
 

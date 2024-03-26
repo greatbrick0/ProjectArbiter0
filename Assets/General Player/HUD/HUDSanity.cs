@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class HUDSanity : MonoBehaviour
@@ -16,6 +18,8 @@ public class HUDSanity : MonoBehaviour
 
     [SerializeField]
     GameObject sanityWarping;
+
+    public Volume volume;
 
     public float sanityTarget;
 
@@ -44,6 +48,8 @@ public class HUDSanity : MonoBehaviour
 
         age = 0;
         barAtRest = false;
+
+
     }
 
     public void SanityBarColourChange()
@@ -74,7 +80,7 @@ public class HUDSanity : MonoBehaviour
 
         if (age == 1)
             barAtRest = true;
-
+        
 
     }
 
@@ -83,6 +89,48 @@ public class HUDSanity : MonoBehaviour
         demonic = newDemonic;
         Debug.Log(":::" + demonic);
         SanityBarColourChange();
+
+        if (demonic)
+        {
+            if (volume.profile.TryGet(out Bloom bloom))
+            {
+                bloom.intensity.value = 8f;
+            }
+            if (volume.profile.TryGet(out Vignette vignette))
+            {
+                vignette.intensity.value = 0.5f;
+            }
+            if (volume.profile.TryGet(out ColorAdjustments colorAdjust))
+            {
+                colorAdjust.saturation.value = -50;
+            }
+            if (volume.profile.TryGet(out ShadowsMidtonesHighlights SMH))
+            {
+                SMH.shadows.value = new Vector4(0,0,0,1);
+                SMH.midtones.value = new Vector4(0, 0, 0, 1);
+            }
+        }
+        else
+        {
+            if (volume.profile.TryGet(out Bloom bloom))
+            {
+                bloom.intensity.value = 4f;
+            }
+            if (volume.profile.TryGet(out Vignette vignette))
+            {
+                vignette.intensity.value = 0.25f;
+            }
+            if (volume.profile.TryGet(out ColorAdjustments colorAdjust))
+            {
+                colorAdjust.saturation.value = 0;
+            }
+            if (volume.profile.TryGet(out ShadowsMidtonesHighlights SMH))
+            {
+                SMH.shadows.value = new Vector4(0, 0, 0, 0);
+                SMH.midtones.value = new Vector4(0, 0, 0, 0);
+            }
+        }
     }
 
 }
+

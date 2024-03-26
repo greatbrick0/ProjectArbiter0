@@ -14,6 +14,10 @@ public class PlayerClassChanger : MonoBehaviour
 
     GameObject initRef;
 
+    GameObject viewmodelRef;
+
+    GameObject playermodelRef;
+
     GameObject currentPlayer;
 
     private void OnTriggerEnter(Collider collision)
@@ -37,6 +41,18 @@ public class PlayerClassChanger : MonoBehaviour
                     GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
                     initRef = Instantiate(Class[1], HUDRef.transform);
                     initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
+
+                    playermodelRef = currentPlayer.GetComponent<PlayerInput>().selfBodyModel.transform.parent.gameObject;
+                    GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfBodyModel.gameObject);
+                    playermodelRef = Instantiate(Class[2], playermodelRef.transform);
+
+
+                    viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
+                    GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
+                    viewmodelRef = Instantiate(Class[3], viewmodelRef.transform);
+    {
+
+    }
                 }
                 
             }
@@ -55,6 +71,11 @@ public class PlayerClassChanger : MonoBehaviour
             currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
             HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
             currentPlayer.transform.GetComponent<SanitySystem>().GetHUDReference();
+            currentPlayer.transform.GetComponent<PlayerInput>().selfBodyModel = playermodelRef;
+            currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(playermodelRef, 9);
+            currentPlayer.transform.GetComponent<PlayerMovement>().anim = playermodelRef.GetComponent<PlayerAnimation>();
+
+            currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
         }
     }
 }
