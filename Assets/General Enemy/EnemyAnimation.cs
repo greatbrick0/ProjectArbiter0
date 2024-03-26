@@ -19,6 +19,11 @@ public class EnemyAnimation : MonoBehaviour
         enemy.SetTrigger("Shoot");
     }
 
+    public void HurtAnim()
+    {
+        enemy.SetTrigger("Hurt");
+    }
+
     void Update()
     {
         enemy.SetBool("Walking", walking);

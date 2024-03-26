@@ -279,7 +279,7 @@ public class WeaponHolder : MonoBehaviour
     private void ShootDecorations()
     {
         muzzleFlash.Reinit();
-        
+        animRef.SetTrigger("Shoot");
         FMODUnity.RuntimeManager.PlayOneShotAttached(shootSound, gameObject);
     }
 
