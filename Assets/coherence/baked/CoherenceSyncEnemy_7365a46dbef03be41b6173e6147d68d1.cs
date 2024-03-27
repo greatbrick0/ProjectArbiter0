@@ -22,7 +22,7 @@ namespace Coherence.Generated
 	using Logger = Coherence.Log.Logger;
 	using UnityEngine.Scripting;
 
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_60e5ca40_27c3_4173_bf68_8b9cb3bd0b0c : PositionBinding
+	public class Binding_7365a46dbef03be41b6173e6147d68d1_d00dc6a7_44ee_487d_b691_89f762032836 : PositionBinding
 	{
 		public override string CoherenceComponentName => "WorldPosition";
 
@@ -64,7 +64,7 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_a9a952bb_dcc8_4176_9348_3a2bf706041a : RotationBinding
+	public class Binding_7365a46dbef03be41b6173e6147d68d1_605d18af_fc8f_4b71_9351_7191d77d484e : RotationBinding
 	{
 		public override string CoherenceComponentName => "WorldOrientation";
 
@@ -102,446 +102,6 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_4a26bfeb_4c31_4585_a3ef_e53e62fabdf9 : BoolBinding
-	{
-		private global::EnemyAnimation CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::EnemyAnimation)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override bool Value
-		{
-			get { return (System.Boolean)(CastedUnityComponent.walking); }
-			set { CastedUnityComponent.walking = (System.Boolean)(value); }
-		}
-
-		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866)coherenceComponent).walking;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.walking = Value;
-			}
-			else 
-			{
-				update.walking = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_a5302f1f_2dec_46fe_8d89_11f98fdb6f9e : FloatBinding
-	{
-		private global::EnemyAnimation CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::EnemyAnimation)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override float Value
-		{
-			get { return (System.Single)(CastedUnityComponent.directionAngle); }
-			set { CastedUnityComponent.directionAngle = (System.Single)(value); }
-		}
-
-		protected override float ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866)coherenceComponent).directionAngle;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.directionAngle = Value;
-			}
-			else 
-			{
-				update.directionAngle = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemyAnimation_6956384395590712866();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_8575dfe7_65b2_4c10_8eb5_7bc8a9416699 : BoolAnimatorParameterBinding
-	{
-		private global::UnityEngine.Animator CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Animator)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override bool Value
-		{
-			get { return (CastedUnityComponent.GetBool(CastedDescriptor.ParameterHash)); }
-			set { CastedUnityComponent.SetBool(CastedDescriptor.ParameterHash, (value)); }
-		}
-
-		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039)coherenceComponent).Walking;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.Walking = Value;
-			}
-			else 
-			{
-				update.Walking = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_77c2b974_07dc_44f7_b79e_03f1a391d022 : FloatAnimatorParameterBinding
-	{
-		private global::UnityEngine.Animator CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Animator)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override float Value
-		{
-			get { return (CastedUnityComponent.GetFloat(CastedDescriptor.ParameterHash)); }
-			set { CastedUnityComponent.SetFloat(CastedDescriptor.ParameterHash, (value)); }
-		}
-
-		protected override float ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039)coherenceComponent).Angle;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.Angle = Value;
-			}
-			else 
-			{
-				update.Angle = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Animator_3583843158289549039();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_f24e2e34_9299_4e0b_baa6_04e982931162 : DeepPositionBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override Vector3 Value
-		{
-			get { return (UnityEngine.Vector3)(CastedUnityComponent.localPosition); }
-			set { CastedUnityComponent.localPosition = (UnityEngine.Vector3)(value); }
-		}
-
-		protected override Vector3 ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910)coherenceComponent).position;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.position = Value;
-			}
-			else 
-			{
-				update.position = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_9ae6dfbf_47b4_4197_a41d_11e4dd8c1f80 : DeepRotationBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override Quaternion Value
-		{
-			get { return (UnityEngine.Quaternion)(CastedUnityComponent.localRotation); }
-			set { CastedUnityComponent.localRotation = (UnityEngine.Quaternion)(value); }
-		}
-
-		protected override Quaternion ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910)coherenceComponent).rotation;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.rotation = Value;
-			}
-			else 
-			{
-				update.rotation = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_2950839971944629910();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_881917c2_b0ab_4081_961c_576f97318917 : DeepPositionBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override Vector3 Value
-		{
-			get { return (UnityEngine.Vector3)(CastedUnityComponent.localPosition); }
-			set { CastedUnityComponent.localPosition = (UnityEngine.Vector3)(value); }
-		}
-
-		protected override Vector3 ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147)coherenceComponent).position;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.position = Value;
-			}
-			else 
-			{
-				update.position = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_3157e208_ad9f_4265_af7e_e3f798be6897 : DeepRotationBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override Quaternion Value
-		{
-			get { return (UnityEngine.Quaternion)(CastedUnityComponent.localRotation); }
-			set { CastedUnityComponent.localRotation = (UnityEngine.Quaternion)(value); }
-		}
-
-		protected override Quaternion ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147)coherenceComponent).rotation;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.rotation = Value;
-			}
-			else 
-			{
-				update.rotation = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_3402058366864678147();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_00710810_469a_45eb_95ad_2840243b5cc5 : DeepPositionBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override Vector3 Value
-		{
-			get { return (UnityEngine.Vector3)(CastedUnityComponent.localPosition); }
-			set { CastedUnityComponent.localPosition = (UnityEngine.Vector3)(value); }
-		}
-
-		protected override Vector3 ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301)coherenceComponent).position;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.position = Value;
-			}
-			else 
-			{
-				update.position = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301();
-		}
-	}
-
-	public class Binding_7365a46dbef03be41b6173e6147d68d1_22fd91b6_3a83_4c7a_ac68_13a1028116f8 : DeepRotationBinding
-	{
-		private global::UnityEngine.Transform CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override Quaternion Value
-		{
-			get { return (UnityEngine.Quaternion)(CastedUnityComponent.localRotation); }
-			set { CastedUnityComponent.localRotation = (UnityEngine.Quaternion)(value); }
-		}
-
-		protected override Quaternion ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301)coherenceComponent).rotation;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.rotation = Value;
-			}
-			else 
-			{
-				update.rotation = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Enemy_7365a46dbef03be41b6173e6147d68d1_UnityEngine__char_46_Transform_7710182724903923301();
-		}
-	}
-
 
 	[Preserve]
 	public class CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1 : CoherenceSyncBaked
@@ -550,25 +110,15 @@ namespace Coherence.Generated
 		private Logger logger = Log.GetLogger<CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1>();
 
 		// Cached targets for commands		
-		private global::EnemySyncInit Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget;
+		private global::EnemySyncInit Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de_CommandTarget;
 
 		private IClient client;
 		private CoherenceBridge bridge;
 
 		private readonly Dictionary<string, Binding> bakedValueBindings = new Dictionary<string, Binding>()
 		{
-			["60e5ca40-27c3-4173-bf68-8b9cb3bd0b0c"] = new Binding_7365a46dbef03be41b6173e6147d68d1_60e5ca40_27c3_4173_bf68_8b9cb3bd0b0c(),
-			["a9a952bb-dcc8-4176-9348-3a2bf706041a"] = new Binding_7365a46dbef03be41b6173e6147d68d1_a9a952bb_dcc8_4176_9348_3a2bf706041a(),
-			["4a26bfeb-4c31-4585-a3ef-e53e62fabdf9"] = new Binding_7365a46dbef03be41b6173e6147d68d1_4a26bfeb_4c31_4585_a3ef_e53e62fabdf9(),
-			["a5302f1f-2dec-46fe-8d89-11f98fdb6f9e"] = new Binding_7365a46dbef03be41b6173e6147d68d1_a5302f1f_2dec_46fe_8d89_11f98fdb6f9e(),
-			["8575dfe7-65b2-4c10-8eb5-7bc8a9416699"] = new Binding_7365a46dbef03be41b6173e6147d68d1_8575dfe7_65b2_4c10_8eb5_7bc8a9416699(),
-			["77c2b974-07dc-44f7-b79e-03f1a391d022"] = new Binding_7365a46dbef03be41b6173e6147d68d1_77c2b974_07dc_44f7_b79e_03f1a391d022(),
-			["f24e2e34-9299-4e0b-baa6-04e982931162"] = new Binding_7365a46dbef03be41b6173e6147d68d1_f24e2e34_9299_4e0b_baa6_04e982931162(),
-			["9ae6dfbf-47b4-4197-a41d-11e4dd8c1f80"] = new Binding_7365a46dbef03be41b6173e6147d68d1_9ae6dfbf_47b4_4197_a41d_11e4dd8c1f80(),
-			["881917c2-b0ab-4081-961c-576f97318917"] = new Binding_7365a46dbef03be41b6173e6147d68d1_881917c2_b0ab_4081_961c_576f97318917(),
-			["3157e208-ad9f-4265-af7e-e3f798be6897"] = new Binding_7365a46dbef03be41b6173e6147d68d1_3157e208_ad9f_4265_af7e_e3f798be6897(),
-			["00710810-469a-45eb-95ad-2840243b5cc5"] = new Binding_7365a46dbef03be41b6173e6147d68d1_00710810_469a_45eb_95ad_2840243b5cc5(),
-			["22fd91b6-3a83-4c7a-ac68-13a1028116f8"] = new Binding_7365a46dbef03be41b6173e6147d68d1_22fd91b6_3a83_4c7a_ac68_13a1028116f8(),
+			["d00dc6a7-44ee-487d-b691-89f762032836"] = new Binding_7365a46dbef03be41b6173e6147d68d1_d00dc6a7_44ee_487d_b691_89f762032836(),
+			["605d18af-fc8f-4b71-9351-7191d77d484e"] = new Binding_7365a46dbef03be41b6173e6147d68d1_605d18af_fc8f_4b71_9351_7191d77d484e(),
 		};
 
 		private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings =
@@ -576,7 +126,7 @@ namespace Coherence.Generated
 
 		public CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1()
 		{
-			bakedCommandBindings.Add("faee4af0-21c5-4e00-b693-dc6ddf245f4e", BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e);
+			bakedCommandBindings.Add("b98d46b8-119e-4f49-9104-d0bbf89a99de", BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de);
 		}
 
 		public override Binding BakeValueBinding(Binding valueBinding)
@@ -597,11 +147,11 @@ namespace Coherence.Generated
 				commandBindingBaker.Invoke(commandBinding, commandsHandler);
 			}
 		}
-		private void BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(CommandBinding commandBinding, CommandsHandler commandsHandler)
+		private void BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
-			Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget = (global::EnemySyncInit)commandBinding.UnityComponent;
+			Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de_CommandTarget = (global::EnemySyncInit)commandBinding.UnityComponent;
 			commandsHandler.AddBakedCommand("EnemySyncInit.SetReferences", "(System.String)",
-				SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e, ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e, MessageTarget.All, Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget,false);
+				SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de, ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de, MessageTarget.All, Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de_CommandTarget,false);
 		}
 
 		public override List<ICoherenceComponentData> CreateEntity(bool usesLodsAtRuntime, string archetypeName)
@@ -640,25 +190,25 @@ namespace Coherence.Generated
 			this.entityId = entityId;
 			this.client = client;
 		}
-		void SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(MessageTarget target, object[] args)
+		void SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de(MessageTarget target, object[] args)
 		{
-			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e();
+			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de();
 			int i = 0;
 			command.enemySpawner = (string)((System.String)args[i++]);
 			client.SendCommand(command, target, entityId);
 		}
 
-		void ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(MessageTarget target, object[] args)
+		void ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de(MessageTarget target, object[] args)
 		{
-			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e();
+			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de();
 			int i = 0;
 			command.enemySpawner = (string)((System.String)args[i++]);
-			ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(command);
+			ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de(command);
 		}
 
-		void ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e command)
+		void ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de(Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de command)
 		{
-			var target = Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget;
+			var target = Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de_CommandTarget;
 			target.SetReferences((System.String)(command.enemySpawner));
 		}
 
@@ -666,8 +216,8 @@ namespace Coherence.Generated
 		{
 			switch(command)
 			{
-				case Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e castedCommand:
-					ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(castedCommand);
+				case Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de castedCommand:
+					ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de(castedCommand);
 					break;
 				default:
 					logger.Warning($"[CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1] Unhandled command: {command.GetType()}.");
