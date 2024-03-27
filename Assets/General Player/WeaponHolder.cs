@@ -17,12 +17,12 @@ public class WeaponHolder : MonoBehaviour
     private HUDGunAmmoScript hudGunRef;
     
     [HideInInspector]
-    public Camera cam { private get; set; }
+    public Camera cam { get; set; }
     private Ray ray;
     private RaycastHit hit;
-    Vector3 straight;
+    public Vector3 straight { get; private set; }
     Vector3 up;
-    Vector3 originPos;
+    public Vector3 originPos { get; private set; }
 
     [SerializeField]
     WeaponData weapon;

@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     bool jumpInputted = false;
     [field: SerializeField]
     public bool grounded { get; private set; } = false;
+    [HideInInspector]
+    public bool gravityEnabled = true;
+
 
     Vector3 inputtedMoveDirection = Vector3.zero;
 
@@ -134,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 //hVelocity = DeccelerateHorizontal(hVelocity);
-                yVelocity = AccelerateGravity(yVelocity);
+                if (gravityEnabled) yVelocity = AccelerateGravity(yVelocity);
                 SetWalkingVisuals(false);
             }
         }
