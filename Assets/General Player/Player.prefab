@@ -95,9 +95,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!54 &1182243954846214141
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -603,8 +603,6 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 8480157516824341243}
       lodStepsActive: 1
-    - component: {fileID: 1597299883050180442}
-      lodStepsActive: 1
     - component: {fileID: 7793238421084895542}
       lodStepsActive: 1
     - component: {fileID: 1144324852205707317}
@@ -944,6 +942,8 @@ MonoBehaviour:
     - component: {fileID: 169528589368073910}
       lodStepsActive: 1
     - component: {fileID: 2772935887065530469}
+      lodStepsActive: 1
+    - component: {fileID: 2872923697755265825}
       lodStepsActive: 1
     lodLevels:
     - distance: 0
@@ -2046,18 +2046,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1597299883050180442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8407568945659015388, guid: 3da731450fde6e24c824d55195b9a458,
-    type: 3}
-  m_PrefabInstance: {fileID: 7099661680546082694}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2515459153562119884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cf8703b689d664faddf67f81314574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1676118457546380631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8486422674004900561, guid: 3da731450fde6e24c824d55195b9a458,
@@ -2178,6 +2166,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2872923697755265825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4997232311077958823, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515459153562119884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc37d46d98710d4c89580fe14ff9856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &2918016421380751281 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5402614035747246135, guid: 3da731450fde6e24c824d55195b9a458,

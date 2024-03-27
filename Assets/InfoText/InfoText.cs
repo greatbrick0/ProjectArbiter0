@@ -65,6 +65,12 @@ public class InfoText : MonoBehaviour
     private void Update()
     {
         if (!active) return;
+        if(Vector3.Dot(cam.transform.forward, (virtualPos - cam.transform.position).normalized) < 0)
+        {
+            textComponent.color = ReplaceAlpha(textComponent.color, 0);
+            imageComponent.color = ReplaceAlpha(imageComponent.color, 0);
+            return;
+        }
 
         age += 1.0f * Time.deltaTime;
         if (age >= activeDuration) Deactivate();

@@ -7,7 +7,7 @@ public class DummyBrain : EnemyBrain
 {
     private EnemyMovement moveScript;
 
-    private void Start()
+    protected override void Start()
     {
         moveScript = GetComponent<EnemyMovement>();
     }

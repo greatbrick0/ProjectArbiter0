@@ -1563,8 +1563,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3470757843127023195}
   - component: {fileID: 1975924406278146379}
-  - component: {fileID: 6336030219992858396}
   - component: {fileID: 8219517791792945958}
+  - component: {fileID: 1068608484740005070}
   m_Layer: 0
   m_Name: FireArbiterViewmodelNew
   m_TagString: Untagged
@@ -1611,19 +1611,6 @@ MonoBehaviour:
   swayPower: 7
   swayDistancePower: 0.8
   maxSwayDistance: 0.994
---- !u!114 &6336030219992858396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4278784074216959201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cf8703b689d664faddf67f81314574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MuzzleFlash: {fileID: 3087260299937682906}
 --- !u!95 &8219517791792945958
 Animator:
   serializedVersion: 4
@@ -1644,6 +1631,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1068608484740005070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278784074216959201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc37d46d98710d4c89580fe14ff9856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MuzzleFlash: {fileID: 3087260299937682906}
 --- !u!1 &4391973332065787708
 GameObject:
   m_ObjectHideFlags: 0

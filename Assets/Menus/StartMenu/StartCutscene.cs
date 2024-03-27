@@ -25,11 +25,13 @@ public class StartCutscene : MonoBehaviour
 
     private void AdjustTitleOpacity(float val)
     {
+        if (titleText != null) return;
         titleText.color = new Color(titleText.color.r, titleText.color.g, titleText.color.b, val);
     }
 
     private void AdjustButtonsOpacity(float val)
     {
+        if(startText == null) return;
         startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, val);
         optionsText.color = new Color(optionsText.color.r, optionsText.color.g, optionsText.color.b, val);
         exitText.color = new Color(exitText.color.r, exitText.color.g, exitText.color.b, val);
@@ -37,6 +39,7 @@ public class StartCutscene : MonoBehaviour
 
     private void AdjustBackgroundOpacity(float val)
     {
+        if(panelImage == null) return; 
         panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, val);
     }
 

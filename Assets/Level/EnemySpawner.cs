@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerTracker playerTracker;
+    [field: SerializeField]
+    public PlayerTracker playerTracker { get; private set; }
     [SerializeField]
     private ObjectiveManager objectiveTracker;
     [SerializeField]
@@ -19,11 +19,17 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(Vector3 pos, GameObject typePrefab)
     {
+        if (!playerTracker.IsPrimaryClient()) return;
+
         instanceRef = Instantiate(typePrefab);
         instanceRef.transform.parent = transform;
         instanceRef.transform.position = pos;
-        instanceRef.GetComponent<EnemyBrain>().playerTracker = playerTracker;
-        instanceRef.GetComponent<EnemyHealth>().enemyDied += IncrementKillStat;
+        if(instanceRef.GetComponent<EnemySyncInit>() != null) StartCoroutine(instanceRef.GetComponent<EnemySyncInit>().Init(this));
+        else
+        {
+            instanceRef.GetComponent<EnemyBrain>().playerTracker = playerTracker;
+            instanceRef.GetComponent<EnemyHealth>().enemyDied += IncrementKillStat;
+        }
     }
 
     public void IncrementKillStat()

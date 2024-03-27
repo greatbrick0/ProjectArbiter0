@@ -53,17 +53,8 @@ public class PlayerClassChanger : MonoBehaviour
                     viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
                     GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
                     viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
-                    
-    {
-
-    }
                 }
-                
             }
-            
-
-
-
         }
     }
 

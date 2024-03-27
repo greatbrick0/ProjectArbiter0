@@ -312,6 +312,10 @@ public class WeaponHolder : MonoBehaviour
     private void ApplyDamage(Hitbox hitbox, RaycastHit hitDetails)
     {
         if (hitbox.GetOwner().team != "Enemy") return;
+        if(hitbox.GetOwner().GetComponent<EnemyHealth>() != null)
+        {
+            if (hitbox.GetOwner().GetComponent<EnemyHealth>().health <= 0) return;
+        }
 
         int damageAmount = hitbox.GetOwner().TakeDamage(DamageFromDistance(hitDetails.distance), DamageSource.Bullet, hitbox.GetSpotType(), bulletElement);
 
