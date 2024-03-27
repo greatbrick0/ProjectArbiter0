@@ -1,14 +1,16 @@
 component Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014
   walking Bool [bits "1"]
 
-component Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Animator_8450259073051062080
-  walking Bool [bits "1"]
+command Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de [routing "All"]
+  enemySpawner String 
 
 command Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da [routing "All"]
   tier Int 
   doDemon Bool 
 
-command Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 [routing "All"]
+command Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1 [routing "All"]
+
+command Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8 [routing "All"]
   useAura Bool 
 
 command Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d [routing "All"]

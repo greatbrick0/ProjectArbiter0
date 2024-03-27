@@ -33,7 +33,7 @@ public class TestAbility1 : AbilityRedundant
         if (hitbox != null)
         {
             if (hitbox.GetOwner().team == "Enemy")
-                hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType());
+                hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Normal);
         }
     }
 

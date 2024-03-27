@@ -8836,7 +8836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1ed1903b75b2d4493e95f8b8abf298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <iceSpikes>k__BackingField:
+  <hammerSwing>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -8850,6 +8850,55 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <iceEnhancement>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <fireCone>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <fireBomb>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <fireEnhancement>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <mutant1>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <mutant2>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <mutant3>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <bulletHit>k__BackingField:
     Guid:
       Data1: 0
@@ -8857,13 +8906,20 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <music>k__BackingField:
+  <bodyHit>k__BackingField:
     Guid:
-      Data1: -342711730
-      Data2: 1092105376
-      Data3: -824648789
-      Data4: -1593745975
-    Path: event:/Music/Menu Music
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <citicalHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <menuHover>k__BackingField:
     Guid:
       Data1: -284830723
@@ -8878,6 +8934,13 @@ MonoBehaviour:
       Data3: -1230553163
       Data4: -48956823
     Path: event:/SFX/UI/UI Select
+  <music>k__BackingField:
+    Guid:
+      Data1: -342711730
+      Data2: 1092105376
+      Data3: -824648789
+      Data4: -1593745975
+    Path: event:/Music/Menu Music
 --- !u!4 &1363184381
 Transform:
   m_ObjectHideFlags: 0

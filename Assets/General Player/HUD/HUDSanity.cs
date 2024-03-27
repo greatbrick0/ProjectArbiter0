@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class HUDSanity : MonoBehaviour
@@ -13,9 +15,11 @@ public class HUDSanity : MonoBehaviour
 
     [SerializeField]
     GameObject sanityWarning;
+    [SerializeField]
+    public Volume volume;
 
     [SerializeField]
-    GameObject sanityWarping;
+    public Volume exhaustVolume;
 
     public float sanityTarget;
 
@@ -24,7 +28,8 @@ public class HUDSanity : MonoBehaviour
 
     private bool barAtRest = true;
 
-    private bool demonic = false;
+
+    [SerializeField]
     private bool exhausted = false;
 
     private bool doLerp = true;
@@ -44,11 +49,13 @@ public class HUDSanity : MonoBehaviour
 
         age = 0;
         barAtRest = false;
+
+
     }
 
     public void SanityBarColourChange()
     {
-        if (demonic)
+        if (true)
             sanityBar.GetComponent<Image>().color = Color.red;
         else if (exhausted)
             sanityBar.GetComponent<Image>().color = Color.grey;
@@ -74,15 +81,40 @@ public class HUDSanity : MonoBehaviour
 
         if (age == 1)
             barAtRest = true;
+        
+        if (exhausted)
+        {
+            if (volume.weight > 0)
+            {
+                volume.weight -= 0.5f * Time.deltaTime;
+                exhaustVolume.weight += 0.5f * Time.deltaTime;
+            }
+            if (volume.weight < 0)
+            {
+                volume.weight = 0;
+                exhaustVolume.weight = 1;
+            }
+
+
+        }
+        else if (volume.weight < 1)
+        {
+            volume.weight += 0.5f * Time.deltaTime;
+            exhaustVolume.weight -= 0.5f * Time.deltaTime;
+            if (volume.weight > 1)
+            {
+                volume.weight = 1;
+                exhaustVolume.weight = 0;
+            }
+        }
 
 
     }
 
     public void SetDemonic(bool newDemonic)
     {
-        demonic = newDemonic;
-        Debug.Log(":::" + demonic);
-        SanityBarColourChange();
+        exhausted = newDemonic;
     }
 
 }
+

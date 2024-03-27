@@ -11,6 +11,7 @@ public class GunNudger : MonoBehaviour
     public PlayerMovement playerMovement;
     [SerializeField]
     public WeaponHolder playerWeapon;
+    [SerializeField]
     private Transform head;
 
     [HideInInspector]
@@ -47,24 +48,30 @@ public class GunNudger : MonoBehaviour
         t = GetComponent<Transform>();
         originalPos = t.localPosition;
         originalRot = t.localRotation;
-        playerMovement.nudger = this;
-        playerWeapon.animRef = GetComponent<Animator>();
+        if (playerMovement != null && playerWeapon != null)
+        {
+            playerMovement.nudger = this;
+            playerWeapon.animRef = GetComponent<Animator>();
+        }
         head = transform.parent;
-        transform.parent = null;
+        //transform.parent = null;
     }
 
     private void Update()
     {
-        swayDistance = Mathf.Abs(Quaternion.Dot(t.rotation, head.rotation * originalRot));
-        if (swayDistance < maxSwayDistance) t.rotation = Quaternion.Slerp(t.rotation, head.rotation * originalRot, (maxSwayDistance - swayDistance) / (1 - swayDistance));
-        swayDistanceWeight = Mathf.Pow(swayDistance + 1, swayDistancePower);
-        t.rotation = Quaternion.Slerp(t.rotation, head.rotation * originalRot, swayPower * swayDistanceWeight * Time.deltaTime);
-        //t.eulerAngles = new Vector3(t.eulerAngles.x, t.eulerAngles.y, originalRot.eulerAngles.z);
-        
+        if (head != null)
+        {
+            swayDistance = Mathf.Abs(Quaternion.Dot(t.rotation, head.rotation * originalRot));
+            if (swayDistance < maxSwayDistance) t.rotation = Quaternion.Slerp(t.rotation, head.rotation * originalRot, (maxSwayDistance - swayDistance) / (1 - swayDistance));
+            swayDistanceWeight = Mathf.Pow(swayDistance + 1, swayDistancePower);
+            t.rotation = Quaternion.Slerp(t.rotation, head.rotation * originalRot, swayPower * swayDistanceWeight * Time.deltaTime);
+            //t.eulerAngles = new Vector3(t.eulerAngles.x, t.eulerAngles.y, originalRot.eulerAngles.z);
 
 
-        t.position = head.position + (originalPos.x * t.right) + (originalPos.y * t.up) + (originalPos.z * t.forward);
-        t.position += CalculateStepOffset();
+
+            t.position = head.position + (originalPos.x * t.right) + (originalPos.y * t.up) + (originalPos.z * t.forward);
+            t.position += CalculateStepOffset();
+        } 
     }
 
     private Vector3 CalculateStepOffset()
@@ -103,4 +110,6 @@ public class GunNudger : MonoBehaviour
     {
         return new Vector3(vec2.x, vec2.y, z);
     }
+
+    public void SetHead(Transform transform) { head = transform; }
 }

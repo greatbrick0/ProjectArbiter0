@@ -9,6 +9,7 @@ public class PlayerTracker : MonoBehaviour
     [SerializeField]
     private CoherenceBridge bridge;
     private CoherenceClientConnectionManager clientsData;
+    private CoherenceClientConnection currentClient;
     [SerializeField]
     private List<GameObject> playerList;
     [field: SerializeField]
@@ -19,6 +20,7 @@ public class PlayerTracker : MonoBehaviour
     private void Awake()
     {
         clientsData = bridge.ClientConnections;
+        currentClient = clientsData.GetMine();
     }
 
     private void Update()
@@ -34,10 +36,16 @@ public class PlayerTracker : MonoBehaviour
         {
             playerList.Add(ii.GameObject);
         }
+        currentClient = clientsData.GetMine();
     }
 
     public GameObject GetPlayerObject(int index)
     {
         return playerList[index];
+    }
+
+    public bool IsPrimaryClient()
+    {
+        return currentClient.GameObject == playerList[0];
     }
 }

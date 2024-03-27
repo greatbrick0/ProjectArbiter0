@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SanitySystem : MonoBehaviour
 {
@@ -78,6 +79,9 @@ public class SanitySystem : MonoBehaviour
     public void GetHUDReference()
     {
         sanityHUDRef = GameObject.Find("SanityHUDOverlay").GetComponent<HUDSanity>();
+        
+        sanityHUDRef.volume = GetComponent<PlayerInput>().cameraRef.GetComponent<Volume>();
+        sanityHUDRef.exhaustVolume = GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().exhaustVolume;
         sync = GetComponent<CoherenceSync>(); //this really should be here. whatever.
     }
 
