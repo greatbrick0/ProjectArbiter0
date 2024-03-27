@@ -7,7 +7,7 @@ public class SpawnDataHolder : MonoBehaviour
 {
     EnemySpawner enemySpawner;
     [SerializeField] 
-    [Tooltip("The enemies that will be spawned as soon as the room is loaded. Only spawns the first supported type for each spot. ")]
+    [Tooltip("The enemies that will be spawned as soon as the room is loaded. Spawns one of the supported types for each spot. ")]
     private List<EnemySpot> initialSpawns;
     [SerializeField]
     [Tooltip("Whether or not this room is the first room the players visit. Other rooms must have their logic started by some other source, such as ObjectiveManager. ")]
@@ -37,7 +37,7 @@ public class SpawnDataHolder : MonoBehaviour
 
     [Serializable] public class EnemySpot
     {
-        public Vector3 position;
+        public Transform position; // Easier to assign a transform of an empty gameobject than type out vector3s
         public List<GameObject> supportedTypes;
         public float weight = 1;
     }
@@ -70,8 +70,12 @@ public class SpawnDataHolder : MonoBehaviour
     {
         foreach(EnemySpot ii in initialSpawns)
         {
-            enemySpawner.SpawnEnemy(ii.position + transform.position, ii.supportedTypes[0]);
-            spawnedEnemyCount += 1;
+            foreach (Transform child in ii.position) // SPAWNS USING CHILD GAMEOBJECTS
+            {
+                // Now uses random instead of 0
+                enemySpawner.SpawnEnemy(child.position, ii.supportedTypes[(int)UnityEngine.Random.Range(0, ii.supportedTypes.Count)]);
+                spawnedEnemyCount += 1;
+            }
         }
         if (spawnedEnemyCount < maxEnemies) continueSpawning = true;
     }
@@ -81,7 +85,7 @@ public class SpawnDataHolder : MonoBehaviour
         spawnedEnemyCount += 1;
         EnemySpot chosenSpot = continuousSpawns[Mathf.FloorToInt(spawningDuration * 0.71f) % continuousSpawns.Count];
         GameObject chosenType = chosenSpot.supportedTypes[Mathf.FloorToInt(spawningDuration * 1.22f) % chosenSpot.supportedTypes.Count];
-        enemySpawner.SpawnEnemy(chosenSpot.position + transform.position, chosenType);
+        enemySpawner.SpawnEnemy(chosenSpot.position.position + transform.position, chosenType);
     }
 
     public void DisableSpawning()
