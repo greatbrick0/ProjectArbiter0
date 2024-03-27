@@ -14,7 +14,7 @@ public class GunButton : Damageable
     private List<DamageElement> acceptedElements = new List<DamageElement>();
     public UnityEvent pressedEvent;
 
-    public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
+    public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element)
     {
         if (acceptedElements.Count == 0 || acceptedElements.Contains(element))
         {

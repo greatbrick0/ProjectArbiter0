@@ -28,7 +28,7 @@ public class EnemyHealth : Damageable
         health = maxHealth;
     }
 
-    public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
+    public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element)
     {
         int prevHealth = health;
 
