@@ -63,6 +63,18 @@ public class PlayerSpellFire_Shot : Ability
     }
 
 
+    public virtual IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    {
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        yield return new WaitForSeconds(windupTime);
+        AbilityAction();
+        yield return new WaitForSeconds(0.6f);
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
+
+    }
+
 
     public override void newDemonic()
     {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cb7a7e5407208a641808649a3bf960a0
+guid: d3a1c435e64512546993a5a3021278ba
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -18,7 +18,66 @@ ModelImporter:
   - first:
       74: 4363547484759985885
     second: Armature|Armature|Armature|Cylinder.001|Cylinder.001|Cylinder.001Action
-  externalObjects: {}
+  - first:
+      74: 89833686428244237
+    second: LMG|ArmatureAction
+  - first:
+      74: -8451623774555390483
+    second: metarig.001|metarigAction
+  - first:
+      74: -1563746195475468658
+    second: metarig|ArmatureAction
+  - first:
+      74: 3514774856731740954
+    second: metarig|metarig|Armature|ArmatureAction
+  - first:
+      74: 333270711267308244
+    second: metarig|metarig|Armature|ArmatureAction.001
+  - first:
+      74: -7587167579992054874
+    second: metarig|metarig|Armature|Armature|Armature|ArmatureAction
+  - first:
+      74: 9015046017528155427
+    second: metarig|metarig|Armature|Armature|Armature|ArmatureAction.001
+  - first:
+      74: 5411032816677324118
+    second: metarig|metarig|Armature|Armature|Armature|Cylinder.001|Cylinder.00
+  - first:
+      74: -7393621716523382597
+    second: metarig|metarig|Armature|Armature|Armature|Cylinder.001|Cylinder.001
+  - first:
+      74: -4819351974198694914
+    second: metarig|metarig|Armature|Armature|Armature|Cylinder.001|Cylinder.001|Ar
+  - first:
+      74: -6465693660179181041
+    second: metarig|metarig|Armature|Armature|Armature|Cylinder.001|Cylinder.001|Cy
+  - first:
+      74: -233333572884902163
+    second: metarig|metarig|metarig|metarigAction
+  - first:
+      74: -2854723295901154239
+    second: metarig|metarig|metarig|metarigAction.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IceArbiterMaterial
+    second: {fileID: 2100000, guid: b029c0c6ecd7ea34cba14a43c0670779, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LMG Material.002
+    second: {fileID: 2100000, guid: 39ba7da7daa4dcd429723115f6038aac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LMG Material.005
+    second: {fileID: 2100000, guid: 39ba7da7daa4dcd429723115f6038aac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 34d5b57ced422934c941a419c8bbdbb4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -103,7 +162,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

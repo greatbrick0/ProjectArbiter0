@@ -50,7 +50,7 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void AbilityIntroductionDecorations()
     {
-        //Hammer windup animations
+        animRef.SetTrigger("Hammer");
         //hammer windup sfx
     }
 
@@ -63,12 +63,16 @@ public class PlayerSpellHammerSwing : Ability
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
         yield return new WaitForSeconds(castSlowDuration - windupTime);
         weaponRef.SetDefaultBehaviourEnabled(true, true);
         RemovePlayerCastMotion();
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }
 
     public override void newDemonic()

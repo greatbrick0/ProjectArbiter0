@@ -27,7 +27,6 @@ public class FlareAttack : MonoBehaviour
             {
                 if (hitbox.GetOwner() == ii)
                 {
-                    Debug.Log("Already hit this enemy");
                     return;
                 }
             }

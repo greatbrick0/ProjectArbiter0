@@ -15,6 +15,7 @@ public class WeaponHolder : MonoBehaviour
     private PlayerMovement movementScript;
     private DamageNumberManager damageNumberScript;
     private HUDGunAmmoScript hudGunRef;
+    
     [HideInInspector]
     public Camera cam { private get; set; }
     private Ray ray;
@@ -25,6 +26,8 @@ public class WeaponHolder : MonoBehaviour
 
     [SerializeField]
     WeaponData weapon;
+
+    public Animator animRef;
 
     [SerializeField]
     VisualEffect muzzleFlash;
@@ -117,6 +120,7 @@ public class WeaponHolder : MonoBehaviour
     private void Start()
     {
         damageNumberScript = DamageNumberManager.GetManager(); //GetManager() must be called after Awake()
+        
     }
 
     /* I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...                         */
@@ -188,6 +192,7 @@ public class WeaponHolder : MonoBehaviour
         else if (!reloading)
         {
             reloading = true;
+            animRef.SetTrigger("Reload");
             FMODUnity.RuntimeManager.PlayOneShotAttached(reloadSound, gameObject);
             return true;
         }
@@ -240,6 +245,7 @@ public class WeaponHolder : MonoBehaviour
         ShootDecorations();
 
         currentAmmo -= 1;
+        // Debug.Log(patternIndex); //trying to fix broken recoil
         foreach (Vector2 ii in shotPatterns[patternIndex].points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, up) * straight;
@@ -273,6 +279,7 @@ public class WeaponHolder : MonoBehaviour
     private void ShootDecorations()
     {
         muzzleFlash.Reinit();
+        animRef.SetTrigger("Shoot");
         FMODUnity.RuntimeManager.PlayOneShotAttached(shootSound, gameObject);
     }
 
@@ -341,4 +348,7 @@ public class WeaponHolder : MonoBehaviour
         currentAmmo = maxAmmo;
         hudGunRef.SetCurrentAmmo(currentAmmo);
     }
+
+    // For use by clsas changer
+    public void SetMuzzleFlash(VisualEffect muzzleFlash) { this.muzzleFlash = muzzleFlash; }
 }

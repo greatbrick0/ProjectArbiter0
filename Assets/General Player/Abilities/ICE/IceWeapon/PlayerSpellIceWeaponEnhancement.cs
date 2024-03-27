@@ -129,11 +129,15 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        if (AbilityHoldRef.playerState<= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
         Debug.Log("Finished baseAbility internal Windup");
         AbilityAction();
         weaponRef.SetDefaultBehaviourEnabled(true, true);
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }
 
     public override void newDemonic()
