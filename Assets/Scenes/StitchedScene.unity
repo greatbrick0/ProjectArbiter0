@@ -2870,6 +2870,7 @@ GameObject:
   - component: {fileID: 563038269}
   - component: {fileID: 563038268}
   - component: {fileID: 563038267}
+  - component: {fileID: 563038272}
   m_Layer: 0
   m_Name: HeroChanger (2)
   m_TagString: Untagged
@@ -2889,8 +2890,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcff12906ca2076498c88fbbde6a08a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Class: []
-  weaponData: {fileID: 0}
+  Class:
+  - {fileID: 4683947374999564920, guid: 7f41b45a11a1d304893c50f7daf2e04d, type: 3}
+  - {fileID: 7464710319155619888, guid: d6905a0f99d9f6e49b76a9ddb0440408, type: 3}
+  - {fileID: 2180681522144102244, guid: c1d930555b2eb17498f991eee3da5dd2, type: 3}
+  - {fileID: 4643110520335221066, guid: 3da731450fde6e24c824d55195b9a458, type: 3}
+  weaponData: {fileID: 11400000, guid: 826814ce33a749f44b845aa1d3c6437a, type: 2}
   HUDRef: {fileID: 1752967306}
 --- !u!65 &563038268
 BoxCollider:
@@ -2970,6 +2975,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &563038272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563038266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 1, z: 0.41}
+  m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!1 &580882331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5962422583431216971, guid: adc19de766d737c4da5902ce31b4cc69,
@@ -11312,6 +11330,11 @@ PrefabInstance:
     - target: {fileID: 3157329223662217854, guid: 2dac7bc844b9c824f8523977dd4b98c4,
         type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486962231105532034, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+        type: 3}
+      propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3892116835009868250, guid: 2dac7bc844b9c824f8523977dd4b98c4,

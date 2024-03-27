@@ -86,8 +86,8 @@ public class HUDSanity : MonoBehaviour
         {
             if (volume.weight > 0)
             {
-                volume.weight -= 0.5f * Time.deltaTime;
-                exhaustVolume.weight += 0.5f * Time.deltaTime;
+                volume.weight -= 1.5f * Time.deltaTime;
+                exhaustVolume.weight += 1.5f * Time.deltaTime;
             }
             if (volume.weight < 0)
             {
@@ -99,8 +99,8 @@ public class HUDSanity : MonoBehaviour
         }
         else if (volume.weight < 1)
         {
-            volume.weight += 0.5f * Time.deltaTime;
-            exhaustVolume.weight -= 0.5f * Time.deltaTime;
+            volume.weight += 1.5f * Time.deltaTime;
+            exhaustVolume.weight -= 1.5f * Time.deltaTime;
             if (volume.weight > 1)
             {
                 volume.weight = 1;

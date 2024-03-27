@@ -33,13 +33,7 @@ public class PlayerSpellFire_Shot : Ability
 
     public override void RecieveDemonicAbilityRequest()
     {
-        Debug.Log("DemonicVarient-StartFireShot");
-        GetNeededComponents();
-        HUDRef.SetCooldownForIcon(tier, maxCooldownTime / 2);
-
-        //Skip sanitycost, you are DEMONIC!!
-        HUDRef.UseAbility(tier);
-        StartCoroutine(Cooldown(true));
+        throw new NotImplementedException();
     }
 
     public override void StartAbility()
@@ -63,7 +57,7 @@ public class PlayerSpellFire_Shot : Ability
     }
 
 
-    public virtual IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;

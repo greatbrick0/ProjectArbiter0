@@ -118,6 +118,7 @@ public class PlayerSpellFireBomb : Ability
     public void ChangeControls()
     {
         motionVFXRef = Instantiate(dashMotionVFX, spellOrigin.transform);
+        movementRef.SetEnabledControls(false, true);
         GetComponentInParent<PlayerMovement>().SetEnabledControls(false, true);
         //GetComponentInParent<PlayerMovement>().SetPartialControl(0.1f);
         Invoke("ReturnControls",2.0f);
@@ -126,7 +127,8 @@ public class PlayerSpellFireBomb : Ability
     public void ReturnControls()
     {
         Destroy(motionVFXRef.gameObject);
-        GetComponentInParent<PlayerMovement>().SetEnabledControls(true, true);
+        movementRef.SetEnabledControls(true, true);
+        //GetComponentInParent<PlayerMovement>().SetEnabledControls(true, true);
     }
 
     public override IEnumerator Cooldown(bool demonic)
