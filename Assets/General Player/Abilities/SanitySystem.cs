@@ -81,6 +81,7 @@ public class SanitySystem : MonoBehaviour
         sanityHUDRef = GameObject.Find("SanityHUDOverlay").GetComponent<HUDSanity>();
         
         sanityHUDRef.volume = GetComponent<PlayerInput>().cameraRef.GetComponent<Volume>();
+        sanityHUDRef.exhaustVolume = GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().exhaustVolume;
         sync = GetComponent<CoherenceSync>(); //this really should be here. whatever.
     }
 
