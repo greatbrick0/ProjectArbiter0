@@ -19,7 +19,7 @@ public class EnemySyncInit : MonoBehaviour
     [Command]
     public void SetReferences(string enemySpawner)
     {
-        print("set");
+        //i am so sorry for including GameObject.Find on every enemy... -S
         EnemySpawner spawner = GameObject.Find(enemySpawner).GetComponent<EnemySpawner>();
         if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().playerTracker = spawner.playerTracker;
         if (GetComponent<EnemyHealth>() != null) GetComponent<EnemyHealth>().enemyDied += spawner.IncrementKillStat;
