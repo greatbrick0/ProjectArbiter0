@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MainCameraScript : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class MainCameraScript : MonoBehaviour
     public string mode = "firstperson";
 
     private Transform t;
+
+    public Volume volume;
+    public Volume exhaustVolume;
 
     void Start()
     {
