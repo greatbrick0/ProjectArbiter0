@@ -25,7 +25,7 @@ public class StartCutscene : MonoBehaviour
 
     private void AdjustTitleOpacity(float val)
     {
-        if (titleText != null) return;
+        if (titleText == null) return;
         titleText.color = new Color(titleText.color.r, titleText.color.g, titleText.color.b, val);
     }
 
