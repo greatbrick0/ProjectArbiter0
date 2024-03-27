@@ -943,6 +943,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 2772935887065530469}
       lodStepsActive: 1
+    - component: {fileID: 2872923697755265825}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -2164,6 +2166,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2872923697755265825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4997232311077958823, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515459153562119884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc37d46d98710d4c89580fe14ff9856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &2918016421380751281 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5402614035747246135, guid: 3da731450fde6e24c824d55195b9a458,
