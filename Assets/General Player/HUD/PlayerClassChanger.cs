@@ -61,31 +61,34 @@ public class PlayerClassChanger : MonoBehaviour
 
     public void Connect()
     {
+        ConnectAll();
+        if (currentPlayer.GetComponent<PlayerInput>().authority) ConnectMe();     
+    }
+
+
+    private void ConnectAll()
+    {
         currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
-        if (currentPlayer.GetComponent<PlayerInput>().authority)
-        { 
-            currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
-            HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
-            currentPlayer.transform.GetComponent<SanitySystem>().GetHUDReference();
-            
-
-            
-        }
-        currentPlayer.transform.GetComponent<PlayerInput>().selfBodyModel = playermodelRef;
-        currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(playermodelRef, 9);
         currentPlayer.transform.GetComponent<PlayerMovement>().anim = playermodelRef.GetComponent<PlayerAnimation>();
-
-        currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
-        // Set Gun Animator
         currentPlayer.transform.GetComponent<WeaponHolder>().animRef = viewmodelRef.GetComponent<Animator>();
-        // Set GunNudger Script Values
+
         viewmodelRef.GetComponent<GunNudger>().playerMovement = currentPlayer.GetComponent<PlayerMovement>();
         currentPlayer.GetComponent<PlayerMovement>().nudger = viewmodelRef.GetComponent<GunNudger>();
         viewmodelRef.GetComponent<GunNudger>().playerWeapon = currentPlayer.GetComponent<WeaponHolder>();
         viewmodelRef.GetComponent<GunNudger>().SetHead(viewmodelRef.transform.parent);
-        // Set MuzzleFlash
+
         currentPlayer.GetComponent<WeaponHolder>().SetMuzzleFlash(viewmodelRef.GetComponent<MuzzleFlashHolder>().MuzzleFlash);
-        // Viewmodel Layer
+    }
+
+    private void ConnectMe()
+    {
+        currentPlayer.transform.GetComponent<WeaponHolder>().GetHUDReference();
+        HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
+        currentPlayer.transform.GetComponent<SanitySystem>().GetHUDReference();
+        currentPlayer.transform.GetComponent<PlayerInput>().selfBodyModel = playermodelRef;
+        currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(playermodelRef, 9);
+        currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
+
         currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 10);
     }
 }
