@@ -78,6 +78,8 @@ public class PlayerClassChanger : MonoBehaviour
         viewmodelRef.GetComponent<GunNudger>().SetHead(viewmodelRef.transform.parent);
 
         currentPlayer.GetComponent<WeaponHolder>().SetMuzzleFlash(viewmodelRef.GetComponent<MuzzleFlashHolder>().MuzzleFlash);
+
+        currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 11);
     }
 
     private void ConnectMe()
