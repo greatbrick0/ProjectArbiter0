@@ -57,6 +57,7 @@ public class PlayerSpellIceDash : Ability
     {
         AbilityIntroductionDecorations();
         StartCoroutine(Windup());
+        SetAnim();
     }
     public override void AbilityIntroductionDecorations()
     {
@@ -99,6 +100,11 @@ public class PlayerSpellIceDash : Ability
                 actionIntervalTimer -= Time.deltaTime;
             }
         }
+    }
+
+    public void SetAnim()
+    {
+        animRef.SetTrigger("Charge");
     }
 
     public void EndDash(bool collide)
