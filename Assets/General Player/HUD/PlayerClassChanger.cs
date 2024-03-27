@@ -35,7 +35,17 @@ public class PlayerClassChanger : MonoBehaviour
                 Invoke("Connect", 0.1f);
                 currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
                 currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
-         
+
+                playermodelRef = currentPlayer.GetComponent<PlayerInput>().selfBodyModel.transform.parent.gameObject;
+                GameObject.Destroy(playermodelRef.GetComponentInChildren<Animator>());
+                GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfBodyModel.gameObject);
+                playermodelRef = Instantiate(Class[2], playermodelRef.transform);
+
+
+                Debug.Log((currentPlayer.GetComponent<PlayerInput>().selfGunModel.name));
+                viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
+                GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
+                viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
 
                 if (currentPlayer.GetComponent<PlayerInput>().authority)
                 {
@@ -43,16 +53,7 @@ public class PlayerClassChanger : MonoBehaviour
                     initRef = Instantiate(Class[1], HUDRef.transform);
                     initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
 
-                    playermodelRef = currentPlayer.GetComponent<PlayerInput>().selfBodyModel.transform.parent.gameObject;
-                    GameObject.Destroy(playermodelRef.GetComponentInChildren<Animator>());
-                    GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfBodyModel.gameObject);
-                    playermodelRef = Instantiate(Class[2], playermodelRef.transform);
-
-
-                    Debug.Log((currentPlayer.GetComponent<PlayerInput>().selfGunModel.name));
-                    viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
-                    GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
-                    viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
+                   
                 }
             }
         }
