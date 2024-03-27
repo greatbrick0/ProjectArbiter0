@@ -140,7 +140,7 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_668cdd97_e39f_4c1e_9e8b_022112ce3dac : BoolBinding
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_4f88e77b_cc25_44e0_945c_3463b7c14b3d : BoolBinding
 	{
 		private global::PlayerAnimation CastedUnityComponent;
 
@@ -184,50 +184,6 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_67b8021e_626b_4a0c_987b_0a90e1741376 : BoolAnimatorParameterBinding
-	{
-		private global::UnityEngine.Animator CastedUnityComponent;
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (global::UnityEngine.Animator)UnityComponent;
-		}
-		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Animator_8450259073051062080";
-
-		public override uint FieldMask => 0b00000000000000000000000000000001;
-
-		public override bool Value
-		{
-			get { return (CastedUnityComponent.GetBool(CastedDescriptor.ParameterHash)); }
-			set { CastedUnityComponent.SetBool(CastedDescriptor.ParameterHash, (value)); }
-		}
-
-		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
-		{
-			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Animator_8450259073051062080)coherenceComponent).walking;
-			return value;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
-		{
-			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Animator_8450259073051062080)coherenceComponent;
-			if (RuntimeInterpolationSettings.IsInterpolationNone) 
-			{
-				update.walking = Value;
-			}
-			else 
-			{
-				update.walking = GetInterpolatedAt(time);
-			}
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Animator_8450259073051062080();
-		}
-	}
-
 
 	[Preserve]
 	public class CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada : CoherenceSyncBaked
@@ -237,7 +193,8 @@ namespace Coherence.Generated
 
 		// Cached targets for commands		
 		private global::AbilityInputSystem Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da_CommandTarget;		
-		private global::SanitySystem Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget;		
+		private global::PlayerHealth Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1_CommandTarget;		
+		private global::SanitySystem Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8_CommandTarget;		
 		private global::WeaponHolder Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d_CommandTarget;
 
 		private IClient client;
@@ -248,8 +205,7 @@ namespace Coherence.Generated
 			["696f6b8e-6989-42d0-b2dc-00169501f2c9"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_696f6b8e_6989_42d0_b2dc_00169501f2c9(),
 			["7602e59e-d135-46a9-bdc7-9ce8a0b4ed43"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_7602e59e_d135_46a9_bdc7_9ce8a0b4ed43(),
 			["3590a821-8003-423e-af9d-f66e982ae4b9"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_3590a821_8003_423e_af9d_f66e982ae4b9(),
-			["668cdd97-e39f-4c1e-9e8b-022112ce3dac"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_668cdd97_e39f_4c1e_9e8b_022112ce3dac(),
-			["67b8021e-626b-4a0c-987b-0a90e1741376"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_67b8021e_626b_4a0c_987b_0a90e1741376(),
+			["4f88e77b-cc25-44e0-945c-3463b7c14b3d"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_4f88e77b_cc25_44e0_945c_3463b7c14b3d(),
 		};
 
 		private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings =
@@ -258,7 +214,8 @@ namespace Coherence.Generated
 		public CoherenceSyncPlayer_9b83865ad432b2840a2ba6c6e5d0fada()
 		{
 			bakedCommandBindings.Add("09631ba5-b8ad-4b21-8720-2dcef6abf6da", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da);
-			bakedCommandBindings.Add("b60d8eb5-ad38-4c3c-ac1f-824f2ecab096", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096);
+			bakedCommandBindings.Add("8ed7af65-8faa-4df4-a8bc-d05c5ec8b2a1", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1);
+			bakedCommandBindings.Add("9f663484-9c8c-491f-9c1e-c2dd9fe2d5c8", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8);
 			bakedCommandBindings.Add("4580daad-388d-444f-92c3-72b98a4d593d", BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d);
 		}
 
@@ -286,11 +243,17 @@ namespace Coherence.Generated
 			commandsHandler.AddBakedCommand("AbilityInputSystem.SendCastToAbility", "(System.Int32System.Boolean)",
 				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da_CommandTarget,false);
 		}
-		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(CommandBinding commandBinding, CommandsHandler commandsHandler)
+		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
-			Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget = (global::SanitySystem)commandBinding.UnityComponent;
+			Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1_CommandTarget = (global::PlayerHealth)commandBinding.UnityComponent;
+			commandsHandler.AddBakedCommand("PlayerHealth.PlayerDown", "()",
+				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1_CommandTarget,false);
+		}
+		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8(CommandBinding commandBinding, CommandsHandler commandsHandler)
+		{
+			Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8_CommandTarget = (global::SanitySystem)commandBinding.UnityComponent;
 			commandsHandler.AddBakedCommand("SanitySystem.ShowAura", "(System.Boolean)",
-				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget,false);
+				SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8, ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8, MessageTarget.All, Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8_CommandTarget,false);
 		}
 		private void BakeCommandBinding_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
@@ -358,25 +321,42 @@ namespace Coherence.Generated
 			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da_CommandTarget;
 			target.SendCastToAbility((System.Int32)(command.tier),(System.Boolean)(command.doDemon));
 		}
-		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(MessageTarget target, object[] args)
+		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1(MessageTarget target, object[] args)
 		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096();
+			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1();
+			client.SendCommand(command, target, entityId);
+		}
+
+		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1(MessageTarget target, object[] args)
+		{
+			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1();
+			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1(command);
+		}
+
+		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1(Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1 command)
+		{
+			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1_CommandTarget;
+			target.PlayerDown();
+		}
+		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8(MessageTarget target, object[] args)
+		{
+			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8();
 			int i = 0;
 			command.useAura = (bool)((System.Boolean)args[i++]);
 			client.SendCommand(command, target, entityId);
 		}
 
-		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(MessageTarget target, object[] args)
+		void ReceiveLocalCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8(MessageTarget target, object[] args)
 		{
-			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096();
+			var command = new Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8();
 			int i = 0;
 			command.useAura = (bool)((System.Boolean)args[i++]);
-			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(command);
+			ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8(command);
 		}
 
-		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 command)
+		void ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8(Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8 command)
 		{
-			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096_CommandTarget;
+			var target = Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8_CommandTarget;
 			target.ShowAura((System.Boolean)(command.useAura));
 		}
 		void SendCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(MessageTarget target, object[] args)
@@ -412,8 +392,11 @@ namespace Coherence.Generated
 				case Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da castedCommand:
 					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_AbilityInputSystem__char_46_SendCastToAbility_09631ba5_b8ad_4b21_8720_2dcef6abf6da(castedCommand);
 					break;
-				case Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096 castedCommand:
-					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_b60d8eb5_ad38_4c3c_ac1f_824f2ecab096(castedCommand);
+				case Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1 castedCommand:
+					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1(castedCommand);
+					break;
+				case Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8 castedCommand:
+					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8(castedCommand);
 					break;
 				case Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d castedCommand:
 					ReceiveCommand_Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d(castedCommand);

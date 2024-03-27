@@ -33,6 +33,7 @@ public class EnemyHealth : Damageable
         int prevHealth = health;
 
         if (ignoredElements.Contains(element) || ignoredSources.Contains(sourceType)) damageAmount = 0;
+        else BroadcastMessage("HurtAnim");
         if (spotType == DamageSpot.Armour) damageAmount = Mathf.CeilToInt(damageAmount * armourSpotMult);
         else if (spotType == DamageSpot.Head) damageAmount = Mathf.FloorToInt(damageAmount * weakSpotMult);
 
