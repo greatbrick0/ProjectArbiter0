@@ -48,8 +48,11 @@ public class GunNudger : MonoBehaviour
         t = GetComponent<Transform>();
         originalPos = t.localPosition;
         originalRot = t.localRotation;
-        playerMovement.nudger = this;
-        playerWeapon.animRef = GetComponent<Animator>();
+        if (playerMovement != null && playerWeapon != null)
+        {
+            playerMovement.nudger = this;
+            playerWeapon.animRef = GetComponent<Animator>();
+        }
         head = transform.parent;
         //transform.parent = null;
     }
