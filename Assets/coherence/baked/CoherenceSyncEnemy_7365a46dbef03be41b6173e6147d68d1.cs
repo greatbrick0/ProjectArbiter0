@@ -550,7 +550,7 @@ namespace Coherence.Generated
 		private Logger logger = Log.GetLogger<CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1>();
 
 		// Cached targets for commands		
-		private global::EnemySyncInit Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3_CommandTarget;
+		private global::EnemySyncInit Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget;
 
 		private IClient client;
 		private CoherenceBridge bridge;
@@ -576,7 +576,7 @@ namespace Coherence.Generated
 
 		public CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1()
 		{
-			bakedCommandBindings.Add("8c2aab83-68cf-40aa-805e-15c98733a0c3", BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3);
+			bakedCommandBindings.Add("faee4af0-21c5-4e00-b693-dc6ddf245f4e", BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e);
 		}
 
 		public override Binding BakeValueBinding(Binding valueBinding)
@@ -597,11 +597,11 @@ namespace Coherence.Generated
 				commandBindingBaker.Invoke(commandBinding, commandsHandler);
 			}
 		}
-		private void BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3(CommandBinding commandBinding, CommandsHandler commandsHandler)
+		private void BakeCommandBinding_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
-			Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3_CommandTarget = (global::EnemySyncInit)commandBinding.UnityComponent;
-			commandsHandler.AddBakedCommand("EnemySyncInit.SetReferences", "(UnityEngine.GameObject)",
-				SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3, ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3, MessageTarget.All, Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3_CommandTarget,false);
+			Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget = (global::EnemySyncInit)commandBinding.UnityComponent;
+			commandsHandler.AddBakedCommand("EnemySyncInit.SetReferences", "(System.String)",
+				SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e, ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e, MessageTarget.All, Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget,false);
 		}
 
 		public override List<ICoherenceComponentData> CreateEntity(bool usesLodsAtRuntime, string archetypeName)
@@ -640,34 +640,34 @@ namespace Coherence.Generated
 			this.entityId = entityId;
 			this.client = client;
 		}
-		void SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3(MessageTarget target, object[] args)
+		void SendCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(MessageTarget target, object[] args)
 		{
-			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3();
+			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e();
 			int i = 0;
-			command.enemySpawner = (SerializeEntityID)bridge.UnityObjectToEntityId(args[i++] as GameObject);
+			command.enemySpawner = (string)((System.String)args[i++]);
 			client.SendCommand(command, target, entityId);
 		}
 
-		void ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3(MessageTarget target, object[] args)
+		void ReceiveLocalCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(MessageTarget target, object[] args)
 		{
-			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3();
+			var command = new Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e();
 			int i = 0;
-			command.enemySpawner = (SerializeEntityID)bridge.UnityObjectToEntityId(args[i++] as GameObject);
-			ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3(command);
+			command.enemySpawner = (string)((System.String)args[i++]);
+			ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(command);
 		}
 
-		void ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3(Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3 command)
+		void ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e command)
 		{
-			var target = Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3_CommandTarget;
-			target.SetReferences(bridge.EntityIdToGameObject(command.enemySpawner));
+			var target = Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e_CommandTarget;
+			target.SetReferences((System.String)(command.enemySpawner));
 		}
 
 		public override void ReceiveCommand(IEntityCommand command)
 		{
 			switch(command)
 			{
-				case Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3 castedCommand:
-					ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_8c2aab83_68cf_40aa_805e_15c98733a0c3(castedCommand);
+				case Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e castedCommand:
+					ReceiveCommand_Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_faee4af0_21c5_4e00_b693_dc6ddf245f4e(castedCommand);
 					break;
 				default:
 					logger.Warning($"[CoherenceSyncEnemy_7365a46dbef03be41b6173e6147d68d1] Unhandled command: {command.GetType()}.");

@@ -456,7 +456,7 @@ MonoBehaviour:
   - rid: 2532949695155404860
   - rid: 2532949695155404861
   - rid: 2532949695155404862
-  - rid: 2532949919242387640
+  - rid: 2532949919242387658
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -934,15 +934,15 @@ MonoBehaviour:
         coherenceSync: {fileID: 2559740204914824160}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
           type: 2}
-    - rid: 2532949919242387640
+    - rid: 2532949919242387658
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 2532949919242387641
+          rid: 2532949919242387659
         routing: 1
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 8c2aab83-68cf-40aa-805e-15c98733a0c3
+        guid: faee4af0-21c5-4e00-b693-dc6ddf245f4e
         archetypeData:
           type: 0
           minRange: 0
@@ -953,7 +953,7 @@ MonoBehaviour:
         unityComponent: {fileID: 5747550862409650219}
         coherenceSync: {fileID: 2559740204914824160}
         interpolationSettings: {fileID: 0}
-    - rid: 2532949919242387641
+    - rid: 2532949919242387659
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: SetReferences
@@ -963,7 +963,7 @@ MonoBehaviour:
         valueSyncCallbackName: 
         memberType: 8
         parameterAssemblyTypes:
-        - UnityEngine.GameObject, UnityEngine
+        - System.String, mscorlib
         ownerType:
           assemblyQualifiedName: EnemySyncInit, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null

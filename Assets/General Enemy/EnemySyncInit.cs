@@ -11,17 +11,17 @@ public class EnemySyncInit : MonoBehaviour
 
     public IEnumerator Init(EnemySpawner enemySpawner)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForEndOfFrame();
         sync = GetComponent<CoherenceSync>();
-        print("hit");
-        sync.SendCommand<EnemySyncInit>(nameof(SetReferences), MessageTarget.All, enemySpawner.gameObject);
+        sync.SendCommand<EnemySyncInit>(nameof(SetReferences), MessageTarget.All, enemySpawner.gameObject.name);
     }
 
     [Command]
-    public void SetReferences(GameObject enemySpawner)
+    public void SetReferences(string enemySpawner)
     {
         print("set");
-        if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().playerTracker = enemySpawner.GetComponent<EnemySpawner>().playerTracker;
-        if (GetComponent<EnemyHealth>() != null) GetComponent<EnemyHealth>().enemyDied += enemySpawner.GetComponent<EnemySpawner>().IncrementKillStat;
+        EnemySpawner spawner = GameObject.Find(enemySpawner).GetComponent<EnemySpawner>();
+        if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().playerTracker = spawner.playerTracker;
+        if (GetComponent<EnemyHealth>() != null) GetComponent<EnemyHealth>().enemyDied += spawner.IncrementKillStat;
     }
 }
