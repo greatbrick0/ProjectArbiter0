@@ -538,14 +538,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4703393735556382894}
   m_Father: {fileID: 6003461134356888579}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 664, y: 182}
-  m_SizeDelta: {x: 341, y: 450}
+  m_AnchoredPosition: {x: 650, y: 350}
+  m_SizeDelta: {x: 450, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1999230401645488029
 CanvasRenderer:
@@ -575,8 +576,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee3e5f839b45fd1468caccedec345dac, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 65db0f8612fc74e458e8edb470c5ab82, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -692,9 +693,11 @@ MonoBehaviour:
   sanityBar: {fileID: 6346892377669833187}
   secondaryBar: {fileID: 2346236430020278610}
   sanityWarning: {fileID: 0}
-  sanityWarping: {fileID: 0}
+  volume: {fileID: 0}
+  exhaustVolume: {fileID: 0}
   sanityTarget: 0
   age: 0
+  exhausted: 0
 --- !u!1 &2317542494760158043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1146,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6003461134356888579}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1319,6 +1322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageCooldown: {fileID: 2893328252814674366}
   ImageIcon: {fileID: 8319398480631548092}
+  inactiveColor: {r: 0.49056602, g: 0.32730192, b: 0.1730865, a: 1}
   cooldownTimer: 5
 --- !u!1 &4045285564777003348
 GameObject:
@@ -1350,7 +1354,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6003461134356888579}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9100261469593008970
 SpriteRenderer:
@@ -1539,7 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18039216, g: 0.23529412, b: 0.32941177, a: 1}
+  m_Color: {r: 0.2924528, g: 0.2710033, b: 0.21630472, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1738,13 +1742,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6003461134356888579}
-  m_RootOrder: 11
+  m_Father: {fileID: 9169367508399035106}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 665.2158, y: 244.6185}
-  m_SizeDelta: {x: 314.2938, y: 291.9626}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7657631230127364164
 CanvasRenderer:
@@ -1774,11 +1778,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Objective:
+  m_text: 'Current Objective:
 
-    Defeat all Enemies
-
-    0/3'
+    Proceed to Next Room'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1811,9 +1813,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2055,7 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6, g: 0.9098039, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.99560493, b: 0.6264151, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2460,7 +2462,6 @@ RectTransform:
   - {fileID: 4934281815827795619}
   - {fileID: 4053505591858642925}
   - {fileID: 9169367508399035106}
-  - {fileID: 4703393735556382894}
   - {fileID: 8767189502158629689}
   - {fileID: 2121402271449656164}
   m_Father: {fileID: 0}
@@ -2700,6 +2701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageCooldown: {fileID: 6969946506332086092}
   ImageIcon: {fileID: 5667226915074579970}
+  inactiveColor: {r: 0.49056602, g: 0.32730192, b: 0.1730865, a: 1}
   cooldownTimer: 5
 --- !u!1 &8873021594793724345
 GameObject:
@@ -2891,6 +2893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageCooldown: {fileID: 6938684872214654754}
   ImageIcon: {fileID: 5792585078922087866}
+  inactiveColor: {r: 0.49056602, g: 0.32730192, b: 0.1730865, a: 1}
   cooldownTimer: 5
 --- !u!1 &9190942327294702566
 GameObject:

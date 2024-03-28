@@ -54,7 +54,7 @@ namespace Coherence.Samples.RoomsDialog
         private CloudRooms cloudRooms;
         private ReplicationServerRoomsService replicationServerRoomsService;
 
-        private int UserRoomLimit => int.TryParse(roomLimitInputField.text, out var limit) ? limit : 10;
+        private int UserRoomLimit => int.TryParse(roomLimitInputField.text, out var limit) ? limit : 3;
 
         private string initialJoinRoomTitle;
         private ListView roomsListView;
