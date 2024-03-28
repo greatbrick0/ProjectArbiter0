@@ -692,9 +692,11 @@ MonoBehaviour:
   sanityBar: {fileID: 6346892377669833187}
   secondaryBar: {fileID: 2346236430020278610}
   sanityWarning: {fileID: 0}
-  sanityWarping: {fileID: 0}
+  volume: {fileID: 0}
+  exhaustVolume: {fileID: 0}
   sanityTarget: 0
   age: 0
+  exhausted: 0
 --- !u!1 &2317542494760158043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageCooldown: {fileID: 2893328252814674366}
   ImageIcon: {fileID: 8319398480631548092}
+  inactiveColor: {r: 0.49056602, g: 0.32730192, b: 0.1730865, a: 1}
   cooldownTimer: 5
 --- !u!1 &4045285564777003348
 GameObject:
@@ -1539,7 +1542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18039216, g: 0.23529412, b: 0.32941177, a: 1}
+  m_Color: {r: 0.2924528, g: 0.2710033, b: 0.21630472, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2055,7 +2058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6, g: 0.9098039, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.99560493, b: 0.6264151, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2700,6 +2703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageCooldown: {fileID: 6969946506332086092}
   ImageIcon: {fileID: 5667226915074579970}
+  inactiveColor: {r: 0.49056602, g: 0.32730192, b: 0.1730865, a: 1}
   cooldownTimer: 5
 --- !u!1 &8873021594793724345
 GameObject:
@@ -2891,6 +2895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImageCooldown: {fileID: 6938684872214654754}
   ImageIcon: {fileID: 5792585078922087866}
+  inactiveColor: {r: 0.49056602, g: 0.32730192, b: 0.1730865, a: 1}
   cooldownTimer: 5
 --- !u!1 &9190942327294702566
 GameObject:
