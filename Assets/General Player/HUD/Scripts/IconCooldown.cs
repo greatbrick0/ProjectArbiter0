@@ -12,7 +12,7 @@ public class IconCooldown : MonoBehaviour
     private Image ImageIcon;
 
     private Color activeColor = new Color(1, 1, 1);
-    private Color inactiveColor = new Color(0.4f, 0.5f, 0.6f);
+    public Color inactiveColor = new Color(0.4f, 0.5f, 0.6f);
 
 
 
