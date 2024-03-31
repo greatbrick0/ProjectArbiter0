@@ -305,4 +305,9 @@ public class PlayerInput : MonoBehaviour
     {
         authority = newAuth;
     }
+
+    public bool GetJumpInput()
+    {
+        return jumpInputted;
+    }
 }

@@ -10,6 +10,7 @@ public abstract class Ability : MonoBehaviour
     protected Rigidbody rb;
     protected AbilityInputSystem AbilityHoldRef;
     protected SanitySystem sanityRef;
+    protected PlayerInput inputRef;
     protected PlayerMovement movementRef;
     protected WeaponHolder weaponRef;
     protected GameObject spellOrigin;
@@ -99,6 +100,7 @@ public abstract class Ability : MonoBehaviour
         Transform t = transform.parent.parent.parent;
         AbilityHoldRef = t.GetComponent<AbilityInputSystem>();
         sanityRef = t.GetComponent<SanitySystem>();
+        inputRef = t.GetComponent<PlayerInput>();
         movementRef = t.GetComponent<PlayerMovement>();
         rb = t.GetComponent<Rigidbody>();
         weaponRef = t.GetComponent<WeaponHolder>();

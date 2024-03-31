@@ -30,6 +30,7 @@ public class PlayerSpellNatureGrapple : Ability
 
     bool doLine = false; //should we be rendering line
 
+    bool cancellable;
     public override void RecieveAbilityRequest()
     {
         Debug.Log("StartedAbility");
@@ -72,6 +73,7 @@ public class PlayerSpellNatureGrapple : Ability
             doLine = true;
             grapplePoint = hit.point;
             ChangeControls();
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce((grapplePoint - transform.position).normalized * launchForce, ForceMode.Impulse);
             hookRef = Instantiate(hookEnd, grapplePoint,Quaternion.identity);
             hookRef.transform.LookAt(hookRef.transform.position + hit.normal);
@@ -83,13 +85,14 @@ public class PlayerSpellNatureGrapple : Ability
         motionVFXRef = Instantiate(dashMotionVFX, spellOrigin.transform);
         movementRef.SetEnabledControls(false, true);
         //GetComponentInParent<PlayerMovement>().SetEnabledControls(false, true);
+        Invoke("SetCancellableTrue", 1.0f);
         //GetComponentInParent<PlayerMovement>().SetPartialControl(0.1f);
         Invoke("ReturnControls", 2.0f);
     }
 
     public void ReturnControls()
     {
-        Destroy(motionVFXRef.gameObject);
+        if (motionVFXRef != null) Destroy(motionVFXRef.gameObject);
         movementRef.SetEnabledControls(true, true);
         //GetComponentInParent<PlayerMovement>().SetEnabledControls(true, true);
         doLine = false;
@@ -99,6 +102,7 @@ public class PlayerSpellNatureGrapple : Ability
     {
         if (doLine)
         {
+            rawLine.widthMultiplier = 1;
             rawLine.SetPosition(0, new Vector3(spellOrigin.transform.position.x,spellOrigin.transform.position.y-0.3f,spellOrigin.transform.position.z));
             rawLine.SetPosition(1, hookRef.transform.position);
         }
@@ -106,6 +110,18 @@ public class PlayerSpellNatureGrapple : Ability
         {
             rawLine.SetPosition(0, Vector3.zero);
             rawLine.SetPosition(1, Vector3.zero);
+            rawLine.widthMultiplier = 0;
+        }
+
+        if (cancellable)
+        {
+            Debug.Log("Cancellable");
+            if (movementRef.grounded)
+            {
+                ReturnControls();
+                doLine = false;
+                cancellable = false;
+            }
         }
 
     }
@@ -126,6 +142,10 @@ public class PlayerSpellNatureGrapple : Ability
 
     }
 
+    public void SetCancellableTrue()
+    {
+        cancellable = true;
+    }
     public override void newDemonic() { }
 
 

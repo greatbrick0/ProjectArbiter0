@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerSpellIceDash : Ability
-{ 
+{
     [SerializeField]
     float backVelocity;
 
@@ -25,6 +25,7 @@ public class PlayerSpellIceDash : Ability
 
     GameObject collideHitboxRef;
 
+    bool cancellable;
     public override void RecieveAbilityRequest()
     {
         Debug.Log("StartedIceDashAbility");
@@ -57,19 +58,18 @@ public class PlayerSpellIceDash : Ability
     {
         AbilityIntroductionDecorations();
         StartCoroutine(Windup());
-        SetAnim();
     }
     public override void AbilityIntroductionDecorations()
     {
         movementRef.SetEnabledControls(false, true);
         sanityRef.GetComponent<PlayerInput>().mouseXSens *= 0.3f;
-        sanityRef.GetComponent<PlayerInput>().mouseYSens *= 0.01f;
         rb.drag = 3;
-        rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity/5)) , ForceMode.Impulse);
+        rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity / 5)), ForceMode.Impulse);
 
     }
     public override void AbilityAction()
     {
+        cancellable = false;
         FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceCharge, gameObject);
 
         rb.drag = 0;
@@ -87,6 +87,10 @@ public class PlayerSpellIceDash : Ability
     {
         if (shouldRepeatAction)
         {
+            if (cancellable && inputRef.GetJumpInput())
+            {
+                EndDash(false);
+            }
             if (actionIntervalTimer <= 0)
             {
                 rb.AddForce(gameObject.transform.forward * 8, ForceMode.Impulse);
@@ -102,11 +106,6 @@ public class PlayerSpellIceDash : Ability
         }
     }
 
-    public void SetAnim()
-    {
-        animRef.SetTrigger("Charge");
-    }
-
     public void EndDash(bool collide)
     {
         Debug.Log("Dash completed");
@@ -115,7 +114,6 @@ public class PlayerSpellIceDash : Ability
         actionIntervalTimer = repeatActionInterval;
         rb.drag = 0;
         sanityRef.GetComponent<PlayerInput>().mouseXSens /= 0.3f;
-        sanityRef.GetComponent<PlayerInput>().mouseYSens /= 0.01f;
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
         if (collideHitboxRef != null)
@@ -129,7 +127,7 @@ public class PlayerSpellIceDash : Ability
         {
             Debug.Log("Dash Expired Naturally");
         }
-    }
+    }   
 
     IEnumerator Cooldown()
     {
@@ -144,6 +142,9 @@ public class PlayerSpellIceDash : Ability
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
+        yield return new WaitForSeconds(1f);
+        cancellable = true;
+
     }
 
     public override void newDemonic()
