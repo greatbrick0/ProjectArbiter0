@@ -93,7 +93,8 @@ public class PlayerSpellIceDash : Ability
             }
             if (actionIntervalTimer <= 0)
             {
-                rb.AddForce(gameObject.transform.forward * 8, ForceMode.Impulse);
+                Vector3 direction = new Vector3(gameObject.transform.forward.x, -0.25f, gameObject.transform.forward.z);
+                rb.AddForce(direction * 8, ForceMode.Impulse);
                 if (rb.velocity.magnitude > speedMax)
 
                     rb.velocity = Vector3.ClampMagnitude(rb.velocity, speedMax);
