@@ -13,6 +13,13 @@ public class LobbySizeLimiter : MonoBehaviour
     private void Start()
     {
         inputField.onValueChanged.AddListener(OnValueChanged);
+        GameObject lobbyLimit = GameObject.Find("Lobby Size Limiter");
+        if (lobbyLimit != null)
+        {
+            maxLobbySize = lobbyLimit.GetComponent<StoreLobbySize>().lobbySizeLimit;
+            gameObject.GetComponent<InputField>().text = maxLobbySize.ToString();
+            gameObject.transform.GetChild(0).GetComponent<Text>().text = maxLobbySize.ToString();
+        }
     }
 
     private void OnValueChanged(string newValue)

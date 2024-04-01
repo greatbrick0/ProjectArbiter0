@@ -768,38 +768,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &149813215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5190530701877095570, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
-    type: 3}
-  m_PrefabInstance: {fileID: 859747412}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &149813219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
-    type: 3}
-  m_PrefabInstance: {fileID: 859747412}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149813215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &149813220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149813215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703d23d135d915341af2a6812c7ff663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputField: {fileID: 149813219}
-  maxLobbySize: 3
 --- !u!43 &155295900
 Mesh:
   m_ObjectHideFlags: 0
@@ -4210,37 +4178,17 @@ PrefabInstance:
     - target: {fileID: 1521264329606617042, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: m_Text
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3124577393129443887, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: m_Text
       value: This is an Error.
       objectReference: {fileID: 0}
-    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
-        type: 3}
-      propertyPath: m_Text
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
-        type: 3}
-      propertyPath: m_ContentType
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
-        type: 3}
-      propertyPath: m_KeyboardType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480172168646520852, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
-        type: 3}
-      propertyPath: m_CharacterLimit
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4510135349019760892, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: m_Text
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5627161928050324789, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
@@ -4390,7 +4338,7 @@ PrefabInstance:
     - target: {fileID: 7300550018610163683, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000014719848
       objectReference: {fileID: 0}
     - target: {fileID: 7410436684582398122, guid: 57b22b86a7c1b4e47a5b1d080a18f434,
         type: 3}

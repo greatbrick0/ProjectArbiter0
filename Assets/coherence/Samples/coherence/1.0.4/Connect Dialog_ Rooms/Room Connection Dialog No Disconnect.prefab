@@ -3808,6 +3808,7 @@ GameObject:
   - component: {fileID: 6810461592927332802}
   - component: {fileID: 3264863885688576171}
   - component: {fileID: 3480172168646520852}
+  - component: {fileID: 9119903309609192421}
   m_Layer: 5
   m_Name: Max Players Input Field
   m_TagString: Untagged
@@ -3918,14 +3919,14 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3264863885688576171}
   m_TextComponent: {fileID: 4510135349019760892}
   m_Placeholder: {fileID: 1521264329606617042}
-  m_ContentType: 2
+  m_ContentType: 9
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 4
+  m_CharacterLimit: 1
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -3938,11 +3939,25 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 10
+  m_Text: 1
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!114 &9119903309609192421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5190530701877095570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703d23d135d915341af2a6812c7ff663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 3480172168646520852}
+  maxLobbySize: 3
 --- !u!1 &5203987498385752683
 GameObject:
   m_ObjectHideFlags: 0
