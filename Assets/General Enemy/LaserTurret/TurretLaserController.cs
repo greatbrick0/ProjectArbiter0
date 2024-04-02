@@ -7,6 +7,7 @@ public class TurretLaserController : MonoBehaviour
 {
     [SerializeField]
     private Transform head;
+    private LineRenderer lineVisual;
 
     private Ray ray;
     private RaycastHit hit;
@@ -15,8 +16,16 @@ public class TurretLaserController : MonoBehaviour
     float timeCharging = 0.0f;
     int chargeState = 0;
 
-    
-
+    [Header("Timings")]
+    [SerializeField]
+    private float coolingTime = 2.7f;
+    [SerializeField]
+    private float concentratingTime = 1.3f;
+    [SerializeField]
+    private float lockedTime = 0.6f;
+    [SerializeField]
+    private float shootingTime = 0.4f;
+    [Header("Movement")]
     [SerializeField]
     [Tooltip("How much the turret can rotate in each axis, measured in degrees per second.")]
     private float turnSpeed = 90.0f;
@@ -37,36 +46,42 @@ public class TurretLaserController : MonoBehaviour
     private float hitRefreshTime = 0.2f;
     private float timeSinceRefresh = 0.0f;
 
+    void Start()
+    {
+        lineVisual = GetComponent<LineRenderer>();
+    }
 
     private void Update()
     {
-        if (charging) timeCharging += 1.0f * Time.deltaTime;
-        else timeCharging = 0.0f;
+        if (charging || chargeState == 3) timeCharging += 1.0f * Time.deltaTime;
+        else
+        {
+            timeCharging = 0.0f;
+            chargeState = 0;
+        }
 
         //activations of animations and particle effects can go here
-        if (timeCharging >= 5.0f && chargeState == 3) //end laser
+        if (timeCharging >= (coolingTime + concentratingTime + lockedTime + shootingTime) && chargeState == 3) //end laser
         {
             timeCharging = 0.0f;
             chargeState = 0;
             timeSinceRefresh = 0.0f;
             hitPlayers.Clear();
+            lineVisual.enabled = false;
         }
-        else if (timeCharging >= 4.6f && chargeState == 2) //start laser
+        else if (timeCharging >= (coolingTime + concentratingTime + lockedTime) && chargeState == 2) //start laser
         {
+            print("fire " + chargeState.ToString());
             chargeState = 3;
-            print("fire");
+            lineVisual.enabled = true;
         }
-        else if (timeCharging >= 4.0f && chargeState == 1)  //stop rotation
+        else if (timeCharging >= (coolingTime + concentratingTime) && chargeState == 1)  //stop rotation
         {
             chargeState = 2;
         }
-        else if (timeCharging >= 2.7f && chargeState == 0)  //slow rotation
+        else if (timeCharging >= (coolingTime) && chargeState == 0)  //slow rotation
         {
             chargeState = 1;
-        }
-        else //default 
-        {
-            chargeState = 0;
         }
 
         if (chargeState == 3)
@@ -77,6 +92,7 @@ public class TurretLaserController : MonoBehaviour
                 timeSinceRefresh = 0.0f;
                 hitPlayers.Clear();
             }
+            lineVisual.SetPosition(0, head.GetChild(0).position);
             Laser();
         }
     }
@@ -86,11 +102,12 @@ public class TurretLaserController : MonoBehaviour
         bool didCollide;
         int layers = (1 << 0) | (1 << 6) | (1 << 8);
 
-        ray = new Ray(head.position, head.forward);
+        ray = new Ray(head.GetChild(0).position, head.forward);
         didCollide = Physics.SphereCast(ray, beamRadius, out hit, beamLength, layers);
 
         if (didCollide)
         {
+            lineVisual.SetPosition(1, hit.point);
             PlayerHealth p = hit.collider.gameObject.GetComponent<PlayerHealth>();
             if (p != null)
             {
@@ -99,6 +116,7 @@ public class TurretLaserController : MonoBehaviour
                 hitPlayers.Add(p);
             } 
         }
+        else lineVisual.SetPosition(1, ray.origin + head.forward * beamLength);
     }
 
     public bool CheckLosToPlayer(GameObject player, float checkRange)
@@ -121,11 +139,10 @@ public class TurretLaserController : MonoBehaviour
         switch (chargeState)
         {
             case 0:
-                //head.LookAt(pos);
-                SlowLook(pos, 90.0f, deltaTime);
+                SlowLook(pos, turnSpeed, deltaTime);
                 break;
             case 1:
-                SlowLook(pos, 30.0f, deltaTime);
+                SlowLook(pos, slowTurnSpeed, deltaTime);
                 break;
             case 2:
             case 3:
@@ -135,7 +152,7 @@ public class TurretLaserController : MonoBehaviour
 
     public void SlowLook(Vector3 pos, float speed, float deltaTime)
     {
-        Vector3 intendedDir = (pos - head.position).normalized;
+        Vector3 intendedDir = ((pos - Vector3.up * 0.5f) - head.position).normalized;
         Vector2 dist = Vector2.one * (speed * deltaTime);
         float hDiff = Vector2.Dot(Vec2FromXZ(intendedDir), Vec2FromXZ(head.parent.right));
         float vDiff = head.forward.y - intendedDir.y;
@@ -149,10 +166,5 @@ public class TurretLaserController : MonoBehaviour
     private Vector2 Vec2FromXZ(Vector3 vec3)
     {
         return new Vector2(vec3.x, vec3.z);
-    }
-
-    private Vector2 Vec2FromYZ(Vector3 vec3)
-    {
-        return new Vector2(vec3.y, vec3.z);
     }
 }

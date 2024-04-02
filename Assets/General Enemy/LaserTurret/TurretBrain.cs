@@ -30,7 +30,7 @@ public class TurretBrain : EnemyBrain
             {
                 targetPlayerPos = targetPlayer.transform.position;
                 if (HDist(targetPlayerPos) - VDist(targetPlayerPos) > 1.5f && HDist(targetPlayerPos) + VDist(targetPlayerPos) > 1.5f)
-                    gun.PointTowards(targetPlayer.transform.position, Time.deltaTime);
+                    gun.PointTowards(targetPlayerPos, Time.deltaTime);
                 gun.charging = true;
             }
             else gun.charging = false;
