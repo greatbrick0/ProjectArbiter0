@@ -29,7 +29,7 @@ public class TurretBrain : EnemyBrain
             if(gun.CheckLosToPlayer(targetPlayer, 200.0f))
             {
                 targetPlayerPos = targetPlayer.transform.position;
-                if (HDist(targetPlayerPos) - VDist(targetPlayerPos) > 1 && HDist(targetPlayerPos) + VDist(targetPlayerPos) > 1)
+                if (HDist(targetPlayerPos) - VDist(targetPlayerPos) > 1.5f && HDist(targetPlayerPos) + VDist(targetPlayerPos) > 1.5f)
                     gun.PointTowards(targetPlayer.transform.position, Time.deltaTime);
                 gun.charging = true;
             }
@@ -46,7 +46,7 @@ public class TurretBrain : EnemyBrain
 
     private float HDist(Vector3 point)
     {
-        return Vector2.Distance(VecFromXZ(transform.position), VecFromXZ(point));
+        return Vector2.Distance(Vec2FromXZ(transform.position), Vec2FromXZ(point));
     }
 
     private float VDist(Vector3 point)
@@ -54,7 +54,7 @@ public class TurretBrain : EnemyBrain
         return Mathf.Abs(point.y - transform.position.y);
     }
 
-    private Vector2 VecFromXZ(Vector3 vec3)
+    private Vector2 Vec2FromXZ(Vector3 vec3)
     {
         return new Vector2(vec3.x, vec3.z);
     }

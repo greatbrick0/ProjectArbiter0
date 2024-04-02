@@ -19,11 +19,15 @@ public class TurretLaserController : MonoBehaviour
         if (charging) timeCharging += 1.0f * Time.deltaTime;
         else timeCharging = 0.0f;
 
-        if (timeCharging >= 5.0f) timeCharging = 0.0f;
-        if (timeCharging >= 4.6f) chargeState = 3;
-        else if (timeCharging >= 4.0f) chargeState = 2;
-        else if (timeCharging >= 2.7f) chargeState = 1;
-        else chargeState = 0;
+        if (timeCharging >= 5.0f && chargeState == 3) //end laser
+        {
+            timeCharging = 0.0f;
+            chargeState = 0;
+        }
+        else if (timeCharging >= 4.6f && chargeState == 2) chargeState = 3; //start laser
+        else if (timeCharging >= 4.0f && chargeState == 1) chargeState = 2; //stop moving
+        else if (timeCharging >= 2.7f && chargeState == 0) chargeState = 1; //slow down
+        else if (timeCharging >= 0.0f) chargeState = 0; //default 
 
         if(chargeState == 3) Laser();
     }
@@ -53,13 +57,38 @@ public class TurretLaserController : MonoBehaviour
         switch (chargeState)
         {
             case 0:
-                head.LookAt(pos);
+                //head.LookAt(pos);
+                SlowLook(pos, 90.0f, deltaTime);
                 break;
             case 1:
+                SlowLook(pos, 30.0f, deltaTime);
                 break;
             case 2:
             case 3:
                 break;
         }
+    }
+
+    public void SlowLook(Vector3 pos, float speed, float deltaTime)
+    {
+        Vector3 intendedDir = (pos - head.position).normalized;
+        Vector2 dist = Vector2.one * (speed * deltaTime);
+        float hDiff = Vector2.Dot(Vec2FromXZ(intendedDir), Vec2FromXZ(head.parent.right));
+        float vDiff = head.forward.y - intendedDir.y;
+        dist.x = Mathf.Min(dist.x, Mathf.Abs(hDiff));
+        dist.y = Mathf.Min(dist.y, Mathf.Abs(vDiff));
+
+        head.parent.Rotate(Vector3.up, Mathf.Sign(hDiff) * dist.x);
+        head.Rotate(Vector3.right, Mathf.Sign(vDiff) * dist.y, Space.Self);
+    }
+
+    private Vector2 Vec2FromXZ(Vector3 vec3)
+    {
+        return new Vector2(vec3.x, vec3.z);
+    }
+
+    private Vector2 Vec2FromYZ(Vector3 vec3)
+    {
+        return new Vector2(vec3.y, vec3.z);
     }
 }
