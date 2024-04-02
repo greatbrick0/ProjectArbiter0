@@ -45,7 +45,7 @@ public class PlayerSpellFire_Shot : Ability
 
     public override void AbilityIntroductionDecorations()
     {
-
+        animRef.SetTrigger("CastFlames");
     }
 
     public override void AbilityAction()
@@ -61,9 +61,11 @@ public class PlayerSpellFire_Shot : Ability
     {
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
 
