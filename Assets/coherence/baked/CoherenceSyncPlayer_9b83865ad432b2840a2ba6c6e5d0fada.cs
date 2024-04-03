@@ -316,6 +316,50 @@ namespace Coherence.Generated
 		}
 	}
 
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_666188cc_7e3b_440d_8635_0e49021f495f : DeepRotationBinding
+	{
+		private global::UnityEngine.Transform CastedUnityComponent;
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147";
+
+		public override uint FieldMask => 0b00000000000000000000000000000001;
+
+		public override Quaternion Value
+		{
+			get { return (UnityEngine.Quaternion)(CastedUnityComponent.localRotation); }
+			set { CastedUnityComponent.localRotation = (UnityEngine.Quaternion)(value); }
+		}
+
+		protected override Quaternion ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
+		{
+			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147)coherenceComponent).rotation;
+			return value;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
+		{
+			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147)coherenceComponent;
+			if (RuntimeInterpolationSettings.IsInterpolationNone) 
+			{
+				update.rotation = Value;
+			}
+			else 
+			{
+				update.rotation = GetInterpolatedAt(time);
+			}
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147();
+		}
+	}
+
 	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_fc41a38a_807a_425c_88f6_3b36e3928a35 : DeepScaleBinding
 	{
 		private global::UnityEngine.Transform CastedUnityComponent;
@@ -429,6 +473,7 @@ namespace Coherence.Generated
 			["499774ed-5e33-4699-90f2-fb5ee054cb2a"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_499774ed_5e33_4699_90f2_fb5ee054cb2a(),
 			["4642f7a7-e7e8-48cc-b7c9-8de2778bfc03"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_4642f7a7_e7e8_48cc_b7c9_8de2778bfc03(),
 			["edb30135-268f-4c13-a74a-18ba487cdcaf"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_edb30135_268f_4c13_a74a_18ba487cdcaf(),
+			["666188cc-7e3b-440d-8635-0e49021f495f"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_666188cc_7e3b_440d_8635_0e49021f495f(),
 			["fc41a38a-807a-425c-88f6-3b36e3928a35"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_fc41a38a_807a_425c_88f6_3b36e3928a35(),
 			["b6246ce0-3a52-4ccb-b997-cd7eeafa91df"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_b6246ce0_3a52_4ccb_b997_cd7eeafa91df(),
 		};
