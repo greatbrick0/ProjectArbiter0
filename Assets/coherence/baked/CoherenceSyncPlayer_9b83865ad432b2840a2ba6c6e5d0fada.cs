@@ -316,6 +316,50 @@ namespace Coherence.Generated
 		}
 	}
 
+	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_fc41a38a_807a_425c_88f6_3b36e3928a35 : DeepScaleBinding
+	{
+		private global::UnityEngine.Transform CastedUnityComponent;
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (global::UnityEngine.Transform)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583";
+
+		public override uint FieldMask => 0b00000000000000000000000000000001;
+
+		public override Vector3 Value
+		{
+			get { return (UnityEngine.Vector3)(CastedUnityComponent.localScale); }
+			set { CastedUnityComponent.localScale = (UnityEngine.Vector3)(value); }
+		}
+
+		protected override Vector3 ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
+		{
+			var value = ((Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583)coherenceComponent).localScale;
+			return value;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent, double time)
+		{
+			var update = (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583)coherenceComponent;
+			if (RuntimeInterpolationSettings.IsInterpolationNone) 
+			{
+				update.localScale = Value;
+			}
+			else 
+			{
+				update.localScale = GetInterpolatedAt(time);
+			}
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583();
+		}
+	}
+
 	public class Binding_9b83865ad432b2840a2ba6c6e5d0fada_b6246ce0_3a52_4ccb_b997_cd7eeafa91df : BoolBinding
 	{
 		private global::WeaponHolder CastedUnityComponent;
@@ -385,6 +429,7 @@ namespace Coherence.Generated
 			["499774ed-5e33-4699-90f2-fb5ee054cb2a"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_499774ed_5e33_4699_90f2_fb5ee054cb2a(),
 			["4642f7a7-e7e8-48cc-b7c9-8de2778bfc03"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_4642f7a7_e7e8_48cc_b7c9_8de2778bfc03(),
 			["edb30135-268f-4c13-a74a-18ba487cdcaf"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_edb30135_268f_4c13_a74a_18ba487cdcaf(),
+			["fc41a38a-807a-425c-88f6-3b36e3928a35"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_fc41a38a_807a_425c_88f6_3b36e3928a35(),
 			["b6246ce0-3a52-4ccb-b997-cd7eeafa91df"] = new Binding_9b83865ad432b2840a2ba6c6e5d0fada_b6246ce0_3a52_4ccb_b997_cd7eeafa91df(),
 		};
 
