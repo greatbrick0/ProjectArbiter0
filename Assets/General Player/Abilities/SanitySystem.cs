@@ -78,6 +78,7 @@ public class SanitySystem : MonoBehaviour
     
     public void GetHUDReference()
     {
+        if (!GetComponent<PlayerInput>().authority) return;
         sanityHUDRef = GameObject.Find("SanityHUDOverlay").GetComponent<HUDSanity>();
         
         sanityHUDRef.volume = GetComponent<PlayerInput>().cameraRef.GetComponent<Volume>();
