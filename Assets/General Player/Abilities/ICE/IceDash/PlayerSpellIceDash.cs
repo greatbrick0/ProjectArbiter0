@@ -4,6 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using FMODUnity;
+using FMOD.Studio;
+using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 public class PlayerSpellIceDash : Ability
 {
@@ -24,6 +28,8 @@ public class PlayerSpellIceDash : Ability
     GameObject collideHitboxObject;
 
     GameObject collideHitboxRef;
+
+    EventInstance dashSoundInstance;
 
     bool cancellable;
     public override void RecieveAbilityRequest()
@@ -67,10 +73,15 @@ public class PlayerSpellIceDash : Ability
         rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity / 5)), ForceMode.Impulse);
 
     }
+    
     public override void AbilityAction()
     {
         cancellable = false;
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceCharge, gameObject);
+
+        dashSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.iceDashBeginning);
+        dashSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        dashSoundInstance.start();
+        dashSoundInstance.release();
 
         rb.drag = 0;
         shouldRepeatAction = true;
@@ -109,6 +120,10 @@ public class PlayerSpellIceDash : Ability
 
     public void EndDash(bool collide)
     {
+        dashSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceDashEnd, gameObject);
+
+
         Debug.Log("Dash completed");
         movementRef.SetEnabledControls(true, true);
         shouldRepeatAction = false;

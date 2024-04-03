@@ -28,6 +28,7 @@ public class BombLogic : MonoBehaviour
     bool Triggered = false;
     private void Start()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireBombWindUp, gameObject);
         hitNumberRef = DamageNumberManager.GetManager();
         Invoke(nameof(Trigger), lifespan);
         GetComponent<Rigidbody>().AddForce(transform.forward*4 + transform.up*3, ForceMode.Impulse);
@@ -95,7 +96,7 @@ public class BombLogic : MonoBehaviour
         bombAbilityRef.bombActive = false;
         GetComponent<SphereCollider>().radius = 3;
         explosionvisual.SetActive(true);
-        
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireBombExplosion, gameObject);
         Invoke(nameof(RequestDestroy), 1.6f);
         Invoke(nameof(EndAttack), 0.6f);
         bombAbilityRef.ExplosionOccured();

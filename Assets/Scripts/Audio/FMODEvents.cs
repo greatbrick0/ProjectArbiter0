@@ -11,7 +11,8 @@ public class FMODEvents : MonoBehaviour
     [field: Header ("Ice")]
     [field: SerializeField] public EventReference hammerSwing { get; private set; }
     [field: SerializeField] public EventReference iceCharge { get; private set; }
-    [field: SerializeField] public EventReference iceChargeEnd { get; private set; }
+    [field: SerializeField] public EventReference iceDashBeginning { get; private set; }
+    [field: SerializeField] public EventReference iceDashEnd { get; private set; }
     [field: SerializeField] public EventReference iceEnhancement { get; private set; }
     [field: Header ("Fire")]
     [field: SerializeField] public EventReference fireCone { get; private set; }
@@ -25,7 +26,7 @@ public class FMODEvents : MonoBehaviour
 
     //This is for non-player specific sounds.
     [field: Header ("General SFX")]
-    [field: SerializeField] public EventReference bulletHit { get; private set; }
+    [field: SerializeField] public EventReference groundHit { get; private set; }
     [field: SerializeField] public EventReference bodyHit { get; private set; }
     [field: SerializeField] public EventReference citicalHit { get; private set; }
 

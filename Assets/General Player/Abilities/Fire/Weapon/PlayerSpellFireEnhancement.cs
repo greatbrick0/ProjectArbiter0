@@ -78,6 +78,7 @@ public class PlayerSpellFireEnhancement : Ability
 
     public override void AbilityAction()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireEnhancement, gameObject);
             Debug.Log("ApplyFireStim");
         Debug.Log(movementRef.GetMaxMoveSpeed());
             weaponStore = weaponRef.GetWeaponData();

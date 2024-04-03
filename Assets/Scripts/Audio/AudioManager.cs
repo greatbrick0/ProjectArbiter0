@@ -5,6 +5,12 @@ using FMODUnity;
 using FMOD.Studio;
 using System;
 
+public enum DashingState
+{
+    DASHING = 0,
+    STOPPING = 1
+}
+
 public class AudioManager : MonoBehaviour
 {
     [Header("Volume")]
@@ -27,6 +33,7 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance ambienceEventInstance;
     private EventInstance musicEventInstance;
+    private EventInstance dashingEventInstance;
 
     public static AudioManager instance { get; private set; }
 
@@ -78,9 +85,10 @@ public class AudioManager : MonoBehaviour
         ambienceEventInstance.setParameterByName(parameterName, parameterValue);
     }
 
-    public void SetMusicArea(MusicArea area)
+    public void SetIceDashing(DashingState state)
     {
-        musicEventInstance.setParameterByName("area", (float) area);
+        print(state.ToString());   
+        dashingEventInstance.setParameterByName("state", (int) state);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
