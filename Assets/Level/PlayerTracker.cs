@@ -76,4 +76,14 @@ public class PlayerTracker : MonoBehaviour
             spectatorCount = 0;
         }
     }
+
+    public List<PlayerHealth> GetAlivePlayers()
+    {
+        List<PlayerHealth> output = new List<PlayerHealth>();
+        foreach (GameObject ii in playerList)
+        {
+            if(!ii.GetComponent<PlayerHealth>().playerDead) output.Add(ii.GetComponent<PlayerHealth>());
+        }
+        return output;
+    }
 }

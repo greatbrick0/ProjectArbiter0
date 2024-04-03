@@ -279,6 +279,7 @@ public class PlayerInput : MonoBehaviour
         cameraRef.transform.parent = transform.parent;
         cameraRef.GetComponent<MainCameraScript>().playerHead = head;
         cameraRef.GetComponent<MainCameraScript>().playerEyes = head.GetChild(0);
+        cameraRef.GetComponent<MainCameraScript>().spectateTarget = head;
     }
 
     public void SetLayerRecursively(GameObject obj, int newLayer)
