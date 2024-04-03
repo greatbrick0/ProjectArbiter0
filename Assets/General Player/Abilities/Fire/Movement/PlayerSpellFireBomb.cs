@@ -78,8 +78,6 @@ public class PlayerSpellFireBomb : Ability
             bombRef.GetComponent<BombLogic>().bombAbilityRef = this;
             bombActive = true;
         bombActiveTimer = 3.0f;
-
-        //FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceSpikes, gameObject);
     }
 
     public void ExplosionOccured()

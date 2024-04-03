@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using FMOD.Studio;
+using FMODUnity;
 
 public class PlayerSpellIceWeaponEnhancement : Ability
 {
@@ -37,7 +39,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     bool enhancementActive = false;
 
-
+    EventInstance iceEnhancementSound;
 
     public override void RecieveAbilityRequest()
     {
@@ -87,6 +89,11 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             //gunVFXRef = Instantiate(gunVFX, )
             //muzzleStore = muzzleFlash.GetColor("Color01");
             //  muzzleFlash.SetColor("Color01", newmuzzleColor);
+
+            iceEnhancementSound = RuntimeManager.CreateInstance(FMODEvents.instance.iceEnhancement);
+            RuntimeManager.AttachInstanceToGameObject(iceEnhancementSound, transform);
+            iceEnhancementSound.start();
+            iceEnhancementSound.release();
         }
         else
         {
@@ -97,6 +104,8 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             enhancementActive = false;
             //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
+
+            iceEnhancementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
         RemovePlayerCastMotion();
     }

@@ -11082,7 +11082,7 @@ MonoBehaviour:
           m_CallState: 2
   - <requirements>k__BackingField:
     - <statType>k__BackingField: EnemiesKilled
-      <minValue>k__BackingField: 3
+      <minValue>k__BackingField: 8
       <maxValue>k__BackingField: 0
     <completionEvent>k__BackingField:
       m_PersistentCalls:
@@ -11102,6 +11102,18 @@ MonoBehaviour:
         - m_Target: {fileID: 879615327}
           m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
           m_MethodName: InitialWaveSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1438909642}
+          m_TargetAssemblyTypeName: PlayerTracker, Assembly-CSharp
+          m_MethodName: RespawnPlayers
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
