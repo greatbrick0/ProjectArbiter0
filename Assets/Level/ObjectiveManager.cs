@@ -24,6 +24,13 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField]
     HUDSystem hudRef;
 
+    public bool gameStarted = false;
+
+    public void SetStartBool(bool started)
+    {
+        gameStarted = started;
+    }
+
     public void UpdateStat(string stat, float amount, bool checkForCompletion = true)
     {
         SetStat(stat, trackedStats[stat] + amount, checkForCompletion);
