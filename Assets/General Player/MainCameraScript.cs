@@ -39,8 +39,8 @@ public class MainCameraScript : MonoBehaviour
         }
         else if(mode == "spectate")
         {
-            t.position = spectateTarget.position;
-            t.LookAt(spectateTarget.position + spectateTarget.forward);
+            t.position = spectateTarget.position + spectateTarget.forward + (Vector3.up * 0.5f);
+            t.rotation = spectateTarget.rotation;
         }
     }
 
