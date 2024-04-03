@@ -32,7 +32,7 @@ public class PlayerClassChanger : MonoBehaviour
                 GameObject originRef = collision.transform.GetComponentInChildren<Ability>().transform.parent.gameObject;
                 GameObject.Destroy(originRef.GetComponentInChildren<Ability>().gameObject);
                 initRef = Instantiate(Class[0], originRef.transform);
-                Invoke("Connect", 0.1f);
+                StartCoroutine(Connect());
                 currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
                 currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
 
@@ -59,8 +59,9 @@ public class PlayerClassChanger : MonoBehaviour
         }
     }
 
-    public void Connect()
+    public IEnumerator Connect()
     {
+        yield return new WaitForEndOfFrame();
         ConnectAll();
         if (currentPlayer.GetComponent<PlayerInput>().authority) ConnectMe();     
     }
