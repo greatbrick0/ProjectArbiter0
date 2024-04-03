@@ -92,6 +92,8 @@ public class PlayerHealth : MonoBehaviour
         if(playerDied != null) playerDied();
         GetComponent<PlayerInput>().selfBodyModel.transform.localScale = Vector3.zero;
         GetComponent<PlayerInput>().selfGunModel.SetActive(false);
+        GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().spectateTarget = head;
+        GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "spectate";
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<WeaponHolder>().EmptyOutAmmo();
@@ -111,6 +113,7 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthLabel();
         GetComponent<PlayerInput>().selfBodyModel.transform.localScale = Vector3.one;
         GetComponent<PlayerInput>().selfGunModel.SetActive(true);
+        GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "firstperson";
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<WeaponHolder>().enabled = true;
         GetComponent<AbilityInputSystem>().SetAbilityLocks(true);

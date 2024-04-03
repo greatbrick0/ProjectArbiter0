@@ -63,6 +63,7 @@ public class MainCameraScript : MonoBehaviour
         spectateIndex += amount;
         if (tracker == null) tracker = FindObjectOfType<PlayerTracker>();
         
-        spectateTarget = tracker.GetAlivePlayers()[spectateIndex].head;
+        List<PlayerHealth> alivePlayers = tracker.GetAlivePlayers();
+        spectateTarget = alivePlayers[spectateIndex % alivePlayers.Count].head;
     }
 }
