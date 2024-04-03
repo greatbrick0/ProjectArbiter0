@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 8930018126516573619}
   - component: {fileID: 8930018126516573618}
   - component: {fileID: 8930018126516573616}
+  - component: {fileID: 6434930559307852773}
   m_Layer: 8
   m_Name: NewDoor
   m_TagString: Untagged
@@ -183,6 +184,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.43471014, y: 0.3427086, z: 0.09765717}
   m_Center: {x: 0.0005795905, y: -0.00073426036, z: 0.11637075}
+--- !u!114 &6434930559307852773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8930018126516573613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4662c2f87000447b97f50ad05eb166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpen:
+    Guid:
+      Data1: -283027518
+      Data2: 1280781203
+      Data3: -1883108983
+      Data4: 1555464942
+    Path: event:/SFX/NPC/Door/Dor Open
 --- !u!1001 &8930018125944709067
 PrefabInstance:
   m_ObjectHideFlags: 0
