@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6875232520037910475}
   - component: {fileID: 7462816819069892249}
   - component: {fileID: 7412879086764976590}
+  - component: {fileID: 8522260159278807083}
   m_Layer: 0
   m_Name: LaserVFXPrefab
   m_TagString: Untagged
@@ -113,3 +114,16 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8522260159278807083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3167366607072362544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bc5a17bee887846bf2ca042cb3353d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 1

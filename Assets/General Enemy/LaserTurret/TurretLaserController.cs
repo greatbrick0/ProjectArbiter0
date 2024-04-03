@@ -8,7 +8,6 @@ public class TurretLaserController : MonoBehaviour
 {
     [SerializeField]
     private Transform head;
-    private LineRenderer lineVisual;
 
     private Ray ray;
     private RaycastHit hit;
@@ -49,13 +48,9 @@ public class TurretLaserController : MonoBehaviour
 
     [SerializeField]
     private GameObject vfxLaser;
-    private GameObject laserRef;
-    private VisualEffect vfxRef;
-
 
     void Start()
     {
-        lineVisual = GetComponent<LineRenderer>();
     }
 
     private void Update()
@@ -73,14 +68,14 @@ public class TurretLaserController : MonoBehaviour
             timeCharging = 0.0f;
             chargeState = 0;
             timeSinceRefresh = 0.0f;
-            hitPlayers.Clear();
-            lineVisual.enabled = false;
+            hitPlayers.Clear();        
+           
         }
         else if (timeCharging >= (coolingTime + concentratingTime + lockedTime) && chargeState == 2) //start laser
         {
             print("fire " + chargeState.ToString());
             chargeState = 3;
-            lineVisual.enabled = true;
+           
             
         }
         else if (timeCharging >= (coolingTime + concentratingTime) && chargeState == 1)  //stop rotation
@@ -100,7 +95,7 @@ public class TurretLaserController : MonoBehaviour
                 timeSinceRefresh = 0.0f;
                 hitPlayers.Clear();
             }
-            lineVisual.SetPosition(0, head.GetChild(0).position);
+           
             Laser();
         }
     }
@@ -109,16 +104,13 @@ public class TurretLaserController : MonoBehaviour
     {
         bool didCollide;
         int layers = (1 << 0) | (1 << 6) | (1 << 8);
-
+        Debug.Log("hold");
         ray = new Ray(head.GetChild(0).position, head.forward);
         didCollide = Physics.SphereCast(ray, beamRadius, out hit, beamLength, layers);
-
+      
         if (didCollide)
         {
-            laserRef = Instantiate(vfxLaser, head.GetChild(0).transform);
-            vfxRef = laserRef.GetComponent<VisualEffect>();
-            vfxRef.SetFloat(0, hit.distance);
-            lineVisual.SetPosition(1, hit.point);
+          
             PlayerHealth p = hit.collider.gameObject.GetComponent<PlayerHealth>();
             if (p != null)
             {
@@ -127,13 +119,9 @@ public class TurretLaserController : MonoBehaviour
                 hitPlayers.Add(p);
             } 
         }
-        else 
-        {
-            lineVisual.SetPosition(1, ray.origin + head.forward * beamLength);
-            laserRef = Instantiate(vfxLaser, head.GetChild(0).transform);
-            vfxRef = laserRef.GetComponent<VisualEffect>();
-            vfxRef.SetFloat(0, (ray.origin + head.forward * beamLength).magnitude);
-        }
+
+        vfxLaser.GetComponent<VisualEffect>().Play();
+        
     }
 
     public bool CheckLosToPlayer(GameObject player, float checkRange)
