@@ -17,7 +17,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     [Tooltip("The camera that will be instantiated during runtime, mainly for first person use. ")]
     private GameObject cameraObj;
-    [HideInInspector]
     public GameObject cameraRef;
     [SerializeField]
     [Tooltip("This object and all of its children will be hidden from the player in first person, but shown to other players. ")]
@@ -280,6 +279,7 @@ public class PlayerInput : MonoBehaviour
         cameraRef.transform.parent = transform.parent;
         cameraRef.GetComponent<MainCameraScript>().playerHead = head;
         cameraRef.GetComponent<MainCameraScript>().playerEyes = head.GetChild(0);
+        cameraRef.GetComponent<MainCameraScript>().spectateTarget = head;
     }
 
     public void SetLayerRecursively(GameObject obj, int newLayer)

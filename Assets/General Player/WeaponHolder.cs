@@ -353,6 +353,12 @@ public class WeaponHolder : MonoBehaviour
         hudGunRef.SetCurrentAmmo(currentAmmo);
     }
 
-    // For use by clsas changer
+    public void EmptyOutAmmo()
+    {
+        currentAmmo = 0;
+        hudGunRef.SetCurrentAmmo(currentAmmo);
+    }
+
+    // For use by class changer
     public void SetMuzzleFlash(VisualEffect muzzleFlash) { this.muzzleFlash = muzzleFlash; }
 }

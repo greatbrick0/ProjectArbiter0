@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DeadEnemyMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 7d6fbc19b4697e4469c6e3be8bebcad1,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 1
@@ -125,7 +124,7 @@ Material:
     - _UVSec: 0
     - _UseAoMap: 0
     - _UseColorMap: 1
-    - _UseEmissiveMap: 1
+    - _UseEmissiveMap: 0
     - _UseMetallicMap: 1
     - _UseNormalMap: 0
     - _UseRoughnessMap: 1
@@ -134,7 +133,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 8.483284, g: 0.5322845, b: 0.5322845, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowColor: {r: 1, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}

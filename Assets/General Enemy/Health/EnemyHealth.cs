@@ -33,20 +33,21 @@ public class EnemyHealth : Damageable
     {
         int prevHealth = health;
 
-        if (ignoredElements.Contains(element) || ignoredSources.Contains(sourceType))
-        {
-            damageAmount = 0;
-        }
+        if (ignoredElements.Contains(element) || ignoredSources.Contains(sourceType)) damageAmount = 0;
         else BroadcastMessage("HurtAnim");
         if (spotType == DamageSpot.Body)
         {
-            damageAmount = Mathf.CeilToInt(damageAmount);
             FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bodyHit, gameObject);
         }
         else if (spotType == DamageSpot.Head)
         {
             damageAmount = Mathf.FloorToInt(damageAmount * weakSpotMult);
             FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.citicalHit, gameObject);
+        }
+        else if (spotType == DamageSpot.Armour)
+        {
+            damageAmount = Mathf.FloorToInt(damageAmount * armourSpotMult);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bodyHit, gameObject);
         }
 
         health -= damageAmount;

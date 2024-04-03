@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: -665085605614997014}
   - component: {fileID: 3179767636232678933}
   - component: {fileID: 5247264199020517196}
+  - component: {fileID: 5685586430178779084}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -176,6 +177,7 @@ MonoBehaviour:
   playerHead: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   playerEyes: {fileID: 0}
+  spectateTarget: {fileID: 0}
   mode: firstperson
   volume: {fileID: 3179767636232678933}
   exhaustVolume: {fileID: 5247264199020517196}
@@ -226,6 +228,50 @@ MonoBehaviour:
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: 1dabaf27753f40e4f915cfe266a75027, type: 2}
+--- !u!114 &5685586430178779084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459987798418853067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925d5238d987e3443b30d3d7956b8549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionIndicator: {fileID: 0}
+  selected: 1
+  leftEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5459987798418853072}
+        m_TargetAssemblyTypeName: MainCameraScript, Assembly-CSharp
+        m_MethodName: ChangeSpectateIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  rightEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5459987798418853072}
+        m_TargetAssemblyTypeName: MainCameraScript, Assembly-CSharp
+        m_MethodName: ChangeSpectateIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8943797444386329769
 GameObject:
   m_ObjectHideFlags: 0

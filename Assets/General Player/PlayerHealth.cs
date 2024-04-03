@@ -90,10 +90,35 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         if(playerDied != null) playerDied();
-        GetComponent<PlayerMovement>().SetEnabledControls(false);
+        GetComponent<PlayerInput>().selfBodyModel.transform.localScale = Vector3.zero;
+        GetComponent<PlayerInput>().selfGunModel.SetActive(false);
+        GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().spectateTarget = head;
+        GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "spectate";
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
-        FindObjectOfType<PlayerTracker>().spectatorCount += 1;
-        print("player died");
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<WeaponHolder>().EmptyOutAmmo();
+        GetComponent<WeaponHolder>().enabled = false;
+        GetComponent<AbilityInputSystem>().SetAbilityLocks(false);
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        FindObjectOfType<PlayerTracker>().PlayerDied();
+    }
+
+    public void AttemptRespawn(Vector3 spawnPoint)
+    {
+        if (!playerDead) return;
+
+        playerDead = false;
+        mainHealth = maxMainHealth / 2;
+        UpdateHealthLabel();
+        GetComponent<PlayerInput>().selfBodyModel.transform.localScale = Vector3.one;
+        GetComponent<PlayerInput>().selfGunModel.SetActive(true);
+        GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "firstperson";
+        GetComponent<PlayerMovement>().enabled = true;
+        GetComponent<WeaponHolder>().enabled = true;
+        GetComponent<AbilityInputSystem>().SetAbilityLocks(true);
+        GetComponent<Collider>().enabled = true;
+        transform.position = spawnPoint + Vector3.up + RandomPointInCircle(0.3f);
     }
 
     private void UpdateHealthLabel(bool damaged = false)
@@ -103,5 +128,11 @@ public class PlayerHealth : MonoBehaviour
         hudRef.SetHealthLabel(mainHealth.ToString());
         hudRef.SetHealthBarFill(mainHealth / (float)maxMainHealth);
         if (damaged) hudRef.EnableDamageGradient();
+    }
+
+    private Vector3 RandomPointInCircle(float circleRadius)
+    {
+        float randomAngle = Random.Range(0, Mathf.PI * 2);
+        return new Vector3(Mathf.Cos(randomAngle), 0, Mathf.Sin(randomAngle)) * Random.Range(0.0f, circleRadius);
     }
 }
