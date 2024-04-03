@@ -65,12 +65,13 @@ public class PlayerSpellFireEnhancement : Ability
     public override void StartAbility()
     {
         AbilityIntroductionDecorations();
-        AbilityAction();
+        StartCoroutine(Windup());
     }
 
     public override void AbilityIntroductionDecorations()//usually the beginning of startAbility
     {
         //animation component
+        animRef.SetTrigger("Enhance");
         //enhancement activate vfx
         //enhancement activate sfx
     }
@@ -139,6 +140,18 @@ public class PlayerSpellFireEnhancement : Ability
         onCooldown = false;
     }
 
+    public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    {
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        weaponRef.SetDefaultBehaviourEnabled(true, false);
+        AbilityAction();
+        yield return new WaitForSeconds(0.5f);
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
+
+    }
 
     public override void newDemonic()
     {

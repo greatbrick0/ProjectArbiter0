@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(Vector3 pos, GameObject typePrefab)
     {
-        if (!playerTracker.IsPrimaryClient()) return;
+        if (!(playerTracker.IsPrimaryClient() || typePrefab.GetComponent<EnemySyncInit>() == null)) return;
 
         instanceRef = Instantiate(typePrefab);
         instanceRef.transform.parent = transform;

@@ -24,6 +24,7 @@ public class EnemyAnimation : MonoBehaviour
 
     public void HurtAnim()
     {
+        enemy.SetFloat("HurtRandom", Random.Range(0f, 1f));
         enemy.SetTrigger("Hurt");
     }
 

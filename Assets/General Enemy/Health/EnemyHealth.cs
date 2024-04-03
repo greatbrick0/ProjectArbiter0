@@ -40,7 +40,7 @@ public class EnemyHealth : Damageable
         else BroadcastMessage("HurtAnim");
         if (spotType == DamageSpot.Body)
         {
-            damageAmount = Mathf.CeilToInt(damageAmount * armourSpotMult);
+            damageAmount = Mathf.CeilToInt(damageAmount);
             FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bodyHit, gameObject);
         }
         else if (spotType == DamageSpot.Head)
