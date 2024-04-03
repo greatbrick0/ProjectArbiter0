@@ -15,7 +15,7 @@ public class PlayerTracker : MonoBehaviour
     [field: SerializeField]
     public int playerCount { get; private set; }
     [SerializeField]
-    public int spectatorCount = 0;
+    public int spectatorCount { get; private set; } = 0;
 
     private void Awake()
     {
@@ -47,5 +47,32 @@ public class PlayerTracker : MonoBehaviour
     public bool IsPrimaryClient()
     {
         return currentClient.GameObject == playerList[0];
+    }
+
+    public void PlayerDied()
+    {
+        spectatorCount += 1;
+        if(spectatorCount >= playerCount)
+        {
+            print("You Lose!");
+        }
+    }
+
+    [ContextMenu("Respawn Players")]
+    public void RespawnPlayers()
+    {
+        Vector3 spawnPoint = Vector3.zero;
+        foreach(GameObject ii in playerList)
+        {
+            if(!ii.GetComponent<PlayerHealth>().playerDead)
+            {
+                spawnPoint = ii.transform.position;
+                break;
+            }
+        }
+        foreach (GameObject ii in playerList)
+        {
+            ii.GetComponent<PlayerHealth>().AttemptRespawn(spawnPoint);
+        }
     }
 }

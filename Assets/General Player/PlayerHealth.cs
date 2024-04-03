@@ -90,10 +90,25 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         if(playerDied != null) playerDied();
-        GetComponent<PlayerMovement>().SetEnabledControls(false);
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
-        FindObjectOfType<PlayerTracker>().spectatorCount += 1;
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        FindObjectOfType<PlayerTracker>().PlayerDied();
         print("player died");
+    }
+
+    public void AttemptRespawn(Vector3 spawnPoint)
+    {
+        if (playerDead)
+        {
+            playerDead = false;
+            mainHealth = maxMainHealth / 2;
+            UpdateHealthLabel();
+            GetComponent<PlayerMovement>().enabled = true;
+            GetComponent<Collider>().enabled = true;
+            transform.position = spawnPoint + Vector3.up + RandomPointInCircle(0.3f);
+        }
     }
 
     private void UpdateHealthLabel(bool damaged = false)
@@ -103,5 +118,11 @@ public class PlayerHealth : MonoBehaviour
         hudRef.SetHealthLabel(mainHealth.ToString());
         hudRef.SetHealthBarFill(mainHealth / (float)maxMainHealth);
         if (damaged) hudRef.EnableDamageGradient();
+    }
+
+    private Vector3 RandomPointInCircle(float circleRadius)
+    {
+        float randomAngle = Random.Range(0, Mathf.PI * 2);
+        return new Vector3(Mathf.Cos(randomAngle), 0, Mathf.Sin(randomAngle)) * Random.Range(0.0f, circleRadius);
     }
 }

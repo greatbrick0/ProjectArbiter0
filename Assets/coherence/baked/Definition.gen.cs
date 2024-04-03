@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "bf36783fee3e057b3e5b36345bb08cd8b33b39e6";
+		public const string schemaId = "682bf19b13c88f860a30be292c110cc5c26761f9";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -121,6 +121,9 @@ namespace Coherence.Generated
 		public const uint InternalGenericFieldColor0 = 101;
 		public const uint InternalGenericFieldColor1 = 102;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014 = 103;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785 = 104;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087 = 105;
+		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029 = 106;
 		public const uint InternalAuthorityRequest = 0;
 		public const uint InternalAuthorityTransfer = 1;
 		public const uint InternalQuerySynced = 2;
@@ -242,6 +245,9 @@ namespace Coherence.Generated
 			{ 101, "GenericFieldColor0" },
 			{ 102, "GenericFieldColor1" },
 			{ 103, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014" },
+			{ 104, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785" },
+			{ 105, "Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087" },
+			{ 106, "Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029" },
 		};
 
 		public static string ComponentNameForTypeId(uint typeId)
@@ -471,6 +477,12 @@ namespace Coherence.Generated
 					return GenericFieldColor1.Deserialize(inProtocolStream);
 				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014.Deserialize(inProtocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785.Deserialize(inProtocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087.Deserialize(inProtocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029.Deserialize(inProtocolStream);
 				default:
 					return (null, 0);
 			}
@@ -689,6 +701,12 @@ namespace Coherence.Generated
 					return GenericFieldColor1.Serialize((GenericFieldColor1)data, mask, protocolStream);
 				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014)data, mask, protocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785)data, mask, protocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087)data, mask, protocolStream);
+				case InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029:
+					return Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029)data, mask, protocolStream);
 				default:
 					logger.Error("Missing serialization implementation for a component.", ("component", data.GetComponentType()));
 					return 0;

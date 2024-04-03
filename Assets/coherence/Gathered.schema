@@ -1,6 +1,15 @@
 component Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerAnimation_8127347517799184014
   walking Bool [bits "1"]
 
+component Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth_1162613746593882785
+  playerDead Bool [bits "1"]
+
+component Player_9b83865ad432b2840a2ba6c6e5d0fada_PlayerMovement_6000918072062803087
+  enabled Bool [bits "1"]
+
+component Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_CapsuleCollider_1680423855450963029
+  enabled Bool [bits "1"]
+
 command Enemy_7365a46dbef03be41b6173e6147d68d1_EnemySyncInit__char_46_SetReferences_b98d46b8_119e_4f49_9104_d0bbf89a99de [routing "All"]
   enemySpawner String 
 
