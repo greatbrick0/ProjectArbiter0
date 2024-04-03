@@ -1002,7 +1002,6 @@ MonoBehaviour:
   - rid: 726511650095759429
   - rid: 726511650095759430
   - rid: 726511650095759431
-  - rid: 2532949677146898442
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -1214,11 +1213,6 @@ MonoBehaviour:
             Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 2532949677146898442
-      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
-        asm: Coherence.Toolkit}
-      data:
-        component: {fileID: 0}
     - rid: 2532949677146898443
       type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
@@ -1406,6 +1400,7 @@ MonoBehaviour:
   defualtGravityAccel: 18.5
   canJump: 0
   <grounded>k__BackingField: 0
+  gravityEnabled: 1
   recoilActive: 0
 --- !u!114 &7446777447677368580
 MonoBehaviour:
