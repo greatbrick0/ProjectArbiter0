@@ -71,7 +71,6 @@ public class TurretLaserController : MonoBehaviour
         }
         else if (timeCharging >= (coolingTime + concentratingTime + lockedTime) && chargeState == 2) //start laser
         {
-            print("fire " + chargeState.ToString());
             chargeState = 3;
             lineVisual.enabled = true;
         }
@@ -152,9 +151,9 @@ public class TurretLaserController : MonoBehaviour
 
     public void SlowLook(Vector3 pos, float speed, float deltaTime)
     {
-        Vector3 intendedDir = ((pos - Vector3.up * 0.5f) - head.position).normalized;
+        Vector3 intendedDir = (pos - head.position).normalized;
         Vector2 dist = Vector2.one * (speed * deltaTime);
-        float hDiff = Vector2.Dot(Vec2FromXZ(intendedDir), Vec2FromXZ(head.parent.right));
+        float hDiff = Vector2.SignedAngle(Vec2FromXZ(intendedDir), Vec2FromXZ(head.parent.forward));
         float vDiff = head.forward.y - intendedDir.y;
         dist.x = Mathf.Min(dist.x, Mathf.Abs(hDiff));
         dist.y = Mathf.Min(dist.y, Mathf.Abs(vDiff));
