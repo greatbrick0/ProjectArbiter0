@@ -55,6 +55,7 @@ public class EnemyGun : MonoBehaviour
             {
                 attackCooldown = attackTime;
                 burstTracker = 0;
+                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.enemyShoot, gameObject);
             }
             else
             {

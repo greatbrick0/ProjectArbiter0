@@ -50,9 +50,9 @@ public class PlayerSpellFire_Shot : Ability
 
     public override void AbilityAction()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireCone, gameObject);
         Debug.Log("FireFlare - AbilityAction");
         flareRef = Instantiate(flareObj, spellOrigin.transform);
-        //FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.FireCone, gameObject);
         RemovePlayerCastMotion();
     }
 
