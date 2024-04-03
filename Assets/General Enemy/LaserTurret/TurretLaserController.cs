@@ -49,6 +49,9 @@ public class TurretLaserController : MonoBehaviour
     [SerializeField]
     private GameObject vfxLaser;
 
+    [SerializeField]
+    private HeadLightController headlight;
+
     void Start()
     {
     }
@@ -60,6 +63,7 @@ public class TurretLaserController : MonoBehaviour
         {
             timeCharging = 0.0f;
             chargeState = 0;
+            headlight.Calm();
         }
 
         //activations of animations and particle effects can go here
@@ -68,8 +72,9 @@ public class TurretLaserController : MonoBehaviour
             timeCharging = 0.0f;
             chargeState = 0;
             timeSinceRefresh = 0.0f;
-            hitPlayers.Clear();        
-           
+            hitPlayers.Clear();      
+            headlight.Calm();  
+            
         }
         else if (timeCharging >= (coolingTime + concentratingTime + lockedTime) && chargeState == 2) //start laser
         {
@@ -81,6 +86,7 @@ public class TurretLaserController : MonoBehaviour
         else if (timeCharging >= (coolingTime + concentratingTime) && chargeState == 1)  //stop rotation
         {
             chargeState = 2;
+            headlight.urgency = 2;
         }
         else if (timeCharging >= (coolingTime) && chargeState == 0)  //slow rotation
         {
@@ -104,7 +110,6 @@ public class TurretLaserController : MonoBehaviour
     {
         bool didCollide;
         int layers = (1 << 0) | (1 << 6) | (1 << 8);
-        Debug.Log("hold");
         ray = new Ray(head.GetChild(0).position, head.forward);
         didCollide = Physics.SphereCast(ray, beamRadius, out hit, beamLength, layers);
       

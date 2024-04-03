@@ -485,10 +485,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <team>k__BackingField: Enemy
-  <maxHealth>k__BackingField: 300
+  <maxHealth>k__BackingField: 500
   <health>k__BackingField: 0
   weakSpotMult: 2
-  armourSpotMult: 0.5
+  armourSpotMult: 0.2
   ignoredElements: 00000000
   ignoredSources: 
 --- !u!114 &232654528479344324
@@ -505,6 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTracker: {fileID: 0}
   cycleTime: 1
+  headlight: {fileID: 240988565776453497}
   powered: 1
 --- !u!114 &5315436412543081206
 MonoBehaviour:
@@ -531,6 +532,7 @@ MonoBehaviour:
   beamDamage: 40
   hitRefreshTime: 0.3
   vfxLaser: {fileID: 3281848901651300559}
+  headlight: {fileID: 240988565776453497}
 --- !u!120 &5563861037749694520
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -959,6 +961,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3369315995997337448, guid: 50727bd0c6b676b47a6afdeccde50e0a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ef26d3e13250d9449c961c8558568c8, type: 2}
+    - target: {fileID: -3367975705167035942, guid: 50727bd0c6b676b47a6afdeccde50e0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 50727bd0c6b676b47a6afdeccde50e0a,
         type: 3}
       propertyPath: m_Name
@@ -969,6 +981,34 @@ PrefabInstance:
 --- !u!4 &1930650598876683726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50727bd0c6b676b47a6afdeccde50e0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2108165116046211621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5477290772939308031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3367975705167035942, guid: 50727bd0c6b676b47a6afdeccde50e0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2108165116046211621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &240988565776453497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477290772939308031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45a1757c50bc6f4b8eccaaba4678740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mRenderer: {fileID: 5511418527149748925}
+  white: {fileID: 2100000, guid: 7ef26d3e13250d9449c961c8558568c8, type: 2}
+  green: {fileID: 2100000, guid: e019611fed6d4ad418af9062c8b4fc58, type: 2}
+  red: {fileID: 2100000, guid: 9989a73905cad5047bf784cac8da4eb1, type: 2}
+--- !u!23 &5511418527149748925 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3369315995997337448, guid: 50727bd0c6b676b47a6afdeccde50e0a,
     type: 3}
   m_PrefabInstance: {fileID: 2108165116046211621}
   m_PrefabAsset: {fileID: 0}

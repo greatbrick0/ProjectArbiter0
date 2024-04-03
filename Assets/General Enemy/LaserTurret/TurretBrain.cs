@@ -11,6 +11,9 @@ public class TurretBrain : EnemyBrain
     private Vector3 targetPlayerPos;
 
     [SerializeField]
+    private HeadLightController headlight;
+
+    [SerializeField]
     private bool powered = true;
 
     protected override void Start()
@@ -28,6 +31,7 @@ public class TurretBrain : EnemyBrain
         {
             if(gun.CheckLosToPlayer(targetPlayer, 200.0f))
             {
+                headlight.urgency = 1;
                 targetPlayerPos = targetPlayer.transform.position;
                 if (HDist(targetPlayerPos) - VDist(targetPlayerPos) > 1.5f && HDist(targetPlayerPos) + VDist(targetPlayerPos) > 1.5f)
                     gun.PointTowards(targetPlayerPos - Vector3.up * 0.5f, Time.deltaTime);
@@ -41,7 +45,11 @@ public class TurretBrain : EnemyBrain
     public override void Logic()
     {
         targetPlayer = ChooseTargetPlayer();
-        if (targetPlayer == null) powered = false;
+        if (targetPlayer == null) 
+        {
+            powered = false;
+            headlight.urgency = 0;
+        }
     }
 
     private float HDist(Vector3 point)
