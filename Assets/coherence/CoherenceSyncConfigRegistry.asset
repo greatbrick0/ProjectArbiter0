@@ -30,6 +30,36 @@ MonoBehaviour:
           type: 3}
     - rid: 2532949919242387671
       type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+--- !u!114 &-4816281904984034002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
+  m_Name: EnemyA
+  m_EditorClassIdentifier: 
+  id: fb33efce218f91746a8e1743d2d6c0f9
+  editorTarget: {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9,
+    type: 3}
+  includeInSchema: 1
+  objectProvider:
+    rid: 2886155419589279744
+  objectInstantiator:
+    rid: 2886155419589279745
+  references:
+    version: 2
+    RefIds:
+    - rid: 2886155419589279744
+      type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data:
+        prefab: {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9,
+          type: 3}
+    - rid: 2886155419589279745
+      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +75,7 @@ MonoBehaviour:
   configs:
   - {fileID: 1018376734518712145}
   - {fileID: -6723630026120633479}
+  - {fileID: -4816281904984034002}
   loadFromAssetDatabase: 0
 --- !u!114 &1018376734518712145
 MonoBehaviour:
