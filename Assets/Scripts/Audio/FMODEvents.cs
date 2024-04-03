@@ -11,15 +11,17 @@ public class FMODEvents : MonoBehaviour
     [field: Header ("Ice")]
     [field: SerializeField] public EventReference hammerSwing { get; private set; }
     [field: SerializeField] public EventReference iceCharge { get; private set; }
+    [field: SerializeField] public EventReference iceChargeEnd { get; private set; }
     [field: SerializeField] public EventReference iceEnhancement { get; private set; }
     [field: Header ("Fire")]
     [field: SerializeField] public EventReference fireCone { get; private set; }
-    [field: SerializeField] public EventReference fireBomb { get; private set; }
+    [field: SerializeField] public EventReference fireBombWindUp { get; private set; }
+    [field: SerializeField] public EventReference fireBombExplosion { get; private set; }
     [field: SerializeField] public EventReference fireEnhancement { get; private set; }
-    [field: Header ("Mutant")]
-    [field: SerializeField] public EventReference mutant1 { get; private set; }
-    [field: SerializeField] public EventReference mutant2 { get; private set; }
-    [field: SerializeField] public EventReference mutant3 { get; private set; }
+    [field: Header ("Nature")]
+    [field: SerializeField] public EventReference nature1 { get; private set; }
+    [field: SerializeField] public EventReference nature2 { get; private set; }
+    [field: SerializeField] public EventReference nature3 { get; private set; }
 
     //This is for non-player specific sounds.
     [field: Header ("General SFX")]
