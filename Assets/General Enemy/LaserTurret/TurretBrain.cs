@@ -26,8 +26,9 @@ public class TurretBrain : EnemyBrain
     {
         base.Update();
         if (targetPlayer == null) Logic();
-        
-        if(powered)
+
+        gun.charging = false;
+        if (powered)
         {
             if(gun.CheckLosToPlayer(targetPlayer, 200.0f))
             {
@@ -37,9 +38,7 @@ public class TurretBrain : EnemyBrain
                     gun.PointTowards(targetPlayerPos - Vector3.up * 0.5f, Time.deltaTime);
                 gun.charging = true;
             }
-            else gun.charging = false;
         }
-        else gun.charging = false;
     }
 
     public override void Logic()
