@@ -46,6 +46,8 @@ public class ObjectiveManager : MonoBehaviour
         {
             objectiveIndex += 1;
             UpdatePlayerObjectivesHUD();
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.doorOpen, gameObject);
+
         }
         else
         {

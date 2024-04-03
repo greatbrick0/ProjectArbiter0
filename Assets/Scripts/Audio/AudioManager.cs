@@ -131,3 +131,18 @@ public class AudioManager : MonoBehaviour
         CleanUp();
     }
 }
+
+
+/*
+HERE FOR COPY AND PASTING
+
+FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.instanceName, gameObject);
+
+somethingSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.instanceName);
+RuntimeManager.AttachInstanceToGameObject(somethingSoundInstance, transform);
+somethingSoundInstance.start();
+somethingSoundInstance.release();
+
+somethingSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+somethingSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+*/
