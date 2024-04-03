@@ -77,7 +77,8 @@ public class PlayerClassChanger : MonoBehaviour
         currentPlayer.GetComponent<PlayerMovement>().nudger = viewmodelRef.GetComponent<GunNudger>();
         viewmodelRef.GetComponent<GunNudger>().playerWeapon = currentPlayer.GetComponent<WeaponHolder>();
         viewmodelRef.GetComponent<GunNudger>().SetHead(viewmodelRef.transform.parent);
-
+        currentPlayer.transform.GetComponent<PlayerInput>().selfBodyModel = playermodelRef;
+        currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
         currentPlayer.GetComponent<WeaponHolder>().SetMuzzleFlash(viewmodelRef.GetComponent<MuzzleFlashHolder>().MuzzleFlash);
 
         currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 11);
