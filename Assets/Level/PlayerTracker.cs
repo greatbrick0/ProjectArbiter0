@@ -73,6 +73,7 @@ public class PlayerTracker : MonoBehaviour
         foreach (GameObject ii in playerList)
         {
             ii.GetComponent<PlayerHealth>().AttemptRespawn(spawnPoint);
+            spectatorCount = 0;
         }
     }
 }

@@ -144,4 +144,8 @@ public class AbilityInputSystem : MonoBehaviour
 
     }
 
+    public void SetAbilityLocks(bool value)
+    {
+        for(int ii = 0; ii < abilityLocks.Length; ii++) abilityLocks[ii] = value;
+    }
 }

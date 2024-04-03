@@ -92,23 +92,25 @@ public class PlayerHealth : MonoBehaviour
         if(playerDied != null) playerDied();
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
         GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<WeaponHolder>().enabled = false;
+        GetComponent<AbilityInputSystem>().SetAbilityLocks(false);
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         FindObjectOfType<PlayerTracker>().PlayerDied();
-        print("player died");
     }
 
     public void AttemptRespawn(Vector3 spawnPoint)
     {
-        if (playerDead)
-        {
-            playerDead = false;
-            mainHealth = maxMainHealth / 2;
-            UpdateHealthLabel();
-            GetComponent<PlayerMovement>().enabled = true;
-            GetComponent<Collider>().enabled = true;
-            transform.position = spawnPoint + Vector3.up + RandomPointInCircle(0.3f);
-        }
+        if (!playerDead) return;
+
+        playerDead = false;
+        mainHealth = maxMainHealth / 2;
+        UpdateHealthLabel();
+        GetComponent<PlayerMovement>().enabled = true;
+        GetComponent<WeaponHolder>().enabled = true;
+        GetComponent<AbilityInputSystem>().SetAbilityLocks(true);
+        GetComponent<Collider>().enabled = true;
+        transform.position = spawnPoint + Vector3.up + RandomPointInCircle(0.3f);
     }
 
     private void UpdateHealthLabel(bool damaged = false)
