@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 5932626005989770402}
   - component: {fileID: 8294746302932343368}
   - component: {fileID: 4491951273408772245}
+  - component: {fileID: 1126041016068835739}
   m_Layer: 0
   m_Name: EnemyB
   m_TagString: Untagged
@@ -799,6 +800,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 4491951273408772245}
       lodStepsActive: 1
+    - component: {fileID: 1126041016068835739}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: EnemyB_5714c7c58551c2843bebf23f9feebbe2
@@ -1138,6 +1141,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737c0df7497b2d340a952509049cd555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1126041016068835739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294123685879425709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6eecfdcd4b3af46b4be5e7dbc09c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replacement: {fileID: 6827989287849840546, guid: 2fab16750f0594f49a944c3533d8eb6f,
+    type: 3}
 --- !u!1 &3391247809837642788
 GameObject:
   m_ObjectHideFlags: 0
