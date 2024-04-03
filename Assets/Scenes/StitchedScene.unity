@@ -12336,6 +12336,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -242
       objectReference: {fileID: 0}
+    - target: {fileID: 974034091233448772, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1135210360890829036, guid: 2dac7bc844b9c824f8523977dd4b98c4,
         type: 3}
       propertyPath: m_Color.b
@@ -12541,6 +12546,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022101307708065498, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022101307708065498, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1869602254}
+    - target: {fileID: 4022101307708065498, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022101307708065498, guid: 2dac7bc844b9c824f8523977dd4b98c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4223872855088304259, guid: 2dac7bc844b9c824f8523977dd4b98c4,
         type: 3}
