@@ -5,17 +5,9 @@ using FMOD.Studio;
 
 public class SoundEvent : MonoBehaviour
 {
-    public FMODEvents doorOpen;
-
-    public void PlaySound (FMODEvents doorOpen)
+    [SerializeField] private EventReference doorOpen;
+    public void PlaySound ()
     {
-        if(doorOpen != null)
-        {
-            RuntimeManager.PlayOneShotAttached(FMODEvents.instance.doorOpen, gameObject);
-        }
-        else
-        {
-            Debug.LogError("EventSound is null");
-        }
+        RuntimeManager.PlayOneShotAttached(doorOpen, gameObject);
     }
 }

@@ -36,8 +36,6 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference bodyHit { get; private set; }
     [field: SerializeField] public EventReference citicalHit { get; private set; }
 
-    [field: SerializeField] public EventReference doorOpen { get; private set; }
-
     [field: SerializeField] public EventReference menuHover { get; private set; }
     [field: SerializeField] public EventReference menuSelect { get; private set; }
 
