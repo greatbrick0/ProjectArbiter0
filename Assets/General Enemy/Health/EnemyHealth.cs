@@ -2,6 +2,7 @@ using DamageDetails;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyHealth : Damageable
 {
@@ -28,14 +29,25 @@ public class EnemyHealth : Damageable
         health = maxHealth;
     }
 
-    public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element)
+    public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
     {
         int prevHealth = health;
 
-        if (ignoredElements.Contains(element) || ignoredSources.Contains(sourceType)) damageAmount = 0;
+        if (ignoredElements.Contains(element) || ignoredSources.Contains(sourceType))
+        {
+            damageAmount = 0;
+        }
         else BroadcastMessage("HurtAnim");
-        if (spotType == DamageSpot.Armour) damageAmount = Mathf.CeilToInt(damageAmount * armourSpotMult);
-        else if (spotType == DamageSpot.Head) damageAmount = Mathf.FloorToInt(damageAmount * weakSpotMult);
+        if (spotType == DamageSpot.Body)
+        {
+            damageAmount = Mathf.CeilToInt(damageAmount);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bodyHit, gameObject);
+        }
+        else if (spotType == DamageSpot.Head)
+        {
+            damageAmount = Mathf.FloorToInt(damageAmount * weakSpotMult);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.citicalHit, gameObject);
+        }
 
         health -= damageAmount;
 

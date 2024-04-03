@@ -19,7 +19,7 @@ public class PlayerSpellFireBomb : Ability
     float bombActiveTimer;
     public bool bombActive;
 
-
+    bool cancellable;
     public override void RecieveAbilityRequest()
     {
 
@@ -113,12 +113,21 @@ public class PlayerSpellFireBomb : Ability
             bombActiveTimer -= Time.deltaTime;
         if (bombActiveTimer < 0)
             bombActiveTimer = 0;
+
+
+        if (cancellable)
+        {
+            Debug.Log("Cancellable");
+            if (movementRef.grounded)
+                ReturnControls();
+        }
     }
 
     public void ChangeControls()
     {
         motionVFXRef = Instantiate(dashMotionVFX, spellOrigin.transform);
         movementRef.SetEnabledControls(false, true);
+        Invoke("SetCancellableTrue", 1.0f);
         GetComponentInParent<PlayerMovement>().SetEnabledControls(false, true);
         //GetComponentInParent<PlayerMovement>().SetPartialControl(0.1f);
         Invoke("ReturnControls",2.0f);
@@ -126,11 +135,16 @@ public class PlayerSpellFireBomb : Ability
 
     public void ReturnControls()
     {
-        Destroy(motionVFXRef.gameObject);
+        if (motionVFXRef != null) Destroy(motionVFXRef.gameObject);
         movementRef.SetEnabledControls(true, true);
         //GetComponentInParent<PlayerMovement>().SetEnabledControls(true, true);
+        cancellable = false;
     }
 
+    public void SetCancellableTrue()
+    {
+        cancellable = true;
+    }
     public override IEnumerator Cooldown(bool demonic)
     {
         onCooldown = true;
