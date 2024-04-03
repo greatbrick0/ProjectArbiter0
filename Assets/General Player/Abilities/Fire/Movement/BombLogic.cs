@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -17,7 +19,7 @@ public class BombLogic : MonoBehaviour
     [SerializeField]
     GameObject explosionvisual;
 
-
+    EventInstance fireBombSoundInstance;
 
     public List<Damageable> hitTargets;
 
@@ -28,7 +30,11 @@ public class BombLogic : MonoBehaviour
     bool Triggered = false;
     private void Start()
     {
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireBombWindUp, gameObject);
+        fireBombSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.fireBombWindUp);
+        RuntimeManager.AttachInstanceToGameObject(fireBombSoundInstance, transform);
+        fireBombSoundInstance.start();
+        fireBombSoundInstance.release();
+
         hitNumberRef = DamageNumberManager.GetManager();
         Invoke(nameof(Trigger), lifespan);
         GetComponent<Rigidbody>().AddForce(transform.forward*4 + transform.up*3, ForceMode.Impulse);
@@ -96,7 +102,10 @@ public class BombLogic : MonoBehaviour
         bombAbilityRef.bombActive = false;
         GetComponent<SphereCollider>().radius = 3;
         explosionvisual.SetActive(true);
-        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireBombExplosion, gameObject);
+
+        fireBombSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireBombExplosion, gameObject);
+        
         Invoke(nameof(RequestDestroy), 1.6f);
         Invoke(nameof(EndAttack), 0.6f);
         bombAbilityRef.ExplosionOccured();

@@ -10921,21 +10921,35 @@ MonoBehaviour:
       Data2: 1149855509
       Data3: -2121555529
       Data4: -1741223326
-    Path: event:/SFX/Character/Ice/Abilities/Ability 1/Ice Melle
+    Path: event:/SFX/Character/Ice/Ability 1/Ice Melle
   <iceCharge>k__BackingField:
     Guid:
-      Data1: 1696502353
-      Data2: 1127736439
-      Data3: 1077111687
-      Data4: -1643331505
-    Path: event:/SFX/Character/Ice/Abilities/Ability 2/Ice Charge
+      Data1: -1506282016
+      Data2: 1309614185
+      Data3: 2018377604
+      Data4: -550025630
+    Path: event:/SFX/Character/Ice/Ability 2/Ice Dash
+  <iceDashBeginning>k__BackingField:
+    Guid:
+      Data1: -1851250060
+      Data2: 1245959296
+      Data3: -1492051532
+      Data4: -2038570997
+    Path: event:/SFX/Character/Ice/Ability 2/Dashing
+  <iceDashEnd>k__BackingField:
+    Guid:
+      Data1: -1056406996
+      Data2: 1161976596
+      Data3: 1993795475
+      Data4: -1597892860
+    Path: event:/SFX/Character/Ice/Ability 2/Stopping
   <iceEnhancement>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 138550903
+      Data2: 1281740190
+      Data3: 1415503504
+      Data4: -972691314
+    Path: event:/SFX/Character/Ice/Ability 3/Ice Soop Up
   <fireCone>k__BackingField:
     Guid:
       Data1: -56629920
@@ -10943,48 +10957,55 @@ MonoBehaviour:
       Data3: 460385921
       Data4: -1787356253
     Path: event:/SFX/Character/Fire/Ability 1/Fire Cone
-  <fireBomb>k__BackingField:
+  <fireBombWindUp>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1012745077
+      Data2: 1288238403
+      Data3: -1432565321
+      Data4: -1742850870
+    Path: event:/SFX/Character/Fire/Ability 2/Bomb Wind Up
+  <fireBombExplosion>k__BackingField:
+    Guid:
+      Data1: 370713152
+      Data2: 1218141480
+      Data3: 47430061
+      Data4: 262468602
+    Path: event:/SFX/Character/Fire/Ability 2/Bomb Explosion
   <fireEnhancement>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <mutant1>k__BackingField:
+      Data1: 173198096
+      Data2: 1177246821
+      Data3: 1485495181
+      Data4: 1797565048
+    Path: event:/SFX/Character/Fire/Ability 3/Fire Soop Up
+  <nature1>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  <mutant2>k__BackingField:
+  <nature2>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  <mutant3>k__BackingField:
+  <nature3>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  <bulletHit>k__BackingField:
+  <groundHit>k__BackingField:
     Guid:
       Data1: 55242279
       Data2: 1272547442
       Data3: 1897830536
       Data4: -1596861502
-    Path: event:/SFX/Guns/Pistol/Bullet Hit
+    Path: event:/SFX/Guns/Impacts/Ground Hit
   <bodyHit>k__BackingField:
     Guid:
       Data1: 1247876713

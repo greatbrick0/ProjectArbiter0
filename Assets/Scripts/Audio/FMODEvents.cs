@@ -10,7 +10,6 @@ public class FMODEvents : MonoBehaviour
     [field: Header ("Player Abilities")]
     [field: Header ("Ice")]
     [field: SerializeField] public EventReference hammerSwing { get; private set; }
-    [field: SerializeField] public EventReference iceCharge { get; private set; }
     [field: SerializeField] public EventReference iceDashBeginning { get; private set; }
     [field: SerializeField] public EventReference iceDashEnd { get; private set; }
     [field: SerializeField] public EventReference iceEnhancement { get; private set; }

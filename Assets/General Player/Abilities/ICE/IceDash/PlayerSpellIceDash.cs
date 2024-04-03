@@ -8,6 +8,7 @@ using FMODUnity;
 using FMOD.Studio;
 using Unity.VisualScripting;
 using JetBrains.Annotations;
+using Coherence.Runtime;
 
 public class PlayerSpellIceDash : Ability
 {
@@ -79,7 +80,7 @@ public class PlayerSpellIceDash : Ability
         cancellable = false;
 
         dashSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.iceDashBeginning);
-        dashSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        RuntimeManager.AttachInstanceToGameObject(dashSoundInstance, transform);
         dashSoundInstance.start();
         dashSoundInstance.release();
 
@@ -120,7 +121,7 @@ public class PlayerSpellIceDash : Ability
 
     public void EndDash(bool collide)
     {
-        dashSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        dashSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceDashEnd, gameObject);
 
 
