@@ -90,8 +90,11 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         if(playerDied != null) playerDied();
+        GetComponent<PlayerInput>().selfBodyModel.SetActive(false);
+        GetComponent<PlayerInput>().selfGunModel.SetActive(false);
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
         GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<WeaponHolder>().EmptyOutAmmo();
         GetComponent<WeaponHolder>().enabled = false;
         GetComponent<AbilityInputSystem>().SetAbilityLocks(false);
         GetComponent<Collider>().enabled = false;
@@ -106,6 +109,8 @@ public class PlayerHealth : MonoBehaviour
         playerDead = false;
         mainHealth = maxMainHealth / 2;
         UpdateHealthLabel();
+        GetComponent<PlayerInput>().selfBodyModel.SetActive(true);
+        GetComponent<PlayerInput>().selfGunModel.SetActive(true);
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<WeaponHolder>().enabled = true;
         GetComponent<AbilityInputSystem>().SetAbilityLocks(true);
