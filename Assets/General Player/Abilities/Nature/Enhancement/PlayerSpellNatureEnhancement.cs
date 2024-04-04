@@ -14,7 +14,11 @@ public class PlayerSpellNatureEnhancement : Ability
     private float sanityCostTimer = 2.0f;
 
 
+    [SerializeField]
+    private GameObject Railbeam;
 
+
+    private GameObject RailRef;
     //Weapon
     [SerializeField]
     WeaponData upgradedWeaponInfo;
@@ -96,6 +100,7 @@ public class PlayerSpellNatureEnhancement : Ability
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
+            weaponRef.shotEvent -= Rail;
             //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
         }
@@ -124,6 +129,8 @@ public class PlayerSpellNatureEnhancement : Ability
     void Rail(RaycastHit h)
     {
         Debug.Log("rail");
+        RailRef = Instantiate(Railbeam, h.point, Quaternion.identity);
+        RailRef.transform.LookAt(transform.position - RailRef.transform.position);
     }
 
     IEnumerator Cooldown()

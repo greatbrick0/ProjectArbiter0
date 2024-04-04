@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 3582617912180741289}
   - component: {fileID: 4667192023394270021}
   - component: {fileID: 8572171627340948943}
-  - component: {fileID: 8429926961798922017}
   - component: {fileID: 3538984034761458861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NatureSpellHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,9 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
-  sanityCost: 1
+  sanityCost: 20
   onCooldown: 0
-  maxCooldownTime: 0.1
+  maxCooldownTime: 3.5
   windupTime: 0.3
   castSlowDuration: 0.8
   HUDRef: {fileID: 0}
@@ -106,32 +105,9 @@ MonoBehaviour:
   castSlowDuration: 1
   HUDRef: {fileID: 0}
   sanityCostInterval: 2
+  Railbeam: {fileID: 5044923228658508958, guid: 1317c8d46ac6f6047b39bb974b12e886,
+    type: 3}
   upgradedWeaponInfo: {fileID: 11400000, guid: 4ee6a0dd56d0024428a919c92ff9de69, type: 2}
-  gunVFX: {fileID: 0}
-  gunVFXRef: {fileID: 0}
-  muzzleFlash: {fileID: 0}
-  newmuzzleColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &8429926961798922017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4683947374999564920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeb9b1d27e7ed6343b5f32f6c6e30d45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRef: {fileID: 0}
-  sanityCost: 5
-  onCooldown: 0
-  maxCooldownTime: 1
-  windupTime: 1
-  castSlowDuration: 1
-  HUDRef: {fileID: 0}
-  sanityCostInterval: 2
-  upgradedWeaponInfo: {fileID: 11400000, guid: f61329d5c186bac4cad8b243a975f338, type: 2}
   gunVFX: {fileID: 0}
   gunVFXRef: {fileID: 0}
   muzzleFlash: {fileID: 0}

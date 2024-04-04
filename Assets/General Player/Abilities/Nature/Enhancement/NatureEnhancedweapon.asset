@@ -12,18 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec766568ff3f9e14f9514e9a0985fb91, type: 3}
   m_Name: NatureEnhancedweapon
   m_EditorClassIdentifier: 
-  <gunName>k__BackingField: basic
+  <gunName>k__BackingField: NatureRailgun
   <automatic>k__BackingField: 0
-  <randomizePattern>k__BackingField: 0
+  <randomizePattern>k__BackingField: 1
   <reloadTime>k__BackingField: 2
-  <maxAmmo>k__BackingField: 12
-  <closeDamage>k__BackingField: {x: 3, y: 30}
-  <farDamage>k__BackingField: {x: 15, y: 10}
+  <maxAmmo>k__BackingField: 4
+  <closeDamage>k__BackingField: {x: 25, y: 60}
+  <farDamage>k__BackingField: {x: 30, y: 55}
   <shotPattern>k__BackingField:
   - <points>k__BackingField:
     - {x: 0, y: 0}
-    <cooldownTime>k__BackingField: 0.2
-    <recoilDirection>k__BackingField: {x: 0, y: 0}
+    <cooldownTime>k__BackingField: 0.5
+    <recoilDirection>k__BackingField: {x: 2, y: 3}
+    <recoilTime>k__BackingField: 0.1
+  - <points>k__BackingField:
+    - {x: 0, y: 0}
+    <cooldownTime>k__BackingField: 0.5
+    <recoilDirection>k__BackingField: {x: -2, y: 3}
+    <recoilTime>k__BackingField: 0.1
+  - <points>k__BackingField:
+    - {x: 0, y: 0}
+    <cooldownTime>k__BackingField: 0.5
+    <recoilDirection>k__BackingField: {x: 5, y: 6}
+    <recoilTime>k__BackingField: 0.1
+  - <points>k__BackingField:
+    - {x: 0, y: 0}
+    <cooldownTime>k__BackingField: 0.5
+    <recoilDirection>k__BackingField: {x: -5, y: 6}
     <recoilTime>k__BackingField: 0.1
   <bulletElement>k__BackingField: 0
   <range>k__BackingField: 20
