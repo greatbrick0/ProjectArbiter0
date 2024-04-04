@@ -58,7 +58,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     public override void RecieveDemonicAbilityRequest()
     {
-
+       
     }
 
     public override void StartAbility()
@@ -71,6 +71,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     public override void AbilityIntroductionDecorations()//usually the beginning of startAbility
     {
+         animRef.SetTrigger("enhancement");
         //animation component
         //enhancement activate vfx
         //enhancement activate sfx
@@ -102,6 +103,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
+            
             //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
 
