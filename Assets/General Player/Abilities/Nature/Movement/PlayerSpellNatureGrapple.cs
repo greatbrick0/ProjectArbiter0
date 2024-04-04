@@ -110,7 +110,7 @@ public class PlayerSpellNatureGrapple : Ability
         if (doLine)
         {
             rawLine.widthMultiplier = 1;
-            rawLine.SetPosition(0, new Vector3(spellOrigin.transform.position.x-1f,spellOrigin.transform.position.y-0.5f,spellOrigin.transform.position.z));
+            rawLine.SetPosition(0, new Vector3(spellOrigin.transform.position.x,spellOrigin.transform.position.y-0.5f,spellOrigin.transform.position.z));
             rawLine.SetPosition(1, hookRef.transform.position);
         }
         else
