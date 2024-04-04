@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour
     public GameObject selfGunModel;
     [SerializeField]
     [Tooltip("This will determine the position and direction of the camera when it is instantiated. ")]
-    private Transform head;
+    public Transform head;
     PlayerMovement playerMovement;
     WeaponHolder weapon;
     AbilityInputSystem playerAbility;

@@ -60,6 +60,8 @@ public class MainCameraScript : MonoBehaviour
 
     public void ChangeSpectateIndex(int amount)
     {
+        if(mode != "spectate") return;
+
         spectateIndex += amount;
 
         if (tracker == null) tracker = FindObjectOfType<PlayerTracker>();
