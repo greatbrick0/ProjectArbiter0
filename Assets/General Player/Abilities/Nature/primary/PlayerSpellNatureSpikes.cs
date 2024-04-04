@@ -42,7 +42,7 @@ public class PlayerSpellNatureSpikes : Ability
 
     public override void AbilityIntroductionDecorations()
     {
-
+        animRef.SetTrigger("Throw");
     }
 
     public override void AbilityAction()
@@ -63,9 +63,12 @@ public class PlayerSpellNatureSpikes : Ability
     {
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
         RemovePlayerCastMotion();
+        yield return new WaitForSeconds(0.2f);
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }

@@ -60,7 +60,7 @@ public class PlayerSpellNatureGrapple : Ability
 
     public override void AbilityIntroductionDecorations()
     {
-
+        animRef.SetTrigger("Vine");
     }
 
     public override void AbilityAction()
@@ -135,6 +135,7 @@ public class PlayerSpellNatureGrapple : Ability
     {
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
+        weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
         doLine = true;
         AbilityAction();
@@ -143,6 +144,8 @@ public class PlayerSpellNatureGrapple : Ability
         yield return new WaitForSeconds(0.3f);
         movementRef.gravityEnabled = true;
         yield return new WaitForSeconds(castSlowDuration - windupTime -0.3f);
+        yield return new WaitForSeconds(0.2f);
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
 

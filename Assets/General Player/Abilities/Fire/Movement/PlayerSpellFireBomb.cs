@@ -68,6 +68,7 @@ public class PlayerSpellFireBomb : Ability
 
     public override void AbilityIntroductionDecorations()
     {
+        animRef.SetTrigger("Bomb");
         //Hammer windup animations
         //hammer windup sfx
     }

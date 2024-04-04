@@ -73,6 +73,7 @@ public class PlayerSpellNatureEnhancement : Ability
 
     public override void AbilityIntroductionDecorations()//usually the beginning of startAbility
     {
+        animRef.SetTrigger("Enhance");
         //animation component
         //enhancement activate vfx
         //enhancement activate sfx
