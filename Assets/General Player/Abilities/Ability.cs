@@ -15,6 +15,7 @@ public abstract class Ability : MonoBehaviour
     protected WeaponHolder weaponRef;
     protected GameObject spellOrigin;
     protected Animator animRef;
+    protected PlayerHealth healthRef;
 
     [HideInInspector]
     public GameObject playerRef;
@@ -106,6 +107,7 @@ public abstract class Ability : MonoBehaviour
         weaponRef = t.GetComponent<WeaponHolder>();
         spellOrigin = transform.parent.gameObject;
         animRef = movementRef.nudger.GetComponent<Animator>();
+        healthRef = t.GetComponent<PlayerHealth>();
     }
 
     public abstract void newDemonic(); //if you become demonic while it is 'active'. only used by some though.

@@ -25,6 +25,8 @@ public class PlayerSpellIceDash : Ability
     [SerializeField]
     float slideDuration;
 
+    
+
     [SerializeField]
     GameObject collideHitboxObject;
 
@@ -68,6 +70,7 @@ public class PlayerSpellIceDash : Ability
     }
     public override void AbilityIntroductionDecorations()
     {
+        animRef.SetTrigger("Charge");
         movementRef.SetEnabledControls(false, true);
         sanityRef.GetComponent<PlayerInput>().mouseXSens *= 0.3f;
         rb.drag = 3;
@@ -83,7 +86,7 @@ public class PlayerSpellIceDash : Ability
         RuntimeManager.AttachInstanceToGameObject(dashSoundInstance, transform);
         dashSoundInstance.start();
         dashSoundInstance.release();
-
+        healthRef.ObtainShield(100);
         rb.drag = 0;
         shouldRepeatAction = true;
         actionIntervalTimer = repeatActionInterval;
@@ -130,6 +133,7 @@ public class PlayerSpellIceDash : Ability
         shouldRepeatAction = false;
         actionIntervalTimer = repeatActionInterval;
         rb.drag = 0;
+        EndShield();
         sanityRef.GetComponent<PlayerInput>().mouseXSens /= 0.3f;
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
@@ -139,10 +143,12 @@ public class PlayerSpellIceDash : Ability
         {
             Debug.Log("Collision Caused Dash to End");
             rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity / 5)), ForceMode.Impulse);
+            animRef.Play("Base Layer.IceCharge4", 0);
         }
         else
         {
             Debug.Log("Dash Expired Naturally");
+            animRef.Play("Base Layer.IceCharge3", 0);
         }
     }   
 
@@ -162,6 +168,11 @@ public class PlayerSpellIceDash : Ability
         yield return new WaitForSeconds(1f);
         cancellable = true;
 
+    }
+
+    public void EndShield()
+    {
+        healthRef.ObtainShield(-healthRef.GetShield());
     }
 
     public override void newDemonic()

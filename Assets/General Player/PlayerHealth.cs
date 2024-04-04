@@ -168,4 +168,14 @@ public class PlayerHealth : MonoBehaviour
         float randomAngle = Random.Range(0, Mathf.PI * 2);
         return new Vector3(Mathf.Cos(randomAngle), 0, Mathf.Sin(randomAngle)) * Random.Range(0.0f, circleRadius);
     }
+
+    public void ObtainShield(int shieldValue)
+    {
+        tempShield += shieldValue;
+    }
+
+    public int GetShield()
+    {
+        return tempShield;
+    }
 }
