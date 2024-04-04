@@ -61,9 +61,10 @@ public class MainCameraScript : MonoBehaviour
     public void ChangeSpectateIndex(int amount)
     {
         spectateIndex += amount;
+
         if (tracker == null) tracker = FindObjectOfType<PlayerTracker>();
-        
         List<PlayerHealth> alivePlayers = tracker.GetAlivePlayers();
+        if (alivePlayers.Count <= 0) return;
         spectateTarget = alivePlayers[spectateIndex % alivePlayers.Count].head;
     }
 }
