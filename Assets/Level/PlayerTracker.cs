@@ -54,7 +54,7 @@ public class PlayerTracker : MonoBehaviour
         spectatorCount += 1;
         if(spectatorCount >= playerCount)
         {
-            print("You Lose!");
+            FindObjectOfType<HUDSystem>().Invoke("GameOver", 0.8f);
         }
     }
 

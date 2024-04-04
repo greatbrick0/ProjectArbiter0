@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HUDSystem : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class HUDSystem : MonoBehaviour
     public TextMeshProUGUI ObjectiveText;
     int progress, maxprogress;
     string objective;
+
+    [SerializeField]
+    private GameObject loseScreen;
 
  
     public void UseAbility(int tier)
@@ -69,5 +73,20 @@ public class HUDSystem : MonoBehaviour
     {
         progress = increment;
         ObjectiveText.text = objective + "\n  " + progress + " / " + maxprogress;
+    }
+
+    public void GameOver()
+    {
+        for(int ii = 0; ii < transform.childCount; ii++)
+        {
+            transform.GetChild(ii).gameObject.SetActive(false);
+        }
+        loseScreen.SetActive(true);
+        Invoke(nameof(BackToMainMenu), 3.0f);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
