@@ -2718,7 +2718,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59428
+  m_Name: pb_Mesh-1232516
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4084,6 +4084,31 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &777586598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4849725978653388752, guid: 78efe9aca11d8654c979ed60d8950a09,
+    type: 3}
+  m_PrefabInstance: {fileID: 4849725978823586754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &777586601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777586598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4662c2f87000447b97f50ad05eb166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpen:
+    Guid:
+      Data1: -283027518
+      Data2: 1280781203
+      Data3: -1883108983
+      Data4: 1555464942
+    Path: event:/SFX/NPC/Door/Door Open
 --- !u!114 &794993373 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2952132814515850125, guid: 2dac7bc844b9c824f8523977dd4b98c4,
@@ -5633,7 +5658,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59470
+  m_Name: pb_Mesh-1232558
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6503,7 +6528,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59442
+  m_Name: pb_Mesh-1232530
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7399,7 +7424,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59414
+  m_Name: pb_Mesh-1232502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8093,7 +8118,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59554
+  m_Name: pb_Mesh-1232642
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8764,7 +8789,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59400
+  m_Name: pb_Mesh-1232488
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9185,7 +9210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59484
+  m_Name: pb_Mesh-1232572
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10661,7 +10686,7 @@ PrefabInstance:
     - target: {fileID: 9218864062490320029, guid: 8d4d2753fc58ea74ba9a40a0591f803c,
         type: 3}
       propertyPath: initialSpawns.Array.data[0].supportedTypes.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9218864062490320029, guid: 8d4d2753fc58ea74ba9a40a0591f803c,
         type: 3}
@@ -10687,7 +10712,7 @@ PrefabInstance:
         type: 3}
       propertyPath: initialSpawns.Array.data[0].supportedTypes.Array.data[0]
       value: 
-      objectReference: {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9,
+      objectReference: {fileID: 6335520434375691832, guid: 05434230e22f555459cd21106aeb67e2,
         type: 3}
     - target: {fileID: 9218864062490320029, guid: 8d4d2753fc58ea74ba9a40a0591f803c,
         type: 3}
@@ -10999,6 +11024,20 @@ MonoBehaviour:
       Data3: 359550358
       Data4: -2145821492
     Path: event:/SFX/NPC/Enemy/Enemy Shooting
+  <turretWindUp>k__BackingField:
+    Guid:
+      Data1: -1256222892
+      Data2: 1203625221
+      Data3: -1362864505
+      Data4: -12075634
+    Path: event:/SFX/NPC/Turret/Turret Wind Up
+  <turretShoot>k__BackingField:
+    Guid:
+      Data1: 1615632991
+      Data2: 1157967784
+      Data3: -68626532
+      Data4: 2005534733
+    Path: event:/SFX/NPC/Turret/Turret Shoot
   <groundHit>k__BackingField:
     Guid:
       Data1: 55242279
@@ -11036,25 +11075,25 @@ MonoBehaviour:
     Path: event:/SFX/UI/UI Select
   <healing>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1848858523
+      Data2: 1237680298
+      Data3: -1810456442
+      Data4: -1179538586
+    Path: event:/SFX/UI/Healing
   <healed>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1750603557
+      Data2: 1200475890
+      Data3: -1894437470
+      Data4: -1476544299
+    Path: event:/SFX/UI/Healed
   <heartBeat>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 541854683
+      Data2: 1300912504
+      Data3: 616785793
+      Data4: -1381278601
+    Path: event:/SFX/UI/Heart Beat
   <music>k__BackingField:
     Guid:
       Data1: 0
@@ -14959,7 +14998,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59456
+  m_Name: pb_Mesh-1232544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

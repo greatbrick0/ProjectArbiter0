@@ -90,6 +90,7 @@ public class TurretLaserController : MonoBehaviour
         }
         else if (timeCharging >= (coolingTime) && chargeState == 0)  //slow rotation
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.turretWindUp, gameObject);
             chargeState = 1;
         }
 
@@ -108,6 +109,8 @@ public class TurretLaserController : MonoBehaviour
 
     private void Laser()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.turretShoot, gameObject);
+
         bool didCollide;
         int layers = (1 << 0) | (1 << 6) | (1 << 8);
         ray = new Ray(head.GetChild(0).position, head.forward);

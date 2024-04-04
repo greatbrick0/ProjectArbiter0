@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Coherence.Toolkit;
 using Coherence;
+using FMOD.Studio;
+using FMODUnity;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -34,6 +36,10 @@ public class PlayerHealth : MonoBehaviour
 
     private float timeSinceDamaged = 0.0f;
 
+    EventInstance healingSoundInstance;
+    EventInstance heartBeatSoundInstance;
+    bool isBreathing;
+
     private void Start()
     {
         sync = GetComponent<CoherenceSync>();
@@ -57,6 +63,33 @@ public class PlayerHealth : MonoBehaviour
                 regenBank -= Mathf.FloorToInt(regenBank);
                 UpdateHealthLabel();
             }
+        }
+
+        if (mainHealth < maxMainHealth * 0.4 && isBreathing == false)
+        {
+            healingSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.healing);
+            RuntimeManager.AttachInstanceToGameObject(healingSoundInstance, transform);
+            healingSoundInstance.start();
+            healingSoundInstance.release();
+
+            heartBeatSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.heartBeat);
+            RuntimeManager.AttachInstanceToGameObject(heartBeatSoundInstance, transform);
+            heartBeatSoundInstance.start();
+
+            isBreathing = true;
+        }
+
+        if (mainHealth > 100 && isBreathing == false)
+        {
+            heartBeatSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
+        if (mainHealth == maxMainHealth && isBreathing == true)
+        {
+            healingSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.healed, gameObject);
+
+            isBreathing = false;
         }
     }
 

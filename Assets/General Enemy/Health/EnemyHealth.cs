@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using FMODUnity;
 
 public class EnemyHealth : Damageable
 {
@@ -10,6 +11,8 @@ public class EnemyHealth : Damageable
     public int maxHealth { get; private set; } = 100;
     [field: SerializeField]
     public int health { get; private set; }
+
+    [field: SerializeField] public EventReference deathSound { get; private set; }
 
     [SerializeField]
     private float weakSpotMult = 2.0f;
@@ -63,6 +66,7 @@ public class EnemyHealth : Damageable
 
     void Die()
     {
+        RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
         if(enemyDied != null) enemyDied();
         Destroy(this.gameObject);
     }
