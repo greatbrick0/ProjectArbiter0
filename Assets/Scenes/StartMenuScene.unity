@@ -8775,7 +8775,14 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <iceCharge>k__BackingField:
+  <iceDashBeginning>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <iceDashEnd>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -8796,7 +8803,14 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <fireBomb>k__BackingField:
+  <fireBombWindUp>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <fireBombExplosion>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -8810,28 +8824,49 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <mutant1>k__BackingField:
+  <nature1>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  <mutant2>k__BackingField:
+  <nature2>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  <mutant3>k__BackingField:
+  <nature3>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
       Data3: 0
       Data4: 0
     Path: 
-  <bulletHit>k__BackingField:
+  <enemyShoot>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <turretWindUp>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <turretShoot>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <groundHit>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -8866,6 +8901,27 @@ MonoBehaviour:
       Data3: -1230553163
       Data4: -48956823
     Path: event:/SFX/UI/UI Select
+  <healing>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <healed>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <heartBeat>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <music>k__BackingField:
     Guid:
       Data1: -342711730
@@ -10169,6 +10225,7 @@ GameObject:
   - component: {fileID: 1773433811}
   - component: {fileID: 1773433810}
   - component: {fileID: 1773433812}
+  - component: {fileID: 1773433813}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -10257,6 +10314,18 @@ MonoBehaviour:
   startText: {fileID: 1116027387}
   optionsText: {fileID: 398114321}
   exitText: {fileID: 1840773713}
+--- !u!114 &1773433813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773433808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b941bcc19d48d6947bbe1024eecc9d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1786606584
 Mesh:
   m_ObjectHideFlags: 0
