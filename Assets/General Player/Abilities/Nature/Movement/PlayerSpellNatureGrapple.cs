@@ -8,6 +8,7 @@ public class PlayerSpellNatureGrapple : Ability
     [SerializeField]
     GameObject hookEnd;
 
+    [SerializeField]
     GameObject hookRef;
 
     public LayerMask GrappleTargetLayer;
