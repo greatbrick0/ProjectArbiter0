@@ -39,7 +39,7 @@ public class SpikeSeedLogic : MonoBehaviour
             spikeRef.transform.rotation = Quaternion.Euler(collision.contacts[0].normal);
             spikeRef.transform.LookAt(spikeRef.transform.position + collision.contacts[0].normal);
             spikeRef.transform.eulerAngles = spikeRef.transform.eulerAngles + Vector3.right * 90.0f;
-            Destroy(this.gameObject);
+            Destroy(this.gameObject,0.1f);
         }
            
         
