@@ -63,6 +63,7 @@ public class PlayerSpellHammerSwing : Ability
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        healthRef.ObtainShield(100);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         weaponRef.SetDefaultBehaviourEnabled(true, false);
@@ -73,6 +74,7 @@ public class PlayerSpellHammerSwing : Ability
         RemovePlayerCastMotion();
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
+        healthRef.ObtainShield(-healthRef.GetShield());
     }
 
     public override void newDemonic()
