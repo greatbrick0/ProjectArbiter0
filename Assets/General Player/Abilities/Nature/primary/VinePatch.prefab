@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5123653681647551247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5918550747340397298}
+  - component: {fileID: 6851538057120905924}
+  - component: {fileID: 7245914349331051846}
+  m_Layer: 7
+  m_Name: hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5918550747340397298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123653681647551247}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 150, y: 150, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6911485263202788353}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!64 &6851538057120905924
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123653681647551247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d9219223b9dff7a498241733262c54c1, type: 2}
+--- !u!114 &7245914349331051846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123653681647551247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f4c45b2c690c849a5a80019f894913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityDamage: 15
+  hitTargets: []
 --- !u!1 &6911485263093793617
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +72,7 @@ GameObject:
   - component: {fileID: 6911485263093793618}
   - component: {fileID: 6911485263093793620}
   - component: {fileID: 6911485263093793619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Vines1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,8 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6911485263202788353}
   - component: {fileID: 210804830752577540}
-  - component: {fileID: 6321434058947747287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VinePatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6911485263093793618}
+  - {fileID: 5918550747340397298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,23 +218,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpikeRef: {fileID: 0}
-  abilityDamage: 15
   vfxRef: {fileID: 6911485263093793620}
-  triggerBox: {fileID: 6321434058947747287}
+  triggerBox: {fileID: 5123653681647551247}
   lifespan: 10
-  spikeInterval: 1.5
-  hitTargets: []
---- !u!64 &6321434058947747287
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911485263202788352}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d9219223b9dff7a498241733262c54c1, type: 2}
+  spikeIntervals:
+  - 1.3
+  - 2.2
+  - 4.5
+  - 5.5

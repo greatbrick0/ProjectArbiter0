@@ -8,85 +8,63 @@ public class VinePatchLogic : MonoBehaviour
 
     public PlayerSpellNatureSpikes playerSpikeRef;
 
-    public int abilityDamage;
+    
 
-    DamageNumberManager hitNumberRef;
+    
 
     [SerializeField]
     private VisualEffect vfxRef;
 
     [SerializeField]
-    private MeshCollider triggerBox;
+    private GameObject triggerBox;
 
     [SerializeField]
     private float lifespan;
 
      [SerializeField]
-    private float spikeInterval;
+    private List<float> spikeIntervals;
 
-      public List<Damageable> hitTargets;
+    private float spikeTimer = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke(nameof(RequestDestroy),lifespan);
-        Invoke(nameof(Trigger),spikeInterval/2f);
     }
 
-   
-
-
-
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-
-        var hitbox = other.GetComponent<Hitbox>();
-        if (hitbox != null)
+        spikeTimer += Time.deltaTime;
+        foreach (float f in spikeIntervals)
         {
-            foreach (Damageable ii in hitTargets)
-            {
-                if (hitbox.GetOwner() == ii)
-                {
-                    return;
-                }
-            }
-            if (hitbox.GetOwner().team == "Enemy")
+            if (Mathf.Abs(spikeTimer - f) <= 0.1)
             {
                 Trigger();
-                var spot = hitbox.GetSpotType();
-                int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
-                Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-                hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Fire, spot);
-                hitTargets.Add(hitbox.GetOwner());
+                spikeIntervals.Remove(f);
+                return;
             }
-            
         }
-        else
-        {
-            
-        }
-      
     }
-
     private void RequestDestroy()
     {
-
+        Destroy(this.gameObject);
     }
 
     private void Trigger()
     {
-        Debug.Log("TestTrigger");
-        hitTargets.Clear();
-        //triggerBox.setActive(false);
-        vfxRef.SendEvent("Spikes");
-        spikeInterval -= 0.2f;
 
-        Invoke(nameof(disableTrigger),spikeInterval);
+      
+        triggerBox.SetActive(true);
+        triggerBox.GetComponent<spikeDamager>().hitTargets.Clear();
+        vfxRef.SendEvent("Spikes");
+
+        Invoke(nameof(disableTrigger),1.1f);
     }
 
     private void disableTrigger()
     {
-        Invoke(nameof(Trigger),spikeInterval);
+        triggerBox.SetActive(false);
     }
 
 }

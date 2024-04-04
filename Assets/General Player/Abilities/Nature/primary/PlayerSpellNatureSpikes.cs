@@ -48,8 +48,9 @@ public class PlayerSpellNatureSpikes : Ability
     public override void AbilityAction()
     {
         Debug.Log("AbilityAction");
-            seedRef = Instantiate(spikeSeed, spellOrigin.transform.position, Quaternion.identity);
+            seedRef = Instantiate(spikeSeed, spellOrigin.transform.position, spellOrigin.transform.rotation);
             seedRef.GetComponent<SpikeSeedLogic>().playerSpikeRef = this;
+            seedRef.GetComponent<Rigidbody>().velocity = inputRef.GetComponent<Rigidbody>().velocity;
 
         
     }
