@@ -16,8 +16,7 @@ public class WeaponHolder : MonoBehaviour
     private DamageNumberManager damageNumberScript;
     private HUDGunAmmoScript hudGunRef;
     
-    [HideInInspector]
-    public Camera cam { get; set; }
+    public Camera cam;
     private Ray ray;
     private RaycastHit hit;
     public Vector3 straight { get; private set; }
