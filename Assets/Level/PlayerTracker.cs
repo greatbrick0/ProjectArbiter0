@@ -14,7 +14,7 @@ public class PlayerTracker : MonoBehaviour
     private List<GameObject> playerList;
     [field: SerializeField]
     public int playerCount { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public int spectatorCount { get; private set; } = 0;
 
     private void Awake()
