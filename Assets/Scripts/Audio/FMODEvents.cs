@@ -29,6 +29,8 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header ("Enemy")]
     [field: SerializeField] public EventReference enemyShoot { get; private set; }
+    [field: SerializeField] public EventReference turretShoot { get; private set; }
+    [field: SerializeField] public EventReference turretDeath { get; private set; }
 
     //This is for non-player specific sounds.
     [field: Header ("General SFX")]
