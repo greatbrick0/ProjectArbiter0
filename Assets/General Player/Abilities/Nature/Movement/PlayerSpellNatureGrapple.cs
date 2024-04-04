@@ -68,7 +68,7 @@ public class PlayerSpellNatureGrapple : Ability
     {
         Debug.Log("AbilityAction");
         RaycastHit hit;
-        if (Physics.Raycast(weaponRef.cam.transform.position, weaponRef.cam.transform.forward, out hit, maxDistance, GrappleTargetLayer))
+        if (Physics.Raycast(inputRef.head.transform.position, inputRef.head.transform.forward, out hit, maxDistance, GrappleTargetLayer))
         {
             Debug.Log("RaycastHit");
             doLine = true;
