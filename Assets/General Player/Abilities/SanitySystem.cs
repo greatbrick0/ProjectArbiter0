@@ -116,7 +116,7 @@ public class SanitySystem : MonoBehaviour
             abilitySystemRef.SetDemonic(true);
             sanityHUDRef.SetDemonic(true);
         }
-        sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All,true);
+        //sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All,true);
         
     }
 
