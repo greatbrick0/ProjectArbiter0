@@ -876,6 +876,7 @@ MonoBehaviour:
   - rid: 2886155419589279874
   - rid: 2886155419589279875
   - rid: 2886155419589279878
+  - rid: 5617373116774744326
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -1027,6 +1028,49 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 5617373116774744326
+      type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 5617373116774744327
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: e0165f82-b8dd-4491-b410-2c9d1d91e2d0
+        archetypeData:
+          type: 1
+          minRange: -2147483648
+          maxRange: 2147483647
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 1
+            bits: 32
+            precision: 0
+            floatCompression: 0
+        unityComponent: {fileID: 6193124714125256054}
+        coherenceSync: {fileID: 6074307184212363708}
+        interpolationSettings: {fileID: 0}
+    - rid: 5617373116774744327
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: health
+        monoAssemblyType: System.Int32, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: EnemyHealth, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.IntBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
 --- !u!33 &3474531398460639501
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1093,7 +1137,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <team>k__BackingField: Enemy
   <maxHealth>k__BackingField: 100
-  <health>k__BackingField: 0
+  health: 0
+  <deathSound>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   weakSpotMult: 2
   armourSpotMult: 0.5
   ignoredElements: 
@@ -1170,6 +1221,7 @@ MonoBehaviour:
   cycleTime: 1
   state: 0
   shootRange: 15
+  closeRange: 3
 --- !u!114 &5902036603521108562
 MonoBehaviour:
   m_ObjectHideFlags: 0

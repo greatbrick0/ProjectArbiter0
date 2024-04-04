@@ -10,7 +10,7 @@ public class EnemyHealth : Damageable
     [field: SerializeField]
     public int maxHealth { get; private set; } = 100;
     [field: SerializeField]
-    public int health { get; private set; }
+    public int health;
 
     [field: SerializeField] public EventReference deathSound { get; private set; }
 
