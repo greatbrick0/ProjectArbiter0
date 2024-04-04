@@ -59,7 +59,7 @@ public class SpawnDataHolder : MonoBehaviour
             timeSinceLastSpawn = 0.0f;
             if (spawningDuration >= frequencyCurveDuration) timeUntilNextSpawn = beyondCurveFrequency;
             else timeUntilNextSpawn = spawnFrequency.Evaluate(spawningDuration / frequencyCurveDuration);
-            SpawnSingleEnemy();
+            SpawnGroupEnemies();
         }
 
         if (spawnedEnemyCount >= maxEnemies && maxEnemies > 0) continueSpawning = false;
@@ -77,7 +77,7 @@ public class SpawnDataHolder : MonoBehaviour
                 spawnedEnemyCount += 1;
             }
         }
-        if (spawnedEnemyCount < maxEnemies) continueSpawning = true;
+        if (spawnedEnemyCount < maxEnemies || maxEnemies == 0) continueSpawning = true;
     }
 
     public void SpawnSingleEnemy()
@@ -86,6 +86,20 @@ public class SpawnDataHolder : MonoBehaviour
         EnemySpot chosenSpot = continuousSpawns[Mathf.FloorToInt(spawningDuration * 0.71f) % continuousSpawns.Count];
         GameObject chosenType = chosenSpot.supportedTypes[Mathf.FloorToInt(spawningDuration * 1.22f) % chosenSpot.supportedTypes.Count];
         enemySpawner.SpawnEnemy(chosenSpot.position.position + transform.position, chosenType);
+    }
+
+    private void SpawnGroupEnemies()
+    {
+        spawnedEnemyCount += 1;
+
+        foreach (EnemySpot chosenSpot in continuousSpawns)
+        {
+            foreach (Transform child in chosenSpot.position)
+            {
+                GameObject chosenType = chosenSpot.supportedTypes[(int)UnityEngine.Random.Range(0, chosenSpot.supportedTypes.Count)];
+                enemySpawner.SpawnEnemy(child.position, chosenType);
+            }
+        }
     }
 
     public void DisableSpawning()
