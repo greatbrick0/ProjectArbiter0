@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403837077743140513}
   - component: {fileID: 403837077743140514}
-  - component: {fileID: 2694346454595727658}
+  - component: {fileID: 8956750551237290}
   m_Layer: 0
   m_Name: hole_1
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2694346454595727658
+--- !u!114 &8956750551237290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,12 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 403837077743140515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11510142e7500c40b40a79b3b064be3, type: 3}
+  m_Script: {fileID: 11500000, guid: 15e5f398cb4a68445b9c01ac8335c59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
-  acceleration: {x: 0, y: 0, z: 0}
-  gravity: 0
   lifeTime: 6
 --- !u!1 &403837078257705218
 GameObject:
