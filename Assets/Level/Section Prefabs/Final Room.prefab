@@ -270,8 +270,8 @@ GameObject:
   m_Name: "\u67F1\u4F53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6145883994182750056
 Transform:
@@ -1045,7 +1045,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1519141733213667501
 Transform:
@@ -10083,7 +10083,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1519141734524903764
 Transform:
@@ -14832,8 +14832,8 @@ GameObject:
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1248502224204208164
 Transform:
@@ -15148,8 +15148,8 @@ GameObject:
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2596723279000188140
 Transform:
@@ -15789,8 +15789,8 @@ GameObject:
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3826597220893351465
 Transform:
@@ -16020,6 +16020,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beaker
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e1d257073d41cd47963e34e662c5a63,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e1d257073d41cd47963e34e662c5a63,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e1d257073d41cd47963e34e662c5a63, type: 3}
 --- !u!4 &1013294504064947845 stripped
@@ -16195,6 +16205,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContainerChem
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 585f1e7a7e4299c4f9a89bb937971a64,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 585f1e7a7e4299c4f9a89bb937971a64,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585f1e7a7e4299c4f9a89bb937971a64, type: 3}
 --- !u!4 &1408688364808510910 stripped
@@ -16210,6 +16230,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -16285,10 +16310,65 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -16475,10 +16555,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 09f37d758954f7340bdcb4b419f87496,
         type: 3}
       propertyPath: m_Name
       value: CryoPodStandingfbx
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09f37d758954f7340bdcb4b419f87496, type: 3}
@@ -16495,6 +16595,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -16570,10 +16675,55 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -16590,6 +16740,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -16655,10 +16810,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -16675,6 +16875,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -16750,10 +16955,60 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -16850,6 +17105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -16925,10 +17185,60 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -17040,6 +17350,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -17115,10 +17430,60 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -17215,6 +17580,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -17290,10 +17660,60 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -17310,6 +17730,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -17385,10 +17810,60 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
@@ -17480,10 +17955,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 09f37d758954f7340bdcb4b419f87496,
         type: 3}
       propertyPath: m_Name
       value: CryoPodStandingfbx (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 09f37d758954f7340bdcb4b419f87496,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09f37d758954f7340bdcb4b419f87496, type: 3}
@@ -17500,6 +17995,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1519141734827325279}
     m_Modifications:
+    - target: {fileID: -8984584594940604976, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_RootOrder
@@ -17575,10 +18075,55 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8658422279658554519, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5999358303344933779, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
         type: 3}
       propertyPath: m_Name
       value: Canister Crate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102978252542336768, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244914468155332221, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861746426873502236, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036666246336646893, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954551062751823391, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097465744596395404, guid: 3bdda6d342378734989c20eab36f2d45,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdda6d342378734989c20eab36f2d45, type: 3}
