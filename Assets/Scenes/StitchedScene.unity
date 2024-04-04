@@ -13906,6 +13906,18 @@ MonoBehaviour:
             m_StringArgument: OpenDoor
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1413909412}
+          m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
+          m_MethodName: WipeEnemies
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 879615327}
           m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
           m_MethodName: InitialWaveSpawn
@@ -13959,6 +13971,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: OpenDoor
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 879615327}
+          m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
+          m_MethodName: WipeEnemies
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1953933972}
@@ -14016,6 +14040,18 @@ MonoBehaviour:
             m_StringArgument: OpenDoor
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1953933972}
+          m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
+          m_MethodName: WipeEnemies
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1718744801}
           m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
           m_MethodName: InitialWaveSpawn
@@ -14057,6 +14093,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: OpenDoor
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1718744801}
+          m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
+          m_MethodName: WipeEnemies
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 137167349}
@@ -14116,7 +14164,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 137167349}
           m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
-          m_MethodName: InitialWaveSpawn
+          m_MethodName: WipeEnemies
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14126,7 +14174,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1718744801}
+        - m_Target: {fileID: 137167349}
           m_TargetAssemblyTypeName: SpawnDataHolder, Assembly-CSharp
           m_MethodName: DisableSpawning
           m_Mode: 1

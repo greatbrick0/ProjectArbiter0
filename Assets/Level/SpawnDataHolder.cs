@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DamageDetails;
 
 public class SpawnDataHolder : MonoBehaviour
 {
     EnemySpawner enemySpawner;
+    PlayerTracker playerTracker;
     [SerializeField] 
     [Tooltip("The enemies that will be spawned as soon as the room is loaded. Spawns one of the supported types for each spot. ")]
     private List<EnemySpot> initialSpawns;
@@ -45,6 +47,7 @@ public class SpawnDataHolder : MonoBehaviour
     private void Start()
     {
         enemySpawner = FindObjectOfType<EnemySpawner>();
+        playerTracker = FindObjectOfType<PlayerTracker>();
         if (firstRoom) InitialWaveSpawn();
     }
 
@@ -98,6 +101,21 @@ public class SpawnDataHolder : MonoBehaviour
             {
                 GameObject chosenType = chosenSpot.supportedTypes[(int)UnityEngine.Random.Range(0, chosenSpot.supportedTypes.Count)];
                 enemySpawner.SpawnEnemy(child.position, chosenType);
+            }
+        }
+    }
+
+    public void WipeEnemies()
+    {
+        if (playerTracker.IsPrimaryClient())
+        {
+            for (int ii = 0; ii < enemySpawner.transform.childCount; ii++)
+            {
+                if (enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>() != null)
+                {
+                    enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>().enemyDied -= enemySpawner.IncrementKillStat;
+                    enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>().TakeDamage(999, DamageSource.Environment, DamageSpot.Body, DamageElement.Normal);
+                }
             }
         }
     }
