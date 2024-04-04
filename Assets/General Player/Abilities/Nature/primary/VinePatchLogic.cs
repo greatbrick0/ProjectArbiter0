@@ -59,7 +59,7 @@ public class VinePatchLogic : MonoBehaviour
         triggerBox.GetComponent<spikeDamager>().hitTargets.Clear();
         vfxRef.SendEvent("Spikes");
 
-        Invoke(nameof(disableTrigger),1.1f);
+        Invoke(nameof(disableTrigger),0.3f);
     }
 
     private void disableTrigger()
