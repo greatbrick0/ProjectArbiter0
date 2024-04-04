@@ -130,7 +130,9 @@ public class PlayerSpellNatureEnhancement : Ability
     {
         Debug.Log("rail");
         RailRef = Instantiate(Railbeam, h.point, Quaternion.identity);
-        RailRef.transform.LookAt(transform.position - RailRef.transform.position);
+        Debug.Log(movementRef.transform.position);
+        Debug.Log("Spike"+RailRef.transform.position);
+        RailRef.transform.LookAt(RailRef.transform.position - (inputRef.head.transform.position - RailRef.transform.position));
     }
 
     IEnumerator Cooldown()
