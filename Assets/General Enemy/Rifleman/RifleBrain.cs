@@ -17,11 +17,13 @@ public class RifleBrain : EnemyBrain
     [SerializeField]
     [Tooltip("The maximum distance the AI can shoot a player from. Will start to try to shoot the player within 90% of the distance. Measured in units. ")]
     private float shootRange = 10.0f;
+    [SerializeField]
+    private float closeRange = 3.0f;
 
     private enum States
     {
         Idle = 0,
-        Attack = 1,
+        Find = 1,
         Shoot = 2,
         Flee = 3,
     }
@@ -45,11 +47,12 @@ public class RifleBrain : EnemyBrain
             case States.Idle:
                 moveScript.IdleBehaviour();
                 break;
-            case States.Attack:
+            case States.Find:
                 moveScript.WalkTowardsPlayer(targetPlayer);
                 break;
             case States.Shoot:
-                moveScript.StandStill();
+                if(DistanceToPlayer() <= closeRange) moveScript.StandStill();
+                else moveScript.WalkTowardsPlayer(targetPlayer);
                 moveScript.LookAtPlayer(targetPlayer);
                 if (gunScript.CheckLosToPlayer(targetPlayer, shootRange))
                     gunScript.Attack(targetPlayer.GetComponent<PlayerHealth>());
@@ -63,6 +66,11 @@ public class RifleBrain : EnemyBrain
     {
         if (targetPlayer == null) state = States.Idle;
         else if (gunScript.CheckLosToPlayer(targetPlayer, shootRange * 0.9f)) state = States.Shoot;
-        else state = States.Attack;
+        else state = States.Find;
+    }
+
+    private float DistanceToPlayer()
+    {
+        return Vector3.Distance(transform.position, targetPlayer.transform.position);
     }
 }

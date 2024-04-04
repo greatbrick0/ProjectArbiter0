@@ -34,8 +34,9 @@ public class HUDSystem : MonoBehaviour
 
     [SerializeField]
     private GameObject loseScreen;
+    [SerializeField]
+    private GameObject winScreen;
 
- 
     public void UseAbility(int tier)
     {
         abilityIcons[tier].UseSpell();
@@ -77,11 +78,23 @@ public class HUDSystem : MonoBehaviour
 
     public void GameOver()
     {
+        FindObjectOfType<AudioManager>().masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         for(int ii = 0; ii < transform.childCount; ii++)
         {
             transform.GetChild(ii).gameObject.SetActive(false);
         }
         loseScreen.SetActive(true);
+        Invoke(nameof(BackToMainMenu), 3.0f);
+    }
+
+    public void WinGame()
+    {
+        FindObjectOfType<AudioManager>().masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        for (int ii = 0; ii < transform.childCount; ii++)
+        {
+            transform.GetChild(ii).gameObject.SetActive(false);
+        }
+        winScreen.SetActive(true);
         Invoke(nameof(BackToMainMenu), 3.0f);
     }
 
