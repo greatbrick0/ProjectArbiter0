@@ -41,6 +41,8 @@ public class TutorialObjectiveManager : MonoBehaviour
     [SerializeField] Image healthBarBack;
     [SerializeField] TextMeshProUGUI healthBarText;
 
+    public LoadSceneButtonGeneral sceneLoader;
+
     public void StartEndSequence()
     {
         StartCoroutine(EndSequence());
@@ -128,6 +130,6 @@ public class TutorialObjectiveManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         currentTutorialPrompt = 16;
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("StartMenuScene");
+        sceneLoader.LoadScene("StartMenuScene");
     }
 }

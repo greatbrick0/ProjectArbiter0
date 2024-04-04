@@ -36,6 +36,7 @@ public class HUDSystem : MonoBehaviour
     private GameObject loseScreen;
     [SerializeField]
     private GameObject winScreen;
+    public LoadSceneButtonGeneral sceneLoader;
 
     public void UseAbility(int tier)
     {
@@ -100,6 +101,6 @@ public class HUDSystem : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        sceneLoader.LoadScene("StartMenuScene");
     }
 }

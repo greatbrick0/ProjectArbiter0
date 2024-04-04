@@ -14642,6 +14642,50 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1119357561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1119357563}
+  - component: {fileID: 1119357562}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1119357562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119357561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad320b97f5c0dae47bbc0efa5bc3c744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1119357563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119357561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -54.334892, y: -5.2616415, z: -54.588432}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1133993352
 Mesh:
   m_ObjectHideFlags: 0
@@ -19913,6 +19957,7 @@ MonoBehaviour:
   bridge: {fileID: 1380445425}
   playerList: []
   <playerCount>k__BackingField: 0
+  <spectatorCount>k__BackingField: 0
 --- !u!114 &1523687322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20211,6 +20256,20 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <turretWindUp>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <turretShoot>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <groundHit>k__BackingField:
     Guid:
       Data1: 55242279
@@ -20342,6 +20401,7 @@ MonoBehaviour:
   healthBar: {fileID: 7123887692812063429}
   healthBarBack: {fileID: 9049282477330162081}
   healthBarText: {fileID: 1691283270283596948}
+  sceneLoader: {fileID: 1119357562}
 --- !u!1 &1591824186
 GameObject:
   m_ObjectHideFlags: 0
@@ -40158,6 +40218,8 @@ MonoBehaviour:
   healthBar: {fileID: 7123887692812063429}
   damageGradient: {fileID: 0}
   ObjectiveText: {fileID: 5304167789348365871}
+  loseScreen: {fileID: 0}
+  winScreen: {fileID: 0}
 --- !u!1 &8075066613455162482
 GameObject:
   m_ObjectHideFlags: 0
