@@ -27,6 +27,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     WeaponData weapon;
 
+
     public Animator animRef;
 
     [SerializeField]
@@ -71,6 +72,11 @@ public class WeaponHolder : MonoBehaviour
     private bool shotLastFrame = false;
 
     private bool defaultShootingEnabled = true;
+
+
+    public delegate void HitEvent(RaycastHit h);
+    public event HitEvent shotEvent;
+
 
     private void SetAllStats()
     {
@@ -120,7 +126,6 @@ public class WeaponHolder : MonoBehaviour
     private void Start()
     {
         damageNumberScript = DamageNumberManager.GetManager(); //GetManager() must be called after Awake()
-        
     }
 
     /* I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...                         */
@@ -245,7 +250,6 @@ public class WeaponHolder : MonoBehaviour
         ShootDecorations();
 
         currentAmmo -= 1;
-        // Debug.Log(patternIndex); //trying to fix broken recoil
         foreach (Vector2 ii in shotPatterns[patternIndex].points)
         {
             Vector3 angle = Quaternion.AngleAxis(ii.x, up) * straight;
@@ -278,6 +282,7 @@ public class WeaponHolder : MonoBehaviour
     /// </summary>
     private void ShootDecorations()
     {
+
         muzzleFlash.Reinit();
         animRef.SetTrigger("Shoot");
         FMODUnity.RuntimeManager.PlayOneShotAttached(shootSound, gameObject);
@@ -292,6 +297,7 @@ public class WeaponHolder : MonoBehaviour
         if (hit.collider.gameObject.GetComponent<Hitbox>() != null)
         {
             ApplyDamage(hit.collider.gameObject.GetComponent<Hitbox>(), hit);
+            if (shotEvent != null ) shotEvent(hit);
         }
         else
         {
