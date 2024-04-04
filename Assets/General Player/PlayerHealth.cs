@@ -36,8 +36,8 @@ public class PlayerHealth : MonoBehaviour
 
     private float timeSinceDamaged = 0.0f;
 
-    EventInstance healingSoundInstance;
-    EventInstance heartBeatSoundInstance;
+    public EventInstance healingSoundInstance;
+    public EventInstance heartBeatSoundInstance;
     bool isBreathing;
 
     private void Start()
@@ -65,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
-        if (mainHealth < maxMainHealth * 0.4 && isBreathing == false)
+        if (mainHealth < maxMainHealth * 0.4f && isBreathing == false)
         {
             healingSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.healing);
             RuntimeManager.AttachInstanceToGameObject(healingSoundInstance, transform);
@@ -79,7 +79,7 @@ public class PlayerHealth : MonoBehaviour
             isBreathing = true;
         }
 
-        if (mainHealth > 100 && isBreathing == false)
+        if (mainHealth > maxMainHealth * 0.5f && isBreathing == false)
         {
             heartBeatSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }

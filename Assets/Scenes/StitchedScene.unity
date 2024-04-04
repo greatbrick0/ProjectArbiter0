@@ -3136,6 +3136,31 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &437352345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4849725978653388752, guid: 78efe9aca11d8654c979ed60d8950a09,
+    type: 3}
+  m_PrefabInstance: {fileID: 4849725978823586754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &437352348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437352345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4662c2f87000447b97f50ad05eb166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpen:
+    Guid:
+      Data1: -283027518
+      Data2: 1280781203
+      Data3: -1883108983
+      Data4: 1555464942
+    Path: event:/SFX/NPC/Door/Door Open
 --- !u!43 &444193681
 Mesh:
   m_ObjectHideFlags: 0
@@ -13621,18 +13646,18 @@ MonoBehaviour:
     Path: event:/SFX/NPC/Enemy/Enemy Shooting
   <turretWindUp>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1256222892
+      Data2: 1203625221
+      Data3: -1362864505
+      Data4: -12075634
+    Path: event:/SFX/NPC/Turret/Turret Wind Up
   <turretShoot>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1615632991
+      Data2: 1157967784
+      Data3: -68626532
+      Data4: 2005534733
+    Path: event:/SFX/NPC/Turret/Turret Shoot
   <groundHit>k__BackingField:
     Guid:
       Data1: 55242279
@@ -13670,32 +13695,32 @@ MonoBehaviour:
     Path: event:/SFX/UI/UI Select
   <healing>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1848858523
+      Data2: 1237680298
+      Data3: -1810456442
+      Data4: -1179538586
+    Path: event:/SFX/UI/Healing
   <healed>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1750603557
+      Data2: 1200475890
+      Data3: -1894437470
+      Data4: -1476544299
+    Path: event:/SFX/UI/Healed
   <heartBeat>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 541854683
+      Data2: 1300912504
+      Data3: 616785793
+      Data4: -1381278601
+    Path: event:/SFX/UI/Heart Beat
   <music>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -370666528
+      Data2: 1187756099
+      Data3: 531812511
+      Data4: -2136578443
+    Path: event:/Music/Alex's Music
 --- !u!114 &1438909640
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,6 @@ public class HUDSystem : MonoBehaviour
 
     [SerializeField]
     private GameObject loseScreen;
-
  
     public void UseAbility(int tier)
     {
@@ -77,6 +76,7 @@ public class HUDSystem : MonoBehaviour
 
     public void GameOver()
     {
+        FindObjectOfType<AudioManager>().masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         for(int ii = 0; ii < transform.childCount; ii++)
         {
             transform.GetChild(ii).gameObject.SetActive(false);
