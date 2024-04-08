@@ -18,29 +18,14 @@ public class SpawnDataHolder : MonoBehaviour
     [SerializeField]
     private List<EnemySpot> continuousSpawns;
     private bool continueSpawning = false;
-    [SerializeField]
-    [Tooltip("The amount of enemies that will be spawned before stopping. Setting to 0 will disable the limit.")]
-    private int maxEnemiesSpawned;
-    private int spawnedEnemyCount = 0;
-    [SerializeField]
-    [Tooltip("The amount of that will pass before stopping spawning enemies, measured in seconds. Setting to 0 will disable the limit. ")]
-    private float maxDuration;
-    private float spawningDuration = 0.0f;
     private float timeSinceLastSpawn = 0.0f;
     [SerializeField]
-    [Tooltip("The time until the next enemy spawn, measured in seconds. Value taken from seconds passed since spawning started. ")]
-    private AnimationCurve spawnFrequency;
-    [SerializeField]
-    [Tooltip("The time spawnFrequency is extended over.")]
-    private float frequencyCurveDuration;
-    [SerializeField]
-    [Tooltip("The frrequency used when frequencyCurveDuration has passed. ")]
+    [Tooltip("The frequency used when frequencyCurveDuration has passed. ")]
     private float beyondCurveFrequency;
     private float timeUntilNextSpawn;
     [SerializeField]
     [Tooltip("The amount of enemies that can exist at the same time. Setting to 0 will disable the limit.")]
     private int maxExistingEnemies = 0;
-    [SerializeField]
     private int existingEnemiesCount = 0;
 
     [Serializable] public class EnemySpot
@@ -60,19 +45,13 @@ public class SpawnDataHolder : MonoBehaviour
     private void Update()
     {
         if (!continueSpawning) return;
-        spawningDuration += 1.0f * Time.deltaTime;
 
         timeSinceLastSpawn += 1.0f * Time.deltaTime;
         if(timeSinceLastSpawn >= timeUntilNextSpawn)
         {
-            timeSinceLastSpawn = 0.0f;
-            if (spawningDuration >= frequencyCurveDuration) timeUntilNextSpawn = beyondCurveFrequency;
-            else timeUntilNextSpawn = spawnFrequency.Evaluate(spawningDuration / frequencyCurveDuration);
+            timeUntilNextSpawn = beyondCurveFrequency;
             SpawnGroupEnemies();
         }
-
-        if (spawnedEnemyCount >= maxEnemiesSpawned && maxEnemiesSpawned > 0) continueSpawning = false;
-        if (spawnedEnemyCount >= maxEnemiesSpawned && maxEnemiesSpawned > 0) continueSpawning = false;
     }
 
     public void InitialWaveSpawn()
@@ -84,7 +63,7 @@ public class SpawnDataHolder : MonoBehaviour
                 SpawnEnemy(ii, child);
             }
         }
-        if (spawnedEnemyCount < maxEnemiesSpawned || maxEnemiesSpawned == 0) continueSpawning = true;
+        continueSpawning = true;
     }
 
     private void SpawnGroupEnemies()
@@ -130,7 +109,6 @@ public class SpawnDataHolder : MonoBehaviour
 
         GameObject chosenType = chosenSpot.supportedTypes[UnityEngine.Random.Range(0, chosenSpot.supportedTypes.Count)];
         EnemyHealth enemy = enemySpawner.SpawnEnemy(t.position, chosenType);
-        spawnedEnemyCount += 1;
         existingEnemiesCount += 1;
         enemy.enemyDied += DecreaseExistingEnemiesCount;
     }
