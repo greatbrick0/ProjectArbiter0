@@ -32,6 +32,11 @@ public class EnemyHealth : Damageable
         health = maxHealth;
     }
 
+    private void Update()
+    {
+        if (health <= 0) Die();
+    }
+
     public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
     {
         int prevHealth = health;
@@ -55,12 +60,8 @@ public class EnemyHealth : Damageable
 
         health -= damageAmount;
 
-        if(health <= 0)
-        {
-            Die();
-            health = Mathf.Max(health, 0);
-        }
-        
+        health = Mathf.Max(health, 0);
+
         return prevHealth - health;
     }
 
