@@ -2279,7 +2279,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <team>k__BackingField: Enemy
   <maxHealth>k__BackingField: 100
-  <health>k__BackingField: 0
+  health: 0
+  <deathSound>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   weakSpotMult: 2
   armourSpotMult: 0.5
   ignoredElements: 
@@ -2355,7 +2362,8 @@ MonoBehaviour:
   playerTracker: {fileID: 0}
   cycleTime: 1
   state: 0
-  shootRange: 15
+  shootRange: 20
+  closeRange: 5
 --- !u!114 &8235861123394424962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3925,7 +3933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989458996543562944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88, z: 0}
+  m_LocalPosition: {x: 0, y: 1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3943,7 +3951,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22
+  m_Radius: 0.26
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5291228603422359279
 MonoBehaviour:

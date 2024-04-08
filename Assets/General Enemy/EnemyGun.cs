@@ -75,7 +75,7 @@ public class EnemyGun : MonoBehaviour
         GameObject bulletRef = Instantiate(attackObj);
         bulletRef.transform.SetParent(transform.parent);
         bulletRef.transform.position = (attackPoint == null) ? transform.position : attackPoint.position;
-        bulletRef.GetComponent<Projectile>().velocity = direction.normalized * bulletRef.GetComponent<Projectile>().velocity.magnitude;
+        bulletRef.GetComponent<Projectile>().velocity = (direction + new Vector3(Random.value, Random.value, Random.value) - new Vector3(Random.value, Random.value, Random.value)).normalized * bulletRef.GetComponent<Projectile>().velocity.magnitude;
         bulletRef.GetComponent<EnemySlowBullet>().damage = attackDamage;
     }
 }
