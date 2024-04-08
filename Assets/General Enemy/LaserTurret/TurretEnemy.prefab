@@ -280,7 +280,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4468260712805203968
 MonoBehaviour:
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <team>k__BackingField: Enemy
   <maxHealth>k__BackingField: 500
-  <health>k__BackingField: 0
+  health: 0
   <deathSound>k__BackingField:
     Guid:
       Data1: 551935505
@@ -532,8 +532,8 @@ MonoBehaviour:
   concentratingTime: 1.6
   lockedTime: 0.7
   shootingTime: 0.9
-  turnSpeed: 180
-  slowTurnSpeed: 50
+  turnSpeed: 220
+  slowTurnSpeed: 90
   beamRadius: 0.8
   beamLength: 300
   beamDamage: 40

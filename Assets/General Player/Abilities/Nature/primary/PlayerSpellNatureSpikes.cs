@@ -75,5 +75,10 @@ public class PlayerSpellNatureSpikes : Ability
 
     public override void newDemonic() { }
 
-
+    public override void EmergencyCancel()
+    {
+        GetNeededComponents();
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        
+    }
 }

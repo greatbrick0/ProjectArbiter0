@@ -104,7 +104,7 @@ public class PlayerHealth : MonoBehaviour
             tempShield = 0;
         }
 
-        UpdateHealthLabel(true);
+        if (tempShield <= 0) UpdateHealthLabel(true);
 
         if (mainHealth <= 0)
         {

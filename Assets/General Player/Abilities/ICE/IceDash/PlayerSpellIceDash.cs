@@ -72,7 +72,7 @@ public class PlayerSpellIceDash : Ability
     {
         animRef.SetTrigger("Charge");
         movementRef.SetEnabledControls(false, true);
-        sanityRef.GetComponent<PlayerInput>().mouseXSens *= 0.3f;
+        sanityRef.GetComponent<PlayerInput>().SetXSensMod(0.3f);
         rb.drag = 3;
         rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity / 5)), ForceMode.Impulse);
 
@@ -102,7 +102,7 @@ public class PlayerSpellIceDash : Ability
     {
         if (shouldRepeatAction)
         {
-            if (cancellable && inputRef.GetJumpInput())
+            if (cancellable && (inputRef.GetJumpInput() || Input.GetKeyDown(inputRef.getKeyCode("ability2"))))
             {
                 EndDash(false);
             }
@@ -134,7 +134,7 @@ public class PlayerSpellIceDash : Ability
         actionIntervalTimer = repeatActionInterval;
         rb.drag = 0;
         EndShield();
-        sanityRef.GetComponent<PlayerInput>().mouseXSens /= 0.3f;
+        sanityRef.GetComponent<PlayerInput>().SetXSensMod(1.0f);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
         if (collideHitboxRef != null)
@@ -178,5 +178,11 @@ public class PlayerSpellIceDash : Ability
     public override void newDemonic()
     {
 
+    }
+
+    public override void EmergencyCancel()
+    {
+        GetNeededComponents();
+        EndDash(false);
     }
 }

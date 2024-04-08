@@ -57,4 +57,6 @@ public class IceSpikesTestSpell : Ability
     {
 
     }
+
+    public override void EmergencyCancel() {}
 }

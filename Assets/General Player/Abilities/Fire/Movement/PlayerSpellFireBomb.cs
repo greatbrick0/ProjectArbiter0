@@ -135,6 +135,8 @@ public class PlayerSpellFireBomb : Ability
     public void ReturnControls()
     {
         if (motionVFXRef != null) Destroy(motionVFXRef.gameObject);
+
+        if (movementRef != null)
         movementRef.SetEnabledControls(true, true);
         //GetComponentInParent<PlayerMovement>().SetEnabledControls(true, true);
         cancellable = false;
@@ -152,5 +154,11 @@ public class PlayerSpellFireBomb : Ability
         else
             yield return new WaitForSeconds(maxCooldownTime -  bombActiveTimer);
         onCooldown = false;
+    }
+
+
+    public override void EmergencyCancel()
+    {
+        ReturnControls();
     }
 }

@@ -79,6 +79,8 @@ public class WeaponHolder : MonoBehaviour
 
     private void SetAllStats()
     {
+        Debug.Log("TestSetAll");
+
         gunName = weapon.gunName;
         automatic = weapon.automatic;
         randomizePattern = weapon.randomizePattern;
@@ -348,7 +350,12 @@ public class WeaponHolder : MonoBehaviour
     }
     public void SetWeaponData(WeaponData newWeapon)
     {
+        if (newWeapon != null)
+         Debug.Log("Set Weapon");
+        else
+         Debug.Log("newWeapon not passed");
         weapon = newWeapon;
+
         SetAllStats();
     }
 

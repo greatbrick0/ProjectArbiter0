@@ -134,12 +134,13 @@ public class SanitySystem : MonoBehaviour
     {
         Debug.Log("ending demonic");
         demonic = false;
+        currentSanity = maxSanity;
         if (GetComponent<PlayerInput>().authority)
         {
             abilitySystemRef.SetDemonic(false);
             sanityHUDRef.SetDemonic(false);
         }
-        sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All, false);
+        //sync.SendCommand<SanitySystem>(nameof(ShowAura), MessageTarget.All, false);
     }
 }
     

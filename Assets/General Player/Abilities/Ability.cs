@@ -116,4 +116,7 @@ public abstract class Ability : MonoBehaviour
     {
         return playerRef.GetComponent<PlayerInput>().authority;
     }
+
+    public abstract void EmergencyCancel(); //call before switching character
+    
 }

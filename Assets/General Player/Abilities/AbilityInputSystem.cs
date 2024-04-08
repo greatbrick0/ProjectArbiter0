@@ -148,4 +148,13 @@ public class AbilityInputSystem : MonoBehaviour
     {
         for(int ii = 0; ii < abilityLocks.Length; ii++) abilityLocks[ii] = value;
     }
+
+    public void ChangeClassCancel()
+    {
+        for (int i = 0; i < AbilityList.Length; i++)
+        {
+            
+            AbilityList[i].EmergencyCancel();
+        }
+    }
 }

@@ -34,7 +34,6 @@ public class PlayerSpellFireEnhancement : Ability
     float stimBoostTimer;
     float lerpTime;
 
-    float storebaseMovementSpeed;
 
     bool enhancementActive = false;
 
@@ -80,17 +79,16 @@ public class PlayerSpellFireEnhancement : Ability
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.fireEnhancement, gameObject);
             Debug.Log("ApplyFireStim");
-        Debug.Log(movementRef.GetMaxMoveSpeed());
+        Debug.Log(movementRef.GetMaxMoveModify());
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
         weaponRef.MaxOutAmmo();
 
-        storebaseMovementSpeed = movementRef.GetMaxMoveSpeed();
             stimBoostTimer = castSlowDuration *2;
         lerpTime = 0;
             movementRef.ApplyExternalSpeedModification(stimBoostValue);
-        Debug.Log(movementRef.GetMaxMoveSpeed());
+        Debug.Log(movementRef.GetMaxMoveModify());
         motionVFXRef = Instantiate(dashMotionVFX, spellOrigin.transform);
     }
 
@@ -110,19 +108,17 @@ public class PlayerSpellFireEnhancement : Ability
                     if (lerpTime > 1)
                         lerpTime = 1;
                     movementRef.ApplyExternalSpeedModification(-0.01f);
-                    if (movementRef.GetMaxMoveSpeed() > storebaseMovementSpeed)
+                    if (movementRef.GetMaxMoveModify() > 0)
                     {
-                        movementRef.SetMoveSpeed(Mathf.Lerp(movementRef.GetMaxMoveSpeed(), storebaseMovementSpeed, lerpTime));
+                        movementRef.SetMoveModify(Mathf.Lerp(movementRef.GetMaxMoveModify(), 0, lerpTime));
                     }
                 }
             }
             else
             {
-                enhancementActive = false;
-                if (motionVFXRef != null)
-                Destroy(motionVFXRef.gameObject);
+                
                 ReturnNormalWeapon();
-                movementRef.SetMoveSpeed(storebaseMovementSpeed);
+                
             }
         }
         
@@ -132,6 +128,9 @@ public class PlayerSpellFireEnhancement : Ability
     {
         weaponRef.SetWeaponData(weaponStore);
         enhancementActive = false;
+                if (motionVFXRef != null)
+                Destroy(motionVFXRef.gameObject);
+        movementRef.SetMoveModify(0);
     }
 
     IEnumerator Cooldown()
@@ -159,5 +158,12 @@ public class PlayerSpellFireEnhancement : Ability
        /* Debug.Log("WeaponEnhancement disabled due to becoming demonic");
         if (enhancementActive)
             StartAbility(); */
+    }
+
+    public override void EmergencyCancel()
+    {
+        GetNeededComponents();
+        if (enhancementActive)
+        ReturnNormalWeapon();
     }
 }

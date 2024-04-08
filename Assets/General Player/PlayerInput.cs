@@ -54,6 +54,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] KeyCode reloadKey = KeyCode.R;
     [SerializeField] KeyCode shootKey = KeyCode.Mouse0;
+    [SerializeField] KeyCode aimKey = KeyCode.Mouse1;
+
     [SerializeField] private List<InputAndName> abilityKeysInit = new List<InputAndName>
     {
         new InputAndName("ability1", KeyCode.Q),
@@ -66,7 +68,16 @@ public class PlayerInput : MonoBehaviour
     public float mouseXSens = 1.0f;
     public float mouseYSens = 1.0f;
 
+    private float mouseXSensMod = 1.0f;
+    private float mouseYSensMod = 1.0f;
+
     bool inMenuBehaviour = true;
+
+    public KeyCode getKeyCode(string s)
+    {
+        return abilityKeys[s];
+    }
+
 
     [Serializable] public class InputAndName //not even one hour into the project and im already back to my horrendous ways
     {
@@ -126,6 +137,7 @@ public class PlayerInput : MonoBehaviour
         if (PlayerPrefs.HasKey("jump")) jumpKey = (KeyCode)PlayerPrefs.GetInt("jump");
         if (PlayerPrefs.HasKey("reload")) reloadKey = (KeyCode)PlayerPrefs.GetInt("reload");
         if (PlayerPrefs.HasKey("shoot")) shootKey = (KeyCode)PlayerPrefs.GetInt("shoot");
+        if (PlayerPrefs.HasKey("aim")) shootKey = (KeyCode)PlayerPrefs.GetInt("aim");
     }
 
     /// <summary>
@@ -186,6 +198,10 @@ public class PlayerInput : MonoBehaviour
                         shootKey = newBind;
                         break;
 
+                    case "aim":
+                        aimKey = newBind;
+                        break;
+
                     default:
                         break;
                 }
@@ -229,8 +245,8 @@ public class PlayerInput : MonoBehaviour
         jumpInputted = Input.GetKey(jumpKey);
 
         inputtedLookDirection = Vector2.zero;
-        inputtedLookDirection.x = Input.GetAxis("Mouse X") * mouseXSens;
-        inputtedLookDirection.y = Input.GetAxis("Mouse Y") * mouseYSens;
+        inputtedLookDirection.x = Input.GetAxis("Mouse X") * (mouseXSens * mouseXSensMod);
+        inputtedLookDirection.y = Input.GetAxis("Mouse Y") * (mouseYSens * mouseYSensMod);
 
         playerMovement.SetInputs(inputtedMoveDirection, jumpInputted, inputtedLookDirection);
 
@@ -309,5 +325,27 @@ public class PlayerInput : MonoBehaviour
     public bool GetJumpInput()
     {
         return jumpInputted;
+    }
+
+    
+
+    public void SetXSensMod(float f)
+    {
+        mouseXSensMod = f;
+    }
+
+    public float GetXSensMod()
+    {
+        return mouseXSensMod;
+    }
+
+    public void SetYSensMod(float f)
+    {
+        mouseYSensMod = f;
+    }
+
+    public float GetYSensMod()
+    {
+        return mouseYSensMod;
     }
 }

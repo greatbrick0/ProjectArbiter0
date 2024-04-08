@@ -21,6 +21,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
     [SerializeField]
     WeaponData upgradedWeaponInfo;
 
+    [SerializeField]
     WeaponData weaponStore;
 
     [SerializeField]
@@ -84,8 +85,8 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             enhancementActive = true;
             Debug.Log("ApplyEnhancement");
             sanityCostTimer = sanityCostInterval;
-            weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
+            weaponRef.MaxOutAmmo();
             enhancementActive = true;
             //gunVFXRef = Instantiate(gunVFX, )
             //muzzleStore = muzzleFlash.GetColor("Color01");
@@ -156,5 +157,15 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         Debug.Log("WeaponEnhancement disabled due to becoming demonic");
         if (enhancementActive)
             StartAbility();
+    }
+
+    public override void EmergencyCancel()
+    {
+
+        if (enhancementActive)
+        {
+            GetNeededComponents();
+            AbilityAction();
+        }
     }
 }
