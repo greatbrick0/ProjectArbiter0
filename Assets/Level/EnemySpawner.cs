@@ -17,19 +17,20 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(pos, enemyTypes[typeIndex]);
     }
 
-    public void SpawnEnemy(Vector3 pos, GameObject typePrefab)
+    public EnemyHealth SpawnEnemy(Vector3 pos, GameObject typePrefab)
     {
-        if (!(playerTracker.IsPrimaryClient() || typePrefab.GetComponent<EnemySyncInit>() == null)) return;
+        if (!(playerTracker.IsPrimaryClient() || typePrefab.GetComponent<EnemySyncInit>() == null)) return null;
 
         instanceRef = Instantiate(typePrefab);
         instanceRef.transform.parent = transform;
         instanceRef.transform.position = pos;
-        if(instanceRef.GetComponent<EnemySyncInit>() != null) StartCoroutine(instanceRef.GetComponent<EnemySyncInit>().Init(this));
+        if (instanceRef.GetComponent<EnemySyncInit>() != null) StartCoroutine(instanceRef.GetComponent<EnemySyncInit>().Init(this));
         else
         {
             instanceRef.GetComponent<EnemyBrain>().playerTracker = playerTracker;
             instanceRef.GetComponent<EnemyHealth>().enemyDied += IncrementKillStat;
         }
+        return instanceRef.GetComponent<EnemyHealth>();
     }
 
     public void IncrementKillStat()

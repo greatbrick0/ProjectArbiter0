@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DamageDetails;
+using Unity.VisualScripting;
 
 public class SpawnDataHolder : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class SpawnDataHolder : MonoBehaviour
     private List<EnemySpot> continuousSpawns;
     private bool continueSpawning = false;
     [SerializeField]
-    [Tooltip("The amount of enemiess that will be spawned before stopping. Setting to 0 will disable the limit.")]
-    private int maxEnemies;
+    [Tooltip("The amount of enemies that will be spawned before stopping. Setting to 0 will disable the limit.")]
+    private int maxEnemiesSpawned;
     private int spawnedEnemyCount = 0;
     [SerializeField]
     [Tooltip("The amount of that will pass before stopping spawning enemies, measured in seconds. Setting to 0 will disable the limit. ")]
@@ -36,12 +37,17 @@ public class SpawnDataHolder : MonoBehaviour
     [Tooltip("The frrequency used when frequencyCurveDuration has passed. ")]
     private float beyondCurveFrequency;
     private float timeUntilNextSpawn;
+    [SerializeField]
+    [Tooltip("The amount of enemies that can exist at the same time. Setting to 0 will disable the limit.")]
+    private int maxExistingEnemies = 0;
+    [SerializeField]
+    private int existingEnemiesCount = 0;
 
     [Serializable] public class EnemySpot
     {
-        public Transform position; // Easier to assign a transform of an empty gameobject than type out vector3s
+        public Transform position;
         public List<GameObject> supportedTypes;
-        public float weight = 1;
+        //public float weight = 1;
     }
 
     private void Start()
@@ -65,42 +71,29 @@ public class SpawnDataHolder : MonoBehaviour
             SpawnGroupEnemies();
         }
 
-        if (spawnedEnemyCount >= maxEnemies && maxEnemies > 0) continueSpawning = false;
-        if (spawnedEnemyCount >= maxEnemies && maxEnemies > 0) continueSpawning = false;
+        if (spawnedEnemyCount >= maxEnemiesSpawned && maxEnemiesSpawned > 0) continueSpawning = false;
+        if (spawnedEnemyCount >= maxEnemiesSpawned && maxEnemiesSpawned > 0) continueSpawning = false;
     }
 
     public void InitialWaveSpawn()
     {
         foreach(EnemySpot ii in initialSpawns)
         {
-            foreach (Transform child in ii.position) // SPAWNS USING CHILD GAMEOBJECTS
+            foreach (Transform child in ii.position)
             {
-                // Now uses random instead of 0
-                enemySpawner.SpawnEnemy(child.position, ii.supportedTypes[(int)UnityEngine.Random.Range(0, ii.supportedTypes.Count)]);
-                spawnedEnemyCount += 1;
+                SpawnEnemy(ii, child);
             }
         }
-        if (spawnedEnemyCount < maxEnemies || maxEnemies == 0) continueSpawning = true;
-    }
-
-    public void SpawnSingleEnemy()
-    {
-        spawnedEnemyCount += 1;
-        EnemySpot chosenSpot = continuousSpawns[Mathf.FloorToInt(spawningDuration * 0.71f) % continuousSpawns.Count];
-        GameObject chosenType = chosenSpot.supportedTypes[Mathf.FloorToInt(spawningDuration * 1.22f) % chosenSpot.supportedTypes.Count];
-        enemySpawner.SpawnEnemy(chosenSpot.position.position + transform.position, chosenType);
+        if (spawnedEnemyCount < maxEnemiesSpawned || maxEnemiesSpawned == 0) continueSpawning = true;
     }
 
     private void SpawnGroupEnemies()
     {
-        spawnedEnemyCount += 1;
-
-        foreach (EnemySpot chosenSpot in continuousSpawns)
+        foreach (EnemySpot ii in continuousSpawns)
         {
-            foreach (Transform child in chosenSpot.position)
+            foreach (Transform child in ii.position)
             {
-                GameObject chosenType = chosenSpot.supportedTypes[(int)UnityEngine.Random.Range(0, chosenSpot.supportedTypes.Count)];
-                enemySpawner.SpawnEnemy(child.position, chosenType);
+                SpawnEnemy(ii, child);
             }
         }
     }
@@ -111,10 +104,11 @@ public class SpawnDataHolder : MonoBehaviour
         {
             for (int ii = 0; ii < enemySpawner.transform.childCount; ii++)
             {
-                if (enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>() != null)
+                EnemyHealth enemy = enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>();
+                if (enemy != null)
                 {
-                    enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>().enemyDied -= enemySpawner.IncrementKillStat;
-                    enemySpawner.transform.GetChild(ii).GetComponent<EnemyHealth>().TakeDamage(999, DamageSource.Environment, DamageSpot.Body, DamageElement.Normal);
+                    enemy.enemyDied -= enemySpawner.IncrementKillStat;
+                    enemy.TakeDamage(999, DamageSource.Environment, DamageSpot.Body, DamageElement.Normal);
                 }
             }
         }
@@ -123,5 +117,21 @@ public class SpawnDataHolder : MonoBehaviour
     public void DisableSpawning()
     {
         continueSpawning = false;
+    }
+
+    private void DecreaseExistingEnemiesCount()
+    {
+        existingEnemiesCount -= 1;
+    }
+
+    private void SpawnEnemy(EnemySpot chosenSpot, Transform t)
+    {
+        if(existingEnemiesCount >= maxExistingEnemies && maxExistingEnemies != 0) return;
+
+        GameObject chosenType = chosenSpot.supportedTypes[UnityEngine.Random.Range(0, chosenSpot.supportedTypes.Count)];
+        EnemyHealth enemy = enemySpawner.SpawnEnemy(t.position, chosenType);
+        spawnedEnemyCount += 1;
+        existingEnemiesCount += 1;
+        enemy.enemyDied += DecreaseExistingEnemiesCount;
     }
 }
