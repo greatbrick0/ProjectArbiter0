@@ -27,9 +27,10 @@ public class PlayerClassChanger : MonoBehaviour
         {
             Debug.Log("Detected player");
             currentPlayer = collision.gameObject;
-            if (collision.transform.GetComponentInChildren<Ability>() != null)
+            if (currentPlayer.transform.GetComponentInChildren<Ability>() != null)
             {
-                GameObject originRef = collision.transform.GetComponentInChildren<Ability>().transform.parent.gameObject;
+                currentPlayer.GetComponent<AbilityInputSystem>().ChangeClassCancel();
+                GameObject originRef = currentPlayer.transform.GetComponentInChildren<Ability>().transform.parent.gameObject;
                 GameObject.Destroy(originRef.GetComponentInChildren<Ability>().gameObject);
                 initRef = Instantiate(Class[0], originRef.transform);
                 StartCoroutine(Connect());
@@ -47,6 +48,8 @@ public class PlayerClassChanger : MonoBehaviour
                 GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
                 viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
 
+                currentPlayer.GetComponent<PlayerMovement>().SetMoveModify(0);    
+
                 if (currentPlayer.GetComponent<PlayerInput>().authority)
                 {
                     GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
@@ -62,6 +65,7 @@ public class PlayerClassChanger : MonoBehaviour
     public IEnumerator Connect()
     {
         yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame(); //trying to wait 2, see if that fixes it
         ConnectAll();
         if (currentPlayer.GetComponent<PlayerInput>().authority) ConnectMe();     
     }

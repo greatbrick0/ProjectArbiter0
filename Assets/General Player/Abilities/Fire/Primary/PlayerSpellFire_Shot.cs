@@ -72,8 +72,15 @@ public class PlayerSpellFire_Shot : Ability
     }
 
 
+    //I dont need these lmaaaaaao
     public override void newDemonic()
     {
 
     }
+
+    public override void EmergencyCancel()
+    {
+
+    }
+
 }

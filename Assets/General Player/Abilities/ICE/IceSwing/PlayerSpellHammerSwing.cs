@@ -79,6 +79,13 @@ public class PlayerSpellHammerSwing : Ability
 
     public override void newDemonic()
     {
+        
+    }
 
+    public override void EmergencyCancel()
+    {
+        GetNeededComponents();
+        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        healthRef.ObtainShield(-healthRef.GetShield());
     }
 }

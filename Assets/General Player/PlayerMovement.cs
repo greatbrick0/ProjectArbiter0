@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     float jumpStrength = 10.0f;
     [SerializeField]
     float defualtGravityAccel = 8.0f;
+
+    float maxMoveModify = 0.0f;
     //float recoilRecentreSpeed = 90;
 
     Vector2 hVelocity = Vector2.zero;
@@ -175,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 AccelerateHorizontal(Vector2 prevMotion, Vector3 inputMotion)
     {
         prevMotion += Vec2FromXZ(inputMotion).normalized * moveSpeedAccel * Time.deltaTime;
-        return Vector2.ClampMagnitude(prevMotion, maxMoveSpeed);
+        return Vector2.ClampMagnitude(prevMotion, maxMoveSpeed+maxMoveModify);
     }
 
     private Vector2 AdditiveMotion(Vector2 prevMotion, Vector3 inputMotion)
@@ -242,17 +244,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplyExternalSpeedModification(float modifyValue) 
     {
-        maxMoveSpeed += modifyValue;
+        maxMoveModify += modifyValue;
     }
 
-    public void SetMoveSpeed(float newValue)
+    public void SetMoveModify(float newValue)
     {
-        maxMoveSpeed = newValue;
+        maxMoveModify = newValue;
     }
 
-    public float GetMaxMoveSpeed()
+    public float GetMaxMoveModify()
     {
-        return maxMoveSpeed;
+        return maxMoveModify;
     }
 
     public void ApplyExternalAccelModification(float modifyValue)

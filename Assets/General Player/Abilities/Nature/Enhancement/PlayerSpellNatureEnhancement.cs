@@ -160,6 +160,14 @@ public class PlayerSpellNatureEnhancement : Ability
     {
         Debug.Log("WeaponEnhancement disabled due to becoming demonic");
         if (enhancementActive)
-            StartAbility();
+            AbilityAction();
+    }
+
+    public override void EmergencyCancel()
+    {
+        if (enhancementActive)
+        {
+            AbilityAction();
+        }
     }
 }
