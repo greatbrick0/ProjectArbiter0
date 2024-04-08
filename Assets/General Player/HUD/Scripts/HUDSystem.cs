@@ -68,13 +68,23 @@ public class HUDSystem : MonoBehaviour
         progress = newprogress;
         maxprogress = newmaxprogress;
         objective = newObjective;
-        ObjectiveText.text = objective + "\n  " + progress + " / " + maxprogress;
+        ObjectiveText.text = objective + "\n" + progress + " / " + maxprogress;
     }
 
     public void UpdateObjective(int increment)
     {
         progress = increment;
-        ObjectiveText.text = objective + "\n  " + progress + " / " + maxprogress;
+        ObjectiveText.text = objective + "\n" + progress + " / " + maxprogress;
+    }
+
+    public void NewButtonObjective()
+    {
+        ObjectiveText.text = "Current Objective:\nProceed to Next Room";
+    }
+
+    public void NewObjective(string objectiveText)
+    {
+        ObjectiveText.text = "Current Objective:\n" + objectiveText;
     }
 
     public void GameOver()
