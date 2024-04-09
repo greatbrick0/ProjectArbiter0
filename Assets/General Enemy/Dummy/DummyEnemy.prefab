@@ -2245,6 +2245,7 @@ MonoBehaviour:
   - rid: 4857867859182485547
   - rid: 4857867859182485548
   - rid: 4857867859182485551
+  - rid: 2886155554254487629
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -2266,6 +2267,45 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 2886155554254487629
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2886155554254487630
+        routing: 1
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: c27ce6a5-8b12-47d2-aad4-a576db18fc49
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 6193124714125256054}
+        coherenceSync: {fileID: 8246673093020029764}
+        interpolationSettings: {fileID: 0}
+    - rid: 2886155554254487630
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: Die
+        monoAssemblyType: 
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: EnemyHealth, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
     - rid: 4857867859182485547
       type: {class: PositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
