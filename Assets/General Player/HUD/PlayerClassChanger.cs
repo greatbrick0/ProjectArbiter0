@@ -24,10 +24,23 @@ public class PlayerClassChanger : GunButton
     [SerializeField]
     List<PlayerClassChanger> otherClassButtons;
 
+
+    private bool bottleOne = true;
+
     public override void Press()
     {
-       base.Press();
-       ChangePlayer();
+        if (bottleOne)
+        {
+        ChangePlayer();
+        StartCoroutine(WaitFrameBottleOne());
+        }
+    }
+
+    public IEnumerator WaitFrameBottleOne()
+    {
+        bottleOne =false;
+        yield return new WaitForEndOfFrame();
+        bottleOne = true;
     }
 
     public IEnumerator Connect()
@@ -36,7 +49,7 @@ public class PlayerClassChanger : GunButton
         ConnectAll();
         if (currentPlayer.GetComponent<PlayerInput>().authority) 
         {
-            ActivateOtherButtons();
+            //ActivateOtherButtons();
             ConnectMe();     
         }
 
@@ -74,6 +87,8 @@ public class PlayerClassChanger : GunButton
 
     private void ActivateOtherButtons()
     {
+        readyModel.SetActive(false);
+        usedModel.SetActive(true);
         foreach(PlayerClassChanger pCC in otherClassButtons)
         {
             pCC.Refresh();

@@ -11,9 +11,9 @@ public class GunButton : Damageable
     public GameObject recentShotPlayer; //player that shot it last.
 
     [SerializeField]
-    private GameObject readyModel;
+    protected GameObject readyModel;
     [SerializeField]
-    private GameObject usedModel;
+    protected GameObject usedModel;
     [SerializeField]
     private List<DamageElement> acceptedElements = new List<DamageElement>();
     public UnityEvent pressedEvent;
