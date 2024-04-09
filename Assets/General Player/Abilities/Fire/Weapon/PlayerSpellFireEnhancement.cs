@@ -147,7 +147,7 @@ public class PlayerSpellFireEnhancement : Ability
         weaponRef.SetDefaultBehaviourEnabled(true, false);
         AbilityAction();
         yield return new WaitForSeconds(0.5f);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
 
