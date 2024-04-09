@@ -109,7 +109,10 @@ public class SpawnDataHolder : MonoBehaviour
 
         GameObject chosenType = chosenSpot.supportedTypes[UnityEngine.Random.Range(0, chosenSpot.supportedTypes.Count)];
         EnemyHealth enemy = enemySpawner.SpawnEnemy(t.position, chosenType);
-        existingEnemiesCount += 1;
-        enemy.enemyDied += DecreaseExistingEnemiesCount;
+        if(enemy != null)
+        {
+            existingEnemiesCount += 1;
+            enemy.enemyDied += DecreaseExistingEnemiesCount;
+        }
     }
 }
