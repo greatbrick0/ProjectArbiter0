@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "e62d2fceb38545b07029cde64b4b4ec896a60419";
+		public const string schemaId = "de92e553e23fb828e4475e3d648f4aa932992e4d";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -156,8 +156,8 @@ namespace Coherence.Generated
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_PlayerHealth__char_46_PlayerDown_8ed7af65_8faa_4df4_a8bc_d05c5ec8b2a1 = 20;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8 = 21;
 		public const uint InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d = 22;
-		public const uint InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11 = 23;
-		public const uint InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba = 24;
+		public const uint InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4 = 23;
+		public const uint InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453 = 24;
 
 		private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>() {
 			{ 0, "WorldPosition" },
@@ -827,10 +827,10 @@ namespace Coherence.Generated
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_SanitySystem__char_46_ShowAura_9f663484_9c8c_491f_9c1e_c2dd9fe2d5c8.Deserialize(bitStream);
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d:
 					return Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d.Deserialize(bitStream);
-				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11:
-					return TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11.Deserialize(bitStream);
-				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba:
-					return TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba.Deserialize(bitStream);
+				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4:
+					return TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4.Deserialize(bitStream);
+				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453:
+					return TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453.Deserialize(bitStream);
 				default:
 					break;
 			}
@@ -961,11 +961,11 @@ namespace Coherence.Generated
 				case Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d:
 					Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d.Serialize((Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580daad_388d_444f_92c3_72b98a4d593d)data, bitStream);
 					break;
-				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11:
-					TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11.Serialize((TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11)data, bitStream);
+				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4:
+					TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4.Serialize((TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4)data, bitStream);
 					break;
-				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba:
-					TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba.Serialize((TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba)data, bitStream);
+				case Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453:
+					TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453.Serialize((TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453)data, bitStream);
 					break;
 				default:
 					break;

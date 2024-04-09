@@ -17,12 +17,12 @@ namespace Coherence.Generated
 
 	public struct TurretEnemy_05434230e22f555459cd21106aeb67e2_UnityEngine__char_46_Transform_1253990227028822518 : ICoherenceComponentData
 	{
-		public Vector3 position;
 		public Quaternion rotation;
+		public Vector3 position;
 
 		public override string ToString()
 		{
-			return $"TurretEnemy_05434230e22f555459cd21106aeb67e2_UnityEngine__char_46_Transform_1253990227028822518(position: {position}, rotation: {rotation})";
+			return $"TurretEnemy_05434230e22f555459cd21106aeb67e2_UnityEngine__char_46_Transform_1253990227028822518(rotation: {rotation}, position: {position})";
 		}
 
 		public uint GetComponentType() => Definition.InternalTurretEnemy_05434230e22f555459cd21106aeb67e2_UnityEngine__char_46_Transform_1253990227028822518;
@@ -50,13 +50,13 @@ namespace Coherence.Generated
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				position = other.position;
+				rotation = other.rotation;
 			}
 			mask >>= 1;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				rotation = other.rotation;
+				position = other.position;
 			}
 			mask >>= 1;
 			return this;
@@ -72,16 +72,16 @@ namespace Coherence.Generated
 		{
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				var fieldValue = (data.position.ToCoreVector3());
+				var fieldValue = (data.rotation.ToCoreQuaternion());
 
-				bitStream.WriteVector3(fieldValue, FloatMeta.NoCompression());
+				bitStream.WriteQuaternion(fieldValue, 32);
 			}
 			mask >>= 1;
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				var fieldValue = (data.rotation.ToCoreQuaternion());
+				var fieldValue = (data.position.ToCoreVector3());
 
-				bitStream.WriteQuaternion(fieldValue, 32);
+				bitStream.WriteVector3(fieldValue, FloatMeta.NoCompression());
 			}
 			mask >>= 1;
 
@@ -95,12 +95,12 @@ namespace Coherence.Generated
 	
 			if (bitStream.ReadMask())
 			{
-				val.position = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
+				val.rotation = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
 				mask |= 0b00000000000000000000000000000001;
 			}
 			if (bitStream.ReadMask())
 			{
-				val.rotation = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
+				val.position = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
 				mask |= 0b00000000000000000000000000000010;
 			}
 			return (val, mask);

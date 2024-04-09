@@ -32,8 +32,8 @@ component Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder_20212983883016075
   enabled Bool [bits "1"]
 
 component TurretEnemy_05434230e22f555459cd21106aeb67e2_UnityEngine__char_46_Transform_1253990227028822518
-  position Vector3 [compression "None"]
   rotation Quaternion [bits "32"]
+  position Vector3 [compression "None"]
 
 component TurretEnemy_05434230e22f555459cd21106aeb67e2_UnityEngine__char_46_Transform_7463586618220030189
   rotation Quaternion [bits "32"]
@@ -86,8 +86,8 @@ command Player_9b83865ad432b2840a2ba6c6e5d0fada_WeaponHolder__char_46_Shoot_4580
   up Vector3 [compression "None"]
   originPos Vector3 [compression "None"]
 
-command TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_c7beaedc_8ac9_4337_b0ed_b0cb9ad58c11 [routing "All"]
+command TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemyHealth__char_46_Die_fa79d985_aa4b_4352_9ecf_918c5ebf41c4 [routing "All"]
 
-command TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_0fdf290c_9c68_42c4_b1fa_8ba86e34a1ba [routing "All"]
+command TurretEnemy_05434230e22f555459cd21106aeb67e2_EnemySyncInit__char_46_SetReferences_70dae4b5_9b71_46d6_9e52_1ab2c3d43453 [routing "All"]
   enemySpawner String 
 
