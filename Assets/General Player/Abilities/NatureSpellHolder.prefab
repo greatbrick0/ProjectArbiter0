@@ -77,12 +77,13 @@ MonoBehaviour:
   castSlowDuration: 1.3
   HUDRef: {fileID: 0}
   hookEnd: {fileID: 5888007395036336696, guid: b2507e843cfbe3b469c657919a146998, type: 3}
+  hookRef: {fileID: 0}
   GrappleTargetLayer:
     serializedVersion: 2
     m_Bits: 256
   dashMotionVFX: {fileID: 8711109542535353726, guid: 508fe44ad959e4a41b98cf4c58db8e40,
     type: 3}
-  maxDistance: 60
+  maxDistance: 200
   launchForce: 30
   rawLine: {fileID: 3538984034761458861}
 --- !u!114 &8572171627340948943

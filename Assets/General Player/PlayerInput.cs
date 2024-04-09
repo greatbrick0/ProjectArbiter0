@@ -54,7 +54,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] KeyCode reloadKey = KeyCode.R;
     [SerializeField] KeyCode shootKey = KeyCode.Mouse0;
-    [SerializeField] KeyCode aimKey = KeyCode.Mouse1;
+    [SerializeField] public KeyCode aimKey = KeyCode.Mouse1;
 
     [SerializeField] private List<InputAndName> abilityKeysInit = new List<InputAndName>
     {
@@ -137,7 +137,7 @@ public class PlayerInput : MonoBehaviour
         if (PlayerPrefs.HasKey("jump")) jumpKey = (KeyCode)PlayerPrefs.GetInt("jump");
         if (PlayerPrefs.HasKey("reload")) reloadKey = (KeyCode)PlayerPrefs.GetInt("reload");
         if (PlayerPrefs.HasKey("shoot")) shootKey = (KeyCode)PlayerPrefs.GetInt("shoot");
-        if (PlayerPrefs.HasKey("aim")) shootKey = (KeyCode)PlayerPrefs.GetInt("aim");
+        if (PlayerPrefs.HasKey("aim")) aimKey = (KeyCode)PlayerPrefs.GetInt("aim");
     }
 
     /// <summary>

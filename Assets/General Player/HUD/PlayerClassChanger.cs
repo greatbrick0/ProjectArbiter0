@@ -21,6 +21,8 @@ public class PlayerClassChanger : GunButton
 
     GameObject currentPlayer;
 
+    [SerializeField]
+    List<PlayerClassChanger> otherClassButtons;
 
     public override void Press()
     {
@@ -32,7 +34,12 @@ public class PlayerClassChanger : GunButton
     {
         yield return new WaitForEndOfFrame();
         ConnectAll();
-        if (currentPlayer.GetComponent<PlayerInput>().authority) ConnectMe();     
+        if (currentPlayer.GetComponent<PlayerInput>().authority) 
+        {
+            ActivateOtherButtons();
+            ConnectMe();     
+        }
+
     }
 
 
@@ -63,6 +70,14 @@ public class PlayerClassChanger : GunButton
         currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
 
         currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 10);
+    }
+
+    private void ActivateOtherButtons()
+    {
+        foreach(PlayerClassChanger pCC in otherClassButtons)
+        {
+            pCC.Refresh();
+        }
     }
 
     public void ChangePlayer()
