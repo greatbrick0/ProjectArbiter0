@@ -201,6 +201,7 @@ MonoBehaviour:
   - {fileID: -4203162900516853262}
   - {fileID: 4854831271636402653}
   - {fileID: -5280825477631633732}
+  - {fileID: 7320643041929582331}
   loadFromAssetDatabase: 0
 --- !u!114 &1018376734518712145
 MonoBehaviour:
@@ -291,4 +292,34 @@ MonoBehaviour:
         prefab: {fileID: 3294123685879425709, guid: 03cae38ad2ee1be41926ecf791a4649a,
           type: 3}
     - rid: 4857867859182485546
+      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+--- !u!114 &7320643041929582331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
+  m_Name: DummyEnemyMoving
+  m_EditorClassIdentifier: 
+  id: d6864f6b08ef2f74cb5656579a40e8c1
+  editorTarget: {fileID: 3294123685879425709, guid: d6864f6b08ef2f74cb5656579a40e8c1,
+    type: 3}
+  includeInSchema: 1
+  objectProvider:
+    rid: 2886155554254487656
+  objectInstantiator:
+    rid: 2886155554254487657
+  references:
+    version: 2
+    RefIds:
+    - rid: 2886155554254487656
+      type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data:
+        prefab: {fileID: 3294123685879425709, guid: d6864f6b08ef2f74cb5656579a40e8c1,
+          type: 3}
+    - rid: 2886155554254487657
       type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
