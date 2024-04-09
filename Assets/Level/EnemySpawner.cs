@@ -35,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void IncrementKillStat()
     {
+        print("Incrementing kill stat");
         objectiveTracker.UpdateStat("EnemiesKilled", 1);
     }
 }
