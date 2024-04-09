@@ -94,6 +94,8 @@ public class PlayerSpellFireBomb : Ability
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         ApplyPlayerCastMotion();
         weaponRef.SetDefaultBehaviourEnabled(true, false);
         yield return new WaitForSeconds(windupTime);
@@ -101,6 +103,8 @@ public class PlayerSpellFireBomb : Ability
         AbilityAction();
         yield return new WaitForSeconds(castSlowDuration - windupTime);
         weaponRef.SetDefaultBehaviourEnabled(true, true, true);
+          if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
+            AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
         
     }
 
