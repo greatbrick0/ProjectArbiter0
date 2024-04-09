@@ -325,6 +325,12 @@ public class WeaponHolder : MonoBehaviour
     /// <param name="hitDetails">The RaycastHit of the bullet that is applying the damage.</param>
     private void ApplyDamage(Hitbox hitbox, RaycastHit hitDetails)
     {
+        if (hitbox.GetOwner().team == "Button") 
+        {
+            Debug.Log("Button ApplyDamage");
+            hitbox.GetOwner().GetComponent<GunButton>().recentShotPlayer = this.gameObject;
+            hitbox.GetOwner().GetComponent<GunButton>().Press();
+        }
         if (hitbox.GetOwner().team != "Enemy") return;
         if(hitbox.GetOwner().GetComponent<EnemyHealth>() != null)
         {

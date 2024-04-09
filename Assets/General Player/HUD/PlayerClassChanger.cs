@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class PlayerClassChanger : MonoBehaviour
+public class PlayerClassChanger : GunButton
 {
     [SerializeField]
     GameObject[] Class;
@@ -21,51 +21,16 @@ public class PlayerClassChanger : MonoBehaviour
 
     GameObject currentPlayer;
 
-    public void OnTriggerEnter(Collider collision)
+
+    public override void Press()
     {
-        if (collision.transform.tag == "Player")
-        {
-            Debug.Log("Detected player");
-            currentPlayer = collision.gameObject;
-            if (currentPlayer.transform.GetComponentInChildren<Ability>() != null)
-            {
-                currentPlayer.GetComponent<AbilityInputSystem>().ChangeClassCancel();
-                GameObject originRef = currentPlayer.transform.GetComponentInChildren<Ability>().transform.parent.gameObject;
-                GameObject.Destroy(originRef.GetComponentInChildren<Ability>().gameObject);
-                initRef = Instantiate(Class[0], originRef.transform);
-                StartCoroutine(Connect());
-                currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
-                currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
-
-                playermodelRef = currentPlayer.GetComponent<PlayerInput>().selfBodyModel.transform.parent.gameObject;
-                GameObject.Destroy(playermodelRef.GetComponentInChildren<Animator>());
-                GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfBodyModel.gameObject);
-                playermodelRef = Instantiate(Class[2], playermodelRef.transform);
-
-
-                Debug.Log((currentPlayer.GetComponent<PlayerInput>().selfGunModel.name));
-                viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
-                GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
-                viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
-
-                currentPlayer.GetComponent<PlayerMovement>().SetMoveModify(0);    
-
-                if (currentPlayer.GetComponent<PlayerInput>().authority)
-                {
-                    GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
-                    initRef = Instantiate(Class[1], HUDRef.transform);
-                    initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
-
-                   
-                }
-            }
-        }
+       base.Press();
+       ChangePlayer();
     }
 
     public IEnumerator Connect()
     {
         yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame(); //trying to wait 2, see if that fixes it
         ConnectAll();
         if (currentPlayer.GetComponent<PlayerInput>().authority) ConnectMe();     
     }
@@ -99,4 +64,42 @@ public class PlayerClassChanger : MonoBehaviour
 
         currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 10);
     }
+
+    public void ChangePlayer()
+    {
+            Debug.Log("Changing player");
+            currentPlayer = recentShotPlayer.gameObject;
+            if (currentPlayer.transform.GetComponentInChildren<Ability>() != null)
+            {
+                currentPlayer.GetComponent<AbilityInputSystem>().ChangeClassCancel();
+                GameObject originRef = currentPlayer.transform.GetComponentInChildren<Ability>().transform.parent.gameObject;
+                GameObject.Destroy(originRef.GetComponentInChildren<Ability>().gameObject);
+                initRef = Instantiate(Class[0], originRef.transform);
+                StartCoroutine(Connect());
+                currentPlayer.transform.GetComponent<WeaponHolder>().SetWeaponData(weaponData);
+                currentPlayer.transform.GetComponent<WeaponHolder>().MaxOutAmmo();
+
+                playermodelRef = currentPlayer.GetComponent<PlayerInput>().selfBodyModel.transform.parent.gameObject;
+                GameObject.Destroy(playermodelRef.GetComponentInChildren<Animator>());
+                GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfBodyModel.gameObject);
+                playermodelRef = Instantiate(Class[2], playermodelRef.transform);
+
+
+                Debug.Log((currentPlayer.GetComponent<PlayerInput>().selfGunModel.name));
+                viewmodelRef = currentPlayer.GetComponent<PlayerInput>().selfGunModel.transform.parent.gameObject;
+                GameObject.Destroy(currentPlayer.GetComponent<PlayerInput>().selfGunModel.gameObject);
+                viewmodelRef = Instantiate(Class[3], currentPlayer.transform.Find("Head"));
+
+                currentPlayer.GetComponent<PlayerMovement>().SetMoveModify(0);    
+
+                if (currentPlayer.GetComponent<PlayerInput>().authority)
+                {
+                    GameObject.Destroy(HUDRef.GetComponentInChildren<HudConnectScript>().gameObject);
+                    initRef = Instantiate(Class[1], HUDRef.transform);
+                    initRef.GetComponent<HudConnectScript>().ConnectToHUDSystem();
+
+                   
+                }
+            }
+        }
 }

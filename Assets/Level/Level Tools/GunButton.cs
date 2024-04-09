@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 public class GunButton : Damageable
 {
+
+    [HideInInspector]
+    public GameObject recentShotPlayer; //player that shot it last.
+
     [SerializeField]
     private GameObject readyModel;
     [SerializeField]
@@ -24,7 +28,7 @@ public class GunButton : Damageable
         else return 0;
     }
 
-    public void Press()
+    public virtual void Press()
     {
         readyModel.SetActive(false);
         usedModel.SetActive(true);
