@@ -137,8 +137,11 @@ public class WeaponHolder : MonoBehaviour
     public void GetHUDReference()
     {
         hudGunRef = GameObject.Find("PlayerHUD").GetComponent<HUDSystem>().gunHUDRef;
+        if (GetComponent<PlayerInput>().authority)
+        {
         hudGunRef.SetCurrentAmmo(currentAmmo);
         hudGunRef.SetMaxAmmo(maxAmmo);
+        }
     }
 
     private void Update()
