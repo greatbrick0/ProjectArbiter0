@@ -70,7 +70,7 @@ public class PlayerSpellHammerSwing : Ability
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
         yield return new WaitForSeconds(castSlowDuration - windupTime);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true, true);
         RemovePlayerCastMotion();
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;

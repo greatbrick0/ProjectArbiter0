@@ -72,6 +72,7 @@ public class PlayerSpellIceDash : Ability
     {
         animRef.SetTrigger("Charge");
         movementRef.SetEnabledControls(false, true);
+        weaponRef.SetDefaultBehaviourEnabled(true,true,false); //disable reloading during dash.
         sanityRef.GetComponent<PlayerInput>().SetXSensMod(0.3f);
         rb.drag = 3;
         rb.AddForce(-(spellOrigin.transform.forward * backVelocity + (-spellOrigin.transform.up * backVelocity / 5)), ForceMode.Impulse);
@@ -127,6 +128,7 @@ public class PlayerSpellIceDash : Ability
         dashSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceDashEnd, gameObject);
 
+        weaponRef.SetDefaultBehaviourEnabled(true,true,true); //give back reloading
 
         Debug.Log("Dash completed");
         movementRef.SetEnabledControls(true, true);

@@ -148,7 +148,7 @@ public class PlayerSpellNatureGrapple : Ability
         movementRef.gravityEnabled = true;
         yield return new WaitForSeconds(castSlowDuration - windupTime -0.3f);
         yield return new WaitForSeconds(0.2f);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true, true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
 
@@ -183,7 +183,7 @@ public class PlayerSpellNatureGrapple : Ability
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
 
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         ReturnControls();
         doLine = false;
     }

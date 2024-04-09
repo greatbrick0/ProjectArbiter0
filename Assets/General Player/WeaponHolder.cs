@@ -72,6 +72,8 @@ public class WeaponHolder : MonoBehaviour
 
     private bool defaultShootingEnabled = true;
 
+    private bool reloadPermitted = true;
+
 
     public delegate void HitEvent(RaycastHit h);
     public event HitEvent shotEvent;
@@ -193,12 +195,15 @@ public class WeaponHolder : MonoBehaviour
     /// <returns></returns>
     public bool StartReload()
     {
+        if (!reloadPermitted) return false;
         if (currentAmmo == maxAmmo) return false;
         else if (!defaultBehaviourEnabled) return false;
         else if (!reloading)
         {
             reloading = true;
             animRef.SetTrigger("Reload");
+            Debug.Log("Adding OtherStateLock");
+            GetComponent<AbilityInputSystem>().OtherActionStateLock = true;
             FMODUnity.RuntimeManager.PlayOneShotAttached(reloadSound, gameObject);
             return true;
         }
@@ -214,6 +219,8 @@ public class WeaponHolder : MonoBehaviour
         if (reloadProgress >= reloadTime)
         {
             reloading = false;
+            Debug.Log("Removing OtherStateLock");
+            GetComponent<AbilityInputSystem>().OtherActionStateLock = false;
             reloadProgress = 0;
             currentAmmo = maxAmmo;
             hudGunRef.SetCurrentAmmo(maxAmmo);
@@ -334,10 +341,12 @@ public class WeaponHolder : MonoBehaviour
         defaultBehaviourEnabled = newValue;
     }
 
-    public void SetDefaultBehaviourEnabled(bool newValue, bool firePermitted)
+    public void SetDefaultBehaviourEnabled(bool newValue, bool firePermitted = false, bool permitReload = false)
     {
         defaultBehaviourEnabled = newValue;
         defaultShootingEnabled = firePermitted;
+        reloadPermitted = permitReload;
+        Debug.Log("Default gun behavior modified: new reload permit is "+reloadPermitted);
     }
 
     public WeaponData GetWeaponData()

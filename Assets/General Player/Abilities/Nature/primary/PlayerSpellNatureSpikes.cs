@@ -68,7 +68,7 @@ public class PlayerSpellNatureSpikes : Ability
         AbilityAction();
         RemovePlayerCastMotion();
         yield return new WaitForSeconds(0.2f);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }
@@ -78,7 +78,7 @@ public class PlayerSpellNatureSpikes : Ability
     public override void EmergencyCancel()
     {
         GetNeededComponents();
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         
     }
 }

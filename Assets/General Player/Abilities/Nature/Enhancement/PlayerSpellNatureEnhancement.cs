@@ -89,6 +89,7 @@ public class PlayerSpellNatureEnhancement : Ability
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
+            weaponRef.MaxOutAmmo(); //reloads your gun
             weaponRef.shotEvent += Rail;
             //gunVFXRef = Instantiate(gunVFX, )
             //muzzleStore = muzzleFlash.GetColor("Color01");
@@ -100,6 +101,7 @@ public class PlayerSpellNatureEnhancement : Ability
             enhancementActive = false;
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
+            weaponRef.MaxOutAmmo(); //reloads your gun
             enhancementActive = false;
             weaponRef.shotEvent -= Rail;
             //gunVFXRef.SetActive(false);
@@ -151,7 +153,7 @@ public class PlayerSpellNatureEnhancement : Ability
         yield return new WaitForSeconds(windupTime);
         Debug.Log("Finished baseAbility internal Windup");
         AbilityAction();
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }
