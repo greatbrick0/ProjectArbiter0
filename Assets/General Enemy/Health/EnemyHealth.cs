@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using FMODUnity;
+using Coherence.Toolkit;
+using Coherence;
 
 public class EnemyHealth : Damageable
 {
@@ -23,6 +25,8 @@ public class EnemyHealth : Damageable
     [SerializeField]
     public List<DamageSource> ignoredSources = new List<DamageSource>();
 
+    private CoherenceSync sync;
+
 
     public delegate void EnemyDied();
     public event EnemyDied enemyDied;
@@ -30,11 +34,7 @@ public class EnemyHealth : Damageable
     private void Start()
     {
         health = maxHealth;
-    }
-
-    private void Update()
-    {
-        if (health <= 0) Die();
+        sync = GetComponent<CoherenceSync>();
     }
 
     public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
@@ -60,12 +60,15 @@ public class EnemyHealth : Damageable
 
         health -= damageAmount;
 
+        if (health <= 0) sync.SendCommand<EnemyHealth>(nameof(Die), MessageTarget.All);
+
         health = Mathf.Max(health, 0);
 
         return prevHealth - health;
     }
 
-    void Die()
+    [Command]
+    public void Die()
     {
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
         if(enemyDied != null) enemyDied();

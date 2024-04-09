@@ -110,6 +110,7 @@ namespace Coherence.Generated
 		private Logger logger = Log.GetLogger<CoherenceSyncDummyEnemy_03cae38ad2ee1be41926ecf791a4649a>();
 
 		// Cached targets for commands		
+		private global::EnemyHealth DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff_CommandTarget;		
 		private global::EnemySyncInit DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c_CommandTarget;
 
 		private IClient client;
@@ -126,6 +127,7 @@ namespace Coherence.Generated
 
 		public CoherenceSyncDummyEnemy_03cae38ad2ee1be41926ecf791a4649a()
 		{
+			bakedCommandBindings.Add("85487165-1b87-44c1-8050-e2e0e67bb4ff", BakeCommandBinding_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff);
 			bakedCommandBindings.Add("c90cdd83-0b27-4380-ac1d-212aec63515c", BakeCommandBinding_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c);
 		}
 
@@ -146,6 +148,12 @@ namespace Coherence.Generated
 			{
 				commandBindingBaker.Invoke(commandBinding, commandsHandler);
 			}
+		}
+		private void BakeCommandBinding_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff(CommandBinding commandBinding, CommandsHandler commandsHandler)
+		{
+			DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff_CommandTarget = (global::EnemyHealth)commandBinding.UnityComponent;
+			commandsHandler.AddBakedCommand("EnemyHealth.Die", "()",
+				SendCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff, ReceiveLocalCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff, MessageTarget.All, DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff_CommandTarget,false);
 		}
 		private void BakeCommandBinding_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c(CommandBinding commandBinding, CommandsHandler commandsHandler)
 		{
@@ -190,6 +198,23 @@ namespace Coherence.Generated
 			this.entityId = entityId;
 			this.client = client;
 		}
+		void SendCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff(MessageTarget target, object[] args)
+		{
+			var command = new DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff();
+			client.SendCommand(command, target, entityId);
+		}
+
+		void ReceiveLocalCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff(MessageTarget target, object[] args)
+		{
+			var command = new DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff();
+			ReceiveCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff(command);
+		}
+
+		void ReceiveCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff(DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff command)
+		{
+			var target = DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff_CommandTarget;
+			target.Die();
+		}
 		void SendCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c(MessageTarget target, object[] args)
 		{
 			var command = new DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c();
@@ -216,6 +241,9 @@ namespace Coherence.Generated
 		{
 			switch(command)
 			{
+				case DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff castedCommand:
+					ReceiveCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemyHealth__char_46_Die_85487165_1b87_44c1_8050_e2e0e67bb4ff(castedCommand);
+					break;
 				case DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c castedCommand:
 					ReceiveCommand_DummyEnemy_03cae38ad2ee1be41926ecf791a4649a_EnemySyncInit__char_46_SetReferences_c90cdd83_0b27_4380_ac1d_212aec63515c(castedCommand);
 					break;
