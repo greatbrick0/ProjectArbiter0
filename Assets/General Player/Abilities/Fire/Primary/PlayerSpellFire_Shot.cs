@@ -65,7 +65,7 @@ public class PlayerSpellFire_Shot : Ability
         yield return new WaitForSeconds(windupTime);
         AbilityAction();
         yield return new WaitForSeconds(0.5f);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true, true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
 

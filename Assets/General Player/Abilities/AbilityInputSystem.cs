@@ -22,6 +22,8 @@ public class AbilityInputSystem : MonoBehaviour
     [SerializeField]
     public CastingState playerState = CastingState.idle;
 
+    public bool OtherActionStateLock = false; //reloading?
+
     [SerializeField]
     public bool[] abilityLocks = {true,true,true};
 
@@ -69,10 +71,13 @@ public class AbilityInputSystem : MonoBehaviour
         {
             case CastingState.idle: //if player is allowed to cast spells right now.
                 {
-                    if (!demonic)
-                        sync.SendCommand<AbilityInputSystem>(nameof(SendCastToAbility), MessageTarget.All, tier, false);
-                    else
-                        sync.SendCommand<AbilityInputSystem>(nameof(SendCastToAbility), MessageTarget.All, tier, true);
+                    if (!OtherActionStateLock)
+                    {
+                        if (!demonic)
+                            sync.SendCommand<AbilityInputSystem>(nameof(SendCastToAbility), MessageTarget.All, tier, false);
+                        else
+                            sync.SendCommand<AbilityInputSystem>(nameof(SendCastToAbility), MessageTarget.All, tier, true);
+                    }
                     break;
                 }
             case CastingState.casting: //if you are currently casting something, you gotta wait!

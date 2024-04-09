@@ -100,7 +100,7 @@ public class PlayerSpellFireBomb : Ability
         RemovePlayerCastMotion();
         AbilityAction();
         yield return new WaitForSeconds(castSlowDuration - windupTime);
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true, true);
         
     }
 

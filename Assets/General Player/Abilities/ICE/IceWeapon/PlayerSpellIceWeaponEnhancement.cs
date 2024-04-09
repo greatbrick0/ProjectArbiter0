@@ -101,6 +101,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         {
             Debug.Log("RemoveEnhancement");
             enhancementActive = false;
+            weaponRef.MaxOutAmmo();
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
@@ -147,7 +148,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         yield return new WaitForSeconds(windupTime);
         Debug.Log("Finished baseAbility internal Windup");
         AbilityAction();
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
     }
