@@ -82,6 +82,7 @@ public class EnemyHealth : Damageable
         if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().enabled = false;
         if (GetComponent<NavMeshAgent>() != null) GetComponent<NavMeshAgent>().enabled = false;
         if (GetComponent<EnemyGun>() != null) GetComponent<EnemyGun>().enabled = false;
+        if (GetComponent<TurretLaserController>() != null) GetComponent<TurretLaserController>().enabled = false;
         foreach (Transform child in transform)
         {
             child.localScale = Vector3.zero;
@@ -92,9 +93,8 @@ public class EnemyHealth : Damageable
         Invoke(nameof(DelayedDestroy), 10.0f);
     }
 
-    private IEnumerator DelayedDestroy()
+    private void DelayedDestroy()
     {
-        yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
 }
