@@ -63,7 +63,6 @@ public class EnemyHealth : Damageable
 
         if (health <= 0)
         {
-            print("dead");
             sync.SendCommand<EnemyHealth>(nameof(Die), MessageTarget.All);
         }
 
