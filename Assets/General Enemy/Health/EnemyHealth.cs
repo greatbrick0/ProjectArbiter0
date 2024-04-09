@@ -63,6 +63,7 @@ public class EnemyHealth : Damageable
 
         if (health <= 0)
         {
+            print("dead");
             sync.SendCommand<EnemyHealth>(nameof(Die), MessageTarget.All);
         }
 
@@ -75,6 +76,8 @@ public class EnemyHealth : Damageable
     {
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
 
+        if(enemyDied != null) enemyDied();
+
         if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().enabled = false;
         if (GetComponent<NavMeshAgent>() != null) GetComponent<NavMeshAgent>().enabled = false;
         if (GetComponent<EnemyGun>() != null) GetComponent<EnemyGun>().enabled = false;
@@ -83,13 +86,12 @@ public class EnemyHealth : Damageable
             child.localScale = Vector3.zero;
         }
 
-        if (enemyDied != null) enemyDied();
-
-        Invoke(nameof(DelayedDestroy), 5.0f);
+        StartCoroutine(DelayedDestroy());
     }
 
-    private void DelayedDestroy()
+    private IEnumerator DelayedDestroy()
     {
+        yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
 }
