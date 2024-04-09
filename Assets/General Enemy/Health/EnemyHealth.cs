@@ -36,6 +36,7 @@ public class EnemyHealth : Damageable
     {
         health = maxHealth;
         sync = GetComponent<CoherenceSync>();
+        enemyDied += DelayedDestroy;
     }
 
     public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
@@ -75,8 +76,6 @@ public class EnemyHealth : Damageable
     {
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
 
-        if(enemyDied != null) enemyDied();
-
         if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().enabled = false;
         if (GetComponent<NavMeshAgent>() != null) GetComponent<NavMeshAgent>().enabled = false;
         if (GetComponent<EnemyGun>() != null) GetComponent<EnemyGun>().enabled = false;
@@ -85,12 +84,11 @@ public class EnemyHealth : Damageable
             child.localScale = Vector3.zero;
         }
 
-        StartCoroutine(DelayedDestroy());
+        if (enemyDied != null) enemyDied();
     }
 
-    private IEnumerator DelayedDestroy()
+    private void DelayedDestroy()
     {
-        yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
 }
