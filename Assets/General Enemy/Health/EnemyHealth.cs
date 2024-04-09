@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 using FMODUnity;
 using Coherence.Toolkit;
 using Coherence;
+using UnityEngine.AI;
 
 public class EnemyHealth : Damageable
 {
@@ -74,7 +75,23 @@ public class EnemyHealth : Damageable
     public void Die()
     {
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
+
         if(enemyDied != null) enemyDied();
+
+        if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().enabled = false;
+        if (GetComponent<NavMeshAgent>() != null) GetComponent<NavMeshAgent>().enabled = false;
+        if (GetComponent<EnemyGun>() != null) GetComponent<EnemyGun>().enabled = false;
+        foreach (Transform child in transform)
+        {
+            child.localScale = Vector3.zero;
+        }
+
+        StartCoroutine(DelayedDestroy());
+    }
+
+    private IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
 }
