@@ -71,7 +71,6 @@ public class EnemyHealth : Damageable
         return prevHealth - health;
     }
 
-    [Command]
     public void Die()
     {
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
