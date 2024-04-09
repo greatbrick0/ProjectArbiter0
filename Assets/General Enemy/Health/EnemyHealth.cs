@@ -36,7 +36,6 @@ public class EnemyHealth : Damageable
     {
         health = maxHealth;
         sync = GetComponent<CoherenceSync>();
-        enemyDied += DelayedDestroy;
     }
 
     public override int TakeDamage(int damageAmount, DamageSource sourceType, DamageSpot spotType, DamageElement element = DamageElement.Normal)
@@ -85,6 +84,8 @@ public class EnemyHealth : Damageable
         }
 
         if (enemyDied != null) enemyDied();
+
+        Invoke(nameof(DelayedDestroy), 5.0f);
     }
 
     private void DelayedDestroy()
