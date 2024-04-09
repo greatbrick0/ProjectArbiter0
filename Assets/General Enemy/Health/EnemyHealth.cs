@@ -71,6 +71,7 @@ public class EnemyHealth : Damageable
     public void Die()
     {
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
+        print("dead");
         if(enemyDied != null) enemyDied();
         Destroy(this.gameObject);
     }
