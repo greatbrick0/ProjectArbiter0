@@ -31,6 +31,7 @@ public class EnemyHealth : Damageable
 
     public delegate void EnemyDied();
     public event EnemyDied enemyDied;
+    private bool alreadyDied = false;
 
     private void Start()
     {
@@ -74,10 +75,10 @@ public class EnemyHealth : Damageable
 
     public void Die()
     {
+        if (alreadyDied) return;
+        alreadyDied = true;
+
         RuntimeManager.PlayOneShotAttached(deathSound, gameObject);
-
-        if(enemyDied != null) enemyDied();
-
         if (GetComponent<EnemyBrain>() != null) GetComponent<EnemyBrain>().enabled = false;
         if (GetComponent<NavMeshAgent>() != null) GetComponent<NavMeshAgent>().enabled = false;
         if (GetComponent<EnemyGun>() != null) GetComponent<EnemyGun>().enabled = false;
@@ -86,7 +87,9 @@ public class EnemyHealth : Damageable
             child.localScale = Vector3.zero;
         }
 
-        StartCoroutine(DelayedDestroy());
+        if (enemyDied != null) enemyDied();
+
+        Invoke(nameof(DelayedDestroy), 10.0f);
     }
 
     private IEnumerator DelayedDestroy()
