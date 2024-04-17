@@ -23,9 +23,11 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference fireEnhancement { get; private set; }
 
     [field: Header ("Nature")]
-    [field: SerializeField] public EventReference nature1 { get; private set; }
-    [field: SerializeField] public EventReference nature2 { get; private set; }
-    [field: SerializeField] public EventReference nature3 { get; private set; }
+    [field: SerializeField] public EventReference groundVines { get; private set; }
+    [field: SerializeField] public EventReference grappleLaunch { get; private set; }
+    [field: SerializeField] public EventReference grappleHit { get; private set; }
+    [field: SerializeField] public EventReference grapplePull { get; private set; }
+    [field: SerializeField] public EventReference natureEnhancement { get; private set; }
 
     [field: Header ("Enemy")]
     [field: SerializeField] public EventReference enemyShoot { get; private set; }

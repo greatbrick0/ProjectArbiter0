@@ -147,6 +147,8 @@ public class PlayerSpellNatureEnhancement : Ability
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.natureEnhancement, gameObject);
+
         if (AbilityHoldRef.playerState<= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         weaponRef.SetDefaultBehaviourEnabled(true, false);
