@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Coherence.Toolkit;
 using UnityEditor.Experimental;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -260,6 +261,22 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyExternalAccelModification(float modifyValue)
     {
         moveSpeedAccel += modifyValue;
+    }
+
+    public void Teleport(Vector3 newPos)
+    {
+        transform.position = newPos;
+    }
+
+    public void Teleport(Vector3 newPos, float varience)
+    {
+        Teleport(newPos + RandomPointInCircle(varience));
+    }
+
+    private Vector3 RandomPointInCircle(float circleRadius)
+    {
+        float randomAngle = Random.Range(0, Mathf.PI * 2);
+        return new Vector3(Mathf.Cos(randomAngle), 0, Mathf.Sin(randomAngle)) * Random.Range(0.0f, circleRadius);
     }
 
     private void SetWalkingVisuals(bool newValue)
