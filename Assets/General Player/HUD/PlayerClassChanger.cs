@@ -68,7 +68,7 @@ public class PlayerClassChanger : GunButton
         viewmodelRef.GetComponent<GunNudger>().SetHead(viewmodelRef.transform.parent);
         currentPlayer.transform.GetComponent<PlayerInput>().selfBodyModel = playermodelRef;
         currentPlayer.transform.GetComponent<PlayerInput>().selfGunModel = viewmodelRef;
-        currentPlayer.GetComponent<WeaponHolder>().SetMuzzleFlash(viewmodelRef.GetComponent<MuzzleFlashHolder>().MuzzleFlash);
+        currentPlayer.GetComponent<WeaponHolder>().SetMuzzleFlash(viewmodelRef.GetComponent<MuzzleFlashHolder>().MuzzleFlash,viewmodelRef.GetComponent<MuzzleFlashHolder>().EnhancedVFX);
 
         currentPlayer.transform.GetComponent<PlayerInput>().SetLayerRecursively(viewmodelRef, 11);
     }

@@ -30,7 +30,12 @@ public class WeaponHolder : MonoBehaviour
     public Animator animRef;
 
     [SerializeField]
-    VisualEffect muzzleFlash;
+    public VisualEffect muzzleFlash { get; private set; }
+    [SerializeField]
+    public VisualEffect enhancedMuzzleFlash { get; private set; }
+
+    public bool enhanced; //used for vfx;
+
     [SerializeField]
     GameObject bulletHole;
 
@@ -129,6 +134,7 @@ public class WeaponHolder : MonoBehaviour
     private void Start()
     {
         damageNumberScript = DamageNumberManager.GetManager(); //GetManager() must be called after Awake()
+        SetMuzzleFlash(GetComponentInChildren<MuzzleFlashHolder>().MuzzleFlash, GetComponentInChildren<MuzzleFlashHolder>().EnhancedVFX);
     }
 
     /* I wanted this to be in awake(), but I need to have the HUD instantiated before it, so...                         */
@@ -293,8 +299,8 @@ public class WeaponHolder : MonoBehaviour
     /// </summary>
     private void ShootDecorations()
     {
-
-        muzzleFlash.Reinit();
+        if (!enhanced) muzzleFlash.Play();
+        else if (enhancedMuzzleFlash != null) enhancedMuzzleFlash.Play();
         animRef.SetTrigger("Shoot");
         FMODUnity.RuntimeManager.PlayOneShotAttached(shootSound, gameObject);
     }
@@ -390,5 +396,8 @@ public class WeaponHolder : MonoBehaviour
     }
 
     // For use by class changer
-    public void SetMuzzleFlash(VisualEffect muzzleFlash) { this.muzzleFlash = muzzleFlash; }
+    public void SetMuzzleFlash(VisualEffect muzzleFlash, VisualEffect enhancedFlash) { 
+        this.muzzleFlash = muzzleFlash;
+        this.enhancedMuzzleFlash = enhancedFlash; 
+    }
 }

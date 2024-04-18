@@ -55,12 +55,6 @@ public class HUDSanity : MonoBehaviour
 
     public void SanityBarColourChange()
     {
-        if (true)
-            sanityBar.GetComponent<Image>().color = Color.red;
-        else if (exhausted)
-            sanityBar.GetComponent<Image>().color = Color.grey;
-        else
-            sanityBar.GetComponent<Image>().color = Color.green;
     }
 
     private void Update()
