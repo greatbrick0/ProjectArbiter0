@@ -83,7 +83,7 @@ public class PlayerTracker : MonoBehaviour
         {
             if (!ii.GetComponent<PlayerHealth>().playerDead)
             {
-                if(Vector3.Distance(ii.transform.position, newPos) < dist)
+                if(Vector3.Distance(ii.transform.position, newPos) >= dist)
                 {
                     ii.GetComponent<PlayerMovement>().Teleport(newPos, 0.3f);
                 }
