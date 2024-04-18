@@ -12600,21 +12600,18 @@ MonoBehaviour:
     - {fileID: 3294123685879425709, guid: 5714c7c58551c2843bebf23f9feebbe2, type: 3}
     - {fileID: 3294123685879425709, guid: 75a6438d17923ed4bbf57e0d1b70a8fa, type: 3}
     - {fileID: 3294123685879425709, guid: bced0933a9712ac4aac05cdf91d8f3f8, type: 3}
-    weight: 3
   - position: {fileID: 1971065800047431923}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9, type: 3}
     - {fileID: 3294123685879425709, guid: 5714c7c58551c2843bebf23f9feebbe2, type: 3}
     - {fileID: 3294123685879425709, guid: 75a6438d17923ed4bbf57e0d1b70a8fa, type: 3}
     - {fileID: 3294123685879425709, guid: bced0933a9712ac4aac05cdf91d8f3f8, type: 3}
-    weight: 3
   - position: {fileID: 8254593232795307120}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9, type: 3}
     - {fileID: 3294123685879425709, guid: 5714c7c58551c2843bebf23f9feebbe2, type: 3}
     - {fileID: 3294123685879425709, guid: 75a6438d17923ed4bbf57e0d1b70a8fa, type: 3}
     - {fileID: 3294123685879425709, guid: bced0933a9712ac4aac05cdf91d8f3f8, type: 3}
-    weight: 3
   firstRoom: 0
   continuousSpawns:
   - position: {fileID: 6848430258608205363}
@@ -12623,49 +12620,20 @@ MonoBehaviour:
     - {fileID: 3294123685879425709, guid: 5714c7c58551c2843bebf23f9feebbe2, type: 3}
     - {fileID: 3294123685879425709, guid: 75a6438d17923ed4bbf57e0d1b70a8fa, type: 3}
     - {fileID: 3294123685879425709, guid: bced0933a9712ac4aac05cdf91d8f3f8, type: 3}
-    weight: 3
   - position: {fileID: 6363783012325050499}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9, type: 3}
     - {fileID: 3294123685879425709, guid: 5714c7c58551c2843bebf23f9feebbe2, type: 3}
     - {fileID: 3294123685879425709, guid: 75a6438d17923ed4bbf57e0d1b70a8fa, type: 3}
     - {fileID: 3294123685879425709, guid: bced0933a9712ac4aac05cdf91d8f3f8, type: 3}
-    weight: 3
   - position: {fileID: 86837073548058503}
     supportedTypes:
     - {fileID: 3294123685879425709, guid: fb33efce218f91746a8e1743d2d6c0f9, type: 3}
     - {fileID: 3294123685879425709, guid: 5714c7c58551c2843bebf23f9feebbe2, type: 3}
     - {fileID: 3294123685879425709, guid: 75a6438d17923ed4bbf57e0d1b70a8fa, type: 3}
     - {fileID: 3294123685879425709, guid: bced0933a9712ac4aac05cdf91d8f3f8, type: 3}
-    weight: 3
-  maxEnemies: 0
-  maxDuration: 0
-  spawnFrequency:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  frequencyCurveDuration: 60
   beyondCurveFrequency: 3
+  maxExistingEnemies: 0
 --- !u!114 &347845916881954890
 MonoBehaviour:
   m_ObjectHideFlags: 0
