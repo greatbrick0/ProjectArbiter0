@@ -83,6 +83,8 @@ public class PlayerSpellFireEnhancement : Ability
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
+        weaponRef.enhancedMuzzleFlash.gameObject.SetActive(true);
+        weaponRef.enhanced = true;
         weaponRef.MaxOutAmmo();
 
             stimBoostTimer = castSlowDuration *2;
@@ -128,7 +130,9 @@ public class PlayerSpellFireEnhancement : Ability
     {
         weaponRef.SetWeaponData(weaponStore);
         enhancementActive = false;
-                if (motionVFXRef != null)
+        weaponRef.enhancedMuzzleFlash.gameObject.SetActive(false);
+        weaponRef.enhanced = false;
+        if (motionVFXRef != null)
                 Destroy(motionVFXRef.gameObject);
         movementRef.SetMoveModify(0);
     }
