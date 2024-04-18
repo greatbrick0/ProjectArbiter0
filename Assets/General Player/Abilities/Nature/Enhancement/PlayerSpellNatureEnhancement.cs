@@ -89,6 +89,8 @@ public class PlayerSpellNatureEnhancement : Ability
             weaponStore = weaponRef.GetWeaponData();
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             enhancementActive = true;
+            weaponRef.enhancedMuzzleFlash.gameObject.SetActive(true);
+            weaponRef.enhanced = true;
             weaponRef.MaxOutAmmo(); //reloads your gun
             weaponRef.shotEvent += Rail;
             //gunVFXRef = Instantiate(gunVFX, )
@@ -103,6 +105,8 @@ public class PlayerSpellNatureEnhancement : Ability
             weaponRef.SetWeaponData(weaponStore);
             weaponRef.MaxOutAmmo(); //reloads your gun
             enhancementActive = false;
+            weaponRef.enhancedMuzzleFlash.gameObject.SetActive(false);
+            weaponRef.enhanced = false;
             weaponRef.shotEvent -= Rail;
             //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
