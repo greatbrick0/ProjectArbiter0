@@ -77,6 +77,20 @@ public class PlayerTracker : MonoBehaviour
         }
     }
 
+    public void WrangleAllPlayers(Vector3 newPos, float dist)
+    {
+        foreach (GameObject ii in playerList)
+        {
+            if (!ii.GetComponent<PlayerHealth>().playerDead)
+            {
+                if(Vector3.Distance(ii.transform.position, newPos) >= dist)
+                {
+                    ii.GetComponent<PlayerMovement>().Teleport(newPos, 0.3f);
+                }
+            }
+        }
+    }
+
     public List<PlayerHealth> GetAlivePlayers()
     {
         List<PlayerHealth> output = new List<PlayerHealth>();

@@ -15,6 +15,7 @@ public class SpikeSeedLogic : MonoBehaviour
     void Start()
     {
         GetComponent<Rigidbody>().AddForce(transform.forward*6 + transform.up*3, ForceMode.Impulse);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.groundVines, gameObject);
     }
 
     // Update is called once per frame

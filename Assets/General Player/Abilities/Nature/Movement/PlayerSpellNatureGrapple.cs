@@ -66,6 +66,7 @@ public class PlayerSpellNatureGrapple : Ability
 
     public override void AbilityAction()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.grappleLaunch, gameObject);
         Debug.Log("AbilityAction");
         RaycastHit hit;
         if (Physics.Raycast(inputRef.head.transform.position, inputRef.head.transform.forward, out hit, maxDistance, GrappleTargetLayer))
@@ -85,6 +86,8 @@ public class PlayerSpellNatureGrapple : Ability
         ChangeControls();
         rb.velocity = Vector3.zero;
         rb.AddForce((grapplePoint - transform.position).normalized * launchForce, ForceMode.Impulse);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.grappleHit, gameObject);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.grapplePull, gameObject);
     }
 
 

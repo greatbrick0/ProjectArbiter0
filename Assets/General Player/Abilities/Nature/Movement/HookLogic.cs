@@ -40,12 +40,10 @@ private void Update()
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             LockAndPull();
             reachedTarget = true;
-
         }
     }
 private void OnTriggerEnter(Collider other)
     {
-
         var hitbox = other.GetComponent<Hitbox>();
         if (hitbox != null)
         {
@@ -57,6 +55,8 @@ private void OnTriggerEnter(Collider other)
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Fire, spot);
                 hitTargets.Add(hitbox.GetOwner());
+
+                FMODUnity.RuntimeManager.PlayOneShotAttached(FMODEvents.instance.bodyHit, gameObject);
             }
 
         }
