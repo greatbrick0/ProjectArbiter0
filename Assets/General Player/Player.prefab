@@ -893,6 +893,22 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 2872923697755265825}
       lodStepsActive: 1
+    - component: {fileID: 4581519224493009539}
+      lodStepsActive: 1
+    - component: {fileID: 333466563757323019}
+      lodStepsActive: 1
+    - component: {fileID: 5889912483910211869}
+      lodStepsActive: 1
+    - component: {fileID: 5058665191012600119}
+      lodStepsActive: 1
+    - component: {fileID: 5731225531210978025}
+      lodStepsActive: 1
+    - component: {fileID: 2266513747916227714}
+      lodStepsActive: 1
+    - component: {fileID: 526331240221285391}
+      lodStepsActive: 1
+    - component: {fileID: 2654280851211350642}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Player_9b83865ad432b2840a2ba6c6e5d0fada
@@ -1702,6 +1718,7 @@ MonoBehaviour:
   jumpKey: 32
   reloadKey: 114
   shootKey: 323
+  aimKey: 324
   abilityKeysInit:
   - <name>k__BackingField: ability1
     input: 113
@@ -1724,9 +1741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultBehaviourEnabled: 0
+  cam: {fileID: 0}
   weapon: {fileID: 11400000, guid: 826814ce33a749f44b845aa1d3c6437a, type: 2}
   animRef: {fileID: 0}
   muzzleFlash: {fileID: 1718925220464508647}
+  enhancedMuzzleFlash: {fileID: 526331240221285391}
   bulletHole: {fileID: 403837077743140515, guid: 9965d965cf52d4743b0f560f98afc45f,
     type: 3}
   gunName: 
@@ -1764,6 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityList: []
   playerState: 0
+  OtherActionStateLock: 0
   abilityLocks: 010101
   exhaustTime: 0
   castSlowAmount: -3
@@ -2060,6 +2080,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ICElmgViewmodel
       objectReference: {fileID: 0}
+    - target: {fileID: 5067384049064222196, guid: 3da731450fde6e24c824d55195b9a458,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5414581052666911728, guid: 3da731450fde6e24c824d55195b9a458,
         type: 3}
       propertyPath: m_RootOrder
@@ -2171,6 +2196,12 @@ MeshFilter:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &333466563757323019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7361035444011621517, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &348057715575812392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7373408587006877358, guid: 3da731450fde6e24c824d55195b9a458,
@@ -2204,6 +2235,12 @@ MeshRenderer:
 --- !u!33 &517828940073543176 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 7325282930470078862, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &526331240221285391 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 7334947448633324425, guid: 3da731450fde6e24c824d55195b9a458,
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
@@ -2369,6 +2406,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2266513747916227714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9075692850715355908, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &2372586998721944306 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 4785655012135990644, guid: 3da731450fde6e24c824d55195b9a458,
@@ -2390,6 +2433,12 @@ MeshFilter:
 --- !u!1 &2515459153562119884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4643110520335221066, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!73398921 &2654280851211350642 stripped
+VFXRenderer:
+  m_CorrespondingSourceObject: {fileID: 5067384049064222196, guid: 3da731450fde6e24c824d55195b9a458,
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
@@ -2675,6 +2724,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4581519224493009539 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6706919616488244485, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &4629939455009283594 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2506193585683181964, guid: 3da731450fde6e24c824d55195b9a458,
@@ -2720,6 +2775,12 @@ Transform:
 --- !u!4 &4965435739513063420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2769667391877179514, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!73398921 &5058665191012600119 stripped
+VFXRenderer:
+  m_CorrespondingSourceObject: {fileID: 2645000147214689969, guid: 3da731450fde6e24c824d55195b9a458,
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
@@ -2789,6 +2850,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5731225531210978025 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3246664252263251311, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5797394887959030402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3671396050453677316, guid: 3da731450fde6e24c824d55195b9a458,
@@ -2804,6 +2871,12 @@ Transform:
 --- !u!4 &5836018856427556023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3637400606659732273, guid: 3da731450fde6e24c824d55195b9a458,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099661680546082694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &5889912483910211869 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 3691329487443441307, guid: 3da731450fde6e24c824d55195b9a458,
     type: 3}
   m_PrefabInstance: {fileID: 7099661680546082694}
   m_PrefabAsset: {fileID: 0}

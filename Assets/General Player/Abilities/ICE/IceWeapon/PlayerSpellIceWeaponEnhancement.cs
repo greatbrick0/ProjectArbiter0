@@ -88,6 +88,8 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             weaponRef.SetWeaponData(upgradedWeaponInfo);
             weaponRef.MaxOutAmmo();
             enhancementActive = true;
+            weaponRef.enhancedMuzzleFlash.gameObject.SetActive(true);
+            weaponRef.enhanced = true;
             //gunVFXRef = Instantiate(gunVFX, )
             //muzzleStore = muzzleFlash.GetColor("Color01");
             //  muzzleFlash.SetColor("Color01", newmuzzleColor);
@@ -105,7 +107,9 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
-            
+            weaponRef.enhancedMuzzleFlash.gameObject.SetActive(false);
+            weaponRef.enhanced = false;
+
             //gunVFXRef.SetActive(false);
             //    muzzleFlash.SetColor("Color01", muzzleStore);
 
