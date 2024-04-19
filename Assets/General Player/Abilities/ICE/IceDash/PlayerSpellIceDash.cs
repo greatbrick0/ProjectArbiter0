@@ -25,7 +25,7 @@ public class PlayerSpellIceDash : Ability
     [SerializeField]
     float slideDuration;
 
-    
+    bool dashing;
 
     [SerializeField]
     GameObject collideHitboxObject;
@@ -82,7 +82,7 @@ public class PlayerSpellIceDash : Ability
     public override void AbilityAction()
     {
         cancellable = false;
-
+        dashing = true;
         dashSoundInstance = RuntimeManager.CreateInstance(FMODEvents.instance.iceDashBeginning);
         RuntimeManager.AttachInstanceToGameObject(dashSoundInstance, transform);
         dashSoundInstance.start();
@@ -125,12 +125,14 @@ public class PlayerSpellIceDash : Ability
 
     public void EndDash(bool collide)
     {
+        if (!dashing) return;
+        dashing = false;
         dashSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         RuntimeManager.PlayOneShotAttached(FMODEvents.instance.iceDashEnd, gameObject);
 
         weaponRef.SetDefaultBehaviourEnabled(true,true,true); //give back reloading
 
-        Debug.Log("Dash completed");
+        Debug.Log("DASH COMPLETED");
         movementRef.SetEnabledControls(true, true);
         shouldRepeatAction = false;
         actionIntervalTimer = repeatActionInterval;

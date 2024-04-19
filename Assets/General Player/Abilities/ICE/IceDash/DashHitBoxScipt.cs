@@ -11,6 +11,10 @@ public class DashHitBoxScipt : MonoBehaviour
 
     public List<Damageable> hitTargets;
 
+    public BoxCollider aoeComponent;
+
+    bool doAoe = false;
+
     public float lifespan;
 
     private void Start()
@@ -32,12 +36,19 @@ public class DashHitBoxScipt : MonoBehaviour
             }
             if (hitbox.GetOwner().team == "Enemy")
             {
+                
                 var spot = hitbox.GetSpotType();
                 int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Ice, spot);
                 hitTargets.Add(hitbox.GetOwner());
                 dashAbilityRef.EndDash(true);
+                if (!doAoe)
+                {
+                    doAoe = true;
+                    aoeComponent.enabled = true;
+                    abilityDamage = 15;
+                }
             }
         }
     }
@@ -50,6 +61,6 @@ public class DashHitBoxScipt : MonoBehaviour
 
     public void RequestDestroy() //Hello there!
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 0.1f);
     }
 }

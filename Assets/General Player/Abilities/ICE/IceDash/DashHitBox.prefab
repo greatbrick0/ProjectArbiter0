@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1341140962506290486}
   - component: {fileID: 1341140962506290481}
   - component: {fileID: 1341140962506290487}
+  - component: {fileID: 4164185529031756455}
   m_Layer: 7
   m_Name: DashHitBox
   m_TagString: Untagged
@@ -46,8 +47,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8867663, z: 1}
-  m_Center: {x: 0, y: -0.44338316, z: 0}
+  m_Size: {x: 1, y: 1.8867663, z: 0.91529155}
+  m_Center: {x: 0, y: -0.44338316, z: -0.042354092}
 --- !u!114 &1341140962506290487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +64,21 @@ MonoBehaviour:
   dashAbilityRef: {fileID: 0}
   abilityDamage: 70
   hitTargets: []
+  aoeComponent: {fileID: 4164185529031756455}
   lifespan: 0
+--- !u!65 &4164185529031756455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341140962506290480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.548596, y: 2.1010058, z: 2.255725}
+  m_Center: {x: 0.0023522377, y: 0.18542635, z: 0.6278615}
 --- !u!1 &3666347924507238843
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ private void Update()
             GetComponent<Rigidbody>().AddForce((target - transform.position).normalized * speed, ForceMode.Force);
         }
 
-        if ((target - transform.position).magnitude < 1)
+        if ((target - transform.position).magnitude < 2)
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             LockAndPull();
