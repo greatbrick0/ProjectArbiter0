@@ -16,7 +16,7 @@ public class FlareAttack : MonoBehaviour
     private void Start()
     {
         hitNumberRef = DamageNumberManager.GetManager();
-        Invoke(nameof(RequestDestroy), 0.8f);
+        Invoke(nameof(RequestDestroy), 1.3f);
     }
     private void OnTriggerEnter(Collider other)
     {
