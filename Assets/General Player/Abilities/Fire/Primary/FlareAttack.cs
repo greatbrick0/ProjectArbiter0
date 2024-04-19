@@ -12,11 +12,13 @@ public class FlareAttack : MonoBehaviour
 
     public List<Damageable> hitTargets;
 
+    public GameObject FireAffliction;
+
 
     private void Start()
     {
         hitNumberRef = DamageNumberManager.GetManager();
-        Invoke(nameof(RequestDestroy), 1.3f);
+        Invoke(nameof(RequestDestroy), 0.6f);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -35,6 +37,7 @@ public class FlareAttack : MonoBehaviour
                 int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Fire, hitbox.GetSpotType());
+                Instantiate(FireAffliction, hitbox.GetOwner().transform);
                 hitTargets.Add(hitbox.GetOwner());
             }
         }
