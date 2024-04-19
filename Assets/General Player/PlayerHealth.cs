@@ -123,8 +123,11 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         if(playerDied != null) playerDied();
-        GetComponent<PlayerInput>().selfBodyModel.transform.parent.localScale = Vector3.zero;
-        GetComponent<PlayerInput>().selfGunModel.SetActive(false);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            GetComponent<PlayerInput>().selfBodyModel.transform.parent.localScale = Vector3.zero;
+            GetComponent<PlayerInput>().selfGunModel.SetActive(false);
+        }
         GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().spectateTarget = head;
         GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "spectate";
         GetComponent<PlayerMovement>().partialControlValue = 0.0f;
@@ -144,8 +147,11 @@ public class PlayerHealth : MonoBehaviour
         playerDead = false;
         mainHealth = maxMainHealth / 2;
         UpdateHealthLabel();
-        GetComponent<PlayerInput>().selfBodyModel.transform.parent.localScale = Vector3.one;
-        GetComponent<PlayerInput>().selfGunModel.SetActive(true);
+        if (GetComponent<PlayerInput>().authority)
+        {
+            GetComponent<PlayerInput>().selfBodyModel.transform.parent.localScale = Vector3.one;
+            GetComponent<PlayerInput>().selfGunModel.SetActive(true);
+        }
         GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "firstperson";
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<WeaponHolder>().enabled = true;
