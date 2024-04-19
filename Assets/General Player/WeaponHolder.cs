@@ -367,8 +367,9 @@ public class WeaponHolder : MonoBehaviour
             return weapon;
         else
             return null;
-        //This is for you, Spencer. :)
+        //This is for you, S. :)
     }
+
     public void SetWeaponData(WeaponData newWeapon)
     {
         weapon = newWeapon;
@@ -379,6 +380,7 @@ public class WeaponHolder : MonoBehaviour
     public void MaxOutAmmo()
     {
         currentAmmo = maxAmmo;
+        if (GetComponent<PlayerInput>().authority)
         hudGunRef.SetCurrentAmmo(currentAmmo);
     }
 
