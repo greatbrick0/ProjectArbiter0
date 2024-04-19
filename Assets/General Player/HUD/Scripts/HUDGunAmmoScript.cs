@@ -17,6 +17,7 @@ public class HUDGunAmmoScript : MonoBehaviour
 
     public void SetCurrentAmmo(int newCurrent)
     {
+        Debug.Log("Function used SetCurrentAmmo, setting it to" + newCurrent);
         currentAmmo = newCurrent;
         currentAmmoRef.SetText(currentAmmo.ToString());
     }

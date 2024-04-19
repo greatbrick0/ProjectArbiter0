@@ -61,7 +61,6 @@ public class PlayerClassChanger : GunButton
         currentPlayer.transform.GetComponent<AbilityInputSystem>().RegisterAbilities();
         currentPlayer.transform.GetComponent<PlayerMovement>().anim = playermodelRef.GetComponent<PlayerAnimation>();
         currentPlayer.transform.GetComponent<WeaponHolder>().animRef = viewmodelRef.GetComponent<Animator>();
-        HUDRef.gunHUDRef.SetCurrentAmmo(currentPlayer.transform.GetComponent<WeaponHolder>().currentAmmo);
         viewmodelRef.GetComponent<GunNudger>().playerMovement = currentPlayer.GetComponent<PlayerMovement>();
         currentPlayer.GetComponent<PlayerMovement>().nudger = viewmodelRef.GetComponent<GunNudger>();
         viewmodelRef.GetComponent<GunNudger>().playerWeapon = currentPlayer.GetComponent<WeaponHolder>();
