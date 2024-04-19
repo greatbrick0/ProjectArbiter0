@@ -86,8 +86,6 @@ public class WeaponHolder : MonoBehaviour
 
     private void SetAllStats()
     {
-        Debug.Log("TestSetAll");
-
         gunName = weapon.gunName;
         automatic = weapon.automatic;
         randomizePattern = weapon.randomizePattern;
@@ -361,7 +359,6 @@ public class WeaponHolder : MonoBehaviour
         defaultBehaviourEnabled = newValue;
         defaultShootingEnabled = firePermitted;
         reloadPermitted = permitReload;
-        Debug.Log("Default gun behavior modified: new reload permit is "+reloadPermitted);
     }
 
     public WeaponData GetWeaponData()
@@ -374,10 +371,6 @@ public class WeaponHolder : MonoBehaviour
     }
     public void SetWeaponData(WeaponData newWeapon)
     {
-        if (newWeapon != null)
-         Debug.Log("Set Weapon");
-        else
-         Debug.Log("newWeapon not passed");
         weapon = newWeapon;
 
         SetAllStats();

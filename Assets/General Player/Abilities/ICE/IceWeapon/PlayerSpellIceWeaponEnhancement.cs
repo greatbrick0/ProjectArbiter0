@@ -40,6 +40,8 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     bool enhancementActive = false;
 
+    bool inWindup = false;
+
     EventInstance iceEnhancementSound;
 
     public override void RecieveAbilityRequest()
@@ -86,7 +88,6 @@ public class PlayerSpellIceWeaponEnhancement : Ability
             Debug.Log("ApplyEnhancement");
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(upgradedWeaponInfo);
-            weaponRef.MaxOutAmmo();
             enhancementActive = true;
             weaponRef.enhancedMuzzleFlash.gameObject.SetActive(true);
             weaponRef.enhanced = true;
@@ -103,7 +104,6 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         {
             Debug.Log("RemoveEnhancement");
             enhancementActive = false;
-            weaponRef.MaxOutAmmo();
             sanityCostTimer = sanityCostInterval;
             weaponRef.SetWeaponData(weaponStore);
             enhancementActive = false;
@@ -115,7 +115,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
             iceEnhancementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
-        RemovePlayerCastMotion();
+        
     }
 
     void Update()
@@ -146,6 +146,7 @@ public class PlayerSpellIceWeaponEnhancement : Ability
 
     public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
+        inWindup = true;
         if (AbilityHoldRef.playerState<= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
         weaponRef.SetDefaultBehaviourEnabled(true, false);
@@ -155,13 +156,22 @@ public class PlayerSpellIceWeaponEnhancement : Ability
         weaponRef.SetDefaultBehaviourEnabled(true, true,true);
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.idle;
+        inWindup = false;
+        RemovePlayerCastMotion();
     }
 
     public override void newDemonic()
     {
         Debug.Log("WeaponEnhancement disabled due to becoming demonic");
+        if (inWindup)
+        {
+            RemovePlayerCastMotion();
+            StopCoroutine(nameof(Windup));
+            weaponRef.SetDefaultBehaviourEnabled(true, true, true);
+            Debug.Log("inWindup");
+        }
         if (enhancementActive)
-            StartAbility();
+            AbilityAction();
     }
 
     public override void EmergencyCancel()

@@ -1744,8 +1744,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   weapon: {fileID: 11400000, guid: 826814ce33a749f44b845aa1d3c6437a, type: 2}
   animRef: {fileID: 0}
-  muzzleFlash: {fileID: 1718925220464508647}
-  enhancedMuzzleFlash: {fileID: 526331240221285391}
+  enhanced: 0
   bulletHole: {fileID: 403837077743140515, guid: 9965d965cf52d4743b0f560f98afc45f,
     type: 3}
   gunName: 
@@ -1786,7 +1785,7 @@ MonoBehaviour:
   OtherActionStateLock: 0
   abilityLocks: 010101
   exhaustTime: 0
-  castSlowAmount: -3
+  castSlowAmount: -5
   sync: {fileID: -2931630549695675886}
   spellOrigin: {fileID: 0}
 --- !u!114 &4206427362788723892

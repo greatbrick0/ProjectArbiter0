@@ -59,7 +59,7 @@ public class PlayerSpellNatureSpikes : Ability
 
     
 
-    public virtual IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
+    public override IEnumerator Windup() //duration of the introduction decorations, followed by AbilityAction
     {
         if (AbilityHoldRef.playerState <= AbilityInputSystem.CastingState.casting)
             AbilityHoldRef.playerState = AbilityInputSystem.CastingState.casting;
