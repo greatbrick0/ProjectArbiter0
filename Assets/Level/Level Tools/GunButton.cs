@@ -30,9 +30,14 @@ public class GunButton : Damageable
 
     public virtual void Press()
     {
+        Dim();
+        pressedEvent.Invoke();
+    }
+
+    public void Dim()
+    {
         readyModel.SetActive(false);
         usedModel.SetActive(true);
-        pressedEvent.Invoke();
     }
 
     public void Refresh()
