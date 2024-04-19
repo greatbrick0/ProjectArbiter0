@@ -123,7 +123,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerDead = true;
         if(playerDied != null) playerDied();
-        GetComponent<PlayerInput>().selfBodyModel.transform.localScale = Vector3.zero;
+        GetComponent<PlayerInput>().selfBodyModel.transform.parent.localScale = Vector3.zero;
         GetComponent<PlayerInput>().selfGunModel.SetActive(false);
         GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().spectateTarget = head;
         GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "spectate";
@@ -144,7 +144,7 @@ public class PlayerHealth : MonoBehaviour
         playerDead = false;
         mainHealth = maxMainHealth / 2;
         UpdateHealthLabel();
-        GetComponent<PlayerInput>().selfBodyModel.transform.localScale = Vector3.one;
+        GetComponent<PlayerInput>().selfBodyModel.transform.parent.localScale = Vector3.one;
         GetComponent<PlayerInput>().selfGunModel.SetActive(true);
         GetComponent<PlayerInput>().cameraRef.GetComponent<MainCameraScript>().mode = "firstperson";
         GetComponent<PlayerMovement>().enabled = true;
