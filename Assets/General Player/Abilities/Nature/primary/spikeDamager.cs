@@ -41,6 +41,7 @@ public class spikeDamager : MonoBehaviour
                 int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Eldritch);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Eldritch, spot);
+                hitbox.GetOwner().GetComponent<EnemyBrain>().rootedTimer += 1.0f;
                 hitTargets.Add(hitbox.GetOwner());
             }
             

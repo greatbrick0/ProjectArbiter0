@@ -48,18 +48,39 @@ public class RifleBrain : EnemyBrain
                 moveScript.IdleBehaviour();
                 break;
             case States.Find:
-                if (stunnedTimer <= 0.0f)
+                if (rootedTimer <= 0.0f)
                 {
                     moveScript.WalkTowardsPlayer(targetPlayer);
                 }
-                else stunnedTimer -= Time.deltaTime;
+                else
+                {
+                    rootedTimer -= Time.deltaTime;
+                    moveScript.StandStill();
+                }
                 break;
             case States.Shoot:
                 if(DistanceToPlayer() <= closeRange) moveScript.StandStill();
-                else moveScript.WalkTowardsPlayer(targetPlayer);
-                moveScript.LookAtPlayer(targetPlayer);
+                else if (rootedTimer <= 0.0f)
+                {
+                    moveScript.WalkTowardsPlayer(targetPlayer);
+                }
+                else
+                {
+                    rootedTimer -= Time.deltaTime;
+                    moveScript.StandStill();
+                }
                 if (gunScript.CheckLosToPlayer(targetPlayer, shootRange))
-                    gunScript.Attack(targetPlayer.GetComponent<PlayerHealth>());
+                {
+                    if (stunnedTimer <= 0.0f)
+                    {
+                        gunScript.Attack(targetPlayer.GetComponent<PlayerHealth>());
+                    }
+                    else
+                    {
+                        stunnedTimer -= Time.deltaTime;
+                    }
+
+                }
                 break;
             case States.Flee:
                 break;

@@ -11,6 +11,7 @@ public abstract class EnemyBrain : MonoBehaviour
     private float cycleTime = 1.0f;
     private float timeSinceLastCycle = 0.0f;
 
+    public float rootedTimer = 0.0f;
     public float stunnedTimer = 0.0f;
 
     protected virtual void Start()

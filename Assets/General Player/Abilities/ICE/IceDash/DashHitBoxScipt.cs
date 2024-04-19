@@ -41,6 +41,7 @@ public class DashHitBoxScipt : MonoBehaviour
                 int hit = hitbox.GetOwner().TakeDamage(abilityDamage, DamageDetails.DamageSource.Ability, hitbox.GetSpotType(), DamageDetails.DamageElement.Ice);
                 Vector3 location = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
                 hitNumberRef.CreateDamageNumber(hit, location, DamageDetails.DamageElement.Ice, spot);
+                hitbox.GetOwner().GetComponent<EnemyBrain>().stunnedTimer += 3.0f;
                 hitTargets.Add(hitbox.GetOwner());
                 dashAbilityRef.EndDash(true);
                 if (!doAoe)
