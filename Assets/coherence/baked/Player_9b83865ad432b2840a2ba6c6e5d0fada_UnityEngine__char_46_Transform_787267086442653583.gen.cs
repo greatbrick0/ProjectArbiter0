@@ -18,17 +18,18 @@ namespace Coherence.Generated
 	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583 : ICoherenceComponentData
 	{
 		public Vector3 localScale;
+		public Quaternion rotation;
 
 		public override string ToString()
 		{
-			return $"Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583(localScale: {localScale})";
+			return $"Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583(localScale: {localScale}, rotation: {rotation})";
 		}
 
 		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_787267086442653583;
 
 		public const int order = 0;
 
-		public uint FieldsMask => 0b00000000000000000000000000000001;
+		public uint FieldsMask => 0b00000000000000000000000000000011;
 
 		public int GetComponentOrder() => order;
 		public bool IsSendOrdered() { return false; }
@@ -52,6 +53,12 @@ namespace Coherence.Generated
 				localScale = other.localScale;
 			}
 			mask >>= 1;
+			if ((mask & 0x01) != 0)
+			{
+				Frame = other.Frame;
+				rotation = other.rotation;
+			}
+			mask >>= 1;
 			return this;
 		}
 
@@ -70,6 +77,13 @@ namespace Coherence.Generated
 				bitStream.WriteVector3(fieldValue, FloatMeta.NoCompression());
 			}
 			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				var fieldValue = (data.rotation.ToCoreQuaternion());
+
+				bitStream.WriteQuaternion(fieldValue, 32);
+			}
+			mask >>= 1;
 
 			return mask;
 		}
@@ -83,6 +97,11 @@ namespace Coherence.Generated
 			{
 				val.localScale = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
 				mask |= 0b00000000000000000000000000000001;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.rotation = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
+				mask |= 0b00000000000000000000000000000010;
 			}
 			return (val, mask);
 		}

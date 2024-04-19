@@ -15,17 +15,17 @@ namespace Coherence.Generated
 	using Coherence.Toolkit;
 	using UnityEngine;
 
-	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147 : ICoherenceComponentData
+	public struct Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162 : ICoherenceComponentData
 	{
-		public Quaternion rotation;
 		public Vector3 position;
+		public Quaternion rotation;
 
 		public override string ToString()
 		{
-			return $"Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147(rotation: {rotation}, position: {position})";
+			return $"Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162(position: {position}, rotation: {rotation})";
 		}
 
-		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147;
+		public uint GetComponentType() => Definition.InternalPlayer_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162;
 
 		public const int order = 0;
 
@@ -46,17 +46,17 @@ namespace Coherence.Generated
 
 		public ICoherenceComponentData MergeWith(ICoherenceComponentData data, uint mask)
 		{
-			var other = (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147)data;
+			var other = (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162)data;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				rotation = other.rotation;
+				position = other.position;
 			}
 			mask >>= 1;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				position = other.position;
+				rotation = other.rotation;
 			}
 			mask >>= 1;
 			return this;
@@ -68,15 +68,8 @@ namespace Coherence.Generated
 
 		}
 
-		public static uint Serialize(Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147 data, uint mask, IOutProtocolBitStream bitStream)
+		public static uint Serialize(Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162 data, uint mask, IOutProtocolBitStream bitStream)
 		{
-			if (bitStream.WriteMask((mask & 0x01) != 0))
-			{
-				var fieldValue = (data.rotation.ToCoreQuaternion());
-
-				bitStream.WriteQuaternion(fieldValue, 32);
-			}
-			mask >>= 1;
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
 				var fieldValue = (data.position.ToCoreVector3());
@@ -84,23 +77,30 @@ namespace Coherence.Generated
 				bitStream.WriteVector3(fieldValue, FloatMeta.NoCompression());
 			}
 			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				var fieldValue = (data.rotation.ToCoreQuaternion());
+
+				bitStream.WriteQuaternion(fieldValue, 32);
+			}
+			mask >>= 1;
 
 			return mask;
 		}
 
-		public static (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147, uint) Deserialize(InProtocolBitStream bitStream)
+		public static (Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162, uint) Deserialize(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
-			var val = new Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147();
+			var val = new Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162();
 	
 			if (bitStream.ReadMask())
 			{
-				val.rotation = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
+				val.position = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
 				mask |= 0b00000000000000000000000000000001;
 			}
 			if (bitStream.ReadMask())
 			{
-				val.position = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
+				val.rotation = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
 				mask |= 0b00000000000000000000000000000010;
 			}
 			return (val, mask);
@@ -115,7 +115,7 @@ namespace Coherence.Generated
 		/// </summary>
 		public void ResetByteArrays(ICoherenceComponentData lastSent, uint mask)
 		{
-			var last = lastSent as Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_3402058366864678147?;
+			var last = lastSent as Player_9b83865ad432b2840a2ba6c6e5d0fada_UnityEngine__char_46_Transform_1111314683962167162?;
 	
 		}
 	}

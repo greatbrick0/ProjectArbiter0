@@ -82,6 +82,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void DetermineLookDirection()
     {
+        if (!GetComponent<PlayerInput>().authority) return;
+
         HandleRecoil();
         controlledLookDirection += inputtedLookDirection * 12;
         controlledLookDirection.y = Mathf.Clamp(controlledLookDirection.y, -85.0f, 85.0f);
