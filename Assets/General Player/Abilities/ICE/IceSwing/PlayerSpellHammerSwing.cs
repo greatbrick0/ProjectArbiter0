@@ -85,7 +85,7 @@ public class PlayerSpellHammerSwing : Ability
     public override void EmergencyCancel()
     {
         GetNeededComponents();
-        weaponRef.SetDefaultBehaviourEnabled(true, true);
+        weaponRef.SetDefaultBehaviourEnabled(true, true, true);
         healthRef.ObtainShield(-healthRef.GetShield());
     }
 }
